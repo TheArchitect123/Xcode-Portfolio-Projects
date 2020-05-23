@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/Material/Material.framework
+${BUILT_PRODUCTS_DIR}/Motion/Motion.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework

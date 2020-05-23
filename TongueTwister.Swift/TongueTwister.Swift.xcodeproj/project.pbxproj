@@ -3,12 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04852A9424791245006E1E46 /* JGProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9324791245006E1E46 /* JGProgressHUD.framework */; };
+		04852A9624791245006E1E46 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9524791245006E1E46 /* Material.framework */; };
+		04852A9824791245006E1E46 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9724791245006E1E46 /* Motion.framework */; };
+		04852A9A24791245006E1E46 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9924791245006E1E46 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */; };
+		04852A9C24791245006E1E46 /* Pods_TongueTwister_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9B24791245006E1E46 /* Pods_TongueTwister_Swift.framework */; };
+		04852A9E24791245006E1E46 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9D24791245006E1E46 /* Pods_TongueTwister_SwiftTests.framework */; };
+		04852AA024791245006E1E46 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9F24791245006E1E46 /* SVProgressHUD.framework */; };
 		04B664F42478EB530083EC7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B664F32478EB530083EC7D /* AppDelegate.swift */; };
-		04B664F62478EB530083EC7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B664F52478EB530083EC7D /* SceneDelegate.swift */; };
 		04B664F82478EB530083EC7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B664F72478EB530083EC7D /* ViewController.swift */; };
 		04B664FB2478EB530083EC7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B664F92478EB530083EC7D /* Main.storyboard */; };
 		04B664FE2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B664FC2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld */; };
@@ -16,6 +22,19 @@
 		04B665032478EB540083EC7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B665012478EB540083EC7D /* LaunchScreen.storyboard */; };
 		04B6650E2478EB540083EC7D /* TongueTwister_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6650D2478EB540083EC7D /* TongueTwister_SwiftTests.swift */; };
 		04B665192478EB540083EC7D /* TongueTwister_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B665182478EB540083EC7D /* TongueTwister_SwiftUITests.swift */; };
+		04B665282478EFF00083EC7D /* RootNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B665272478EFF00083EC7D /* RootNavController.swift */; };
+		04B6652C2478F00D0083EC7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B6652B2478F00D0083EC7D /* UIKit.framework */; };
+		04B6652E2478F0110083EC7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B6652D2478F0110083EC7D /* Foundation.framework */; };
+		04B665302478F0230083EC7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B6652F2478F0230083EC7D /* CoreData.framework */; };
+		04B665322478F0270083EC7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B665312478F0270083EC7D /* CoreGraphics.framework */; };
+		04B665342478F02C0083EC7D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B665332478F02C0083EC7D /* AudioToolbox.framework */; };
+		04B665362478F81E0083EC7D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B665352478F81E0083EC7D /* StoreKit.framework */; };
+		04B665382478F8250083EC7D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B665372478F8250083EC7D /* UserNotifications.framework */; };
+		04B6653D2478F9390083EC7D /* JsonSwiftson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6653C2478F9390083EC7D /* JsonSwiftson.swift */; };
+		04B6653F2478F9CF0083EC7D /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6653E2478F9CF0083EC7D /* DashboardController.swift */; };
+		10AED4C72A126FDB6C8971CD /* Pods_TongueTwister_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */; };
+		28F4166EA899B34495A0A942 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */; };
+		C69A43465A8C6FBF517F3A86 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +55,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04852A85247911F3006E1E46 /* libJGProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libJGProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A87247911F3006E1E46 /* libMaterial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMaterial.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A89247911F3006E1E46 /* libMotion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMotion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A91247911F3006E1E46 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9324791245006E1E46 /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9524791245006E1E46 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9724791245006E1E46 /* Motion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Motion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9924791245006E1E46 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9B24791245006E1E46 /* Pods_TongueTwister_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TongueTwister_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9D24791245006E1E46 /* Pods_TongueTwister_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TongueTwister_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04852A9F24791245006E1E46 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B664F02478EB530083EC7D /* TongueTwister.Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TongueTwister.Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B664F32478EB530083EC7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04B664F52478EB530083EC7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04B664F72478EB530083EC7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04B664FA2478EB530083EC7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B664FD2478EB530083EC7D /* TongueTwister_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TongueTwister_Swift.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +80,27 @@
 		04B665142478EB540083EC7D /* TongueTwister.SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TongueTwister.SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B665182478EB540083EC7D /* TongueTwister_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TongueTwister_SwiftUITests.swift; sourceTree = "<group>"; };
 		04B6651A2478EB540083EC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B665262478EB960083EC7D /* TongueTwister.Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TongueTwister.Swift.entitlements; sourceTree = "<group>"; };
+		04B665272478EFF00083EC7D /* RootNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavController.swift; sourceTree = "<group>"; };
+		04B6652B2478F00D0083EC7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04B6652D2478F0110083EC7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		04B6652F2478F0230083EC7D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		04B665312478F0270083EC7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		04B665332478F02C0083EC7D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		04B665352478F81E0083EC7D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		04B665372478F8250083EC7D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
+		04B665392478F8290083EC7D /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		04B6653C2478F9390083EC7D /* JsonSwiftson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSwiftson.swift; sourceTree = "<group>"; };
+		04B6653E2478F9CF0083EC7D /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.SwiftTests.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.SwiftTests/Pods-TongueTwister.SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.SwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.SwiftTests/Pods-TongueTwister.SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift.release.xcconfig"; sourceTree = "<group>"; };
+		7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +108,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04852A9424791245006E1E46 /* JGProgressHUD.framework in Frameworks */,
+				04852A9624791245006E1E46 /* Material.framework in Frameworks */,
+				04852A9824791245006E1E46 /* Motion.framework in Frameworks */,
+				04852A9A24791245006E1E46 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */,
+				04852A9C24791245006E1E46 /* Pods_TongueTwister_Swift.framework in Frameworks */,
+				04852A9E24791245006E1E46 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */,
+				04852AA024791245006E1E46 /* SVProgressHUD.framework in Frameworks */,
+				04B665382478F8250083EC7D /* UserNotifications.framework in Frameworks */,
+				04B665362478F81E0083EC7D /* StoreKit.framework in Frameworks */,
+				04B665342478F02C0083EC7D /* AudioToolbox.framework in Frameworks */,
+				04B665322478F0270083EC7D /* CoreGraphics.framework in Frameworks */,
+				04B665302478F0230083EC7D /* CoreData.framework in Frameworks */,
+				04B6652E2478F0110083EC7D /* Foundation.framework in Frameworks */,
+				04B6652C2478F00D0083EC7D /* UIKit.framework in Frameworks */,
+				10AED4C72A126FDB6C8971CD /* Pods_TongueTwister_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F4166EA899B34495A0A942 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69A43465A8C6FBF517F3A86 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +148,13 @@
 		04B664E72478EB530083EC7D = {
 			isa = PBXGroup;
 			children = (
+				04B6653B2478F9250083EC7D /* TongueTwister.Extensions */,
 				04B664F22478EB530083EC7D /* TongueTwister.Swift */,
 				04B6650C2478EB540083EC7D /* TongueTwister.SwiftTests */,
 				04B665172478EB540083EC7D /* TongueTwister.SwiftUITests */,
 				04B664F12478EB530083EC7D /* Products */,
+				04B6652A2478F00D0083EC7D /* Frameworks */,
+				8E7EEE5A9BEFA310D8158F6D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +171,11 @@
 		04B664F22478EB530083EC7D /* TongueTwister.Swift */ = {
 			isa = PBXGroup;
 			children = (
+				04B665412478FA020083EC7D /* ViewComponents */,
+				04B665402478F9FC0083EC7D /* ViewModels */,
+				04B665292478EFF50083EC7D /* Controllers */,
+				04B665262478EB960083EC7D /* TongueTwister.Swift.entitlements */,
 				04B664F32478EB530083EC7D /* AppDelegate.swift */,
-				04B664F52478EB530083EC7D /* SceneDelegate.swift */,
 				04B664F72478EB530083EC7D /* ViewController.swift */,
 				04B664F92478EB530083EC7D /* Main.storyboard */,
 				04B664FF2478EB540083EC7D /* Assets.xcassets */,
@@ -131,6 +204,79 @@
 			path = TongueTwister.SwiftUITests;
 			sourceTree = "<group>";
 		};
+		04B665292478EFF50083EC7D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04B665272478EFF00083EC7D /* RootNavController.swift */,
+				04B6653E2478F9CF0083EC7D /* DashboardController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04B6652A2478F00D0083EC7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04852A9324791245006E1E46 /* JGProgressHUD.framework */,
+				04852A9524791245006E1E46 /* Material.framework */,
+				04852A9724791245006E1E46 /* Motion.framework */,
+				04852A9924791245006E1E46 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */,
+				04852A9B24791245006E1E46 /* Pods_TongueTwister_Swift.framework */,
+				04852A9D24791245006E1E46 /* Pods_TongueTwister_SwiftTests.framework */,
+				04852A9F24791245006E1E46 /* SVProgressHUD.framework */,
+				04852A85247911F3006E1E46 /* libJGProgressHUD.a */,
+				04852A87247911F3006E1E46 /* libMaterial.a */,
+				04852A89247911F3006E1E46 /* libMotion.a */,
+				04852A91247911F3006E1E46 /* libSVProgressHUD.a */,
+				04B665392478F8290083EC7D /* UserNotificationsUI.framework */,
+				04B665372478F8250083EC7D /* UserNotifications.framework */,
+				04B665352478F81E0083EC7D /* StoreKit.framework */,
+				04B665332478F02C0083EC7D /* AudioToolbox.framework */,
+				04B665312478F0270083EC7D /* CoreGraphics.framework */,
+				04B6652F2478F0230083EC7D /* CoreData.framework */,
+				04B6652D2478F0110083EC7D /* Foundation.framework */,
+				04B6652B2478F00D0083EC7D /* UIKit.framework */,
+				E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */,
+				71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */,
+				5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04B6653B2478F9250083EC7D /* TongueTwister.Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04B6653C2478F9390083EC7D /* JsonSwiftson.swift */,
+			);
+			path = TongueTwister.Extensions;
+			sourceTree = "<group>";
+		};
+		04B665402478F9FC0083EC7D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		04B665412478FA020083EC7D /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		8E7EEE5A9BEFA310D8158F6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */,
+				6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */,
+				1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */,
+				ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */,
+				59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */,
+				21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +284,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B6651D2478EB540083EC7D /* Build configuration list for PBXNativeTarget "TongueTwister.Swift" */;
 			buildPhases = (
+				7BB2349E9254EEECBBA57F59 /* [CP] Check Pods Manifest.lock */,
 				04B664EC2478EB530083EC7D /* Sources */,
 				04B664ED2478EB530083EC7D /* Frameworks */,
 				04B664EE2478EB530083EC7D /* Resources */,
+				0A0F45CF1BFBFCF8F806D40C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B665202478EB540083EC7D /* Build configuration list for PBXNativeTarget "TongueTwister.SwiftTests" */;
 			buildPhases = (
+				055EBA404DF43C459E47CC03 /* [CP] Check Pods Manifest.lock */,
 				04B665052478EB540083EC7D /* Sources */,
 				04B665062478EB540083EC7D /* Frameworks */,
 				04B665072478EB540083EC7D /* Resources */,
@@ -173,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B665232478EB540083EC7D /* Build configuration list for PBXNativeTarget "TongueTwister.SwiftUITests" */;
 			buildPhases = (
+				3907D4F736BFDAF591066370 /* [CP] Check Pods Manifest.lock */,
 				04B665102478EB540083EC7D /* Sources */,
 				04B665112478EB540083EC7D /* Frameworks */,
 				04B665122478EB540083EC7D /* Resources */,
+				4DCF6EFC6E84353A1B4EB2E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,15 +408,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		055EBA404DF43C459E47CC03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TongueTwister.SwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0A0F45CF1BFBFCF8F806D40C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3907D4F736BFDAF591066370 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DCF6EFC6E84353A1B4EB2E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BB2349E9254EEECBBA57F59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TongueTwister.Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04B664EC2478EB530083EC7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				04B664FE2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld in Sources */,
+				04B665282478EFF00083EC7D /* RootNavController.swift in Sources */,
 				04B664F82478EB530083EC7D /* ViewController.swift in Sources */,
 				04B664F42478EB530083EC7D /* AppDelegate.swift in Sources */,
-				04B664F62478EB530083EC7D /* SceneDelegate.swift in Sources */,
+				04B6653F2478F9CF0083EC7D /* DashboardController.swift in Sources */,
+				04B6653D2478F9390083EC7D /* JsonSwiftson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,17 +692,22 @@
 		};
 		04B6651E2478EB540083EC7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dangerchcovich.TongueTwister-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.TongueTwister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,17 +715,22 @@
 		};
 		04B6651F2478EB540083EC7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dangerchcovich.TongueTwister-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.TongueTwister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,6 +738,7 @@
 		};
 		04B665212478EB540083EC7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +761,7 @@
 		};
 		04B665222478EB540083EC7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +784,7 @@
 		};
 		04B665242478EB540083EC7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +805,7 @@
 		};
 		04B665252478EB540083EC7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
