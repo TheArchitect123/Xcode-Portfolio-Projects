@@ -6,7 +6,9 @@ target 'TongueTwister.Swift' do
   use_frameworks!
    pod 'JGProgressHUD', '~> 2.1'
   pod 'Material', '~> 3.1'
+ pod 'Swinject', '~> 2.7'
   pod 'SVProgressHUD', '~> 2.2'
+  pod 'UIColor+Hex', '~> 1.0'
   # Pods for TongueTwister.Swift
 
   target 'TongueTwister.SwiftTests' do

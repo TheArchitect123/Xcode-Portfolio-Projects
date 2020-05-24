@@ -8,13 +8,21 @@
 
 import Foundation
 import UIKit;
+import Material;
 
-internal class RootRootNavControllerNavController : UINavigationController {
+internal class RootRootNavController : NavigationController {
  
-    public override func viewDidLoad() {
-        super.viewDidLoad();
+     open override func prepare() {
+       super.prepare()
         
-        //Any Customised business logic goes here
-    }
+        var controller = UIStoryboard.instantiateViewController(UIStoryboard.init(name: "Main", bundle: nil)) as! DashboardController;
+        self.isMotionEnabled = true;
+        self.pushViewController(controller, animated: true)
+//        self.motionNavigationTransitionType = MotionTransitionAnimationType.init();
+       
+        //self.backgroundColor = UIColor.white;
+//       v.depthPreset = .none
+//       v.dividerColor = Color.grey.lighten2
+     }
 }
 
