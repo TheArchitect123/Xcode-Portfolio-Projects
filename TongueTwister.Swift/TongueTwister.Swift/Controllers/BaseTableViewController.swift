@@ -15,7 +15,7 @@ internal class BaseTableViewController : UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad();
         
-        isMotionEnabled = true;
+        self.isMotionEnabled = true;
         self.view.backgroundColor = UIColor.white;
         self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
         

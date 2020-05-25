@@ -9,12 +9,11 @@
 import Foundation
 import UIKit;
 
-internal class BaseViewController : UIViewController{
+internal class BaseViewController : UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad();
         
-        isMotionEnabled = true;
-        
+        self.isMotionEnabled = true;
         if(!(self is DashboardController)){
             self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
         }

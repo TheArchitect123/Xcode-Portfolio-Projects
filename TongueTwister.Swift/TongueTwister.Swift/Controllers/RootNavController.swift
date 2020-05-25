@@ -17,7 +17,7 @@ internal class RootNavController : NavigationController {
         super.viewDidLoad();
         
         self.isMotionEnabled = true;
-        self.motionTransitionType = .zoom;
+        self.motionNavigationTransitionType = .autoReverse(presenting: .zoom)
     }
 }
 
