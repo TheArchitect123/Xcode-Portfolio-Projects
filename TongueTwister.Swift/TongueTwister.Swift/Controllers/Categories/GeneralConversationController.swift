@@ -8,13 +8,21 @@
 
 import Foundation
 import UIKit;
+import Motion;
 
-internal class GeneralConversationController : UIViewController {
-    
+internal class GeneralConversationController : BaseTableViewController {
     
     public override func viewDidLoad() {
         //Build up the UI here
+        super.viewDidLoad();
+    
+    }
+    
+    internal override func RefreshItems() {
+        super.RefreshItems();
         
-        self.view.backgroundColor = UIColor.white;
+        //Any Custom business logic relating to this specific category -- such as retrieving items from the server, will be written here.
+        
+        //Use dependency injection, to allow the view model on this controller to manage the business logic here
     }
 }

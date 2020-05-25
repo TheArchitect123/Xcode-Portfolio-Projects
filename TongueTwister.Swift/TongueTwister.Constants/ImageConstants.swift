@@ -9,9 +9,10 @@
 import Foundation
 
 internal struct ImageConstants {
-   static let _refreshIcon : String = "RefreshIcon"
-   static let _rightArrowIcon : String = "RightArrowOperator"
-    
+    static let _refreshIcon : String = "RefreshIcon"
+    static let _rightArrowIcon : String = "RightArrowOperator"
+    static let _backArrowIcon : String = "BackIcon";
+    static let _menuIcon : String = "MenuIcon";
     
     //Card Backgrounds
     static let _generalConversationBackground = "mt_bg_6.jpg";

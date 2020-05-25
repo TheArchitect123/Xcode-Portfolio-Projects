@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit;
+import Motion;
+
+internal class GardeningController : BaseTableViewController {
+    
+    
+    public override func viewDidLoad() {
+        //Build up the UI here
+        super.viewDidLoad();
+        
+        self.view.backgroundColor = UIColor.white;
+    }
+}

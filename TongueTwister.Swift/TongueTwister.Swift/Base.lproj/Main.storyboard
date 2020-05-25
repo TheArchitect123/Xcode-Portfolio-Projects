@@ -7,12 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root Root Nav Controller-->
+        <!--Root Nav Controller-->
         <scene sceneID="czy-8y-FPt">
             <objects>
-                <navigationController id="CX1-tf-Lfv" customClass="RootRootNavController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="CX1-tf-Lfv" customClass="RootNavController" customModule="FrenchConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kiy-TW-7dV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -26,7 +25,7 @@
         <!--Dashboard Controller-->
         <scene sceneID="oCB-bv-MLn">
             <objects>
-                <viewController id="iUi-cS-eDa" customClass="DashboardController" customModule="TongueTwister_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iUi-cS-eDa" customClass="DashboardController" customModule="FrenchConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FZE-v3-dvV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

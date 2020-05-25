@@ -108,6 +108,16 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string></string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>NavigationDropdownMenu</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>MIT License
 
 Copyright (c) 2011-2018 Sam Vermette, Tobias Tiemerding and contributors.

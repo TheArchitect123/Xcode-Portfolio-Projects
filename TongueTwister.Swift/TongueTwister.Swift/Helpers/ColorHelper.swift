@@ -18,7 +18,7 @@ import UIColor_Hex;
     
     #warning("Color Functions for View Components")
     public static func Card_DarkThemeBackground() -> UIColor { return FromHex(0x041a2f);}
-    public static func NavBar_DarkThemeBackground() -> UIColor { return UIColor.init(red: 220, green: 232, blue: 31, alpha: 100);}
+    public static func NavBar_DarkThemeBackground() -> UIColor { return FromHex(0x009696);}
     public static func FloatButton_DarkThemeBackground() -> UIColor { return UIColor.red;}
     
     

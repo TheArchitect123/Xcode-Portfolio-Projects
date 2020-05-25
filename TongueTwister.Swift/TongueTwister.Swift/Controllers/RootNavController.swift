@@ -9,20 +9,16 @@
 import Foundation
 import UIKit;
 import Material;
+import Motion;
 
-internal class RootRootNavController : NavigationController {
- 
-     open override func prepare() {
-       super.prepare()
+internal class RootNavController : NavigationController {
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad();
         
-        var controller = UIStoryboard.instantiateViewController(UIStoryboard.init(name: "Main", bundle: nil)) as! DashboardController;
         self.isMotionEnabled = true;
-        self.pushViewController(controller, animated: true)
-//        self.motionNavigationTransitionType = MotionTransitionAnimationType.init();
-       
-        //self.backgroundColor = UIColor.white;
-//       v.depthPreset = .none
-//       v.dividerColor = Color.grey.lighten2
-     }
+        self.motionTransitionType = .zoom;
+    }
 }
+
 

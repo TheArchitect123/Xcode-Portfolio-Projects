@@ -9,7 +9,7 @@
 import Foundation
 import Material;
 
-internal final class CardCategories : UIView {
+internal final class CardCategories : Button {
     
     fileprivate var Category : PhraseCategories
     public var PhraseCount : String = "(30)";
@@ -22,11 +22,13 @@ internal final class CardCategories : UIView {
         ConfigureCardView(frame);
         SetTitleCard();
         SetCountOfCard();
-        ConfigureRippleOverlay();
+        
+        self.addTarget(self, action: #selector(NavigateToCategory), for: UIControl.Event.touchDown);
+        //     ConfigureRippleOverlay(frame);
     }
     
     required init?(coder: NSCoder) {
-       // fatalError("init(coder:) has not been implemented")
+        // fatalError("init(coder:) has not been implemented")
         Category = PhraseCategories.GeneralConversation;
         
         super.init(coder: coder);
@@ -55,48 +57,48 @@ internal final class CardCategories : UIView {
         let cardBackground = UIImageView.init(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 50));
         cardBackground.image = UIImage.init(named: FriendlyNames.GetBackgroundForCategory(Category));
         cardBackground.contentMode = .scaleAspectFill;
+        cardBackground.isUserInteractionEnabled = false;
         
         //Dark Overlay of Card
         let overlay : UIView = UIView.init(frame:CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 50));
         overlay.backgroundColor = UIColor.black;
         overlay.alpha = 0.4;
+        overlay.isUserInteractionEnabled = false;
         
         self.addSubview(cardBackground);
         self.addSubview(overlay);
         self.addSubview(titleLabel);
     }
     
-    fileprivate func ConfigureRippleOverlay() {
+    fileprivate func ConfigureRippleOverlay(_ frame: CGRect) {
         
-        let buttonOverlay : Button = Button.init(frame: self.frame);
+        let buttonOverlay : Button = Button.init(frame: frame);
         buttonOverlay.backgroundColor = UIColor.clear;
         buttonOverlay.pulseColor = UIColor.red;
-        buttonOverlay.addTarget(self, action: #selector(NavigateToCategory), for: UIControl.Event.touchDown);
-        
-        
+        buttonOverlay.addTarget(self, action: #selector(NavigateToCategory), for: UIControl.Event.touchUpInside);
         
         self.addSubview(buttonOverlay);
         self.bringSubviewToFront(buttonOverlay);
     }
     
-   @objc fileprivate func NavigateToCategory(){
+    @objc fileprivate func NavigateToCategory(){
         NavigationHelper.NavigateToCategory(Category);
     }
     
     fileprivate func SetCountOfCard(){
         
         //Arrow Operator
-            let arrowOperator = UIImageView.init(frame: CGRect(x: Double(self.bounds.width - 50), y: 20.0, width: 40, height: 40));
+        let arrowOperator = UIImageView.init(frame: CGRect(x: Double(self.bounds.width - 50), y: 20.0, width: 40, height: 40));
         arrowOperator.image = UIImage.init(named: ImageConstants._rightArrowIcon);
-            
+        arrowOperator.isUserInteractionEnabled = false;
         
         let countOfCardsLabel : UILabel = UILabel.init(frame: CGRect(x: Double(self.bounds.width - 60), y: Double(arrowOperator.frame.maxY), width: 50, height: 50));
         
-               countOfCardsLabel.textColor = UIColor.white;
-               countOfCardsLabel.font = UIFont.init(name: "Roboto-Light", size: 20.0)
+        countOfCardsLabel.textColor = UIColor.white;
+        countOfCardsLabel.font = UIFont.init(name: "Roboto-Light", size: 20.0)
         countOfCardsLabel.text = PhraseCount;
+        countOfCardsLabel.isUserInteractionEnabled = false;
         
-    
         self.addSubview(arrowOperator);
         self.addSubview(countOfCardsLabel);
     }
