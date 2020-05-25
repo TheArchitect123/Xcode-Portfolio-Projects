@@ -14,7 +14,7 @@ import Material;
 
 //This controller will be used for rendering the Material Cards
 internal class DashboardController : UIViewController {
-    var navigationBar : NavigationBar?;
+    var navigationBar : CustomNavigationBar?;
     
     public override func viewDidLoad() {
         super.viewDidLoad();
@@ -27,22 +27,25 @@ internal class DashboardController : UIViewController {
          Floating button, in order to change some account information
          Navigation Drawer to include customised helpers
          */
-        SetupUIComponents();
+        
         SetupNavigationBar();
+        SetupUIComponents();
     }
     
     fileprivate func SetupNavigationBar(){
         self.navigationController!.setNavigationBarHidden(true, animated: false);
-        self.view!.addSubview(NavigationBarHelper.DrawNavigationWithMenu());
+        
+        navigationBar = NavigationBarHelper.DrawNavigationWithMenu();
+        self.view!.addSubview(navigationBar as! UIView);
     }
-    
     
     fileprivate func SetupUIComponents(){
         let masterRefreshMngr = UIRefreshControl.init();
         masterRefreshMngr.addTarget(self, action: #selector(RefreshButton), for: UIControl.Event.valueChanged);
         
         
-        let masterScroll = UIScrollView.init(frame: CGRect(x: 0,y: 0,width: UIHelper.ScreenWidth, height: UIHelper.ScreenHeight));
+        let calcHeight = UIHelper.ScreenHeight - Double(navigationBar!.bounds.height);
+        let masterScroll = UIScrollView.init(frame: CGRect(x: 0,y: Double(navigationBar!.bounds.height), width: UIHelper.ScreenWidth, height: calcHeight));
         
         masterScroll.refreshControl = masterRefreshMngr;
         
@@ -86,7 +89,7 @@ internal class DashboardController : UIViewController {
         
         
         //Floating Button
-        var floatButton : Button = Button.init(frame: CGRect(x: UIHelper.ScreenWidth - 80.0, y: UIHelper.ScreenHeight - 80.0, width: 70, height: 70));
+        let floatButton : Button = Button.init(frame: CGRect(x: UIHelper.ScreenWidth - 90.0, y: UIHelper.ScreenHeight - 90.0, width: 70, height: 70));
         floatButton.backgroundColor = ColorHelper.LightOrange();
         floatButton.layer.cornerRadius = 30.0;
         floatButton.setImage(UIImage.init(named: ImageConstants._refreshIcon), for: UIControl.State.normal);

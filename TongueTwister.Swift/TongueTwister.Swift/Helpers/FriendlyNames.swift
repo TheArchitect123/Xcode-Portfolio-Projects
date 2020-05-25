@@ -45,4 +45,37 @@ internal struct FriendlyNames {
             return "";
         }
     }
+    
+    internal static func GetBackgroundForCategory(_ category: PhraseCategories) -> String {
+          switch category {
+          case PhraseCategories.GeneralConversation:
+            return ImageConstants._generalConversationBackground;
+          case PhraseCategories.Gardening:
+              return ImageConstants._gardeningBackground;
+          case PhraseCategories.Dating:
+              return ImageConstants._datingBackground;
+          case PhraseCategories.Emergency:
+              return ImageConstants._emergencyBackground;
+          case PhraseCategories.Family:
+              return ImageConstants._familyBackground;
+          case PhraseCategories.FirstTimeMeeting:
+              return ImageConstants._firstTimeMeetingBackground;
+          case PhraseCategories.Food:
+              return ImageConstants._foodBackground;
+          case PhraseCategories.MathNumbers:
+              return ImageConstants._mathNumbersBackground;
+          case PhraseCategories.School:
+              return ImageConstants._schoolBackground;
+          case PhraseCategories.Shopping:
+              return ImageConstants._shoppingBackground;
+          case PhraseCategories.Technology:
+              return ImageConstants._technologyBackground;
+          case PhraseCategories.Transport:
+              return ImageConstants._transportBackground;
+          case PhraseCategories.Travel:
+              return ImageConstants._travelBackground;
+          case PhraseCategories.Work:
+              return ImageConstants._workBackground;
+          }
+      }
 }

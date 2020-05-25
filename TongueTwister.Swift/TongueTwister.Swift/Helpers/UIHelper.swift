@@ -21,5 +21,14 @@ import UIKit;
         return Double((view.frame.origin.y + view.frame.size.height));
     }
     
-    public static var ActiveViewController : UIViewController = (UIApplication.shared.keyWindow?.rootViewController?.navigationController?.visibleViewController!)!;
+    public static var ActiveViewController : UIViewController
+    {
+        get{
+            var window = UIApplication.shared.keyWindow
+            if(window != nil){
+               return (UIApplication.shared.keyWindow?.rootViewController?.navigationController?.visibleViewController!)!;
+            }
+            return UIViewController.init();
+        }
+    }
 }

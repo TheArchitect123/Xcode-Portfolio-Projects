@@ -19,10 +19,10 @@ internal class NavigationBarHelper{
               return navBar;
     }
     
-    internal static func DrawNavigationWithMenu() -> NavigationBar {
-        let navBar = NavigationBar.init(frame: CGRect(x: 0,y: 0, width: UIHelper.ScreenWidth, height: 70));
+    internal static func DrawNavigationWithMenu() -> CustomNavigationBar {
+        let navBar = CustomNavigationBar.init(frame: CGRect(x: 0,y: 0, width: UIHelper.ScreenWidth, height: 70));
         navBar.backgroundColor = ColorHelper.NavBar_DarkThemeBackground();
-    
+        navBar.alpha = 0.6;
         
         //Components
         var menuIcon : IconButton = IconButton.init(frame: CGRect(x: 0,y: (navBar.frame.height / 2.0) - 15, width: 15,height: 30));

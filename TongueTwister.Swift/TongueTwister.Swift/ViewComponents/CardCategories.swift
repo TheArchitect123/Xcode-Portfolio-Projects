@@ -9,7 +9,7 @@
 import Foundation
 import Material;
 
-internal final class CardCategories : Button {
+internal final class CardCategories : UIView {
     
     fileprivate var Category : PhraseCategories
     public var PhraseCount : String = "(30)";
@@ -22,6 +22,7 @@ internal final class CardCategories : Button {
         ConfigureCardView(frame);
         SetTitleCard();
         SetCountOfCard();
+        ConfigureRippleOverlay();
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +39,7 @@ internal final class CardCategories : Button {
         self.layer.cornerRadius = 20.0;
         self.borderColor = UIColor.lightGray;
         self.frame = frame;
+        self.clipsToBounds = true;
     }
     
     fileprivate func SetTitleCard() {
@@ -48,8 +50,39 @@ internal final class CardCategories : Button {
         titleLabel.font = UIFont.init(name: "Roboto-Light", size: 32.0)
         titleLabel.text = FriendlyNames.GetCategoryForNames(Category);
         
+        
+        //Card Background
+        let cardBackground = UIImageView.init(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 50));
+        cardBackground.image = UIImage.init(named: FriendlyNames.GetBackgroundForCategory(Category));
+        cardBackground.contentMode = .scaleAspectFill;
+        
+        //Dark Overlay of Card
+        let overlay : UIView = UIView.init(frame:CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height - 50));
+        overlay.backgroundColor = UIColor.black;
+        overlay.alpha = 0.4;
+        
+        self.addSubview(cardBackground);
+        self.addSubview(overlay);
         self.addSubview(titleLabel);
     }
+    
+    fileprivate func ConfigureRippleOverlay() {
+        
+        let buttonOverlay : Button = Button.init(frame: self.frame);
+        buttonOverlay.backgroundColor = UIColor.clear;
+        buttonOverlay.pulseColor = UIColor.red;
+        buttonOverlay.addTarget(self, action: #selector(NavigateToCategory), for: UIControl.Event.touchDown);
+        
+        
+        
+        self.addSubview(buttonOverlay);
+        self.bringSubviewToFront(buttonOverlay);
+    }
+    
+   @objc fileprivate func NavigateToCategory(){
+        NavigationHelper.NavigateToCategory(Category);
+    }
+    
     fileprivate func SetCountOfCard(){
         
         //Arrow Operator
