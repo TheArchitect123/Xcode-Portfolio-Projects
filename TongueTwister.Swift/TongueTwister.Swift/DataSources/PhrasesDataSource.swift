@@ -13,7 +13,7 @@ import Material;
 //This class will manage reading all the items from the CoreData database connection, and will draw all the cells accordingly
 internal class PhrasesDataSource : NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    let Items : Array<String> = ["Je suis"];
+    var Items : Array<PhrasesInfo> = [];
     let Category: PhraseCategories;
     init(_ category: PhraseCategories) {
         Category = category;
@@ -50,14 +50,14 @@ internal class PhrasesDataSource : NSObject, UITableViewDataSource, UITableViewD
         let defaultCell = TableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "defaultCell");
         
         
-        defaultCell.textLabel?.text = "Sample French";
-        defaultCell.detailTextLabel?.text = Items[indexPath.row];
+        defaultCell.textLabel?.text = Items[indexPath.row].EnglishPhrase;
+        defaultCell.detailTextLabel?.text = Items[indexPath.row].FrenchPhrase;
         
         return defaultCell;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SpeechHelper.OutputFrenchText(Items[indexPath.row]);
+        SpeechHelper.OutputFrenchText(Items[indexPath.row].FrenchPhrase);
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

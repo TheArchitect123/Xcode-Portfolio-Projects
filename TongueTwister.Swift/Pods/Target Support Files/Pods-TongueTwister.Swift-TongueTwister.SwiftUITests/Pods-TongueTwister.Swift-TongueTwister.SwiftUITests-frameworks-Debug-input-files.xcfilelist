@@ -1,10 +1,14 @@
 ${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/GCDKit/GCDKit.framework
 ${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/Material/Material.framework
 ${BUILT_PRODUCTS_DIR}/Motion/Motion.framework
 ${BUILT_PRODUCTS_DIR}/NavigationDropdownMenu/NavigationDropdownMenu.framework
 ${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework
 ${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework
+${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework
 ${BUILT_PRODUCTS_DIR}/TopViewControllerDetection/TopViewControllerDetection.framework
 ${BUILT_PRODUCTS_DIR}/UIColor+Hex/UIColor_Hex.framework
+${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework

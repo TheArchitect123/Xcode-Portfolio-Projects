@@ -9,7 +9,7 @@
 import Foundation
 import UIKit;
 
-public class AccountInfo {
+public struct AccountInfo {
     public var Id : Int = 0;
     public var Username : String = "";
     public var Password : String = "";

@@ -57,6 +57,6 @@ internal class BaseTableViewController : UIViewController {
     }
     
     @objc internal func RefreshItems() {
-        SVProgressHUD.show(withStatus: "Synchronising");
+        LoaderHelper.ShowLoaderWithMessage("Synchronising");
     }
 }

@@ -13,6 +13,7 @@ import SVProgressHUD;
 import Material;
 import Motion;
 import NavigationDropdownMenu
+import Toast_Swift;
 
 //This controller will be used for rendering the Material Cards
 internal class DashboardController : BaseViewController {
@@ -30,9 +31,14 @@ internal class DashboardController : BaseViewController {
          Floating button, in order to change some account information
          Navigation Drawer to include customised helpers
          */
-        
+    
         SetupNavigationBar();
         SetupUIComponents();
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        
+        self.view.makeToast("Welcome to \(AppInformation.ApplicationName). Begin by Refreshing all your phrases from our server", duration: 3.0, position: .bottom)
     }
     
     fileprivate func SetupNavigationBar(){
@@ -121,11 +127,8 @@ internal class DashboardController : BaseViewController {
     
     @objc private func RefreshButton() {
         
-        SVProgressHUD.show(withStatus: "Refresh all Items");
-    }
-    
-    private func ConfigureNavigationDrawer(){
-        
+        //Invoke the Rest Api Helper, to consume the backend logic
+        LoaderHelper.ShowLoaderWithMessage("Refresh all Items");
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

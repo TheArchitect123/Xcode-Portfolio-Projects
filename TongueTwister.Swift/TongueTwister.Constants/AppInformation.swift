@@ -14,5 +14,8 @@ internal struct AppInformation{
     static let Version = "1";
     
     static let FullVersion = "1.0.0";
-    static let ApplicationName = "TongueTwister";
+    static let ApplicationName = "FrenchConnect";
+    
+    static let UrlBase = "https://www.pplconnect.com.au/NativeApps/FrenchConnect.Swift/api/";
+    static let UrlBase_Test = "https://httpbin.org";
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04050556247D39DF006CB72B /* RestConsumerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04050555247D39DF006CB72B /* RestConsumerHelper.swift */; };
+		04050558247D3A08006CB72B /* PhrasesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04050557247D3A08006CB72B /* PhrasesInfo.swift */; };
+		0405055B247D3D06006CB72B /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405055A247D3D06006CB72B /* LoaderHelper.swift */; };
 		04428F74247CF11100F61C1D /* PhrasesDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04428F73247CF11100F61C1D /* PhrasesDataDelegate.swift */; };
 		04428F76247CF6DE00F61C1D /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04428F75247CF6DE00F61C1D /* SpeechHelper.swift */; };
 		0453FB5D247957AE00010192 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453FB5C247957AE00010192 /* DashboardViewModel.swift */; };
@@ -207,6 +210,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04050555247D39DF006CB72B /* RestConsumerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestConsumerHelper.swift; sourceTree = "<group>"; };
+		04050557247D3A08006CB72B /* PhrasesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesInfo.swift; sourceTree = "<group>"; };
+		0405055A247D3D06006CB72B /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
 		04428F73247CF11100F61C1D /* PhrasesDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDataDelegate.swift; sourceTree = "<group>"; };
 		04428F75247CF6DE00F61C1D /* SpeechHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
 		0453FB5C247957AE00010192 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -444,6 +450,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04050559247D3CF0006CB72B /* AlertHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0405055A247D3D06006CB72B /* LoaderHelper.swift */,
+			);
+			path = AlertHelpers;
+			sourceTree = "<group>";
+		};
 		04428F72247CF10200F61C1D /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				0453FB6C2479595000010192 /* AccountInfo.swift */,
+				04050557247D3A08006CB72B /* PhrasesInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +495,7 @@
 		0453FB7424795C6A00010192 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04050559247D3CF0006CB72B /* AlertHelpers */,
 				049FE595247C01FD00A7D071 /* ThreadHelpers */,
 				04FAE86F247A44F200FBA4C4 /* ViewHelpers */,
 				04FAE86B247A3F6600FBA4C4 /* Notifications */,
@@ -489,6 +505,7 @@
 				04FAE872247A574B00FBA4C4 /* FriendlyNames.swift */,
 				04BB2F79247B8AC00085B872 /* NavigationHelper.swift */,
 				04428F75247CF6DE00F61C1D /* SpeechHelper.swift */,
+				04050555247D39DF006CB72B /* RestConsumerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1188,8 +1205,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BB2F7A247B8AC00085B872 /* NavigationHelper.swift in Sources */,
+				04050558247D3A08006CB72B /* PhrasesInfo.swift in Sources */,
 				04BB2F7E247B9BA30085B872 /* BaseTableViewController.swift in Sources */,
 				04BB2F60247B885A0085B872 /* DatingController.swift in Sources */,
+				0405055B247D3D06006CB72B /* LoaderHelper.swift in Sources */,
 				04BB2F6A247B88AF0085B872 /* FirstMeetingController.swift in Sources */,
 				04FAE916247A8E1200FBA4C4 /* ImageConstants.swift in Sources */,
 				04B664FE2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld in Sources */,
@@ -1216,6 +1235,7 @@
 				04FAE871247A451200FBA4C4 /* NavigationBarHelper.swift in Sources */,
 				0453FB61247957C800010192 /* AccountSetupViewModel.swift in Sources */,
 				04BB2F6C247B88B70085B872 /* FoodController.swift in Sources */,
+				04050556247D39DF006CB72B /* RestConsumerHelper.swift in Sources */,
 				04BB2F64247B88710085B872 /* GardeningController.swift in Sources */,
 				04428F76247CF6DE00F61C1D /* SpeechHelper.swift in Sources */,
 				04BB2F5B247B85FC0085B872 /* NavigationBar.swift in Sources */,
