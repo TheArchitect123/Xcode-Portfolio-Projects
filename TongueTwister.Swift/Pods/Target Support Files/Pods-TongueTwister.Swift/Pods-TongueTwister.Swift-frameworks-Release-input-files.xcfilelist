@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GCDKit/GCDKit.framework
 ${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/Material/Material.framework
 ${BUILT_PRODUCTS_DIR}/Motion/Motion.framework

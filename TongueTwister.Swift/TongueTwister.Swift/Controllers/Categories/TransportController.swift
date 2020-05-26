@@ -12,12 +12,26 @@ import Motion;
 
 internal class TransportController : BaseTableViewController {
     
-    
-    public override func viewDidLoad() {
-        //Build up the UI here
-        super.viewDidLoad();
-        
-        self.view.backgroundColor = UIColor.white;
-    }
+       let CustomSource : PhrasesDataSource = PhrasesDataSource.init(PhraseCategories.Transport);
+     
+     public override func viewDidLoad() {
+         //Build up the UI here
+         super.viewDidLoad();
+         //
+         self.CustomTableView!.dataSource = CustomSource;
+         self.CustomTableView!.reloadData()
+     }
+
+     
+     internal override func RefreshItems() {
+         super.RefreshItems();
+         
+         //Any Custom business logic relating to this specific category -- such as retrieving items from the server, will be written here.
+         
+         //Use dependency injection, to allow the view model on this controller to manage the business logic here
+         
+         // self.CustomTableView?.refreshControl?.endRefreshing();
+         // SVProgressHUD.dismiss();
+     }
 }
 

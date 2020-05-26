@@ -1,4 +1,5 @@
 PODS:
+  - GCDKit (2.1.0)
   - JGProgressHUD (2.1)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
@@ -17,6 +18,7 @@ PODS:
   - "UIColor+Hex/UIColor (1.0.1)"
 
 DEPENDENCIES:
+  - GCDKit (~> 2.1)
   - JGProgressHUD (~> 2.1)
   - Material (~> 3.1)
   - NavigationDropdownMenu (~> 5.0.0)
@@ -27,6 +29,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - GCDKit
     - JGProgressHUD
     - Material
     - Motion
@@ -37,6 +40,7 @@ SPEC REPOS:
     - "UIColor+Hex"
 
 SPEC CHECKSUMS:
+  GCDKit: 321b439175c22e31fffb58dfc20078bf58ba4c60
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
@@ -46,6 +50,6 @@ SPEC CHECKSUMS:
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
 
-PODFILE CHECKSUM: 9eb48f7ca647ab1728d22a5a5fabc680b7884571
+PODFILE CHECKSUM: 874253151f906593cb57c36ab0d2330b40be1d9e
 
 COCOAPODS: 1.9.2

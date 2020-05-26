@@ -13,11 +13,11 @@ internal class BaseViewController : UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad();
         
+        self.view.backgroundColor = UIColor.lightGray;
         self.isMotionEnabled = true;
         if(!(self is DashboardController)){
             self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
         }
-        
     }
     
     @objc fileprivate func PopPage(){

@@ -14,7 +14,7 @@ internal class NavigationHelper {
     internal static func NavigateToCategory(_ category: PhraseCategories) -> Void {
         switch category {
         case PhraseCategories.GeneralConversation:
-            UIApplication.shared.findTopViewController()?.navigationController?.pushViewController(GeneralConversationController.init() as UIViewController, animated: true);
+             UIApplication.shared.findTopViewController()?.navigationController?.pushViewController(GeneralConversationController.init(), animated: true);
             
         case PhraseCategories.Gardening:
             UIApplication.shared.findTopViewController()?.navigationController?.pushViewController(GardeningController.init(), animated: true);

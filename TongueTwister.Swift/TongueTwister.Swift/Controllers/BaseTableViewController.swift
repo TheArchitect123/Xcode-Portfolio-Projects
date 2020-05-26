@@ -11,14 +11,16 @@ import UIKit;
 import SVProgressHUD;
 
 internal class BaseTableViewController : UIViewController {
+    internal var CustomTableView : UITableView?;
     
     public override func viewDidLoad() {
         super.viewDidLoad();
         
+        self.view.backgroundColor = UIColor.lightGray;
         self.isMotionEnabled = true;
         self.view.backgroundColor = UIColor.white;
         self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
-        
+         
         SetupUIComponents();
         SetupNavigationBar();
     }
@@ -27,9 +29,13 @@ internal class BaseTableViewController : UIViewController {
         let masterRefreshMngr = UIRefreshControl.init();
         masterRefreshMngr.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.valueChanged);
         
-        let itemsSource = UITableView.init(frame: CGRect.init(x: 0, y: 70, width: UIHelper.ScreenWidth, height: UIHelper.ScreenHeight))
-        itemsSource.refreshControl = masterRefreshMngr;
-        self.view.addSubview(itemsSource);
+        CustomTableView = UITableView.init(frame: CGRect.init(x: 0, y: 70, width: UIHelper.ScreenWidth, height: UIHelper.ScreenHeight));
+        CustomTableView?.isMotionEnabled = true;
+        CustomTableView?.allowsSelectionDuringEditing = true;
+        CustomTableView?.rowHeight = 120;
+        
+        CustomTableView!.refreshControl = masterRefreshMngr;
+        self.view.addSubview(CustomTableView!);
     }
     
     @objc fileprivate func PopPage(){

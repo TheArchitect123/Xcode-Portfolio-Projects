@@ -10,6 +10,7 @@ target 'TongueTwister.Swift' do
   pod 'SVProgressHUD', '~> 2.2'
   pod 'UIColor+Hex', '~> 1.0'
   pod 'TopViewControllerDetection', '~> 2.0'
+ pod 'GCDKit', '~> 2.1'
 pod 'NavigationDropdownMenu', '~> 5.0.0'
   # Pods for TongueTwister.Swift
 
