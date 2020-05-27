@@ -12,10 +12,11 @@ import Material;
 internal final class CardCategories : Button {
     
     fileprivate var Category : PhraseCategories
-    public var PhraseCount : String = "(30)";
+    public var PhraseCount : String = "";
     
-    init (category: PhraseCategories, frame: CGRect) {
+    init (category: PhraseCategories, frame: CGRect, _ countOfPhrases: Int) {
         Category = category;
+        PhraseCount = "(\(String(countOfPhrases)))";
         
         super.init(frame: frame);
         

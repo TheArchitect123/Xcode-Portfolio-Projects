@@ -47,7 +47,7 @@ internal class NavigationBarHelper {
     
     internal static func DrawMenuDropDown() -> NavigationDropdownMenu {
         
-        let items = ["General Conversation", "Technology", "Gardening", "Dating", "Emergency", "Family", "First Time Meeting", "Food", "Math & Numbers", "School", "Shopping", "Transport", "Travel", "Work"]
+        let items = ["General Conversation", "Technology", "Gardening", "Dating", "Emergency", "Family"]
         
         let controller = UIApplication.shared.findTopViewController();
         let _menuView = NavigationDropdownMenu.init(navigationController: controller?.navigationController, containerView: (controller?.view)!, title: Title.title("Filter by Category"), items: items)

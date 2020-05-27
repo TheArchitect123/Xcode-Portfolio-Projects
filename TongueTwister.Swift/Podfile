@@ -15,6 +15,8 @@ pod 'Siesta', '~> 1.5'
  pod 'Unbox', '~> 4.0'
   pod 'Toast-Swift', '~> 5.0'
   pod 'Alamofire', '~> 5.2'
+ pod 'SwiftTimer', '~> 2.0'
+ pod 'JSONParserSwift', '~> 1.1'
 pod 'NavigationDropdownMenu', '~> 5.0.0'
   # Pods for TongueTwister.Swift
 

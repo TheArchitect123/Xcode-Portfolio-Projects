@@ -14,11 +14,13 @@ import Material;
 import Motion;
 import NavigationDropdownMenu
 import Toast_Swift;
+import SwiftTimer;
 
 //This controller will be used for rendering the Material Cards
 internal class DashboardController : BaseViewController {
     //var navigationBar : CustomNavigationBar?;
     var _menuView : NavigationDropdownMenu?;
+    var _masterScroll : UIScrollView?
     
     public override func viewDidLoad() {
         super.viewDidLoad();
@@ -31,14 +33,12 @@ internal class DashboardController : BaseViewController {
          Floating button, in order to change some account information
          Navigation Drawer to include customised helpers
          */
-    
+        
+        self.view.makeToast("Welcome to \(AppInformation.ApplicationName). Please select any of the categories to get started with your french studies...", duration: 3.0, position: .bottom)
+        
         SetupNavigationBar();
         SetupUIComponents();
-    }
-
-    public override func viewDidAppear(_ animated: Bool) {
-        
-        self.view.makeToast("Welcome to \(AppInformation.ApplicationName). Begin by Refreshing all your phrases from our server", duration: 3.0, position: .bottom)
+        RefreshButton();
     }
     
     fileprivate func SetupNavigationBar(){
@@ -65,47 +65,47 @@ internal class DashboardController : BaseViewController {
         masterRefreshMngr.addTarget(self, action: #selector(RefreshButton), for: UIControl.Event.valueChanged);
         
         let calcHeight = UIHelper.ScreenHeight - Double(70);
-        let masterScroll = UIScrollView.init(frame: CGRect(x: 0,y: Double(70 + 5.0), width: UIHelper.ScreenWidth, height: calcHeight - 5.0));
+        _masterScroll = UIScrollView.init(frame: CGRect(x: 0,y: Double(70 + 5.0), width: UIHelper.ScreenWidth, height: calcHeight - 5.0));
         
-        masterScroll.refreshControl = masterRefreshMngr;
+        _masterScroll!.refreshControl = masterRefreshMngr;
         
         //Categories
-        let generalConversationCard = CardCategories.init(category: PhraseCategories.GeneralConversation, frame: CGRect(x: 10,y: 0,width: UIHelper.ScreenWidth - 20.0,height: 350));
-        let technologyCard = CardCategories.init(category: PhraseCategories.Technology, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(generalConversationCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let gardeningCard = CardCategories.init(category: PhraseCategories.Gardening, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(technologyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let datingCard = CardCategories.init(category: PhraseCategories.Dating, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(gardeningCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let emergencyCard = CardCategories.init(category: PhraseCategories.Emergency, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(datingCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let familyCard = CardCategories.init(category: PhraseCategories.Family, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(emergencyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let firstTimeCard = CardCategories.init(category: PhraseCategories.FirstTimeMeeting, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(familyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let foodCard = CardCategories.init(category: PhraseCategories.Food, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(firstTimeCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let mathNumbersCard = CardCategories.init(category: PhraseCategories.MathNumbers, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(foodCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let schoolCard = CardCategories.init(category: PhraseCategories.School, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(mathNumbersCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let shoppingCard = CardCategories.init(category: PhraseCategories.Shopping, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(schoolCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let transportCard = CardCategories.init(category: PhraseCategories.Transport, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(shoppingCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let travelCard = CardCategories.init(category: PhraseCategories.Travel, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(transportCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
-        let workCard = CardCategories.init(category: PhraseCategories.Work, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(travelCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350))
+        let generalConversationCard = CardCategories.init(category: PhraseCategories.GeneralConversation, frame: CGRect(x: 10,y: 0,width: UIHelper.ScreenWidth - 20.0,height: 350), 63);
+        let technologyCard = CardCategories.init(category: PhraseCategories.Technology, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(generalConversationCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 71)
+        let gardeningCard = CardCategories.init(category: PhraseCategories.Gardening, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(technologyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 35)
+        let datingCard = CardCategories.init(category: PhraseCategories.Dating, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(gardeningCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 30)
+        let emergencyCard = CardCategories.init(category: PhraseCategories.Emergency, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(datingCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 34)
+        let familyCard = CardCategories.init(category: PhraseCategories.Family, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(emergencyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 24)
+        let firstTimeCard = CardCategories.init(category: PhraseCategories.FirstTimeMeeting, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(familyCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let foodCard = CardCategories.init(category: PhraseCategories.Food, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(firstTimeCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let mathNumbersCard = CardCategories.init(category: PhraseCategories.MathNumbers, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(foodCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let schoolCard = CardCategories.init(category: PhraseCategories.School, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(mathNumbersCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let shoppingCard = CardCategories.init(category: PhraseCategories.Shopping, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(schoolCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let transportCard = CardCategories.init(category: PhraseCategories.Transport, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(shoppingCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let travelCard = CardCategories.init(category: PhraseCategories.Travel, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(transportCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
+        let workCard = CardCategories.init(category: PhraseCategories.Work, frame: CGRect(x: 10,y:UIHelper.GetMaxYCoordinate(travelCard) + 10.0, width: UIHelper.ScreenWidth - 20.0,height: 350), 0)
         
-        masterScroll.addSubview(generalConversationCard);
-        masterScroll.addSubview(technologyCard);
-        masterScroll.addSubview(gardeningCard);
-        masterScroll.addSubview(datingCard);
-        masterScroll.addSubview(emergencyCard);
-        masterScroll.addSubview(familyCard);
-        masterScroll.addSubview(firstTimeCard);
-        masterScroll.addSubview(foodCard);
-        masterScroll.addSubview(mathNumbersCard);
-        masterScroll.addSubview(schoolCard);
-        masterScroll.addSubview(shoppingCard);
-        masterScroll.addSubview(transportCard);
-        masterScroll.addSubview(travelCard);
-        masterScroll.addSubview(workCard);
+        _masterScroll!.addSubview(generalConversationCard);
+        _masterScroll!.addSubview(technologyCard);
+        _masterScroll!.addSubview(gardeningCard);
+        _masterScroll!.addSubview(datingCard);
+        _masterScroll!.addSubview(emergencyCard);
+        _masterScroll!.addSubview(familyCard);
+//        _masterScroll!.addSubview(firstTimeCard);
+//        _masterScroll!.addSubview(foodCard);
+//        _masterScroll!.addSubview(mathNumbersCard);
+//        _masterScroll!.addSubview(schoolCard);
+//        _masterScroll!.addSubview(shoppingCard);
+//        _masterScroll!.addSubview(transportCard);
+//        _masterScroll!.addSubview(travelCard);
+//        _masterScroll!.addSubview(workCard);
         
         #warning ("Calculate the Scroll Size")
-        let scrollHeight : Double = Double(generalConversationCard.bounds.height + technologyCard.bounds.height + gardeningCard.bounds.height + datingCard.bounds.height + emergencyCard.bounds.height + familyCard.bounds.height + firstTimeCard.bounds.height + foodCard.bounds.height);
+        let scrollHeight : Double = Double(generalConversationCard.bounds.height + technologyCard.bounds.height + gardeningCard.bounds.height + datingCard.bounds.height + emergencyCard.bounds.height + familyCard.bounds.height);
         
-        let scrollHeightSecond = Double(mathNumbersCard.bounds.height + schoolCard.bounds.height + shoppingCard.bounds.height + transportCard.bounds.height + travelCard.bounds.height + workCard.bounds.height);
+//        let scrollHeightSecond = Double(mathNumbersCard.bounds.height + schoolCard.bounds.height + shoppingCard.bounds.height + transportCard.bounds.height + travelCard.bounds.height + workCard.bounds.height);
         
-        masterScroll.contentSize = CGSize.init(width: UIHelper.ScreenWidth, height: (scrollHeight + scrollHeightSecond + 150.0));
+        _masterScroll!.contentSize = CGSize.init(width: UIHelper.ScreenWidth, height: (scrollHeight + 100.0));
         
         
         //Floating Button
@@ -121,14 +121,20 @@ internal class DashboardController : BaseViewController {
         //        floatButton.setImage(UIImage.init(named: Icon.check), for: UIControl.State.normal);
         //        floatButton.setImage(UIImage.init(named: Icon.check), for: UIControl.State.normal);
         
-        self.view.addSubview(masterScroll);
+        self.view.addSubview(_masterScroll!);
         self.view.addSubview(floatButton);
     }
     
     @objc private func RefreshButton() {
+        self._masterScroll?.refreshControl?.beginRefreshing();
+        LoaderHelper.ShowLoaderWithMessage("Refresh all Items");
         
         //Invoke the Rest Api Helper, to consume the backend logic
-        LoaderHelper.ShowLoaderWithMessage("Refresh all Items");
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+            self._masterScroll?.refreshControl?.endRefreshing();
+            LoaderHelper.DismissLoaderWithDefault();
+        }
+        //timer2.fire();
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

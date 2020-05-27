@@ -8,15 +8,11 @@
 
 import Foundation
 import Unbox;
+import JSONParserSwift;
 
-internal struct PhrasesInfo : Unboxable {
-    init(unboxer: Unboxer) throws {
-        self.Category = try unboxer.unbox(key: "Category");
-        self.EnglishPhrase = try unboxer.unbox(key: "EnglishPhrase");
-        self.FrenchPhrase = try unboxer.unbox(key: "FrenchPhrase");
-    }
-    
-    public var Category : Int;
-    public var EnglishPhrase : String;
-    public var FrenchPhrase : String;
+internal class PhrasesInfo : ParsableModel {
+
+    public var Category : Int = 0;
+    public var EnglishPhrase : String = "";
+    public var FrenchPhrase : String = "";
 }

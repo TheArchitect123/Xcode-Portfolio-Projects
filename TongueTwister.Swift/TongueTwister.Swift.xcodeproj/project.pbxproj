@@ -31,11 +31,13 @@
 		04852A9C24791245006E1E46 /* Pods_TongueTwister_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9B24791245006E1E46 /* Pods_TongueTwister_Swift.framework */; };
 		04852AA024791245006E1E46 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9F24791245006E1E46 /* SVProgressHUD.framework */; };
 		04852AA224791AE8006E1E46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04852AA124791AE8006E1E46 /* SceneDelegate.swift */; };
+		049D4AEB247E1E7900E91C2F /* 1024_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 049D4AEA247E1E7900E91C2F /* 1024_1.jpg */; };
 		049FE590247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58D247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png */; };
 		049FE591247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58E247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png */; };
 		049FE592247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58F247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png */; };
 		049FE594247BFCE800A7D071 /* PhrasesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FE593247BFCE800A7D071 /* PhrasesDataSource.swift */; };
 		049FE597247C021000A7D071 /* GCDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FE596247C021000A7D071 /* GCDHelper.swift */; };
+		04ABC7C3247DF6120006B8F8 /* ToasterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC7C2247DF6120006B8F8 /* ToasterHelper.swift */; };
 		04B664F42478EB530083EC7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B664F32478EB530083EC7D /* AppDelegate.swift */; };
 		04B664FB2478EB530083EC7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B664F92478EB530083EC7D /* Main.storyboard */; };
 		04B664FE2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B664FC2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld */; };
@@ -234,11 +236,13 @@
 		04852A9B24791245006E1E46 /* Pods_TongueTwister_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TongueTwister_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04852A9F24791245006E1E46 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04852AA124791AE8006E1E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		049D4AEA247E1E7900E91C2F /* 1024_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1024_1.jpg; sourceTree = "<group>"; };
 		049FE58D247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_1x.png; sourceTree = "<group>"; };
 		049FE58E247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_3x.png; sourceTree = "<group>"; };
 		049FE58F247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_2x.png; sourceTree = "<group>"; };
 		049FE593247BFCE800A7D071 /* PhrasesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDataSource.swift; sourceTree = "<group>"; };
 		049FE596247C021000A7D071 /* GCDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDHelper.swift; sourceTree = "<group>"; };
+		04ABC7C2247DF6120006B8F8 /* ToasterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToasterHelper.swift; sourceTree = "<group>"; };
 		04B664F02478EB530083EC7D /* FrenchConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrenchConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B664F32478EB530083EC7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B664FA2478EB530083EC7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				0405055A247D3D06006CB72B /* LoaderHelper.swift */,
+				04ABC7C2247DF6120006B8F8 /* ToasterHelper.swift */,
 			);
 			path = AlertHelpers;
 			sourceTree = "<group>";
@@ -731,6 +736,7 @@
 				04FAE906247A782400FBA4C4 /* icons */,
 				04FAE8D0247A769900FBA4C4 /* appstore.png */,
 				04BB2EF2247B777B0085B872 /* datingbg.jpg */,
+				049D4AEA247E1E7900E91C2F /* 1024_1.jpg */,
 				04BB2F21247B7D880085B872 /* mt_bg_1.jpg */,
 				04BB2F2C247B7D890085B872 /* mt_bg_2.jpg */,
 				04BB2F10247B7D860085B872 /* mt_bg_3.jpg */,
@@ -984,6 +990,7 @@
 				04BB2F8A247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */,
 				04FAE8F1247A76B300FBA4C4 /* 512.png in Resources */,
 				04FAE893247A6B0600FBA4C4 /* Roboto-Light.ttf in Resources */,
+				049D4AEB247E1E7900E91C2F /* 1024_1.jpg in Resources */,
 				04BB2F59247B7D8A0085B872 /* mt_bg_8.jpg in Resources */,
 				04BB2F3B247B7D8A0085B872 /* mt_bg_7.jpg in Resources */,
 				04FAE8FB247A76B300FBA4C4 /* 87.png in Resources */,
@@ -1223,6 +1230,7 @@
 				0453FB6A2479592000010192 /* SecurityExtensions.swift in Sources */,
 				049FE594247BFCE800A7D071 /* PhrasesDataSource.swift in Sources */,
 				0453FB64247957EA00010192 /* GenConvrstinViewModel.swift in Sources */,
+				04ABC7C3247DF6120006B8F8 /* ToasterHelper.swift in Sources */,
 				04B664F42478EB530083EC7D /* AppDelegate.swift in Sources */,
 				04BB2F66247B88920085B872 /* EmergencyController.swift in Sources */,
 				04FAE86A247A3F4C00FBA4C4 /* SimpleNotificationsHelper.swift in Sources */,
@@ -1430,6 +1438,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1453,6 +1462,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

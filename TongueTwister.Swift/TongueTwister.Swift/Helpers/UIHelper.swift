@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit;
+import AVFoundation;
+import AVKit;
 
 
  internal struct UIHelper {

@@ -11,6 +11,7 @@ import UIKit;
 import SVProgressHUD;
 
 internal class BaseTableViewController : UIViewController {
+    
     internal var CustomTableView : UITableView?;
     
     public override func viewDidLoad() {
@@ -20,19 +21,28 @@ internal class BaseTableViewController : UIViewController {
         self.isMotionEnabled = true;
         self.view.backgroundColor = UIColor.white;
         self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
-         
+        
         SetupUIComponents();
         SetupNavigationBar();
     }
+    
+//    func gotSilentStatus(isSilent: Bool) {
+//        if(isSilent){
+//            ToasterHelper.OpenSimpleToastIndefinetly(self, "Your phone is on silent. Please turn off silent mode in order to hear the phrases");
+//        }
+//        else {
+//            ToasterHelper.HideAllToasts(self);
+//        }
+//    }
     
     fileprivate func SetupUIComponents(){
         let masterRefreshMngr = UIRefreshControl.init();
         masterRefreshMngr.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.valueChanged);
         
-        CustomTableView = UITableView.init(frame: CGRect.init(x: 0, y: 70, width: UIHelper.ScreenWidth, height: UIHelper.ScreenHeight));
+        CustomTableView = UITableView.init(frame: CGRect.init(x: 0, y: 70, width: UIHelper.ScreenWidth, height: Double(UIHelper.ScreenHeight - 70)));
         CustomTableView?.isMotionEnabled = true;
         CustomTableView?.allowsSelectionDuringEditing = true;
-        CustomTableView?.rowHeight = 120;
+        CustomTableView?.rowHeight = 90;
         
         CustomTableView!.refreshControl = masterRefreshMngr;
         self.view.addSubview(CustomTableView!);

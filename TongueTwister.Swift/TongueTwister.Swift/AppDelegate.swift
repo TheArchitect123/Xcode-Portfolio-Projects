@@ -16,6 +16,8 @@
 
 import UIKit
 import Material;
+import AVFoundation;
+import AVKit;
 
 @UIApplicationMain
 internal class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +30,9 @@ internal class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait;
+    }
     
     static var standard: AppDelegate {
            return UIApplication.shared.delegate as! AppDelegate

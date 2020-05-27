@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.2.1)
   - GCDKit (2.1.0)
   - JGProgressHUD (2.1)
+  - JSONParserSwift (1.1.4)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
   - Material/Core (3.1.8):
@@ -14,6 +15,7 @@ PODS:
     - Siesta/Core (= 1.5.1)
   - Siesta/Core (1.5.1)
   - SVProgressHUD (2.2.5)
+  - SwiftTimer (2.0)
   - Swinject (2.7.1)
   - Toast-Swift (5.0.1)
   - TopViewControllerDetection (2.0.1)
@@ -27,10 +29,12 @@ DEPENDENCIES:
   - Alamofire (~> 5.2)
   - GCDKit (~> 2.1)
   - JGProgressHUD (~> 2.1)
+  - JSONParserSwift (~> 1.1)
   - Material (~> 3.1)
   - NavigationDropdownMenu (~> 5.0.0)
   - Siesta (~> 1.5)
   - SVProgressHUD (~> 2.2)
+  - SwiftTimer (~> 2.0)
   - Swinject (~> 2.7)
   - Toast-Swift (~> 5.0)
   - TopViewControllerDetection (~> 2.0)
@@ -42,11 +46,13 @@ SPEC REPOS:
     - Alamofire
     - GCDKit
     - JGProgressHUD
+    - JSONParserSwift
     - Material
     - Motion
     - NavigationDropdownMenu
     - Siesta
     - SVProgressHUD
+    - SwiftTimer
     - Swinject
     - Toast-Swift
     - TopViewControllerDetection
@@ -57,17 +63,19 @@ SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   GCDKit: 321b439175c22e31fffb58dfc20078bf58ba4c60
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
+  JSONParserSwift: fff6c8aee929431cfbb10d016e9b92f06f732057
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
   Siesta: 0b689eff328778c754c4f9afe33ffd70af5ada3d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftTimer: 4d25ff045d81c3132e1161a3ba2353d06ff63c30
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
   Unbox: d2677af8fde59a30141e02981b11cb6a0e3b6bc5
 
-PODFILE CHECKSUM: 96d69b5ad0b2c99ff6ef4a66954b356f5f5b4c04
+PODFILE CHECKSUM: 9df4e085fb67952f215bda26b0e24466e6e6d845
 
 COCOAPODS: 1.9.2

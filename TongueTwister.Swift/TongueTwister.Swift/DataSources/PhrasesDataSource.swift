@@ -60,18 +60,18 @@ internal class PhrasesDataSource : NSObject, UITableViewDataSource, UITableViewD
         SpeechHelper.OutputFrenchText(Items[indexPath.row].FrenchPhrase);
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let action = UIContextualAction(style: .normal, title: "Unfavorite",
-                                        handler: { (action, view, completionHandler) in
-                                            // Update data source when user taps action
-                                            
-                                            completionHandler(true)
-        });
-        
-        action.image = UIImage(named: "MenuIcon")
-        action.backgroundColor = .green;
-        let configuration = UISwipeActionsConfiguration(actions: [action])
-        return configuration
-    }
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//        let action = UIContextualAction(style: .normal, title: "Unfavorite",
+//                                        handler: { (action, view, completionHandler) in
+//                                            // Update data source when user taps action
+//
+//                                            completionHandler(true)
+//        });
+//
+//        action.image = UIImage(named: "MenuIcon")
+//        action.backgroundColor = .green;
+//        let configuration = UISwipeActionsConfiguration(actions: [action])
+//        return configuration
+//    }
 }
