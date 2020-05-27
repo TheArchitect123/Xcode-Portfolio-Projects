@@ -5,12 +5,12 @@ This repository contains a collection of native iOS & Android applications writt
 
 Projects: 
 1. FrenchConnect (Codebase - TongueTwister.Swift):  <br />
-Market Url - https://www.youtube.com/watch?v=Qsjww8nwv0Y <br />
-Link to iOS App - https://apps.apple.com/us/app/frenchconnect/id1515206665?ls=1 <br />
+<strong>Market Url</strong> - https://www.youtube.com/watch?v=Qsjww8nwv0Y <br />
+<strong>Link to iOS App</strong> - https://apps.apple.com/us/app/frenchconnect/id1515206665?ls=1 <br />
 
 2. Telecoms.Swift (Codebase,Telecoms.Swift) <br />
-Market Url - <br />
-Link to iOS App - <br />
+<strong>Market Url</strong> - <br />
+<strong>Link to iOS App</strong> - <br />
 
 <br />
 © Dan Gerchcovich
