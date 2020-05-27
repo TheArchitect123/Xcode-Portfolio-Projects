@@ -1,4 +1,4 @@
-module Swinject {
+framework module Swinject {
   umbrella header "Swinject-umbrella.h"
 
   export *

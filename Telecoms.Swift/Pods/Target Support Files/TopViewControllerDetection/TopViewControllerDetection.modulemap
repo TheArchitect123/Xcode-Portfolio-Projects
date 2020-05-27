@@ -1,4 +1,4 @@
-module TopViewControllerDetection {
+framework module TopViewControllerDetection {
   umbrella header "TopViewControllerDetection-umbrella.h"
 
   export *

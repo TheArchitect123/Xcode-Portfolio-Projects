@@ -1,4 +1,4 @@
-module NavigationDropdownMenu {
+framework module NavigationDropdownMenu {
   umbrella header "NavigationDropdownMenu-umbrella.h"
 
   export *

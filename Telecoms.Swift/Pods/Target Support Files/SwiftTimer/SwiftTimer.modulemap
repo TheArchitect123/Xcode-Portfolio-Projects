@@ -1,4 +1,4 @@
-module SwiftTimer {
+framework module SwiftTimer {
   umbrella header "SwiftTimer-umbrella.h"
 
   export *

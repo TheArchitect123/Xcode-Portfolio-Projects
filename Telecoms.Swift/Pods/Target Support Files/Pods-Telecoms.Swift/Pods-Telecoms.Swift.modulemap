@@ -1,4 +1,4 @@
-module Pods_Telecoms_Swift {
+framework module Pods_Telecoms_Swift {
   umbrella header "Pods-Telecoms.Swift-umbrella.h"
 
   export *

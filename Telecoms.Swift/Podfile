@@ -3,10 +3,11 @@
 
 target 'Telecoms.Swift' do
   # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
      pod 'JGProgressHUD', '~> 2.1'
     pod 'Material', '~> 3.1'
    pod 'Swinject', '~> 2.7'
-    pod 'SVProgressHUD', '~> 2.2'
+  pod 'SVProgressHUD', '~> 2.2'
     pod 'UIColor+Hex', '~> 1.0'
     pod 'TopViewControllerDetection', '~> 2.0'
    pod 'GCDKit', '~> 2.1'
