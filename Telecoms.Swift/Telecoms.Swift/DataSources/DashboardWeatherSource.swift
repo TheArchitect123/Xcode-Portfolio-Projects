@@ -14,7 +14,7 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return Items.count;
-        return 0;
+        return 2;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,16 +41,25 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let defaultCell = TableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "defaultCell");
+        ConfigureCustomCell(defaultCell);
         
-        
-       // defaultCell.textLabel?.text = Items[indexPath.row].EnglishPhrase;
-       // defaultCell.detailTextLabel?.text = Items[indexPath.row].FrenchPhrase;
-        
+        //Bind the data
+        defaultCell.textLabel?.text = "9:32am";
+        defaultCell.detailTextLabel?.text = "Sydney";
+    
         return defaultCell;
     }
     
+    func ConfigureCustomCell(_ cell: UITableViewCell){
+        cell.textLabel?.font = UIFont.init(name: "Roboto-Light", size: 20.0);
+        cell.detailTextLabel?.font = UIFont.init(name: "Roboto-Light", size: 26.0);
+        cell.accessoryView = NavigationHelper.DrawMenuDropDown();
+        cell.accessoryType = .none;
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   
+   //On Selection this will navigate to the detail page
+        NavigationHelper.GetActiveViewController()?.NavigateToPage(CityDetailViewController.init());
     }
     
 //    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

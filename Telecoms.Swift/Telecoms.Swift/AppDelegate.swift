@@ -19,10 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        AlarmClockHelper.StartWeatherPeriodicService();
         LoaderHelper.ConfigureLoaderDefaults();
         RegisterForNotifications();
         return true
+    }
+    
+    
+    // MARK: On Application Lifecycle Changes, such as background or foreground state changes, the periodic service responsible for retrieving and updating the app's database, of weather information will be started or stopped. This will help to be more efficient with the api calls.
+    func applicationWillTerminate(_ application: UIApplication) {
+        AlarmClockHelper.StopWeatherPeriodicService();
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        AlarmClockHelper.StopWeatherPeriodicService();
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        AlarmClockHelper.StartWeatherPeriodicService();
     }
     
     func RegisterForNotifications() {

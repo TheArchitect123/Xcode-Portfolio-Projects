@@ -21,12 +21,31 @@ class WeatherDashController : BaseViewController {
     //var navigationBar : CustomNavigationBar?;
     var _menuView : NavigationDropdownMenu?;
     var _masterScroll : UIScrollView?
+    var DataSource :  DashboardWeatherSource?;
     
     public override func viewDidLoad() {
         super.viewDidLoad();
+    
         
         ToasterHelper.OpenSimpleToast(self, "Welcome to \(AppInformation.ApplicationName)! Created by Dan Gerchcovich");
         SetupNavigationBar();
+        SetupOtherUIComponents();
+        SetupDataSource();
+        RefreshItems();
+    }
+    
+    fileprivate func SetupDataSource(){
+        self.DataSource = DashboardWeatherSource.init();
+        self.tableView!.dataSource = self.DataSource;
+        self.tableView!.delegate = self.DataSource;
+        self.tableView!.reloadData();
+    }
+    
+    fileprivate func SetupOtherUIComponents(){
+        let masterRefreshMngr = UIRefreshControl.init();
+        masterRefreshMngr.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.valueChanged);
+        
+        self.tableView.refreshControl = masterRefreshMngr;
     }
     
     fileprivate func SetupNavigationBar(){
@@ -52,9 +71,17 @@ class WeatherDashController : BaseViewController {
     }
     
     @objc internal override func RefreshItems() {
+        super.RefreshItems();
+        
         RestConsumerHelper.Get_DefaultRestConsumer()
             .resource("/get_phrases").withParam("category", "").loadIfNeeded()?.onSuccess { entity in
                 
+                self.tableView!.dataSource = self.DataSource;
+                self.tableView!.delegate = self.DataSource;
+                self.tableView!.reloadData();
+                
+                self.tableView?.refreshControl?.endRefreshing();
+                LoaderHelper.DismissLoaderWithDefault();
                 
                 //                do {
                 //                    self.CustomSource.Items = try JSONParserSwift.parse(string: entity.content as! String) as Array<PhrasesInfo> ;

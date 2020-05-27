@@ -102,6 +102,8 @@
 		045C629A247E7FE00084F652 /* baseline_keyboard_backspace_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045C6280247E7FDF0084F652 /* baseline_keyboard_backspace_white_48pt_2x.png */; };
 		045C629C247E811A0084F652 /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C629B247E811A0084F652 /* LogHelper.swift */; };
 		045C629F247E83ED0084F652 /* DashboardWeatherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C629E247E83ED0084F652 /* DashboardWeatherSource.swift */; };
+		045C62A1247E84BC0084F652 /* AlarmClockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C62A0247E84BC0084F652 /* AlarmClockHelper.swift */; };
+		045C62A3247E86BD0084F652 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C62A2247E86BD0084F652 /* Settings.swift */; };
 		049D4B38247E355E00E91C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B37247E355E00E91C2F /* AppDelegate.swift */; };
 		049D4B3F247E355E00E91C2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D4B3D247E355E00E91C2F /* Main.storyboard */; };
 		049D4B42247E355E00E91C2F /* Telecoms_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B40247E355E00E91C2F /* Telecoms_Swift.xcdatamodeld */; };
@@ -247,6 +249,8 @@
 		045C6280247E7FDF0084F652 /* baseline_keyboard_backspace_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_white_48pt_2x.png; sourceTree = "<group>"; };
 		045C629B247E811A0084F652 /* LogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
 		045C629E247E83ED0084F652 /* DashboardWeatherSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWeatherSource.swift; sourceTree = "<group>"; };
+		045C62A0247E84BC0084F652 /* AlarmClockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmClockHelper.swift; sourceTree = "<group>"; };
+		045C62A2247E86BD0084F652 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		049D4B34247E355E00E91C2F /* WeatherScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049D4B37247E355E00E91C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049D4B3E247E355E00E91C2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 		045C6172247E546D0084F652 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				045C62A0247E84BC0084F652 /* AlarmClockHelper.swift */,
 				045C6174247E55880084F652 /* NetworkHelper.swift */,
 				045C6181247E56F90084F652 /* DialogueHelper.swift */,
 				045C6183247E57020084F652 /* NavigationHelper.swift */,
@@ -388,6 +393,7 @@
 				045C61E9247E5C270084F652 /* Logs.swift */,
 				045C61EB247E5C360084F652 /* PreviousSearches.swift */,
 				045C61ED247E5C5A0084F652 /* WeatherLocations.swift */,
+				045C62A2247E86BD0084F652 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -917,6 +923,7 @@
 				045C61F9247E64DF0084F652 /* Service.swift in Sources */,
 				045C61F0247E5C8C0084F652 /* WeatherDashViewModel.swift in Sources */,
 				045C61F7247E5E890084F652 /* UIViewController.swift in Sources */,
+				045C62A3247E86BD0084F652 /* Settings.swift in Sources */,
 				045C61EC247E5C360084F652 /* PreviousSearches.swift in Sources */,
 				049D4B38247E355E00E91C2F /* AppDelegate.swift in Sources */,
 				045C6184247E57020084F652 /* NavigationHelper.swift in Sources */,
@@ -935,6 +942,7 @@
 				045C61F4247E5D5A0084F652 /* String.swift in Sources */,
 				045C61DC247E5B450084F652 /* GCDHelper.swift in Sources */,
 				045C6235247E6E530084F652 /* ColorComponent.swift in Sources */,
+				045C62A1247E84BC0084F652 /* AlarmClockHelper.swift in Sources */,
 				045C6188247E572B0084F652 /* ToasterHelper.swift in Sources */,
 				045C61E5247E5BAA0084F652 /* ImageConstants.swift in Sources */,
 				045C61D1247E5A640084F652 /* WeatherDashController.swift in Sources */,

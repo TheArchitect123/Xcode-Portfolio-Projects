@@ -55,7 +55,7 @@ class NavigationHelper {
         let items = ["Maps", "Recent Searches", "Settings", "Search for City..."]
         
         let controller = UIApplication.shared.findTopViewController();
-        let _menuView = NavigationDropdownMenu.init(navigationController: controller?.navigationController, containerView: (controller?.view)!, title: Title.title("Select for Options"), items: items)
+        let _menuView = NavigationDropdownMenu.init(navigationController: controller?.navigationController, containerView: (controller?.view)!, title: Title.title("\(AppInformation.ApplicationName)"), items: items)
         
        // _menuView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
        // _menuView.backgroundColor = ColorHelper.NavBar_DarkThemeBackground();

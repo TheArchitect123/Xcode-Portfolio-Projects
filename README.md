@@ -6,9 +6,9 @@ This repository contains a collection of native iOS & Android applications writt
 Projects: 
 1. FrenchConnect (Codebase - TongueTwister.Swift):  <br />
 Market Url - https://www.youtube.com/watch?v=Qsjww8nwv0Y <br />
-Link to iOS App - <br />
+Link to iOS App - https://apps.apple.com/us/app/frenchconnect/id1515206665?ls=1 <br />
 
-2. DHHS Project (Codebase, DHHS.Swift)<br />
+2. Telecoms.Swift (Codebase,Telecoms.Swift) <br />
 Market Url - <br />
 Link to iOS App - <br />
 
