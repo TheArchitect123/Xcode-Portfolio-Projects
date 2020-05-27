@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-Telecoms.Swift/Pods-Telecoms.Swift-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Material/com.cosmicmind.material.icons.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/Material/com.cosmicmind.material.fonts.bundle
+${PODS_ROOT}/NavigationDropdownMenu/Source/BTNavigationDropdownMenu.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle

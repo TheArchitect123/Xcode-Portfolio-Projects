@@ -1,0 +1,6 @@
+module NavigationDropdownMenu {
+  umbrella header "NavigationDropdownMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

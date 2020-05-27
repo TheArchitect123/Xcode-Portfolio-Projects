@@ -1,0 +1,6 @@
+module Pods_Telecoms_Swift_Telecoms_SwiftUITests {
+  umbrella header "Pods-Telecoms.Swift-Telecoms.SwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
