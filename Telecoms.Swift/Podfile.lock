@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
+  - DropDown (2.3.13)
   - GCDKit (2.1.0)
   - JGProgressHUD (2.1)
   - JSONParserSwift (1.1.4)
@@ -26,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - DropDown (~> 2.3)
   - GCDKit (~> 2.1)
   - JGProgressHUD (~> 2.1)
   - JSONParserSwift (~> 1.1)
@@ -42,6 +44,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
     - GCDKit
     - JGProgressHUD
     - JSONParserSwift
@@ -58,6 +61,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   GCDKit: 321b439175c22e31fffb58dfc20078bf58ba4c60
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   JSONParserSwift: fff6c8aee929431cfbb10d016e9b92f06f732057
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
 
-PODFILE CHECKSUM: 67498676816fb77ba164adbb3843e87529388082
+PODFILE CHECKSUM: d0154409699640fe276f037315a220d9d062b6de
 
 COCOAPODS: 1.9.2

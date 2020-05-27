@@ -6,4 +6,8 @@
 //  Copyright © 2020 Dan Gerchcovich. All rights reserved.
 //
 
-import Foundation
+import Foundation;
+class DialogueHelper {
+    
+   
+}

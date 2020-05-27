@@ -11,6 +11,7 @@ import Material;
 import UIKit;
 import CoreGraphics;
 import NavigationDropdownMenu;
+import DropDown;
 
 class NavigationHelper {
     
@@ -57,8 +58,8 @@ class NavigationHelper {
         let controller = UIApplication.shared.findTopViewController();
         let _menuView = NavigationDropdownMenu.init(navigationController: controller?.navigationController, containerView: (controller?.view)!, title: Title.title("\(AppInformation.ApplicationName)"), items: items)
         
-       // _menuView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
-       // _menuView.backgroundColor = ColorHelper.NavBar_DarkThemeBackground();
+        // _menuView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
+        // _menuView.backgroundColor = ColorHelper.NavBar_DarkThemeBackground();
         _menuView.cellBackgroundColor = ColorHelper.NavBar_DarkThemeBackground();
         
         _menuView.shouldChangeTitleText = false;
@@ -74,5 +75,24 @@ class NavigationHelper {
         
         // _menuView.addSubview(arrowOperator);
         return _menuView;
+    }
+    
+    internal static func DrawDropDownItems() -> DropDown {
+        
+        let customisedDropDown = DropDown()
+        customisedDropDown.dataSource = ["Recent Searches...", "Add a new location...", "Maps", "Settings"];
+        customisedDropDown.textColor = UIColor.black;
+        customisedDropDown.cornerRadius = 5.0;
+        
+        return customisedDropDown;
+    }
+    
+    //Generate Controllers
+    static func GetCitySearchController() -> CitySearchViewController{
+       return (UIStoryboard.init(name: "Main", bundle: nil)).instantiateViewController(withIdentifier: "CitySearchViewController") as! CitySearchViewController
+    }
+    
+    static func GetCityDetailViewController() -> CityDetailViewController{
+       return (UIStoryboard.init(name: "Main", bundle: nil)).instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
     }
 }

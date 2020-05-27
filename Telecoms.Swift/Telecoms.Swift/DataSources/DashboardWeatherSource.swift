@@ -41,20 +41,33 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let defaultCell = TableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "defaultCell");
+        defaultCell.addBorders();
+        
         ConfigureCustomCell(defaultCell);
+        defaultCell.accessoryView = RenderTemperatureControl("13°");
         
         //Bind the data
         defaultCell.textLabel?.text = "9:32am";
         defaultCell.detailTextLabel?.text = "Sydney";
     
+        
+        
         return defaultCell;
     }
     
     func ConfigureCustomCell(_ cell: UITableViewCell){
         cell.textLabel?.font = UIFont.init(name: "Roboto-Light", size: 20.0);
         cell.detailTextLabel?.font = UIFont.init(name: "Roboto-Light", size: 26.0);
-        cell.accessoryView = NavigationHelper.DrawMenuDropDown();
         cell.accessoryType = .none;
+    }
+    
+    fileprivate func RenderTemperatureControl(_ temperatureValue: String) -> UILabel{
+        let temperature = UILabel.init();
+        temperature.font = UIFont.init(name: "Roboto-Light", size: 34.0);
+        temperature.text = temperatureValue;
+        temperature.frame = CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: CGSize.init(width: 80, height: 40));
+        
+        return temperature;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

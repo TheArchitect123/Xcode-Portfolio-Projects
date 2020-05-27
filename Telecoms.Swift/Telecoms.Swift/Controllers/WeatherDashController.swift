@@ -16,16 +16,15 @@ import NavigationDropdownMenu
 import Toast_Swift;
 import SwiftTimer;
 import Siesta;
+import DropDown;
 
 class WeatherDashController : BaseViewController {
-    //var navigationBar : CustomNavigationBar?;
-    var _menuView : NavigationDropdownMenu?;
+    var _dropDownView : DropDown?;
     var _masterScroll : UIScrollView?
     var DataSource :  DashboardWeatherSource?;
     
     public override func viewDidLoad() {
         super.viewDidLoad();
-    
         
         ToasterHelper.OpenSimpleToast(self, "Welcome to \(AppInformation.ApplicationName)! Created by Dan Gerchcovich");
         SetupNavigationBar();
@@ -49,25 +48,44 @@ class WeatherDashController : BaseViewController {
     }
     
     fileprivate func SetupNavigationBar(){
-        //        self.navigationController!.setNavigationBarHidden(true, animated: false);
         
-        //        navigationBar = NavigationBarHelper.DrawNavigationWithMenu();
-        //        navigationBar!.LeftBarButton.addTarget(self, action: #selector(OpenMenuDrawer), for: UIControl.Event.touchDown);
-        
-        _menuView = NavigationHelper.DrawMenuDropDown();
-        _menuView!.didSelectItemAtIndexHandler = {[weak self] (indexPath: Int) -> () in
-            
-            print("Navigate to any of the specific settings required");
-        }
-        
-        self.navigationItem.titleView = _menuView!;
+        //self.navigationItem.titleView = _menuView!;
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OpenMenuDrawer)), animated: true);
+        
+        _dropDownView = NavigationHelper.DrawDropDownItems();
+        _dropDownView!.anchorView = self.navigationItem.rightBarButtonItem // UIView or UIBarButtonItem
+        _dropDownView!.selectionAction = { [unowned self] (index: Int, item: String) in
+            
+            switch index {
+            case 0: //Recent Searches...
+                
+                break;
+            case 1: //Add a new location...
+                self.NavigateToModalPage(NavigationHelper.GetCitySearchController(), action: nil);
+                break;
+            case 2: //Maps for all added locations
+                
+                break;
+            case 3: //Application Setting
+                
+                break;
+            default:
+                print("Any other options go here...");
+            }
+            
+        }
         
         // self.view!.addSubview(navigationBar!);
     }
     
+    public override func viewWillDisappear(_ animated: Bool) {
+        
+        //Hide the dropdown everytime the user navigates to another page
+        _dropDownView!.hide()
+    }
+    
     @objc fileprivate func OpenMenuDrawer(){
-        _menuView?.toggle();
+        _dropDownView!.show()
     }
     
     @objc internal override func RefreshItems() {

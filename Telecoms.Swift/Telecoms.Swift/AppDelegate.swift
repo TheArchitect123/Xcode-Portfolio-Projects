@@ -8,6 +8,7 @@
 
 import UIKit;
 import UserNotifications;
+import DropDown;
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AlarmClockHelper.StartWeatherPeriodicService();
         LoaderHelper.ConfigureLoaderDefaults();
         RegisterForNotifications();
+        DropDown.startListeningToKeyboard();
+        
         return true
     }
     

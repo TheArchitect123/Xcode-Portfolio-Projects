@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04209831247EB8A0005AF4B7 /* SearchWeatherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04209830247EB8A0005AF4B7 /* SearchWeatherSource.swift */; };
 		045C6175247E55880084F652 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C6174247E55880084F652 /* NetworkHelper.swift */; };
 		045C6177247E559D0084F652 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6176247E559D0084F652 /* CoreData.framework */; };
 		045C6179247E55A10084F652 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6178247E55A10084F652 /* UIKit.framework */; };
@@ -111,6 +112,9 @@
 		049D4B47247E355F00E91C2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D4B45247E355F00E91C2F /* LaunchScreen.storyboard */; };
 		049D4B52247E355F00E91C2F /* Telecoms_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B51247E355F00E91C2F /* Telecoms_SwiftTests.swift */; };
 		049D4B5D247E355F00E91C2F /* Telecoms_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B5C247E355F00E91C2F /* Telecoms_SwiftUITests.swift */; };
+		3D22B506987BB743E2148B78 /* Pods_Telecoms_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6195247E59110084F652 /* Pods_Telecoms_Swift.framework */; };
+		6EC8C1DB48DAFF705C76D62D /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6194247E59110084F652 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework */; };
+		9F5B7AF8F6FCC799935DB2BF /* Pods_Telecoms_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6196247E59110084F652 /* Pods_Telecoms_SwiftTests.framework */; };
 		AA07A179672AA3D3F5DEA7A0 /* Pods_Telecoms_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC5F168270D11E7C750599 /* Pods_Telecoms_Swift.framework */; };
 		E1D49831D16328E17B9B948F /* Pods_Telecoms_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD100A68B5326DD763FE5F67 /* Pods_Telecoms_SwiftTests.framework */; };
 		F82F99F4C791303E9D5C5027 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EADCEEECFCDF4D2D9CFB85 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework */; };
@@ -134,6 +138,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04209830247EB8A0005AF4B7 /* SearchWeatherSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWeatherSource.swift; sourceTree = "<group>"; };
 		045C6174247E55880084F652 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		045C6176247E559D0084F652 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		045C6178247E55A10084F652 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -289,6 +294,7 @@
 				045C61CD247E5A140084F652 /* UserNotificationsUI.framework in Frameworks */,
 				045C6177247E559D0084F652 /* CoreData.framework in Frameworks */,
 				AA07A179672AA3D3F5DEA7A0 /* Pods_Telecoms_Swift.framework in Frameworks */,
+				3D22B506987BB743E2148B78 /* Pods_Telecoms_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1D49831D16328E17B9B948F /* Pods_Telecoms_SwiftTests.framework in Frameworks */,
+				9F5B7AF8F6FCC799935DB2BF /* Pods_Telecoms_SwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82F99F4C791303E9D5C5027 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */,
+				6EC8C1DB48DAFF705C76D62D /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				045C629E247E83ED0084F652 /* DashboardWeatherSource.swift */,
+				04209830247EB8A0005AF4B7 /* SearchWeatherSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -926,6 +935,7 @@
 				045C62A3247E86BD0084F652 /* Settings.swift in Sources */,
 				045C61EC247E5C360084F652 /* PreviousSearches.swift in Sources */,
 				049D4B38247E355E00E91C2F /* AppDelegate.swift in Sources */,
+				04209831247EB8A0005AF4B7 /* SearchWeatherSource.swift in Sources */,
 				045C6184247E57020084F652 /* NavigationHelper.swift in Sources */,
 				045C61E3247E5B9E0084F652 /* AppInformation.swift in Sources */,
 				045C61CF247E5A530084F652 /* RootNavigationController.swift in Sources */,

@@ -38,7 +38,7 @@ class BaseViewController : UITableViewController {
     }
     
     func ConfigureSwipePops(){
-        if(!(self is WeatherDashController)){
+        if(!((self is WeatherDashController) || (self is CitySearchViewController))){
             self.view.addGestureRecognizer(UISwipeGestureRecognizer.init(target: self, action: #selector(PopPage)));
         }
     }
@@ -48,7 +48,7 @@ class BaseViewController : UITableViewController {
     }
     
     public override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if(!(self is WeatherDashController)){
+        if(!((self is WeatherDashController) || (self is CitySearchViewController))){
             self.PopPage();
         }
     }

@@ -24,4 +24,9 @@ import TopViewControllerDetection;
     func NavigateToPage(_ controller : UIViewController) {
         UIApplication.shared.findTopViewController()?.navigationController?.pushViewController(controller, animated: true);
     }
+    
+    func NavigateToModalPage(_ controller : UIViewController, action: (() -> Void)? = nil) {
+        
+        UIApplication.shared.findTopViewController()!.present(controller, animated: true, completion: nil);
+    }
 }
