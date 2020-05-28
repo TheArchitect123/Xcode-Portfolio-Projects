@@ -20,7 +20,6 @@ class BaseViewController : UITableViewController {
     
     //The base controller needs to contain a view model, which will be used by the controller and invoke the api, relating to the user
     
-    
     public override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -29,6 +28,10 @@ class BaseViewController : UITableViewController {
         self.isMotionEnabled = true;
         ConfigureSwipePops();
         ConfigureTableView();
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false;
     }
     
     fileprivate func ConfigureTableView(){
@@ -51,9 +54,5 @@ class BaseViewController : UITableViewController {
         if(!((self is WeatherDashController) || (self is CitySearchViewController))){
             self.PopPage();
         }
-    }
-    
-    internal func RefreshItems() {
-        LoaderHelper.ShowLoaderWithMessage("Synchronising");
     }
 }

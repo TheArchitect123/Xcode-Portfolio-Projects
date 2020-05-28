@@ -44,6 +44,13 @@ class CoreDataService {
         return persistentContainer;
     }
     
+    // MARK: Core Data Create (Insert) Apis
+    func InsertNewRecord(item: Any?) -> Bool{
+        //Insert a new record into the database for processing
+        
+        return true;
+    }
+    
     // MARK: - Core Data Saving support
     func saveContext () {
         let context = persistentContainer.viewContext

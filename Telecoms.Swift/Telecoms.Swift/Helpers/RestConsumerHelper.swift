@@ -13,10 +13,18 @@ class RestConsumerHelper{
     //Apis for accessing the weather service
     
    static func Get_DefaultRestConsumer() -> Service {
-        return Service.init(baseURL: "\(AppInformation.UrlBase)");
+    return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrl)");
+    }
+    static func Get_DefaultRestConsumer_ForBulk() -> Service {
+        return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrlForBulks)");
     }
     
+    static func Get_DefaultRestConsumer_ForCoord() -> Service {
+        return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrlForCoord)");
+    }
+    
+    
    static func Get_DefaultRestConsumer_ForTesting() -> Service {
-        return Service.init(baseURL: "\(AppInformation.UrlBase_Test)");
+        return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrl_ForTesting)");
     }
 }

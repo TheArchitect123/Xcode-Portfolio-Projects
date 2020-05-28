@@ -9,6 +9,10 @@
 import Foundation
 
 class UrlConstants {
-    static let Remote_BaseUrl = "https://";
+    static let Remote_BaseUrl = "http://api.openweathermap.org/data/2.5";
+    static let Remote_BaseUrlForBulks = "http://api.openweathermap.org/data/2.5";
+    
+    static let Remote_BaseUrlForCoord = "http://api.openweathermap.org/data/2.5";
+    
     static let Remote_BaseUrl_ForTesting = "http://";
 }

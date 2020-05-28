@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData;
+import JSONParserSwift;
 
 class Logs : NSManagedObject {
     var Message : String?;

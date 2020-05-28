@@ -9,48 +9,42 @@
 import Foundation
 import UIKit;
 import Material;
+import MapKit;
 
 class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate {
     
+    var deleteItemHandler: (Int)->Void = {
+        (arg: Int) -> Void in
+    }
+    
+    var previewItemHandler: (Int)->Void = {
+        (arg: Int) -> Void in
+    }
+    
+    //When the user completes their search, a rest api is called to retrieve the results & persist the previous results into the db
+    var Cities: [WeatherMaster]?;
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return Items.count;
-        return 2;
+        print(Cities);
+        
+        return Cities != nil ? Cities!.count : 0;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let contextItem = UIContextualAction(style: .normal, title: "Leading & .normal") { (contextualAction, view, boolValue) in
-//            print("Leading Action style .normal")
-//        }
-//        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-//
-//        return swipeActions
-//    }
-//
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let contextItem = UIContextualAction(style: .destructive, title: "Trailing & .destructive") { (contextualAction, view, boolValue) in
-//            print("Trailing Action style .destructive")
-//        }
-//        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-//
-//        return swipeActions
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let defaultCell = TableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "defaultCell");
         defaultCell.addBorders();
         
         ConfigureCustomCell(defaultCell);
-        defaultCell.accessoryView = RenderTemperatureControl("13°");
+        defaultCell.accessoryView = RenderTemperatureControl("\(Int(Cities![indexPath.row].main.temp))°");
         
         //Bind the data
-        defaultCell.textLabel?.text = "9:32am";
-        defaultCell.detailTextLabel?.text = "Sydney";
-    
         
+        defaultCell.textLabel?.text = "Wind Speed - \(Cities![indexPath.row].wind.speed)m/s";
+        defaultCell.detailTextLabel?.text = "\(Cities![indexPath.row].name)";
         
         return defaultCell;
     }
@@ -61,7 +55,8 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         cell.accessoryType = .none;
     }
     
-    fileprivate func RenderTemperatureControl(_ temperatureValue: String) -> UILabel{
+    fileprivate func RenderTemperatureControl(_ temperatureValue: String) -> UILabel {
+        
         let temperature = UILabel.init();
         temperature.font = UIFont.init(name: "Roboto-Light", size: 34.0);
         temperature.text = temperatureValue;
@@ -71,22 +66,46 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   //On Selection this will navigate to the detail page
-        NavigationHelper.GetActiveViewController()?.NavigateToPage(CityDetailViewController.init());
+        //On Selection this will navigate to the detail page
+        
+        let controller = NavigationHelper.GetCityDetailViewController();
+        controller.CityID = self.Cities![indexPath.row].sys.id;
+        NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
     }
     
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//
-//        let action = UIContextualAction(style: .normal, title: "Unfavorite",
-//                                        handler: { (action, view, completionHandler) in
-//                                            // Update data source when user taps action
-//
-//                                            completionHandler(true)
-//        });
-//
-//        action.image = UIImage(named: "MenuIcon")
-//        action.backgroundColor = .green;
-//        let configuration = UISwipeActionsConfiguration(actions: [action])
-//        return configuration
-//    }
+    func tableView(_ tableView: UITableView,
+                   editActionsForRowAt indexPath: IndexPath)
+        -> [UITableViewRowAction]? {
+            
+            let openMapsItemAction = UITableViewRowAction(style: .normal, title: "Open Maps") { (action, indexPath) in
+                         
+//Opens up the local maps app, to show the user where the city is on the user's device
+                
+                let coordinates = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
+                
+                MapsHelper.openMapForPlace(nameOfCity: self.Cities![indexPath.row].name, location: coordinates);
+                     };
+                     
+                     openMapsItemAction.backgroundColor = ColorHelper.ForestGreen();
+            
+            let previewItemAction = UITableViewRowAction(style: .normal, title: "Preview") { (action, indexPath) in
+                
+                //This will need to pass the ID of the object that is cached in the array
+                let controller = NavigationHelper.GetCityDetailViewController();
+                controller.CityID = self.Cities![indexPath.row].sys.id;
+                
+                NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
+            };
+            
+            previewItemAction.backgroundColor = ColorHelper.DarkThemeBackground();
+            
+            let deleteItemAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+                //This will need to pass the ID of the object that is cached in the array
+                self.previewItemHandler(0);
+            };
+            
+            deleteItemAction.backgroundColor = UIColor.red;
+            
+            return [openMapsItemAction, previewItemAction, deleteItemAction];
+    }
 }

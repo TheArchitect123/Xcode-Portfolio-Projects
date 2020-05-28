@@ -17,6 +17,7 @@ target 'Telecoms.Swift' do
      pod 'SwiftTimer', '~> 2.0'
      pod 'JSONParserSwift', '~> 1.1'
      pod 'DropDown', '~> 2.3'
+     pod 'Dialog'
      pod 'NavigationDropdownMenu', '~> 5.0.0'
 
   # Pods for Telecoms.Swift

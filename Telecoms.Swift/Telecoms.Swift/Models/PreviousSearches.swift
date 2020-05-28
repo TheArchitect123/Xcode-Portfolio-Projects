@@ -6,4 +6,9 @@
 //  Copyright © 2020 Dan Gerchcovich. All rights reserved.
 //
 
-import Foundation
+import Foundation;
+import CoreData;
+
+class PreviousSearches : NSManagedObject {
+    
+}

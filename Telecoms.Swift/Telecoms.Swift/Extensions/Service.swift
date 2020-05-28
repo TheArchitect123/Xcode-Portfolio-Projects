@@ -11,10 +11,10 @@ import Siesta;
 
 extension Service {
     func Get_DefaultRestConsumer() -> Service {
-        return Service.init(baseURL: "\(AppInformation.UrlBase)");
+        return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrl)");
     }
     
     func Get_DefaultRestConsumer_ForTesting() -> Service {
-        return Service.init(baseURL: "\(AppInformation.UrlBase_Test)");
+        return Service.init(baseURL: "\(UrlConstants.Remote_BaseUrl_ForTesting)");
     }
 }

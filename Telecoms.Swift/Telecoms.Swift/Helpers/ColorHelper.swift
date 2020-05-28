@@ -13,6 +13,7 @@ class ColorHelper{
     #warning("Colour Constants - For Common Functions")
     static func Indigo() -> UIColor { return FromHex(0x4b0082);}
     static func LightOrange() -> UIColor { return FromHex(0xffa500);}
+    static func ForestGreen() -> UIColor {return FromHex(0x228C22);}
     
     #warning("Color Functions for View Components")
     static func DarkThemeBackground() -> UIColor { return FromHex(0x041a2f);}

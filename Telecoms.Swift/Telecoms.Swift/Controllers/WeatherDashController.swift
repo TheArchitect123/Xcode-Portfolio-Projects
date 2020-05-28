@@ -26,18 +26,19 @@ class WeatherDashController : BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad();
         
-        ToasterHelper.OpenSimpleToast(self, "Welcome to \(AppInformation.ApplicationName)! Created by Dan Gerchcovich");
         SetupNavigationBar();
         SetupOtherUIComponents();
         SetupDataSource();
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
         RefreshItems();
     }
     
-    fileprivate func SetupDataSource(){
+    fileprivate func SetupDataSource() {
         self.DataSource = DashboardWeatherSource.init();
         self.tableView!.dataSource = self.DataSource;
         self.tableView!.delegate = self.DataSource;
-        self.tableView!.reloadData();
     }
     
     fileprivate func SetupOtherUIComponents(){
@@ -88,41 +89,27 @@ class WeatherDashController : BaseViewController {
         _dropDownView!.show()
     }
     
-    @objc internal override func RefreshItems() {
-        super.RefreshItems();
+    
+    // MARK: Processors from the ViewModel -- Passing Data to the Data Source
+    internal func ReturnedCities(_ items: inout [WeatherMaster]){
         
-        RestConsumerHelper.Get_DefaultRestConsumer()
-            .resource("/get_phrases").withParam("category", "").loadIfNeeded()?.onSuccess { entity in
-                
-                self.tableView!.dataSource = self.DataSource;
-                self.tableView!.delegate = self.DataSource;
-                self.tableView!.reloadData();
-                
-                self.tableView?.refreshControl?.endRefreshing();
-                LoaderHelper.DismissLoaderWithDefault();
-                
-                //                do {
-                //                    self.CustomSource.Items = try JSONParserSwift.parse(string: entity.content as! String) as Array<PhrasesInfo> ;
-                //
-                //                    ToasterHelper.OpenSimpleToast(self, "Successfully retrieved \(self.CustomSource.Items.count) phrases from the server");
-                //
-                //                    self.CustomTableView!.dataSource = self.CustomSource;
-                //                    self.CustomTableView!.delegate = self.CustomSource;
-                //                    self.CustomTableView!.reloadData();
-                //                  // Use base response object here
-                //                } catch {
-                //                  print(error)
-                //                }
-                //
-                //                self.CustomTableView?.refreshControl?.endRefreshing();
-                //                LoaderHelper.DismissLoaderWithDefault();
-        }
-        .onFailure { (result) -> Void in
-            
-            ToasterHelper.OpenSimpleToast(self, "Failed to retrieve items from the server");
-            
-            self.tableView?.refreshControl?.endRefreshing();
-            LoaderHelper.DismissLoaderWithDefault();
-        };
+        self.DataSource?.Cities = items;
+        self.tableView!.dataSource = self.DataSource;
+        self.tableView!.delegate = self.DataSource;
+        self.tableView!.reloadData();
+        self.tableView!.refreshControl?.endRefreshing();
+    }
+    
+    internal func ResetCitiesForEmptyItems(){
+        
+        self.DataSource?.Cities = nil;
+        self.tableView!.dataSource = self.DataSource;
+        self.tableView!.delegate = self.DataSource;
+        self.tableView!.reloadData();
+        self.tableView!.refreshControl?.endRefreshing();
+    }
+    
+    @objc func RefreshItems() {
+        WeatherDashViewModel.GetCityResults_ByCities(self, "4163971,2147714,2174003");
     }
 }

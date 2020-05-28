@@ -15,7 +15,4 @@ struct AppInformation{
     
     static let FullVersion = "1.0.1";
     static let ApplicationName = "WeatherScan";
-    
-    static let UrlBase = "";
-    static let UrlBase_Test = "";
 }
