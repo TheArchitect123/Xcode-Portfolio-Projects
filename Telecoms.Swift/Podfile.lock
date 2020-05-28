@@ -1,10 +1,14 @@
 PODS:
   - Alamofire (5.2.1)
+  - ALRadialMenu (2.0.0)
+  - BottomDrawer (0.1.1)
   - Dialog (1.0.0)
+  - DrawerKit (0.7.0)
   - DropDown (2.3.13)
   - GCDKit (2.1.0)
   - JGProgressHUD (2.1)
   - JSONParserSwift (1.1.4)
+  - lottie-ios-extension (1.5.1.1)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
   - Material/Core (3.1.8):
@@ -16,7 +20,10 @@ PODS:
   - Siesta (1.5.1):
     - Siesta/Core (= 1.5.1)
   - Siesta/Core (1.5.1)
+  - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftPopup (5.0.0):
+    - SnapKit (~> 5.0.0)
   - SwiftTimer (2.0)
   - Swinject (2.7.1)
   - Toast-Swift (5.0.1)
@@ -25,10 +32,18 @@ PODS:
     - "UIColor+Hex/NSColor (= 1.0.1)"
     - "UIColor+Hex/UIColor (= 1.0.1)"
   - "UIColor+Hex/UIColor (1.0.1)"
+  - URWeatherView (0.7.0):
+    - lottie-ios-extension
+    - URWeatherView/Core (= 0.7.0)
+  - URWeatherView/Core (0.7.0):
+    - lottie-ios-extension
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - ALRadialMenu (~> 2.0)
+  - BottomDrawer (~> 0.1)
   - Dialog
+  - DrawerKit (~> 0.7)
   - DropDown (~> 2.3)
   - GCDKit (~> 2.1)
   - JGProgressHUD (~> 2.1)
@@ -37,49 +52,65 @@ DEPENDENCIES:
   - NavigationDropdownMenu (~> 5.0.0)
   - Siesta (~> 1.5)
   - SVProgressHUD (~> 2.2)
+  - SwiftPopup (~> 5.0)
   - SwiftTimer (~> 2.0)
   - Swinject (~> 2.7)
   - Toast-Swift (~> 5.0)
   - TopViewControllerDetection (~> 2.0)
   - "UIColor+Hex (~> 1.0)"
+  - URWeatherView (~> 0.7)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ALRadialMenu
+    - BottomDrawer
     - Dialog
+    - DrawerKit
     - DropDown
     - GCDKit
     - JGProgressHUD
     - JSONParserSwift
+    - lottie-ios-extension
     - Material
     - Motion
     - NavigationDropdownMenu
     - Siesta
+    - SnapKit
     - SVProgressHUD
+    - SwiftPopup
     - SwiftTimer
     - Swinject
     - Toast-Swift
     - TopViewControllerDetection
     - "UIColor+Hex"
+    - URWeatherView
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  ALRadialMenu: eb806aa5349370852e7b6c0dba3ac529f907c605
+  BottomDrawer: 5993cb55da08ccd92b6674d8b925410cb765f34f
   Dialog: 1d126a78ff004cf0384f7faf24e97f5426c2d2d1
+  DrawerKit: 704a618190366883302c7a0895b246fab88cf73b
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   GCDKit: 321b439175c22e31fffb58dfc20078bf58ba4c60
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   JSONParserSwift: fff6c8aee929431cfbb10d016e9b92f06f732057
+  lottie-ios-extension: 219b261ba9f3d6a0cda7cf84bbfb545aa5806153
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
   Siesta: 0b689eff328778c754c4f9afe33ffd70af5ada3d
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftPopup: 31874508c0d91788edf71419a5bbeb3ebd498ab9
   SwiftTimer: 4d25ff045d81c3132e1161a3ba2353d06ff63c30
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
+  URWeatherView: 4a716a83149f788220ec156047e4d0e8517835bf
 
-PODFILE CHECKSUM: 71cbc6b29bfe2da2a1c1d8cc5338988ab01d624d
+PODFILE CHECKSUM: c928628a14487f403edffe8c405bf1ad85901183
 
 COCOAPODS: 1.9.2

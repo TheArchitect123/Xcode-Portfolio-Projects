@@ -1,0 +1,6 @@
+framework module ALRadialMenu {
+  umbrella header "ALRadialMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

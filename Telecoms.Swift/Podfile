@@ -18,7 +18,12 @@ target 'Telecoms.Swift' do
      pod 'JSONParserSwift', '~> 1.1'
      pod 'DropDown', '~> 2.3'
      pod 'Dialog'
+     pod 'SwiftPopup', '~> 5.0'
+     pod 'BottomDrawer', '~> 0.1'
+     pod 'URWeatherView', '~> 0.7'
+     pod 'DrawerKit', '~> 0.7'
      pod 'NavigationDropdownMenu', '~> 5.0.0'
+     pod 'ALRadialMenu', '~> 2.0'
 
   # Pods for Telecoms.Swift
 

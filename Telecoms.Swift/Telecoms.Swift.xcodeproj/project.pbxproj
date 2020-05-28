@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04209831247EB8A0005AF4B7 /* SearchWeatherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04209830247EB8A0005AF4B7 /* SearchWeatherSource.swift */; };
+		042399D824801AA200C093AC /* CityDetailsBottomDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042399D724801AA200C093AC /* CityDetailsBottomDrawerController.swift */; };
 		042B226E247F68F900692C89 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B226D247F68F900692C89 /* Date.swift */; };
 		042B2270247F6B9D00692C89 /* CitySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B226F247F6B9D00692C89 /* CitySearchViewModel.swift */; };
 		042B2272247F6E6500692C89 /* LicenceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B2271247F6E6500692C89 /* LicenceConstants.swift */; };
@@ -152,6 +153,7 @@
 
 /* Begin PBXFileReference section */
 		04209830247EB8A0005AF4B7 /* SearchWeatherSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWeatherSource.swift; sourceTree = "<group>"; };
+		042399D724801AA200C093AC /* CityDetailsBottomDrawerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsBottomDrawerController.swift; sourceTree = "<group>"; };
 		042B226D247F68F900692C89 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		042B226F247F6B9D00692C89 /* CitySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchViewModel.swift; sourceTree = "<group>"; };
 		042B2271247F6E6500692C89 /* LicenceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenceConstants.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				045C61CE247E5A530084F652 /* RootNavigationController.swift */,
 				045C61D0247E5A640084F652 /* WeatherDashController.swift */,
 				045C61FA247E68830084F652 /* CityDetailViewController.swift */,
+				042399D724801AA200C093AC /* CityDetailsBottomDrawerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045C61D4247E5A960084F652 /* BaseViewController.swift in Sources */,
+				042399D824801AA200C093AC /* CityDetailsBottomDrawerController.swift in Sources */,
 				045C61F9247E64DF0084F652 /* Service.swift in Sources */,
 				042B227B247F74F000692C89 /* WindResult.swift in Sources */,
 				045C61F0247E5C8C0084F652 /* WeatherDashViewModel.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 import UIKit;
 import Material;
 import MapKit;
+import SwiftPopup;
 
 class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate {
     
@@ -70,6 +71,9 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         
         let controller = NavigationHelper.GetCityDetailViewController();
         controller.CityID = self.Cities![indexPath.row].sys.id;
+        controller.CityName = self.Cities![indexPath.row].name;
+        controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
+        
         NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
     }
     
@@ -78,21 +82,24 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         -> [UITableViewRowAction]? {
             
             let openMapsItemAction = UITableViewRowAction(style: .normal, title: "Open Maps") { (action, indexPath) in
-                         
-//Opens up the local maps app, to show the user where the city is on the user's device
+                
+                //Opens up the local maps app, to show the user where the city is on the user's device
                 
                 let coordinates = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
                 
                 MapsHelper.openMapForPlace(nameOfCity: self.Cities![indexPath.row].name, location: coordinates);
-                     };
-                     
-                     openMapsItemAction.backgroundColor = ColorHelper.ForestGreen();
+            };
+            
+            openMapsItemAction.backgroundColor = ColorHelper.ForestGreen();
             
             let previewItemAction = UITableViewRowAction(style: .normal, title: "Preview") { (action, indexPath) in
                 
                 //This will need to pass the ID of the object that is cached in the array
                 let controller = NavigationHelper.GetCityDetailViewController();
-                controller.CityID = self.Cities![indexPath.row].sys.id;
+                controller.CityID =
+                    self.Cities![indexPath.row].sys.id;
+                controller.CityName = self.Cities![indexPath.row].name;
+                controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
                 
                 NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
             };

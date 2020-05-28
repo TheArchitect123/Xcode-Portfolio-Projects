@@ -17,11 +17,13 @@ import Toast_Swift;
 import SwiftTimer;
 import Siesta;
 import DropDown;
+import ALRadialMenu;
 
 class WeatherDashController : BaseViewController {
     var _dropDownView : DropDown?;
     var _masterScroll : UIScrollView?
     var DataSource :  DashboardWeatherSource?;
+    var FloatButton : Button?;
     
     public override func viewDidLoad() {
         super.viewDidLoad();
@@ -29,6 +31,24 @@ class WeatherDashController : BaseViewController {
         SetupNavigationBar();
         SetupOtherUIComponents();
         SetupDataSource();
+        
+        //TEST
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(showMenu))
+        self.FloatButton!.addGestureRecognizer(gesture)
+    }
+    
+    @objc func showMenu(sender: UITapGestureRecognizer) {
+
+        var buttons = [ALRadialMenuButton]()
+        buttons.append(ALRadialMenuButton.init(type: UIButton.ButtonType.infoDark));
+        buttons.append(ALRadialMenuButton.init(type: UIButton.ButtonType.contactAdd));
+        buttons.append(ALRadialMenuButton.init(type: UIButton.ButtonType.contactAdd));
+        
+        
+        ALRadialMenu()
+            .setButtons(buttons: buttons)
+            .setAnimationOrigin(animationOrigin: sender.location(in: view))
+            .presentInView(view: self.view)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -46,6 +66,20 @@ class WeatherDashController : BaseViewController {
         masterRefreshMngr.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.valueChanged);
         
         self.tableView.refreshControl = masterRefreshMngr;
+        
+        FloatButton = Button.init(frame: CGRect(x: self.view.ScreenWidth() - 90.0, y: self.view.ScreenHeight() - 140.0, width: 70, height: 70));
+              FloatButton!.backgroundColor = ColorHelper.DarkThemeBackground();
+              FloatButton!.layer.cornerRadius = 35.0;
+              FloatButton!.setImage(UIImage.init(named: ImageConstants._refreshIcon), for: UIControl.State.normal);
+              FloatButton!.setImage(UIImage.init(named: ImageConstants._refreshIcon), for: UIControl.State.highlighted);
+              FloatButton!.setImage(UIImage.init(named: ImageConstants._refreshIcon), for: UIControl.State.selected);
+              FloatButton!.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.touchDown);
+    
+        self.view.addSubview(FloatButton!);
+    }
+    
+    fileprivate func AdjustConstraintsOfFloatButton(){
+        //Add layout constraints so that the floating button is always on the bottom right corner
     }
     
     fileprivate func SetupNavigationBar(){
