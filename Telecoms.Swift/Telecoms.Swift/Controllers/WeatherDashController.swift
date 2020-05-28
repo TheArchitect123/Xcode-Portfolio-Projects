@@ -33,8 +33,8 @@ class WeatherDashController : BaseViewController {
         SetupDataSource();
         
         //TEST
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(showMenu))
-        self.FloatButton!.addGestureRecognizer(gesture)
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(showMenu))
+//        self.FloatButton!.addGestureRecognizer(gesture)
     }
     
     @objc func showMenu(sender: UITapGestureRecognizer) {
@@ -85,7 +85,9 @@ class WeatherDashController : BaseViewController {
     fileprivate func SetupNavigationBar(){
         
         //self.navigationItem.titleView = _menuView!;
-        self.navigationItem.setRightBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OpenMenuDrawer)), animated: true);
+        self.navigationItem.setRightBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OpenMenuDrawer)), animated: false);
+        
+        self.navigationItem.setLeftBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.organize, target: self, action: #selector(OpenMenuDrawer)), animated: false);
         
         _dropDownView = NavigationHelper.DrawDropDownItems();
         _dropDownView!.anchorView = self.navigationItem.rightBarButtonItem // UIView or UIBarButtonItem
@@ -120,7 +122,10 @@ class WeatherDashController : BaseViewController {
     }
     
     @objc fileprivate func OpenMenuDrawer(){
-        _dropDownView!.show()
+//        _dropDownView!.show()
+           
+        self.NavigateToModalPage(NavigationHelper.GetCitySearchController(), action: nil);
+        
     }
     
     
