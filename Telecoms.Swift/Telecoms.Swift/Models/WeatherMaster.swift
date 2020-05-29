@@ -25,6 +25,7 @@ class WeatherMaster : ParsableModel {
     var cod: Int = 0;
     var timezone : Double = 0;
     var sys: SysResult = SysResult.init();
+    var id: Int = 0;
     
     //Database specific attributes
     var existsOnDatabase: Bool = false; //will be used by the data sources to determine whether the user is allowed to add the city to their dashboard

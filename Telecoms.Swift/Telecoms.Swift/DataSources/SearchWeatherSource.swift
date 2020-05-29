@@ -85,7 +85,7 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
                 //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
                 //This will need to pass the ID of the object that is cached in the array
                 
-                self.completionHandler(self.SearchResults![indexPath.row].sys.id);
+                self.completionHandler(Int(self.SearchResults![indexPath.row].sys.id));
                 
                 //check whether this record has already been added into the database
             };
@@ -97,7 +97,7 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
                          //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
                          //This will need to pass the ID of the object that is cached in the array
                          
-                         self.deletionHandler(self.SearchResults![indexPath.row].sys.id);
+                         self.deletionHandler(Int(self.SearchResults![indexPath.row].sys.id));
                          
                          //check whether this record has already been added into the database
                      };
@@ -123,6 +123,6 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //On Selection this will navigate to the detail page
         
-        self.completionHandler(self.SearchResults![indexPath.row].sys.id);
+        self.completionHandler(Int(self.SearchResults![indexPath.row].sys.id));
     }
 }

@@ -570,6 +570,8 @@ open class URWeatherScene: SKScene, URNodeMovable {
         switch self.weatherType {
         case .snow:
             self.subGroundEmitters = [SKEmitterNode]()
+            
+            if( self.subGroundEmitterOptions != nil){
             for i in 0 ..< self.subGroundEmitterOptions.count {
                 let subGroundEmitter = URSnowGroundEmitterNode()
 
@@ -586,12 +588,14 @@ open class URWeatherScene: SKScene, URNodeMovable {
 
                 self.subGroundEmitters.insert(subGroundEmitter, at: 0)
             }
+            }
         case .rain:
             self.groundEmitter = URRainGroundEmitterNode()
             self.groundEmitter.particleScaleRange = 0.2
 
             self.subGroundEmitters = [SKEmitterNode]()
-            for i in 0 ..< self.subGroundEmitterOptions.count {
+            if( self.subGroundEmitterOptions != nil){
+            for i in 0 ..< self.subGroundEmitterOptions.count - 1 {
                 let subGroundEmitter = URRainGroundEmitterNode()
 
                 subGroundEmitter.particlePositionRange = CGVector(dx: self.size.width * self.subGroundEmitterOptions[i].rangeRatio, dy: 7.5)
@@ -604,6 +608,7 @@ open class URWeatherScene: SKScene, URNodeMovable {
                 subGroundEmitter.run(SKAction.rotate(toAngle: self.subGroundEmitterOptions[i].angle, duration: 0.0))
 
                 self.subGroundEmitters.insert(subGroundEmitter, at: 0)
+            }
             }
         default:
             self.groundEmitter = nil

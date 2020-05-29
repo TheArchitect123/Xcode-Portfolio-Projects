@@ -132,6 +132,10 @@ class WeatherDashController : BaseViewController {
     // MARK: Processors from the ViewModel -- Passing Data to the Data Source
     internal func ReturnedCities(_ items: inout [WeatherMaster]){
         
+        for bn in items {
+            print ("ID \(bn.sys.sunrise)");
+        }
+        
         self.DataSource?.Cities = items;
         self.tableView!.dataSource = self.DataSource;
         self.tableView!.delegate = self.DataSource;

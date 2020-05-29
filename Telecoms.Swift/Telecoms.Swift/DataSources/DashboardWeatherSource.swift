@@ -70,7 +70,7 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         //On Selection this will navigate to the detail page
         
         let controller = NavigationHelper.GetCityDetailViewController();
-        controller.CityID = self.Cities![indexPath.row].sys.id;
+        controller.CityID = self.Cities![indexPath.row].id;
         controller.CityName = self.Cities![indexPath.row].name;
         controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
         
@@ -96,10 +96,13 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
                 
                 //This will need to pass the ID of the object that is cached in the array
                 let controller = NavigationHelper.GetCityDetailViewController();
-                controller.CityID =
-                    self.Cities![indexPath.row].sys.id;
+                controller.CityID = self.Cities![indexPath.row].id;
                 controller.CityName = self.Cities![indexPath.row].name;
                 controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
+                
+                print("ID \( controller.CityID)");
+                print("ID \( self.Cities![indexPath.row].sys.id)");
+                
                 
                 NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
             };
@@ -108,7 +111,11 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
             
             let deleteItemAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
                 //This will need to pass the ID of the object that is cached in the array
-                self.previewItemHandler(0);
+                
+                self.Cities!.remove(at: indexPath.row);
+                tableView.reloadData();
+                
+                self.deleteItemHandler(Int(self.Cities![indexPath.row].sys.id));
             };
             
             deleteItemAction.backgroundColor = UIColor.red;

@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
+    var orientationLock = UIInterfaceOrientationMask.all
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            return self.orientationLock
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         AlarmClockHelper.StartWeatherPeriodicService();
@@ -28,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+//    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//
+//        let windowCheck = self.window?.rootViewController?.presentedViewController is CityDetailViewController || self.window?.rootViewController?.presentedViewController is CityDetailsBottomDrawerController;
+//
+//        if(windowCheck) {
+//            return UIInterfaceOrientationMask.portrait
+//        } else {
+//            return UIInterfaceOrientationMask.all
+//        }
+//    }
     
     // MARK: On Application Lifecycle Changes, such as background or foreground state changes, the periodic service responsible for retrieving and updating the app's database, of weather information will be started or stopped. This will help to be more efficient with the api calls.
     func applicationWillTerminate(_ application: UIApplication) {
