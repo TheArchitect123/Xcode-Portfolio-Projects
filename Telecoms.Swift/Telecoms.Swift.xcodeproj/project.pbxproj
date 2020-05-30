@@ -131,6 +131,7 @@
 		049D4B47247E355F00E91C2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D4B45247E355F00E91C2F /* LaunchScreen.storyboard */; };
 		049D4B52247E355F00E91C2F /* Telecoms_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B51247E355F00E91C2F /* Telecoms_SwiftTests.swift */; };
 		049D4B5D247E355F00E91C2F /* Telecoms_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B5C247E355F00E91C2F /* Telecoms_SwiftUITests.swift */; };
+		04E8D51B24820F3F00CB3259 /* WeatherRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8D51A24820F3F00CB3259 /* WeatherRef.swift */; };
 		3D22B506987BB743E2148B78 /* Pods_Telecoms_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6195247E59110084F652 /* Pods_Telecoms_Swift.framework */; };
 		6EC8C1DB48DAFF705C76D62D /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6194247E59110084F652 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework */; };
 		9F5B7AF8F6FCC799935DB2BF /* Pods_Telecoms_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6196247E59110084F652 /* Pods_Telecoms_SwiftTests.framework */; };
@@ -307,6 +308,7 @@
 		049D4B58247E355F00E91C2F /* Telecoms.SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Telecoms.SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049D4B5C247E355F00E91C2F /* Telecoms_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telecoms_SwiftUITests.swift; sourceTree = "<group>"; };
 		049D4B5E247E355F00E91C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E8D51A24820F3F00CB3259 /* WeatherRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRef.swift; sourceTree = "<group>"; };
 		0D8692BFAD6419BFD6393830 /* Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Telecoms.Swift-Telecoms.SwiftUITests/Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		264D863DFA0411538CDF8347 /* Pods-Telecoms.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telecoms.Swift.debug.xcconfig"; path = "Target Support Files/Pods-Telecoms.Swift/Pods-Telecoms.Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		96EFFCB851EE59FAA1085BB7 /* Pods-Telecoms.Swift-Telecoms.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telecoms.Swift-Telecoms.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Telecoms.Swift-Telecoms.SwiftUITests/Pods-Telecoms.Swift-Telecoms.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -360,6 +362,17 @@
 		042B227F247F82C100692C89 /* Dtos */ = {
 			isa = PBXGroup;
 			children = (
+				045C61E9247E5C270084F652 /* Logs.swift */,
+				045C61EB247E5C360084F652 /* PreviousSearches.swift */,
+				045C61ED247E5C5A0084F652 /* WeatherMaster.swift */,
+				045C62A2247E86BD0084F652 /* Settings.swift */,
+				042B2274247F72F800692C89 /* CityCoordinates.swift */,
+				042B2276247F734A00692C89 /* WeatherResult.swift */,
+				042B2278247F740000692C89 /* TemperatureResult.swift */,
+				042B227A247F74F000692C89 /* WindResult.swift */,
+				042B227C247F754000692C89 /* CloudsResult.swift */,
+				04555CEA247FCF0F00ADA60B /* SysResult.swift */,
+				04555CEE247FD66500ADA60B /* WeatherMasters.swift */,
 				042B2280247F82DB00692C89 /* WeatherMasterDto.swift */,
 			);
 			path = Dtos;
@@ -461,17 +474,7 @@
 		045C61E8247E5C0C0084F652 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				045C61E9247E5C270084F652 /* Logs.swift */,
-				045C61EB247E5C360084F652 /* PreviousSearches.swift */,
-				045C61ED247E5C5A0084F652 /* WeatherMaster.swift */,
-				045C62A2247E86BD0084F652 /* Settings.swift */,
-				042B2274247F72F800692C89 /* CityCoordinates.swift */,
-				042B2276247F734A00692C89 /* WeatherResult.swift */,
-				042B2278247F740000692C89 /* TemperatureResult.swift */,
-				042B227A247F74F000692C89 /* WindResult.swift */,
-				042B227C247F754000692C89 /* CloudsResult.swift */,
-				04555CEA247FCF0F00ADA60B /* SysResult.swift */,
-				04555CEE247FD66500ADA60B /* WeatherMasters.swift */,
+				04E8D51A24820F3F00CB3259 /* WeatherRef.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1043,6 +1046,7 @@
 				045C61E5247E5BAA0084F652 /* ImageConstants.swift in Sources */,
 				045C61D1247E5A640084F652 /* WeatherDashController.swift in Sources */,
 				042B2281247F82DB00692C89 /* WeatherMasterDto.swift in Sources */,
+				04E8D51B24820F3F00CB3259 /* WeatherRef.swift in Sources */,
 				045C61E0247E5B7B0084F652 /* RestConsumerHelper.swift in Sources */,
 				045C61F2247E5CD90084F652 /* UIView.swift in Sources */,
 				045C6201247E6B2D0084F652 /* CustomNavigationBar.swift in Sources */,

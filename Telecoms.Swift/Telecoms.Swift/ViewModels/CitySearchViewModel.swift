@@ -9,13 +9,15 @@
 import Foundation
 import JSONParserSwift;
 import CoreLocation;
+import CoreData;
 
 ///This class will manage all the business logic of the City Search Page. Business logic (meaning it will exist between the data layer and the rest api layer)
 class CitySearchViewModel {
-    
-    // MARK: Database Management
-    
-    
+    static var _databaseService : CoreDataService?{
+        get{
+            return CoreDataService.init();
+        }
+    }
     
     // MARK: Query Map Information from the Backend
     static func GetCityResults_ByQuery(_ viewController: CitySearchViewController, _ query: String) {
@@ -25,7 +27,7 @@ class CitySearchViewModel {
         //Invoke a service client on each request, because these will be disposed by ARC
         RestConsumerHelper.Get_DefaultRestConsumer().resource("/weather").withParam("q", "\(query)").withParam("appid", LicenceConstants.WeatherMapsApiKey).loadIfNeeded()?.onSuccess { entity in
             
-            var results : Set<WeatherMaster> = Set<WeatherMaster>.init(minimumCapacity: 0);
+            let results : Set<WeatherMaster> = Set<WeatherMaster>.init(minimumCapacity: 0);
             
             //Convert these data bytes into a json string and map into the json model for processing
             do {

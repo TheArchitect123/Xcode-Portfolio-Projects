@@ -27,8 +27,8 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     var previewHandler: (Int)->Void = {
-           (arg: Int) -> Void in
-       }
+        (arg: Int) -> Void in
+    }
     
     
     init(_completionHandler: @escaping (Int) -> Void,
@@ -85,31 +85,35 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
                 //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
                 //This will need to pass the ID of the object that is cached in the array
                 
-                self.completionHandler(Int(self.SearchResults![indexPath.row].sys.id));
+                CitySearchViewModel._databaseService!.PersistDataOnDisk(cityID: self.SearchResults![indexPath.row].id);
+                
+                self.completionHandler(Int(self.SearchResults![indexPath.row].id));
                 
                 //check whether this record has already been added into the database
+                //If the item already exists the user will only be able to
             };
             
             addItemAction.backgroundColor = ColorHelper.DarkThemeBackground();
             
-            let deleteItemAction = UITableViewRowAction(style: .normal, title: "Remove") { (action, indexPath) in
-                         
-                         //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
-                         //This will need to pass the ID of the object that is cached in the array
-                         
-                         self.deletionHandler(Int(self.SearchResults![indexPath.row].sys.id));
-                         
-                         //check whether this record has already been added into the database
-                     };
-                     
-            deleteItemAction.backgroundColor = UIColor.red;
+            let openMapsItemAction = UITableViewRowAction(style: .normal, title: "Open Maps") { (action, indexPath) in
+                
+                //Opens up the local maps app, to show the user where the city is on the user's device
+                
+                let coordinates = CLLocationCoordinate2D.init(latitude: self.SearchResults![indexPath.row].coord.lat, longitude: self.SearchResults![indexPath.row].coord.lon);
+                
+                MapsHelper.openMapForPlace(nameOfCity: self.SearchResults![indexPath.row].name, location: coordinates);
+            };
             
-            if(!self.SearchResults![indexPath.row].existsOnDatabase){
-                return  [addItemAction]
-            }
-            else{
-                return  [deleteItemAction]
-            }
+            openMapsItemAction.backgroundColor = ColorHelper.ForestGreen();
+            
+//            if(!SearchResults![indexPath.row].existsOnDatabase){
+//                return [addItemAction, openMapsItemAction];
+//            }
+//            else {
+//                return [openMapsItemAction];
+//            }
+//
+            return [addItemAction, openMapsItemAction];
     }
     
     

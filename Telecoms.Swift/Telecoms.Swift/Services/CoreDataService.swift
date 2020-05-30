@@ -8,10 +8,11 @@
 
 import Foundation
 import CoreData;
+import CoreFoundation;
 
 class CoreDataService {
     // MARK: - Core Data stack
-    fileprivate lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -45,11 +46,52 @@ class CoreDataService {
     }
     
     // MARK: Core Data Create (Insert) Apis
-    func InsertNewRecord(item: Any?) -> Bool{
-        //Insert a new record into the database for processing
+    func PersistDataOnDisk(cityID : Int) {
         
-        return true;
+        LoaderHelper.ShowLoaderWithMessage("Persisting item into Core Data Layer");
+        let managedContext =
+            self.persistentContainer.viewContext
+        
+        let entity =
+            NSEntityDescription.entity(forEntityName: "WeatherRef", in: managedContext)!
+        
+        let cityCarrier = NSManagedObject(entity: entity,
+                                          insertInto: managedContext)
+        cityCarrier.setValue("\(cityID)", forKeyPath: "id")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Error persisting item to disk");
+        }
+        
+        LoaderHelper.DismissLoaderWithDefault();
     }
+    
+    func GetDataOnDisk() -> [String] {
+        
+        let managedContext =
+            self.persistentContainer.viewContext;
+        
+        
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherRef")
+        do {
+            let ids = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
+
+            var items = [String]();
+            for id in ids {
+                items.append((id.value(forKey: "id") as! String));
+            }
+            
+            return items;
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        return Array<String>();
+    }
+    
     
     // MARK: - Core Data Saving support
     func saveContext () {

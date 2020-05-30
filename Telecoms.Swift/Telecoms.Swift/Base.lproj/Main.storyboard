@@ -177,7 +177,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8GC-Da-LSb">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="266"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <sections>
                             <tableViewSection footerTitle="" id="YUi-UM-df5">

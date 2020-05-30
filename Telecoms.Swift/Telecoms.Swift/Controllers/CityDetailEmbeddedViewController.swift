@@ -21,4 +21,9 @@ class CityDetailEmbeddedViewController : UITableViewController {
     @IBOutlet var _currentTemp: UILabel!
     @IBOutlet var _sunsetTemp: UILabel!
     @IBOutlet var _sunriseTemp: UILabel!
+    
+    public override func viewDidLoad() {
+        
+        self.view.backgroundColor = UIColor.black;
+    }
 }

@@ -75,7 +75,7 @@ class WeatherDashController : BaseViewController {
               FloatButton!.setImage(UIImage.init(named: ImageConstants._refreshIcon), for: UIControl.State.selected);
               FloatButton!.addTarget(self, action: #selector(RefreshItems), for: UIControl.Event.touchDown);
     
-        self.view.addSubview(FloatButton!);
+    //    self.view.addSubview(FloatButton!);
     }
     
     fileprivate func AdjustConstraintsOfFloatButton(){
@@ -87,7 +87,7 @@ class WeatherDashController : BaseViewController {
         //self.navigationItem.titleView = _menuView!;
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OpenMenuDrawer)), animated: false);
         
-        self.navigationItem.setLeftBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.organize, target: self, action: #selector(OpenMenuDrawer)), animated: false);
+//        self.navigationItem.setLeftBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.organize, target: self, action: #selector(OpenMenuDrawer)), animated: false);
         
         _dropDownView = NavigationHelper.DrawDropDownItems();
         _dropDownView!.anchorView = self.navigationItem.rightBarButtonItem // UIView or UIBarButtonItem
@@ -133,7 +133,8 @@ class WeatherDashController : BaseViewController {
     internal func ReturnedCities(_ items: inout [WeatherMaster]){
         
         for bn in items {
-            print ("ID \(bn.sys.sunrise)");
+            print ("ID \(bn.id)");
+            print ("Name \(bn.name)");
         }
         
         self.DataSource?.Cities = items;
@@ -153,6 +154,9 @@ class WeatherDashController : BaseViewController {
     }
     
     @objc func RefreshItems() {
-        WeatherDashViewModel.GetCityResults_ByCities(self, "4163971,2147714,2174003");
+        
+        //Invokes the GCD to get the latest items from the database. When retrieving these items, these will be passed and casted as a string, which will then be involved with invoking the City View Model function to get the latest weather results.
+        
+        WeatherDashViewModel.GetCityResults_ByCities(self, WeatherDashViewModel._databaseService!.GetDataOnDisk());
     }
 }

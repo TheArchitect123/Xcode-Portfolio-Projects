@@ -103,7 +103,6 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
                 print("ID \( controller.CityID)");
                 print("ID \( self.Cities![indexPath.row].sys.id)");
                 
-                
                 NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
             };
             
