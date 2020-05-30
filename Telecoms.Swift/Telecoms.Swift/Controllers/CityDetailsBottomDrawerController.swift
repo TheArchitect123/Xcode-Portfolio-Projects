@@ -57,7 +57,7 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
         self.weatherSimulatorView = URWeatherView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height), mainWeatherImage: UIImage.init(named: "rain_bg.jpg")!, backgroundImage: nil);
         
         self.view.addSubview(self.weatherSimulatorView!);
-        self.view.sendSubviewToBack(self.weatherSimulatorView!);
+        self.view.sendSubview(toBack: self.weatherSimulatorView!);
     }
     
     override var shouldAutorotate: Bool {
@@ -130,7 +130,7 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
         _cityTitle.text = items[0].name;
         _cityCurrentTemperature.text = "\(Int(items[0].main.temp))º";
         
-        let tableDetails = self.children[0] as! CityDetailEmbeddedViewController;
+        let tableDetails = self.childViewControllers[0] as! CityDetailEmbeddedViewController;
         tableDetails._currentAtmosp.text = "\(items[0].main.pressure)hPa";
         tableDetails._sunsetTemp.text = "\(Int(items[0].main.temp_max))º";
         tableDetails._sunriseTemp.text = "\(Int(items[0].main.temp_min))º";
