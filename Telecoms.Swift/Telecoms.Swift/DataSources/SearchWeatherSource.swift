@@ -75,6 +75,15 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
         MapsHelper.openMapForPlace(nameOfCity: searchResult.name, location: CLLocationCoordinate2D.init(latitude: searchResult.coord.lat, longitude: searchResult.coord.lon))
     }
     
+    func AddNewItem(cityId: Int){
+        //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
+        //This will need to pass the ID of the object that is cached in the array
+        
+        CitySearchViewModel._databaseService!.PersistDataOnDisk(cityID: cityId);
+        
+        self.completionHandler(cityId);
+    }
+    
     func tableView(_ tableView: UITableView,
                    editActionsForRowAt indexPath: IndexPath)
         -> [UITableViewRowAction]? {
@@ -82,15 +91,7 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
             
             let addItemAction = UITableViewRowAction(style: .normal, title: "Add Item") { (action, indexPath) in
                 
-                //Then run some business logic via the view model that will add the item to the CoreData model, so next time it will show up on the dashboard
-                //This will need to pass the ID of the object that is cached in the array
-                
-                CitySearchViewModel._databaseService!.PersistDataOnDisk(cityID: self.SearchResults![indexPath.row].id);
-                
-                self.completionHandler(Int(self.SearchResults![indexPath.row].id));
-                
-                //check whether this record has already been added into the database
-                //If the item already exists the user will only be able to
+                self.AddNewItem(cityId: self.SearchResults![indexPath.row].id);
             };
             
             addItemAction.backgroundColor = ColorHelper.DarkThemeBackground();
@@ -106,13 +107,13 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
             
             openMapsItemAction.backgroundColor = ColorHelper.ForestGreen();
             
-//            if(!SearchResults![indexPath.row].existsOnDatabase){
-//                return [addItemAction, openMapsItemAction];
-//            }
-//            else {
-//                return [openMapsItemAction];
-//            }
-//
+            //            if(!SearchResults![indexPath.row].existsOnDatabase){
+            //                return [addItemAction, openMapsItemAction];
+            //            }
+            //            else {
+            //                return [openMapsItemAction];
+            //            }
+            //
             return [addItemAction, openMapsItemAction];
     }
     
@@ -126,7 +127,6 @@ class SearchWeatherSource : NSObject, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //On Selection this will navigate to the detail page
-        
-        self.completionHandler(Int(self.SearchResults![indexPath.row].sys.id));
+       self.AddNewItem(cityId: self.SearchResults![indexPath.row].id);
     }
 }

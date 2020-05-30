@@ -26,8 +26,6 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
     var Cities: [WeatherMaster]?;
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Cities);
-        
         return Cities != nil ? Cities!.count : 0;
     }
     
@@ -47,6 +45,7 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         defaultCell.textLabel?.text = "Wind Speed - \(Cities![indexPath.row].wind.speed)m/s";
         defaultCell.detailTextLabel?.text = "\(Cities![indexPath.row].name)";
         
+        defaultCell.tag = (Cities![indexPath.row].id);
         return defaultCell;
     }
     
@@ -74,6 +73,7 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
         controller.CityName = self.Cities![indexPath.row].name;
         controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
         
+        
         NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
     }
     
@@ -100,9 +100,6 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
                 controller.CityName = self.Cities![indexPath.row].name;
                 controller.CityLocation = CLLocationCoordinate2D.init(latitude: self.Cities![indexPath.row].coord.lat, longitude: self.Cities![indexPath.row].coord.lon);
                 
-                print("ID \( controller.CityID)");
-                print("ID \( self.Cities![indexPath.row].sys.id)");
-                
                 NavigationHelper.GetActiveViewController()?.NavigateToPage(controller);
             };
             
@@ -110,11 +107,15 @@ class DashboardWeatherSource : NSObject, UITableViewDataSource, UITableViewDeleg
             
             let deleteItemAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
                 //This will need to pass the ID of the object that is cached in the array
+                let item = self.Cities![indexPath.row];
+                print(item.name);
+                print(self.Cities!.count);
                 
+                WeatherDashViewModel._databaseService?.RemoveDataOnDisk(cityID: self.Cities![indexPath.row].id);
+                
+                self.deleteItemHandler(self.Cities![indexPath.row].id);
                 self.Cities!.remove(at: indexPath.row);
-                tableView.reloadData();
-                
-                self.deleteItemHandler(Int(self.Cities![indexPath.row].sys.id));
+                    tableView.reloadData();
             };
             
             deleteItemAction.backgroundColor = UIColor.red;

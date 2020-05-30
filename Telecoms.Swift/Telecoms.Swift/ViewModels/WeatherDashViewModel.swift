@@ -23,13 +23,13 @@ class WeatherDashViewModel {
         
         var cachedIds = ids;
         if(!cachedIds.contains("4163971")){
-            cachedIds.append(",4163971");
+            cachedIds.append("4163971");
         }
         if(!cachedIds.contains("2147714")){
-            cachedIds.append(",2147714");
+            cachedIds.append("2147714");
         }
         if(!cachedIds.contains("2174003")){
-            cachedIds.append(",2174003");
+            cachedIds.append("2174003");
         }
         
 //        let itemsOnDisk = CoreDataService.GetDataOnDisk();
@@ -44,6 +44,8 @@ class WeatherDashViewModel {
                 let rawJson = String(bytes: try JSONSerialization.data(withJSONObject: entity.jsonDict, options: []), encoding: String.Encoding.utf8);
                 
                 let queriesResults : WeatherMasters = try JSONParserSwift.parse(string: rawJson!);
+                
+                print(queriesResults.list.count);
                 
                 viewController.ReturnedCities( &queriesResults.list);
                 ToasterHelper.OpenSimpleToast(viewController, "Successfully retrieved \(queriesResults.cnt) cities...");

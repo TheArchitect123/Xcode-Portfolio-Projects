@@ -48,6 +48,7 @@ class CoreDataService {
     // MARK: Core Data Create (Insert) Apis
     func PersistDataOnDisk(cityID : Int) {
         
+        if(!GetDataOnDisk().contains("\(cityID)")){
         LoaderHelper.ShowLoaderWithMessage("Persisting item into Core Data Layer");
         let managedContext =
             self.persistentContainer.viewContext
@@ -66,6 +67,28 @@ class CoreDataService {
         }
         
         LoaderHelper.DismissLoaderWithDefault();
+        }
+    }
+    
+    // MARK: Core Data Create (Insert) Apis
+    func RemoveDataOnDisk(cityID : Int) -> Void {
+        let managedContext =
+            self.persistentContainer.viewContext;
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherRef")
+        do {
+            let ids = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
+            for id in ids {
+                let item = id.value(forKey: "id") as! String;
+                if(item == "\(cityID)"){
+                    managedContext.delete(id);
+                    try managedContext.save()
+                }
+            }
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
     func GetDataOnDisk() -> [String] {
@@ -78,7 +101,7 @@ class CoreDataService {
             NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherRef")
         do {
             let ids = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
-
+            
             var items = [String]();
             for id in ids {
                 items.append((id.value(forKey: "id") as! String));
