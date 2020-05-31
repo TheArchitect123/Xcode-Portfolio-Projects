@@ -1,0 +1,6 @@
+framework module Pods_SafetyBox_Swift_SafetyBox_SwiftUITests {
+  umbrella header "Pods-SafetyBox.Swift-SafetyBox.SwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

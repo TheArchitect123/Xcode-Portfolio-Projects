@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,35 @@
 		044279A824838F9E0030E45C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044279A724838F9E0030E45C /* BaseViewController.swift */; };
 		044279AA24838FD60030E45C /* BaseModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044279A924838FD60030E45C /* BaseModalViewController.swift */; };
 		044279AC248390A00030E45C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044279AB248390A00030E45C /* RootNavigationController.swift */; };
+		044279AE248393700030E45C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279AD248393700030E45C /* Alamofire.framework */; };
+		044279B0248393700030E45C /* ALRadialMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279AF248393700030E45C /* ALRadialMenu.framework */; };
+		044279B2248393700030E45C /* BottomDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279B1248393700030E45C /* BottomDrawer.framework */; };
+		044279B4248393700030E45C /* Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279B3248393700030E45C /* Dialog.framework */; };
+		044279B6248393700030E45C /* DrawerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279B5248393700030E45C /* DrawerKit.framework */; };
+		044279B8248393700030E45C /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279B7248393700030E45C /* DropDown.framework */; };
+		044279BA248393700030E45C /* GCDKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279B9248393700030E45C /* GCDKit.framework */; };
+		044279BC248393700030E45C /* JGProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279BB248393700030E45C /* JGProgressHUD.framework */; };
+		044279BE248393700030E45C /* JSONParserSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279BD248393700030E45C /* JSONParserSwift.framework */; };
+		044279C0248393700030E45C /* LottieEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279BF248393700030E45C /* LottieEx.framework */; };
+		044279C2248393700030E45C /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279C1248393700030E45C /* Material.framework */; };
+		044279C4248393700030E45C /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279C3248393700030E45C /* Motion.framework */; };
+		044279C6248393700030E45C /* NavigationDropdownMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279C5248393700030E45C /* NavigationDropdownMenu.framework */; };
+		044279C8248393700030E45C /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279C7248393700030E45C /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */; };
+		044279CA248393700030E45C /* Pods_SafetyBox_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279C9248393700030E45C /* Pods_SafetyBox_Swift.framework */; };
+		044279CC248393700030E45C /* Pods_SafetyBox_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279CB248393700030E45C /* Pods_SafetyBox_SwiftTests.framework */; };
+		044279CE248393700030E45C /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279CD248393700030E45C /* Siesta.framework */; };
+		044279D0248393700030E45C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279CF248393700030E45C /* SnapKit.framework */; };
+		044279D2248393710030E45C /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279D1248393710030E45C /* SVProgressHUD.framework */; };
+		044279D4248393710030E45C /* SwiftPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279D3248393710030E45C /* SwiftPopup.framework */; };
+		044279D6248393710030E45C /* SwiftTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279D5248393710030E45C /* SwiftTimer.framework */; };
+		044279D8248393710030E45C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279D7248393710030E45C /* Swinject.framework */; };
+		044279DA248393710030E45C /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279D9248393710030E45C /* Toast_Swift.framework */; };
+		044279DC248393710030E45C /* TopViewControllerDetection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DB248393710030E45C /* TopViewControllerDetection.framework */; };
+		044279DE248393710030E45C /* UIColor_Hex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DD248393710030E45C /* UIColor_Hex.framework */; };
+		044279E0248393710030E45C /* URWeatherView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DF248393710030E45C /* URWeatherView.framework */; };
+		23722364FB5690982C2F155D /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C700CB74BCE993700A668715 /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */; };
+		26DB380FE8B2CFF7503785F1 /* Pods_SafetyBox_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F522E00959C5ABD38CC6D53 /* Pods_SafetyBox_SwiftTests.framework */; };
+		3F0513D494307C1EDC9EB131 /* Pods_SafetyBox_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354C7600C6584B4491EF27C7 /* Pods_SafetyBox_Swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +144,41 @@
 		044279A724838F9E0030E45C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		044279A924838FD60030E45C /* BaseModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModalViewController.swift; sourceTree = "<group>"; };
 		044279AB248390A00030E45C /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
+		044279AD248393700030E45C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279AF248393700030E45C /* ALRadialMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ALRadialMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279B1248393700030E45C /* BottomDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BottomDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279B3248393700030E45C /* Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279B5248393700030E45C /* DrawerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DrawerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279B7248393700030E45C /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279B9248393700030E45C /* GCDKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GCDKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279BB248393700030E45C /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279BD248393700030E45C /* JSONParserSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JSONParserSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279BF248393700030E45C /* LottieEx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LottieEx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279C1248393700030E45C /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279C3248393700030E45C /* Motion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Motion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279C5248393700030E45C /* NavigationDropdownMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NavigationDropdownMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279C7248393700030E45C /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279C9248393700030E45C /* Pods_SafetyBox_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SafetyBox_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279CB248393700030E45C /* Pods_SafetyBox_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SafetyBox_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279CD248393700030E45C /* Siesta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Siesta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279CF248393700030E45C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279D1248393710030E45C /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279D3248393710030E45C /* SwiftPopup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftPopup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279D5248393710030E45C /* SwiftTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279D7248393710030E45C /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279D9248393710030E45C /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279DB248393710030E45C /* TopViewControllerDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TopViewControllerDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279DD248393710030E45C /* UIColor_Hex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIColor_Hex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279DF248393710030E45C /* URWeatherView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URWeatherView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0527133D5552F982DABB8DC4 /* Pods-SafetyBox.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift.debug.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		354C7600C6584B4491EF27C7 /* Pods_SafetyBox_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBox_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		635DE5AE6DF0F4F8639FA92F /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7166A966535F963FB7C00EF3 /* Pods-SafetyBox.SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.SwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-SafetyBox.SwiftTests/Pods-SafetyBox.SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F522E00959C5ABD38CC6D53 /* Pods_SafetyBox_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBox_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C700CB74BCE993700A668715 /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4BC48ADF1BFEE7DC1B6FE6 /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D990D4DEC28A436990AF4096 /* Pods-SafetyBox.Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift.release.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift.release.xcconfig"; sourceTree = "<group>"; };
+		FF3C49E4F7BFEA3C4A3964FC /* Pods-SafetyBox.SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.SwiftTests.release.xcconfig"; path = "Target Support Files/Pods-SafetyBox.SwiftTests/Pods-SafetyBox.SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +186,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044279AE248393700030E45C /* Alamofire.framework in Frameworks */,
+				044279B0248393700030E45C /* ALRadialMenu.framework in Frameworks */,
+				044279B2248393700030E45C /* BottomDrawer.framework in Frameworks */,
+				044279B4248393700030E45C /* Dialog.framework in Frameworks */,
+				044279B6248393700030E45C /* DrawerKit.framework in Frameworks */,
+				044279B8248393700030E45C /* DropDown.framework in Frameworks */,
+				044279BA248393700030E45C /* GCDKit.framework in Frameworks */,
+				044279BC248393700030E45C /* JGProgressHUD.framework in Frameworks */,
+				044279BE248393700030E45C /* JSONParserSwift.framework in Frameworks */,
+				044279C0248393700030E45C /* LottieEx.framework in Frameworks */,
+				044279C2248393700030E45C /* Material.framework in Frameworks */,
+				044279C4248393700030E45C /* Motion.framework in Frameworks */,
+				044279C6248393700030E45C /* NavigationDropdownMenu.framework in Frameworks */,
+				044279C8248393700030E45C /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework in Frameworks */,
+				044279CA248393700030E45C /* Pods_SafetyBox_Swift.framework in Frameworks */,
+				044279CC248393700030E45C /* Pods_SafetyBox_SwiftTests.framework in Frameworks */,
+				044279CE248393700030E45C /* Siesta.framework in Frameworks */,
+				044279D0248393700030E45C /* SnapKit.framework in Frameworks */,
+				044279D2248393710030E45C /* SVProgressHUD.framework in Frameworks */,
+				044279D4248393710030E45C /* SwiftPopup.framework in Frameworks */,
+				044279D6248393710030E45C /* SwiftTimer.framework in Frameworks */,
+				044279D8248393710030E45C /* Swinject.framework in Frameworks */,
+				044279DA248393710030E45C /* Toast_Swift.framework in Frameworks */,
+				044279DC248393710030E45C /* TopViewControllerDetection.framework in Frameworks */,
+				044279DE248393710030E45C /* UIColor_Hex.framework in Frameworks */,
+				044279E0248393710030E45C /* URWeatherView.framework in Frameworks */,
+				3F0513D494307C1EDC9EB131 /* Pods_SafetyBox_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26DB380FE8B2CFF7503785F1 /* Pods_SafetyBox_SwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23722364FB5690982C2F155D /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +242,8 @@
 				04427916248385A80030E45C /* SafetyBox.SwiftTests */,
 				04427921248385A80030E45C /* SafetyBox.SwiftUITests */,
 				044278FB248385A60030E45C /* Products */,
+				C62AEE7F19EAF8F5530F4AC8 /* Pods */,
+				DAFD911F02616334C6C85FC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				044279A624838F910030E45C /* Base */,
-				044279A324838DEE0030E45C /* Settings */,
 				0442799524838CE00030E45C /* Categories */,
 				0442799324838AFA0030E45C /* DashboardController.swift */,
 				044279A424838E040030E45C /* SettingsController.swift */,
@@ -291,13 +385,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		044279A324838DEE0030E45C /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		044279A624838F910030E45C /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +394,55 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		C62AEE7F19EAF8F5530F4AC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0527133D5552F982DABB8DC4 /* Pods-SafetyBox.Swift.debug.xcconfig */,
+				D990D4DEC28A436990AF4096 /* Pods-SafetyBox.Swift.release.xcconfig */,
+				CE4BC48ADF1BFEE7DC1B6FE6 /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.debug.xcconfig */,
+				635DE5AE6DF0F4F8639FA92F /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig */,
+				7166A966535F963FB7C00EF3 /* Pods-SafetyBox.SwiftTests.debug.xcconfig */,
+				FF3C49E4F7BFEA3C4A3964FC /* Pods-SafetyBox.SwiftTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DAFD911F02616334C6C85FC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				044279AD248393700030E45C /* Alamofire.framework */,
+				044279AF248393700030E45C /* ALRadialMenu.framework */,
+				044279B1248393700030E45C /* BottomDrawer.framework */,
+				044279B3248393700030E45C /* Dialog.framework */,
+				044279B5248393700030E45C /* DrawerKit.framework */,
+				044279B7248393700030E45C /* DropDown.framework */,
+				044279B9248393700030E45C /* GCDKit.framework */,
+				044279BB248393700030E45C /* JGProgressHUD.framework */,
+				044279BD248393700030E45C /* JSONParserSwift.framework */,
+				044279BF248393700030E45C /* LottieEx.framework */,
+				044279C1248393700030E45C /* Material.framework */,
+				044279C3248393700030E45C /* Motion.framework */,
+				044279C5248393700030E45C /* NavigationDropdownMenu.framework */,
+				044279C7248393700030E45C /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */,
+				044279C9248393700030E45C /* Pods_SafetyBox_Swift.framework */,
+				044279CB248393700030E45C /* Pods_SafetyBox_SwiftTests.framework */,
+				044279CD248393700030E45C /* Siesta.framework */,
+				044279CF248393700030E45C /* SnapKit.framework */,
+				044279D1248393710030E45C /* SVProgressHUD.framework */,
+				044279D3248393710030E45C /* SwiftPopup.framework */,
+				044279D5248393710030E45C /* SwiftTimer.framework */,
+				044279D7248393710030E45C /* Swinject.framework */,
+				044279D9248393710030E45C /* Toast_Swift.framework */,
+				044279DB248393710030E45C /* TopViewControllerDetection.framework */,
+				044279DD248393710030E45C /* UIColor_Hex.framework */,
+				044279DF248393710030E45C /* URWeatherView.framework */,
+				354C7600C6584B4491EF27C7 /* Pods_SafetyBox_Swift.framework */,
+				C700CB74BCE993700A668715 /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */,
+				9F522E00959C5ABD38CC6D53 /* Pods_SafetyBox_SwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,9 +450,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04427927248385A80030E45C /* Build configuration list for PBXNativeTarget "SafetyBox.Swift" */;
 			buildPhases = (
+				9585909BAE67568F3962B422 /* [CP] Check Pods Manifest.lock */,
 				044278F6248385A60030E45C /* Sources */,
 				044278F7248385A60030E45C /* Frameworks */,
 				044278F8248385A60030E45C /* Resources */,
+				17C1F0C66261C9C80244DB13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +469,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0442792A248385A80030E45C /* Build configuration list for PBXNativeTarget "SafetyBox.SwiftTests" */;
 			buildPhases = (
+				BADD29164CBA55CA04B49256 /* [CP] Check Pods Manifest.lock */,
 				0442790F248385A80030E45C /* Sources */,
 				04427910248385A80030E45C /* Frameworks */,
 				04427911248385A80030E45C /* Resources */,
@@ -349,9 +488,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0442792D248385A80030E45C /* Build configuration list for PBXNativeTarget "SafetyBox.SwiftUITests" */;
 			buildPhases = (
+				585E2834F7FBE531E34088FA /* [CP] Check Pods Manifest.lock */,
 				0442791A248385A80030E45C /* Sources */,
 				0442791B248385A80030E45C /* Frameworks */,
 				0442791C248385A80030E45C /* Resources */,
+				489F3C41F9524A3FD59F1894 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -455,6 +596,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17C1F0C66261C9C80244DB13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		489F3C41F9524A3FD59F1894 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		585E2834F7FBE531E34088FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9585909BAE67568F3962B422 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafetyBox.Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BADD29164CBA55CA04B49256 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafetyBox.SwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		044278F6248385A60030E45C /* Sources */ = {
@@ -644,6 +888,7 @@
 		};
 		04427928248385A80030E45C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0527133D5552F982DABB8DC4 /* Pods-SafetyBox.Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = StartupIcons;
 				CODE_SIGN_STYLE = Automatic;
@@ -663,6 +908,7 @@
 		};
 		04427929248385A80030E45C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D990D4DEC28A436990AF4096 /* Pods-SafetyBox.Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = StartupIcons;
 				CODE_SIGN_STYLE = Automatic;
@@ -682,6 +928,7 @@
 		};
 		0442792B248385A80030E45C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7166A966535F963FB7C00EF3 /* Pods-SafetyBox.SwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -704,6 +951,7 @@
 		};
 		0442792C248385A80030E45C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF3C49E4F7BFEA3C4A3964FC /* Pods-SafetyBox.SwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -726,6 +974,7 @@
 		};
 		0442792E248385A80030E45C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE4BC48ADF1BFEE7DC1B6FE6 /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -746,6 +995,7 @@
 		};
 		0442792F248385A80030E45C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 635DE5AE6DF0F4F8639FA92F /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

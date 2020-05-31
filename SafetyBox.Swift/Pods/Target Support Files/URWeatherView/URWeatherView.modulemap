@@ -1,0 +1,6 @@
+framework module URWeatherView {
+  umbrella header "URWeatherView-umbrella.h"
+
+  export *
+  module * { export * }
+}
