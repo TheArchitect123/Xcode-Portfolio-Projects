@@ -88,3 +88,13 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+Telecoms.Swift/Telecoms.Swift/Controllers/CityDetailsBottomDrawerController.swift
+Telecoms.Swift/Telecoms.Swift/Helpers/MapsHelper.swift
+Telecoms.Swift/Telecoms.Swift/Info.plist
+Telecoms.Swift/Telecoms.Swift.xcodeproj/project.pbxproj
+Telecoms.Swift/Telecoms.Swift.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+Telecoms.Swift/Telecoms.Swift/Constants/UrlConstants.swift
+Telecoms.Swift/Telecoms.Swift/Controllers/CityDetailsBottomDrawerController.swift
+Telecoms.Swift/Telecoms.Swift/Helpers/MapsHelper.swift
+Telecoms.Swift/Telecoms.Swift/Info.plist
+Telecoms.Swift/Telecoms.Swift.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
