@@ -8,7 +8,16 @@
 
 import Foundation
 import UIKit;
+import Material;
 
-class RootNavigationController : UINavigationController {
+class RootNavigationController : NavigationController {
+    public override func viewDidLoad() {
+        super.viewDidLoad();
+        ConfigureMotionNavigation();
+    }
     
+    fileprivate func ConfigureMotionNavigation(){
+        self.isMotionEnabled = true;
+        self.motionNavigationTransitionType = .autoReverse(presenting: .zoom)
+    }
 }

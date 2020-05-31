@@ -74,6 +74,7 @@
 		044279DC248393710030E45C /* TopViewControllerDetection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DB248393710030E45C /* TopViewControllerDetection.framework */; };
 		044279DE248393710030E45C /* UIColor_Hex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DD248393710030E45C /* UIColor_Hex.framework */; };
 		044279E0248393710030E45C /* URWeatherView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044279DF248393710030E45C /* URWeatherView.framework */; };
+		044279E2248396880030E45C /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044279E1248396880030E45C /* BaseTableViewController.swift */; };
 		23722364FB5690982C2F155D /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C700CB74BCE993700A668715 /* Pods_SafetyBox_Swift_SafetyBox_SwiftUITests.framework */; };
 		26DB380FE8B2CFF7503785F1 /* Pods_SafetyBox_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F522E00959C5ABD38CC6D53 /* Pods_SafetyBox_SwiftTests.framework */; };
 		3F0513D494307C1EDC9EB131 /* Pods_SafetyBox_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354C7600C6584B4491EF27C7 /* Pods_SafetyBox_Swift.framework */; };
@@ -97,7 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044278FA248385A60030E45C /* SafetyBox.Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBox.Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		044278FA248385A60030E45C /* SafetyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044278FD248385A60030E45C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04427904248385A60030E45C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04427907248385A60030E45C /* SafetyBox_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SafetyBox_Swift.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		044279DB248393710030E45C /* TopViewControllerDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TopViewControllerDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		044279DD248393710030E45C /* UIColor_Hex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIColor_Hex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		044279DF248393710030E45C /* URWeatherView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URWeatherView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044279E1248396880030E45C /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		0527133D5552F982DABB8DC4 /* Pods-SafetyBox.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift.debug.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift/Pods-SafetyBox.Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		354C7600C6584B4491EF27C7 /* Pods_SafetyBox_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBox_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		635DE5AE6DF0F4F8639FA92F /* Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests/Pods-SafetyBox.Swift-SafetyBox.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,7 +252,7 @@
 		044278FB248385A60030E45C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				044278FA248385A60030E45C /* SafetyBox.Swift.app */,
+				044278FA248385A60030E45C /* SafetyBox.app */,
 				04427913248385A80030E45C /* SafetyBox.SwiftTests.xctest */,
 				0442791E248385A80030E45C /* SafetyBox.SwiftUITests.xctest */,
 			);
@@ -390,6 +392,7 @@
 			children = (
 				044279A724838F9E0030E45C /* BaseViewController.swift */,
 				044279A924838FD60030E45C /* BaseModalViewController.swift */,
+				044279E1248396880030E45C /* BaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -462,7 +465,7 @@
 			);
 			name = SafetyBox.Swift;
 			productName = SafetyBox.Swift;
-			productReference = 044278FA248385A60030E45C /* SafetyBox.Swift.app */;
+			productReference = 044278FA248385A60030E45C /* SafetyBox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04427912248385A80030E45C /* SafetyBox.SwiftTests */ = {
@@ -715,6 +718,7 @@
 				0442799424838AFA0030E45C /* DashboardController.swift in Sources */,
 				044279A224838DCE0030E45C /* PasswordController.swift in Sources */,
 				044279A524838E040030E45C /* SettingsController.swift in Sources */,
+				044279E2248396880030E45C /* BaseTableViewController.swift in Sources */,
 				044278FE248385A60030E45C /* AppDelegate.swift in Sources */,
 				0442799E24838D720030E45C /* DocumentsController.swift in Sources */,
 				0442799B24838D520030E45C /* SimpleNotesController.swift in Sources */,
@@ -900,7 +904,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SafetyBox-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SafetyBox;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -920,7 +924,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SafetyBox-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SafetyBox;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

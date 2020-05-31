@@ -10,5 +10,12 @@ import Foundation
 import UIKit;
 
 class BaseViewController : UIViewController {
-    
+    public override func viewDidLoad() {
+          super.viewDidLoad();
+          ConfigureMotionNavigation();
+      }
+      
+      fileprivate func ConfigureMotionNavigation(){
+          self.isMotionEnabled = true;
+      }
 }

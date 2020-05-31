@@ -9,7 +9,7 @@
 import Foundation
 import UIKit;
 
-class SettingsController : UIViewController {
+class SettingsController : BaseViewController {
     
 }
 

@@ -1,5 +1,5 @@
 //
-//  BaseModalViewController.swift
+//  BaseTableViewController.swift
 //  SafetyBox.Swift
 //
 //  Created by Assassin on 31/5/20.
@@ -10,7 +10,7 @@ import Foundation;
 import UIKit;
 import Material;
 
-class BaseModalViewController : UIViewController{
+class BaseTableViewController : UITableViewController{
     public override func viewDidLoad() {
              super.viewDidLoad();
              ConfigureMotionNavigation();
