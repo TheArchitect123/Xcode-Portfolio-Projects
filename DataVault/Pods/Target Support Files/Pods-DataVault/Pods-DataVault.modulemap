@@ -1,0 +1,6 @@
+framework module Pods_DataVault {
+  umbrella header "Pods-DataVault-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_DataVault_DataVaultUITests {
+  umbrella header "Pods-DataVault-DataVaultUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
