@@ -1,29 +1,22 @@
 //
-//  RootDashboardController.m
+//  MusicLibraryTableViewController.m
 //  DataVault
 //
 //  Created by Assassin on 4/6/20.
 //  Copyright © 2020 Dan Gerchcovich. All rights reserved.
 //
 
-#import "RootDashboardController.h"
-#import <PDSnackbar/PDSnackbar.h>
-#import <MaterialTextField/MaterialTextField.h>
-#import <MaterialButtons.h>
+#import "MusicLibraryTableViewController.h"
 
-@implementation RootDashboardController
+@interface MusicLibraryTableViewController ()
+
+@end
+
+@implementation MusicLibraryTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = UIColor.whiteColor;
-    
-    MDCButton* button = [[MDCButton alloc] initWithFrame:CGRectMake(0, 100, 80, 80)];
-    button.backgroundColor = UIColor.redColor;
-    
-    self.navigationItem.titleView = button;
-    //MDCBannerView view
-//    PDSnackbar* bar = [PDSnackbar init]
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

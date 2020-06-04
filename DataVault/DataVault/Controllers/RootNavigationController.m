@@ -8,10 +8,6 @@
 
 #import "RootNavigationController.h"
 
-@interface RootNavigationController ()
-
-@end
-
 @implementation RootNavigationController
 
 - (void)viewDidLoad {

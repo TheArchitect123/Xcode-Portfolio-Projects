@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		045BC2572488B98300F1A4A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2562488B98300F1A4A2 /* AppDelegate.m */; };
-		045BC2602488B98300F1A4A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045BC25E2488B98300F1A4A2 /* Main.storyboard */; };
 		045BC2632488B98300F1A4A2 /* DataVault.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2612488B98300F1A4A2 /* DataVault.xcdatamodeld */; };
 		045BC2652488B98400F1A4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045BC2642488B98400F1A4A2 /* Assets.xcassets */; };
 		045BC2682488B98400F1A4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045BC2662488B98400F1A4A2 /* LaunchScreen.storyboard */; };
@@ -38,7 +37,6 @@
 		045BC2B92488BA0400F1A4A2 /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = 045BC2A22488BA0300F1A4A2 /* 100.png */; };
 		045BC2BA2488BA0400F1A4A2 /* 87.png in Resources */ = {isa = PBXBuildFile; fileRef = 045BC2A32488BA0400F1A4A2 /* 87.png */; };
 		045BC2BB2488BA0400F1A4A2 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 045BC2A42488BA0400F1A4A2 /* 58.png */; };
-		045BC2BF2488BB6600F1A4A2 /* RootDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2BE2488BB6600F1A4A2 /* RootDashboardController.m */; };
 		045BC2C22488BB8000F1A4A2 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2C12488BB8000F1A4A2 /* RootNavigationController.m */; };
 		045BC2C42488CC4C00F1A4A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045BC2C32488CC4C00F1A4A2 /* UIKit.framework */; };
 		045BC2C62488CC5500F1A4A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045BC2C52488CC5500F1A4A2 /* CoreGraphics.framework */; };
@@ -50,6 +48,11 @@
 		045BC2D22488CCBC00F1A4A2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045BC2D12488CCBC00F1A4A2 /* CoreBluetooth.framework */; };
 		045BC3082488D1C100F1A4A2 /* PDSnackbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045BC3072488D1C100F1A4A2 /* PDSnackbar.framework */; };
 		045BC30A2488D67900F1A4A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045BC3092488D67900F1A4A2 /* QuartzCore.framework */; };
+		045BC30B2488DDC400F1A4A2 /* RootDashboardController.h in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2BD2488BB6600F1A4A2 /* RootDashboardController.h */; };
+		045BC30C2488DDC400F1A4A2 /* RootDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2BE2488BB6600F1A4A2 /* RootDashboardController.m */; };
+		045BC30D2488DDC400F1A4A2 /* RootNavigationController.h in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2C02488BB8000F1A4A2 /* RootNavigationController.h */; };
+		045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC3102488E09200F1A4A2 /* MusicLibraryTableViewController.m */; };
+		045BC3132488E4FB00F1A4A2 /* SafetyBoxStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045BC3122488E4FB00F1A4A2 /* SafetyBoxStory.storyboard */; };
 		53A6E8FD12647D8B61344AFB /* Pods_DataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80DAA334B615AD150EB499A /* Pods_DataVault.framework */; };
 		7378D2FA33A02B79367A8303 /* Pods_DataVault_DataVaultUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD28CA65DE57D735603FDC06 /* Pods_DataVault_DataVaultUITests.framework */; };
 		81F3E5FEE8432E6E13649B3A /* Pods_DataVaultTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73525AE5E070BEFAB1826B1 /* Pods_DataVaultTests.framework */; };
@@ -90,7 +93,6 @@
 		045BC2522488B98300F1A4A2 /* SafetyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045BC2552488B98300F1A4A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		045BC2562488B98300F1A4A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		045BC25F2488B98300F1A4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		045BC2622488B98300F1A4A2 /* DataVault.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataVault.xcdatamodel; sourceTree = "<group>"; };
 		045BC2642488B98400F1A4A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		045BC2672488B98400F1A4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,9 @@
 		045BC2E32488CD6800F1A4A2 /* TransitionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TransitionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		045BC3072488D1C100F1A4A2 /* PDSnackbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDSnackbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		045BC3092488D67900F1A4A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		045BC30F2488E09200F1A4A2 /* MusicLibraryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicLibraryTableViewController.h; sourceTree = "<group>"; };
+		045BC3102488E09200F1A4A2 /* MusicLibraryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicLibraryTableViewController.m; sourceTree = "<group>"; };
+		045BC3122488E4FB00F1A4A2 /* SafetyBoxStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SafetyBoxStory.storyboard; sourceTree = "<group>"; };
 		1E926492AF5344DDE92AEF92 /* Pods-DataVault-DataVaultUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault-DataVaultUITests.debug.xcconfig"; path = "Target Support Files/Pods-DataVault-DataVaultUITests/Pods-DataVault-DataVaultUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD45225B8717F9D18BA6D13 /* Pods-DataVault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.debug.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.debug.xcconfig"; sourceTree = "<group>"; };
 		51FDC6FD684AADE797405C85 /* Pods-DataVault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.release.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,12 +239,12 @@
 				045BC28D2488B9EA00F1A4A2 /* Resources */,
 				045BC2552488B98300F1A4A2 /* AppDelegate.h */,
 				045BC2562488B98300F1A4A2 /* AppDelegate.m */,
-				045BC25E2488B98300F1A4A2 /* Main.storyboard */,
 				045BC2642488B98400F1A4A2 /* Assets.xcassets */,
 				045BC2662488B98400F1A4A2 /* LaunchScreen.storyboard */,
 				045BC2692488B98400F1A4A2 /* Info.plist */,
 				045BC26A2488B98400F1A4A2 /* main.m */,
 				045BC2612488B98300F1A4A2 /* DataVault.xcdatamodeld */,
+				045BC3122488E4FB00F1A4A2 /* SafetyBoxStory.storyboard */,
 			);
 			path = DataVault;
 			sourceTree = "<group>";
@@ -299,8 +304,18 @@
 				045BC2BE2488BB6600F1A4A2 /* RootDashboardController.m */,
 				045BC2C02488BB8000F1A4A2 /* RootNavigationController.h */,
 				045BC2C12488BB8000F1A4A2 /* RootNavigationController.m */,
+				045BC30E2488E06C00F1A4A2 /* Categories */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		045BC30E2488E06C00F1A4A2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				045BC30F2488E09200F1A4A2 /* MusicLibraryTableViewController.h */,
+				045BC3102488E09200F1A4A2 /* MusicLibraryTableViewController.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		8B54794D220C133C8BB9A3AF /* Pods */ = {
@@ -461,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045BC3132488E4FB00F1A4A2 /* SafetyBoxStory.storyboard in Resources */,
 				045BC2BB2488BA0400F1A4A2 /* 58.png in Resources */,
 				045BC2AE2488BA0400F1A4A2 /* 72.png in Resources */,
 				045BC2B22488BA0400F1A4A2 /* Icons in Resources */,
@@ -486,7 +502,6 @@
 				045BC2A72488BA0400F1A4A2 /* 20.png in Resources */,
 				045BC2B62488BA0400F1A4A2 /* 120.png in Resources */,
 				045BC2652488B98400F1A4A2 /* Assets.xcassets in Resources */,
-				045BC2602488B98300F1A4A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,10 +629,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045BC30B2488DDC400F1A4A2 /* RootDashboardController.h in Sources */,
+				045BC30C2488DDC400F1A4A2 /* RootDashboardController.m in Sources */,
+				045BC30D2488DDC400F1A4A2 /* RootNavigationController.h in Sources */,
+				045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */,
 				045BC26B2488B98400F1A4A2 /* main.m in Sources */,
 				045BC2C22488BB8000F1A4A2 /* RootNavigationController.m in Sources */,
 				045BC2632488B98300F1A4A2 /* DataVault.xcdatamodeld in Sources */,
-				045BC2BF2488BB6600F1A4A2 /* RootDashboardController.m in Sources */,
 				045BC2572488B98300F1A4A2 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,14 +672,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		045BC25E2488B98300F1A4A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				045BC25F2488B98300F1A4A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		045BC2662488B98400F1A4A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
