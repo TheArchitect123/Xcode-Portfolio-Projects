@@ -7,15 +7,17 @@
 //
 
 #import "RootDashboardController.h"
-#import <PDSnackbar/PDSnackbar.h>
-#import <MaterialTextField/MaterialTextField.h>
-#import <MaterialButtons.h>
 #import "DashboardCardView.h"
 #import "ScreenHelper.h"
 #import "Enums.h"
+#import "DialogHelper.h"
+#import "SnackBarHelper.h"
 #import "AppInformation.h"
 
 //Material Design
+#import <PDSnackbar/PDSnackbar.h>
+#import <MaterialTextField/MaterialTextField.h>
+#import <MaterialButtons.h>
 #import <MaterialComponents/MaterialCards.h>
 #import <MaterialComponents/MaterialNavigationDrawer.h>
 
@@ -27,6 +29,14 @@
     
     [self ConfigureCards];
     [self configureRefreshComponent];
+    [self setNavigationBarComponents];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [DialogHelper showDialogueWithSimpleMessage:@"HAHAA HAMAAMHAH!" controller:self];
+    
+   // [SnackBarHelper showSnackBarWithMessage:@"Hello there again"];
 }
 
 //Passwords = 0,
@@ -36,6 +46,18 @@
 //  Documents = 4,
 //  PDFs = 5
 
+
+-(void) refreshCards {
+    //Refresh all Dashboard Components
+    //Invoke the RootDashboard Helper Service, that will contain the Rest Service required for dragging items from the local device and from the server
+    
+    //self._notesCard._categoryItemsCount.text = @"(40) >";
+}
+
+-(void)SetupOtherUIComponents {
+    
+}
+
 #pragma mark - Load the
 -(void)ConfigureCards {
      
@@ -43,7 +65,7 @@
     
     //Passwords
     self._notesCard = [[DashboardCardView alloc] initWithOptions:(int)Notes frameOption:CGRectMake(15.0f, self.navigationController.navigationBar.bounds.size.height - 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
-     self._passwordsCard = [[DashboardCardView alloc] initWithOptions:(int)Passwords frameOption:CGRectMake(15.0f, self._notesCard.frame.origin.y + self._notesCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self ];
+     self._passwordsCard = [[DashboardCardView alloc] initWithOptions:(int)Passwords frameOption:CGRectMake(15.0f, self._notesCard.frame.origin.y + self._notesCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._documentsCard = [[DashboardCardView alloc] initWithOptions:(int)Documents frameOption:CGRectMake(15.0f, self._passwordsCard.frame.origin.y + self._passwordsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._pdfsCard = [[DashboardCardView alloc] initWithOptions:(int)PDFs frameOption:CGRectMake(15.0f, self._documentsCard.frame.origin.y + self._documentsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._photosCard = [[DashboardCardView alloc] initWithOptions:(int)Photos frameOption:CGRectMake(15.0f, self._pdfsCard.frame.origin.y + self._pdfsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
@@ -69,15 +91,25 @@
     self._dashScrollView.refreshControl = refreshDashboard;
 }
 
--(void) refreshCards {
-    //Refresh all Dashboard Components
-    //Invoke the RootDashboard Helper Service, that will contain the Rest Service required for dragging items from the local device and from the server
+#pragma mark Navigation Logic (Bottom Drawer, Menu Drawer for accounts)
+
+-(void) setNavigationBarComponents{
+    //Add Option
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(promptNewContent)]];
     
-    //self._notesCard._categoryItemsCount.text = @"(40) >";
+    //Menu Option
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(promptSideMenuDrawer)]];
 }
 
--(void)SetupOtherUIComponents {
+-(void)promptNewContent{
     
+    //Opens the bottom drawer
+    NSLog(@"Successfully Bottom Drawer test");
+}
+
+-(void)promptSideMenuDrawer{
+    
+    NSLog(@"Opening Menu Drawer");
 }
 
 @end

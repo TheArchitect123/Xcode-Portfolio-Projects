@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DashboardCardView.h"
+#import "BaseControllers/BaseViewController.h"
 #import <MaterialComponents/MaterialNavigationDrawer.h>
 
-@interface RootDashboardController : UIViewController
+@interface RootDashboardController : BaseViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *_dashScrollView;
 
 //Cards

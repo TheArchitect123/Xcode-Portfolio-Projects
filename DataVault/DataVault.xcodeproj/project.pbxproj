@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041AB746248A878D002AC961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB745248A878D002AC961 /* LoginViewController.m */; };
+		041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB748248A87A2002AC961 /* RegisterViewController.m */; };
+		041AB74D248A8826002AC961 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB74C248A8826002AC961 /* BaseViewController.m */; };
+		041AB750248A8830002AC961 /* BaseModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB74F248A8830002AC961 /* BaseModalViewController.m */; };
+		041AB753248A89D9002AC961 /* SnackBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB752248A89D9002AC961 /* SnackBarHelper.m */; };
+		041AB757248A93B0002AC961 /* StripeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB756248A93B0002AC961 /* StripeViewController.m */; };
+		041AB75A248AA082002AC961 /* DialogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB759248AA082002AC961 /* DialogHelper.m */; };
 		044141F3248A18090007FC73 /* Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = 044141F2248A18090007FC73 /* Enums.m */; };
 		044141F6248A24500007FC73 /* FriendlyNames.m in Sources */ = {isa = PBXBuildFile; fileRef = 044141F5248A24500007FC73 /* FriendlyNames.m */; };
 		044141F9248A263D0007FC73 /* NotificationHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 044141F8248A263D0007FC73 /* NotificationHelpers.m */; };
@@ -168,6 +175,20 @@
 
 /* Begin PBXFileReference section */
 		01D585A49A25E85F59AE0884 /* Pods-DataVaultTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVaultTests.release.xcconfig"; path = "Target Support Files/Pods-DataVaultTests/Pods-DataVaultTests.release.xcconfig"; sourceTree = "<group>"; };
+		041AB744248A878D002AC961 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		041AB745248A878D002AC961 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		041AB747248A87A2002AC961 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		041AB748248A87A2002AC961 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		041AB74B248A8826002AC961 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		041AB74C248A8826002AC961 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		041AB74E248A8830002AC961 /* BaseModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModalViewController.h; sourceTree = "<group>"; };
+		041AB74F248A8830002AC961 /* BaseModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModalViewController.m; sourceTree = "<group>"; };
+		041AB751248A89D9002AC961 /* SnackBarHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnackBarHelper.h; sourceTree = "<group>"; };
+		041AB752248A89D9002AC961 /* SnackBarHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnackBarHelper.m; sourceTree = "<group>"; };
+		041AB755248A93B0002AC961 /* StripeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StripeViewController.h; sourceTree = "<group>"; };
+		041AB756248A93B0002AC961 /* StripeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StripeViewController.m; sourceTree = "<group>"; };
+		041AB758248AA082002AC961 /* DialogHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogHelper.h; sourceTree = "<group>"; };
+		041AB759248AA082002AC961 /* DialogHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DialogHelper.m; sourceTree = "<group>"; };
 		044141F1248A18090007FC73 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		044141F2248A18090007FC73 /* Enums.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Enums.m; sourceTree = "<group>"; };
 		044141F4248A24500007FC73 /* FriendlyNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendlyNames.h; sourceTree = "<group>"; };
@@ -384,6 +405,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041AB743248A876C002AC961 /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+				041AB744248A878D002AC961 /* LoginViewController.h */,
+				041AB745248A878D002AC961 /* LoginViewController.m */,
+				041AB747248A87A2002AC961 /* RegisterViewController.h */,
+				041AB748248A87A2002AC961 /* RegisterViewController.m */,
+			);
+			path = Identity;
+			sourceTree = "<group>";
+		};
+		041AB74A248A8819002AC961 /* BaseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				041AB74B248A8826002AC961 /* BaseViewController.h */,
+				041AB74C248A8826002AC961 /* BaseViewController.m */,
+				041AB74E248A8830002AC961 /* BaseModalViewController.h */,
+				041AB74F248A8830002AC961 /* BaseModalViewController.m */,
+			);
+			path = BaseControllers;
+			sourceTree = "<group>";
+		};
+		041AB754248A9384002AC961 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				041AB755248A93B0002AC961 /* StripeViewController.h */,
+				041AB756248A93B0002AC961 /* StripeViewController.m */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
 		044141EC248A07810007FC73 /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +633,9 @@
 		045BC2BC2488BB2200F1A4A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				041AB754248A9384002AC961 /* Payments */,
+				041AB74A248A8819002AC961 /* BaseControllers */,
+				041AB743248A876C002AC961 /* Identity */,
 				045BC2BD2488BB6600F1A4A2 /* RootDashboardController.h */,
 				045BC2BE2488BB6600F1A4A2 /* RootDashboardController.m */,
 				045BC2C02488BB8000F1A4A2 /* RootNavigationController.h */,
@@ -620,6 +675,10 @@
 				044141F5248A24500007FC73 /* FriendlyNames.m */,
 				044141F7248A263D0007FC73 /* NotificationHelpers.h */,
 				044141F8248A263D0007FC73 /* NotificationHelpers.m */,
+				041AB751248A89D9002AC961 /* SnackBarHelper.h */,
+				041AB752248A89D9002AC961 /* SnackBarHelper.m */,
+				041AB758248AA082002AC961 /* DialogHelper.h */,
+				041AB759248AA082002AC961 /* DialogHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1030,11 +1089,16 @@
 				044141F9248A263D0007FC73 /* NotificationHelpers.m in Sources */,
 				04E41121248A5176008D02E6 /* PasswordsTableViewController.m in Sources */,
 				045BC30B2488DDC400F1A4A2 /* RootDashboardController.h in Sources */,
+				041AB74D248A8826002AC961 /* BaseViewController.m in Sources */,
+				041AB746248A878D002AC961 /* LoginViewController.m in Sources */,
+				041AB757248A93B0002AC961 /* StripeViewController.m in Sources */,
 				045BC30C2488DDC400F1A4A2 /* RootDashboardController.m in Sources */,
 				04E41124248A517E008D02E6 /* DocumentsTableViewController.m in Sources */,
 				045BC30D2488DDC400F1A4A2 /* RootNavigationController.h in Sources */,
 				04D9A27824892A8700EFE59F /* DashboardCardView.m in Sources */,
 				045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */,
+				041AB753248A89D9002AC961 /* SnackBarHelper.m in Sources */,
+				041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */,
 				04E4110F248A506E008D02E6 /* PasswordsDashSource.m in Sources */,
 				04E41112248A507B008D02E6 /* DocumentsDashSource.m in Sources */,
 				04E4111B248A50A6008D02E6 /* EmailsDashSource.m in Sources */,
@@ -1047,10 +1111,12 @@
 				04E41118248A5097008D02E6 /* PhotosVideosDashSource.m in Sources */,
 				045BC2632488B98300F1A4A2 /* DataVault.xcdatamodeld in Sources */,
 				045BC2572488B98300F1A4A2 /* AppDelegate.m in Sources */,
+				041AB750248A8830002AC961 /* BaseModalViewController.m in Sources */,
 				04E41115248A5087008D02E6 /* PDFDashSource.m in Sources */,
 				044141F6248A24500007FC73 /* FriendlyNames.m in Sources */,
 				04E4110C248A505C008D02E6 /* MusicDashSource.m in Sources */,
 				04E4112A248A5191008D02E6 /* PhotosVideosTableViewController.m in Sources */,
+				041AB75A248AA082002AC961 /* DialogHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

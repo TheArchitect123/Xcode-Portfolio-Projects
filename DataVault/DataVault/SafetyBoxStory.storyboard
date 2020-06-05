@@ -17,12 +17,43 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="X7m-9g-G9r" kind="relationship" relationship="rootViewController" id="rif-TH-iW9"/>
+                        <segue destination="yjB-T5-BV1" kind="relationship" relationship="rootViewController" id="es5-m5-4Ke"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nM-zG-0iX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-822" y="76"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="DIH-Ou-cHz">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yjB-T5-BV1" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hpv-h8-tef">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uSh-18-fWj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GtK-9v-MwA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Kp-F1-Y6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="76"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="qUe-gT-vFp">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dfH-7d-dpM" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eTm-od-lMM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZRd-lI-uYV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suP-CC-45X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="763"/>
         </scene>
         <!--Root Dashboard Controller-->
         <scene sceneID="qVo-xs-9tu">
@@ -47,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxy-ki-PIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-36.231884057971016" y="75.669642857142847"/>
+            <point key="canvasLocation" x="1004" y="76"/>
         </scene>
         <!--Notes Table View Controller-->
         <scene sceneID="jfa-39-iud">
