@@ -197,6 +197,7 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework"
@@ -212,9 +213,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RestKit/RestKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SOCKit/SOCKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TopUIViewController/TopUIViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TransitionKit/TransitionKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework"
@@ -230,6 +233,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RestKit/RestKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SOCKit/SOCKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TopUIViewController/TopUIViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TransitionKit/TransitionKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

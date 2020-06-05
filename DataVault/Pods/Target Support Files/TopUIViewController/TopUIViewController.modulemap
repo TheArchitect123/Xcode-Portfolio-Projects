@@ -1,0 +1,6 @@
+framework module TopUIViewController {
+  umbrella header "TopUIViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

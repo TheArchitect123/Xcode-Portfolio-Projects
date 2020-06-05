@@ -1,4 +1,5 @@
 PODS:
+  - APProgressHUD (1.1.2)
   - GCDObjC (0.3.0)
   - GoogleAPIClientForREST (1.4.1):
     - GoogleAPIClientForREST/Core (= 1.4.1)
@@ -655,18 +656,22 @@ PODS:
     - TransitionKit (~> 2.2)
   - RKValueTransformers (1.1.3)
   - SOCKit (1.1)
+  - TopUIViewController (1.0.2)
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
+  - APProgressHUD (~> 1.1)
   - GCDObjC (~> 0.3)
   - GoogleAPIClientForREST (~> 1.4)
   - MaterialComponents (~> 109.6)
   - MaterialTextField (~> 1.0)
   - PDSnackbar (~> 0.2)
   - RestKit (~> 0.27)
+  - TopUIViewController (~> 1.0)
 
 SPEC REPOS:
   trunk:
+    - APProgressHUD
     - GCDObjC
     - GoogleAPIClientForREST
     - GTMSessionFetcher
@@ -682,9 +687,11 @@ SPEC REPOS:
     - RestKit
     - RKValueTransformers
     - SOCKit
+    - TopUIViewController
     - TransitionKit
 
 SPEC CHECKSUMS:
+  APProgressHUD: ff2139d0bb9255ca6a2a528811c438d82143751d
   GCDObjC: 0c31898f34d8605196ac0343c65b496609d7dee6
   GoogleAPIClientForREST: e50dc3267b3131ee3a25e707c10204f6bec15ae9
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
@@ -700,8 +707,9 @@ SPEC CHECKSUMS:
   RestKit: 0baa8b61899d1e00c24f4f2d8aea07ecef0c88bc
   RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392
+  TopUIViewController: c45c7fd10701dd34a99c011eb79bcb39d964eb53
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
-PODFILE CHECKSUM: 4c474b30a2c5ba1b22f58fad134574e8ddad996c
+PODFILE CHECKSUM: 43949438dd3c6ee7f3c75866075415b57c3bab48
 
 COCOAPODS: 1.9.2

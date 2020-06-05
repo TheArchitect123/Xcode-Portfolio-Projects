@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-DataVault-DataVaultUITests/Pods-DataVault-DataVaultUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework
@@ -14,4 +15,5 @@ ${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework
 ${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework
 ${BUILT_PRODUCTS_DIR}/RestKit/RestKit.framework
 ${BUILT_PRODUCTS_DIR}/SOCKit/SOCKit.framework
+${BUILT_PRODUCTS_DIR}/TopUIViewController/TopUIViewController.framework
 ${BUILT_PRODUCTS_DIR}/TransitionKit/TransitionKit.framework

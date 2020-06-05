@@ -1,0 +1,6 @@
+framework module APProgressHUD {
+  umbrella header "APProgressHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -10,3 +10,4 @@
 #define VERSION = 1
 #define Minor = 0
 #define AppName = "SafetyBox"
+#define StoryBoard = "SafetyBoxStory"

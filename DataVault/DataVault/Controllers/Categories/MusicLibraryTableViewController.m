@@ -8,10 +8,6 @@
 
 #import "MusicLibraryTableViewController.h"
 
-@interface MusicLibraryTableViewController ()
-
-@end
-
 @implementation MusicLibraryTableViewController
 
 - (void)viewDidLoad {

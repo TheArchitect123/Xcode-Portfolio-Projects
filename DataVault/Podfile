@@ -10,6 +10,8 @@ target 'DataVault' do
     pod 'MaterialComponents', '~> 109.6'
     pod 'GoogleAPIClientForREST', '~> 1.4'
     pod 'GCDObjC', '~> 0.3'
+    pod 'TopUIViewController', '~> 1.0'
+    pod 'APProgressHUD', '~> 1.1'
     #pod 'MaterialControls', '~> 1.2'
   # Pods for DataVault
 
