@@ -10,6 +10,7 @@ target 'DataVault' do
     pod 'MaterialComponents', '~> 109.6'
     pod 'GoogleAPIClientForREST', '~> 1.4'
     pod 'GCDObjC', '~> 0.3'
+    #pod 'MaterialControls', '~> 1.2'
   # Pods for DataVault
 
   target 'DataVaultTests' do

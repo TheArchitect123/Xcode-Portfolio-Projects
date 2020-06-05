@@ -10,91 +10,74 @@
 #import <PDSnackbar/PDSnackbar.h>
 #import <MaterialTextField/MaterialTextField.h>
 #import <MaterialButtons.h>
+#import "DashboardCardView.h"
+#import "ScreenHelper.h"
+#import "Enums.h"
+#import "AppInformation.h"
+
+//Material Design
+#import <MaterialComponents/MaterialCards.h>
+#import <MaterialComponents/MaterialNavigationDrawer.h>
 
 @implementation RootDashboardController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = UIColor.whiteColor;
     
-    MDCButton* button = [[MDCButton alloc] initWithFrame:CGRectMake(0, 100, 80, 80)];
-    button.backgroundColor = UIColor.redColor;
+    [self ConfigureCards];
+    [self configureRefreshComponent];
+}
+
+//Passwords = 0,
+//  Photos = 1,
+//  Notes = 2,
+//  Emails = 3,
+//  Documents = 4,
+//  PDFs = 5
+
+#pragma mark - Load the
+-(void)ConfigureCards {
+     
+    #pragma mark -- Categories
     
-    self.navigationItem.titleView = button;
-    //MDCBannerView view
-//    PDSnackbar* bar = [PDSnackbar init]
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //Passwords
+    self._notesCard = [[DashboardCardView alloc] initWithOptions:(int)Notes frameOption:CGRectMake(15.0f, self.navigationController.navigationBar.bounds.size.height - 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+     self._passwordsCard = [[DashboardCardView alloc] initWithOptions:(int)Passwords frameOption:CGRectMake(15.0f, self._notesCard.frame.origin.y + self._notesCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+    self._documentsCard = [[DashboardCardView alloc] initWithOptions:(int)Documents frameOption:CGRectMake(15.0f, self._passwordsCard.frame.origin.y + self._passwordsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+    self._pdfsCard = [[DashboardCardView alloc] initWithOptions:(int)PDFs frameOption:CGRectMake(15.0f, self._documentsCard.frame.origin.y + self._documentsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+    self._photosCard = [[DashboardCardView alloc] initWithOptions:(int)Photos frameOption:CGRectMake(15.0f, self._pdfsCard.frame.origin.y + self._pdfsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+    self._emailsCard = [[DashboardCardView alloc] initWithOptions:(int)Emails frameOption:CGRectMake(15.0f, self._photosCard.frame.origin.y + self._photosCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
+    self._musicCard = [[DashboardCardView alloc] initWithOptions:(int)Music frameOption:CGRectMake(15.0f, self._emailsCard.frame.origin.y + self._emailsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f)];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    //Set Content Size of the scroll view
+    self._dashScrollView.contentSize = CGSizeMake([ScreenHelper GetScreenWidth], (self._musicCard.frame.origin.y + self._musicCard.bounds.size.height + 20.0f));
     
-    // Configure the cell...
+    //Add the cards to the dashboard
+    [self._dashScrollView addSubview:self._notesCard];
+    [self._dashScrollView addSubview:self._passwordsCard];
+    [self._dashScrollView addSubview:self._documentsCard];
+    [self._dashScrollView addSubview:self._pdfsCard];
+    [self._dashScrollView addSubview:self._photosCard];
+    [self._dashScrollView addSubview:self._emailsCard];
+    [self._dashScrollView addSubview:self._musicCard];
+}
+
+-(void) configureRefreshComponent{
+    UIRefreshControl* refreshDashboard = [[UIRefreshControl alloc] init];
+    [refreshDashboard addTarget:self action:@selector(refreshCards) forControlEvents:UIControlEventValueChanged];
+    self._dashScrollView.refreshControl = refreshDashboard;
+}
+
+-(void) refreshCards {
+    //Refresh all Dashboard Components
+    //Invoke the RootDashboard Helper Service, that will contain the Rest Service required for dragging items from the local device and from the server
     
-    return cell;
+    //self._notesCard._categoryItemsCount.text = @"(40) >";
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)SetupOtherUIComponents {
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
