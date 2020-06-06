@@ -12,20 +12,18 @@
 #import <MaterialComponents/MaterialTextFields.h>
 #import <MaterialComponents/MaterialButtons.h>
 #import <MaterialComponents/MaterialCards.h>
+#import <MaterialComponents/MaterialTextControls+OutlinedTextFields.h>
+
+
 
 @interface LoginViewController : UIViewController
 
 @property(nonatomic, strong, readwrite) UIScrollView* _masterScrollView;
-@property(nonatomic, strong, readwrite) MDCCard* _masterCardView;
 
 //Widgets
 @property(nonatomic, strong, readwrite) MDCTextField* _usernameField;
 @property(nonatomic, strong, readwrite) MDCTextField* _passwordField;
 @property(nonatomic, strong, readwrite) MDCButton* _confirmedLoginBtn;
-
-//Scenery
-@property(nonatomic, strong, readwrite) UIView* _overlayView;
-@property(nonatomic, readwrite, strong) UIImageView* _backgrImageView;
 
 @end
 

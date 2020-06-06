@@ -14,9 +14,11 @@
 //Helpers
 #import "SnackBarHelper.h"
 #import "DialogHelper.h"
+#import "ColorHelper.h"
 
 //Material Controls
 #import <MaterialComponents/MaterialTextFields.h>
+#import <MaterialComponents/MaterialTextControls+OutlinedTextFields.h>
 #import <MaterialComponents/MaterialButtons.h>
 #import <MaterialComponents/MaterialCards.h>
 
@@ -25,21 +27,61 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     [self initializeBgComponents];
-    [self configureInitialValues];
     [self initializeCardControls];
     [self setupUIComponents];
+    
+    //Notifications
+   // [self registerForKeyboardNotifications];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-//    [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Welcome to %s", "SafetyBox"] buttonTitle:@"Dismiss" invokedAction:^(void) {
-//        NSLog(@"Output something");
-//    }];
+    //    [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Welcome to %s", "SafetyBox"] buttonTitle:@"Dismiss" invokedAction:^(void) {
+    //        NSLog(@"Output something");
+    //    }];
     
-    [DialogHelper showDialogueWithTopicSimpleMessage:@"Alexander the Great" messageRef:@"HAHAA HAMAAMHAH!" controller:self];
+    //    [DialogHelper showDialogueWithTopicSimpleMessage:@"Alexander the Great" messageRef:@"HAHAA HAMAAMHAH!" controller:self];
     
+    // [DialogHelper showActionSheetWithSimpleMessage:@"Alexander the Great" controller:self];
+    
+}
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardPopup:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDisappears:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void) keyboardPopup:(NSNotification*)aNotification{
+    
+    //When keyboard emerges, make sure to adjust the content inset of the keyboard element
+
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self._masterScrollView.contentInset = contentInsets;
+    self._masterScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self._usernameField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0,  self._usernameField.frame.origin.y - kbSize.height);
+        [self._masterScrollView setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+-(void) keyboardDisappears:(NSNotification*)aNotification {
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self._masterScrollView.contentInset = contentInsets;
+    self._masterScrollView.scrollIndicatorInsets = contentInsets;
 }
 
 -(void) setupUIComponents{
@@ -49,53 +91,33 @@
     [self.navigationController setNavigationBarHidden:true animated:false];
 }
 
--(void) configureInitialValues {
-    
-    //Background Image
-    self._backgrImageView.image = [UIImage imageNamed:@"mt_bg_14.jpg" inBundle:nil compatibleWithTraitCollection:nil];
-    self._backgrImageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    //Overlay
-    self._overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.65];
-}
-
 -(void) initializeCardControls {
     
     //Configure the Card
     self._masterScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(40.0f, 40.0f, [ScreenHelper GetScreenWidth] - 80.0f, [ScreenHelper GetScreenHeight] - 80.0f)];
     
-    self._masterCardView = [[MDCCard alloc] initWithFrame:CGRectMake(40.0f, 40.0f, [ScreenHelper GetScreenWidth] - 80.0f, [ScreenHelper GetScreenHeight] - 80.0f)];
-                                                                     
-    self._masterCardView.cornerRadius = 10.0f;
-    self._masterCardView.backgroundColor = UIColor.whiteColor;
-    self._masterCardView.layer.borderColor = UIColor.lightGrayColor.CGColor;
-    self._masterCardView.layer.borderWidth = 0.4f;
-    
     //Configure the Controls on the Card
     ///Username Configuration
-    self._usernameField = [[MDCTextField alloc] initWithFrame:CGRectMake(self._masterCardView.bounds.origin.x + 5.0f, self._masterCardView.bounds.size.height * 0.7, (self._masterCardView.bounds.origin.x + self._masterCardView.bounds.size.width - 10.0f), 40.0f)];
+    double commonX = (self._masterScrollView.bounds.origin.x + 5.0f);
+    self._usernameField = [[MDCTextField alloc] initWithFrame:CGRectMake(self._masterScrollView.bounds.origin.x + 5.0f, self._masterScrollView.bounds.size.height * 0.4, commonX - self._masterScrollView.bounds.size.width - 10.0f, 60.0f)];
     self._usernameField.placeholder = @"Username or Email Address";
+    [self._usernameField sizeToFit];
     
     ///Password Configuration
-    self._passwordField = [[MDCTextField alloc] initWithFrame:CGRectMake(self._masterCardView.bounds.origin.x + 5.0f, self._masterCardView.bounds.size.height * 0.8,(self._masterCardView.bounds.origin.x + self._masterCardView.bounds.size.width - 10.0f), 40.0f)];
+    self._passwordField = [[MDCTextField alloc] initWithFrame:CGRectMake(self._masterScrollView.bounds.origin.x + 5.0f, self._masterScrollView.bounds.size.height * 0.5, commonX - self._masterScrollView.bounds.size.width - 10.0f, 40.0f)];
     
     self._passwordField.placeholder = @"Password";
     self._passwordField.secureTextEntry = true;
     
     //Add Controls to the heirarchy
-    [self._masterScrollView addSubview:self._usernameField];
-    [self._masterScrollView addSubview:self._passwordField];
-    [self._masterCardView addSubview:self._masterScrollView];
+    //[self._masterScrollView addSubview:self._usernameField];
+  //  [self._masterScrollView addSubview:self._passwordField];
     
-    [self.view addSubview:self._masterCardView];
+    [self.view addSubview:self._usernameField];
 }
 
 -(void) initializeBgComponents {
-    self._backgrImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [ScreenHelper GetScreenWidth], [ScreenHelper GetScreenHeight])];
-    self._overlayView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [ScreenHelper GetScreenWidth], [ScreenHelper GetScreenHeight])];
-    
-    [self.view addSubview:self._backgrImageView];
-    [self.view addSubview:self._overlayView];
+    self.view.backgroundColor = [ColorHelper CardDark_ThemBackground];
 }
 
 -(void) dismissResponderChains{
@@ -106,16 +128,5 @@
 -(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self dismissResponderChains];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

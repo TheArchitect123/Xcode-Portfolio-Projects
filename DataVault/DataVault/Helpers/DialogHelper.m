@@ -15,7 +15,7 @@
 //Material Components
 #import <MaterialComponents/MaterialDialogs.h>
 #import <MaterialComponents/MaterialDialogs+Theming.h>
-
+#import <MaterialComponents/MaterialActionSheet.h>
 
 @implementation DialogHelper
 
@@ -51,4 +51,48 @@
     [alertController addAction:alertAction];
     [controllerRef presentViewController:alertController animated:YES completion:nil];
 }
+
++(void) showActionSheetWithSimpleMessage:(NSString *)message dialogues:(NSMutableArray*) dialogueOptions controller:(UIViewController *)controllerRef {
+    MDCActionSheetController *actionSheet =
+        [MDCActionSheetController actionSheetControllerWithTitle:@"SafetyBox"
+                                                         message:message];
+    for(MDCActionSheetAction *action in dialogueOptions){
+        [actionSheet addAction:action];
+    }
+    
+    //On Completion, output some sound
+    [controllerRef presentViewController:actionSheet animated:YES completion:nil];
+}
+
++(MDCActionSheetAction *) actionSheetCreator: (NSString *) name action:(void (^)())actionOption{
+    
+    return [MDCActionSheetAction actionWithTitle:name
+                                    image:[UIImage imageNamed:@"ic_home"]
+                                  handler:actionOption];
+}
+
++(MDCActionSheetAction *) actionSheetCreatorWithImage: (NSString *) name image:(NSString *)imagePath action:(void (^)())actionOption {
+    
+    return [MDCActionSheetAction actionWithTitle:name
+                                    image:[UIImage imageNamed:imagePath]
+                                  handler:actionOption];
+}
+
+//+(void) showActionSheetWithActionSimpleMessage:(NSString *)message action:(void (^)()) actionMngr controller:(UIViewController *)controllerRef{
+//
+//    MDCActionSheetController *actionSheet =
+//        [MDCActionSheetController actionSheetControllerWithTitle:@"Action sheet"
+//                                                         message:@"Secondary line text"];
+//    MDCActionSheetAction *homeAction =
+//        [MDCActionSheetAction actionWithTitle:@"Home"
+//                                        image:[UIImage imageNamed:@"ic_home"]
+//                                      handler:nil];
+//    MDCActionSheetAction *favoriteAction =
+//        [MDCActionSheetAction actionWithTitle:@"Favorite"
+//                                        image:[UIImage imageNamed:@"ic_favorite"]
+//                                      handler:nil];
+//    [actionSheet addAction:homeAction];
+//    [actionSheet addAction:favoriteAction];
+//    [controllerRef presentViewController:actionSheet animated:YES completion:nil];
+//}
 @end

@@ -10,6 +10,7 @@
 #import "DashboardCardView.h"
 #import "BaseControllers/BaseViewController.h"
 #import <MaterialComponents/MaterialNavigationDrawer.h>
+#import <MaterialComponents/MaterialBottomNavigation.h>
 
 @interface RootDashboardController : BaseViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *_dashScrollView;
@@ -26,6 +27,7 @@
 
 //Material Components
 @property(nonatomic, strong, readwrite) MDCBottomDrawerViewController* _bottomDrawer;
+@property(nonatomic, strong, readwrite) MDCBottomNavigationBar* _bottomTabBar;
 
 
 @end

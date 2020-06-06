@@ -14,6 +14,12 @@
 +(void) showSnackBarWithMessage:(NSString *)message{
     MDCSnackbarMessage* messageItem = [[MDCSnackbarMessage alloc] init];
     messageItem.text = message;
+    messageItem.buttonTextColor = UIColor.greenColor;
+    
+    MDCSnackbarMessageAction *action = [[MDCSnackbarMessageAction alloc] init];
+    action.title = @"Dismiss";
+
+    messageItem.action = action;
     
     MDCSnackbarManager* snackBar = [[MDCSnackbarManager alloc] init];
     [snackBar showMessage:messageItem];

@@ -8,11 +8,14 @@
 
 #import "RootDashboardController.h"
 #import "DashboardCardView.h"
-#import "ScreenHelper.h"
 #import "Enums.h"
+#import "AppInformation.h"
+
+//Helpers
+#import "StringHelpers.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
-#import "AppInformation.h"
+#import "ScreenHelper.h"
 
 //Material Design
 #import <PDSnackbar/PDSnackbar.h>
@@ -20,6 +23,10 @@
 #import <MaterialButtons.h>
 #import <MaterialComponents/MaterialCards.h>
 #import <MaterialComponents/MaterialNavigationDrawer.h>
+
+#import <MaterialComponents/MDCFloatingButton.h>
+#import <MaterialComponents/MDCFloatingButton+MaterialTheming.h>
+#import <MaterialComponents/MaterialBottomAppBar.h>
 
 @implementation RootDashboardController
 
@@ -30,22 +37,33 @@
     [self ConfigureCards];
     [self configureRefreshComponent];
     [self setNavigationBarComponents];
+    [self checkAuthStatus];
+}
+
+-(void) checkAuthStatus{
+    
+    //If the user is not signed in
+    //    if([NSUserDefaults valueForKey:@"auth_status"]){
+    //        [SnackBarHelper showSnackBarWithMessage:@"Welcome to SafetyBox!"];
+    //    }
+    //    else {
+    //        //Retrieve the account information fromt he Core Data Accounts Entity
+    //        NSString* username = [NSUserDefaults valueForKey:@"auth_identity"];
+    //        if([username isEqualToString:@""]){
+    //            [SnackBarHelper showSnackBarWithMessage:@"Failed to retrieve your account information!"];
+    //        }
+    //        else {
+    //            [SnackBarHelper showSnackBarWithMessage: [NSString stringWithFormat:@"%@ %@", @"Welcome back ", @"ANONYMOUS"]];;
+    //        }
+    //    }
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Welcome to SafetyBox!"];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [DialogHelper showDialogueWithSimpleMessage:@"HAHAA HAMAAMHAH!" controller:self];
     
-   // [SnackBarHelper showSnackBarWithMessage:@"Hello there again"];
 }
-
-//Passwords = 0,
-//  Photos = 1,
-//  Notes = 2,
-//  Emails = 3,
-//  Documents = 4,
-//  PDFs = 5
-
 
 -(void) refreshCards {
     //Refresh all Dashboard Components
@@ -56,16 +74,21 @@
 
 -(void)SetupOtherUIComponents {
     
+    //Bottom Bar
+    
+    //Refresh Floating Button
+    
+    
 }
 
 #pragma mark - Load the
 -(void)ConfigureCards {
-     
-    #pragma mark -- Categories
+    
+#pragma mark -- Categories
     
     //Passwords
     self._notesCard = [[DashboardCardView alloc] initWithOptions:(int)Notes frameOption:CGRectMake(15.0f, self.navigationController.navigationBar.bounds.size.height - 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
-     self._passwordsCard = [[DashboardCardView alloc] initWithOptions:(int)Passwords frameOption:CGRectMake(15.0f, self._notesCard.frame.origin.y + self._notesCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
+    self._passwordsCard = [[DashboardCardView alloc] initWithOptions:(int)Passwords frameOption:CGRectMake(15.0f, self._notesCard.frame.origin.y + self._notesCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._documentsCard = [[DashboardCardView alloc] initWithOptions:(int)Documents frameOption:CGRectMake(15.0f, self._passwordsCard.frame.origin.y + self._passwordsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._pdfsCard = [[DashboardCardView alloc] initWithOptions:(int)PDFs frameOption:CGRectMake(15.0f, self._documentsCard.frame.origin.y + self._documentsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
     self._photosCard = [[DashboardCardView alloc] initWithOptions:(int)Photos frameOption:CGRectMake(15.0f, self._pdfsCard.frame.origin.y + self._pdfsCard.bounds.size.height + 20.0f, [ScreenHelper GetScreenWidth] - 30.0f, 300.0f) controllerOption:self];
@@ -99,12 +122,72 @@
     
     //Menu Option
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(promptSideMenuDrawer)]];
+    
+    
+    //Bottom Tab Bar
+//    self._bottomTabBar = [[MDCBottomNavigationBar alloc] init];
+//    self._bottomTabBar.sizeThatFitsIncludesSafeArea = false;
+//    [self layoutBottomNavBar];
+//
+//    UITabBarItem* item = [[UITabBarItem alloc] initWithTitle:@"Dashboard" image:@"Dashboard_NotesIcon" tag:0];
+//    [self._bottomTabBar setItems:[[NSArray alloc] initWithObjects:item]];
+}
+
+- (void)layoutBottomNavBar {
+    CGRect viewBounds = CGRectStandardize(self.view.bounds);
+    CGSize size = [self._bottomTabBar sizeThatFits:viewBounds.size];
+    UIEdgeInsets safeAreaInsets = UIEdgeInsetsZero;
+    // Extend the Bottom Navigation to the bottom of the screen.
+    if (@available(iOS 11.0, *)){
+        safeAreaInsets = self.view.safeAreaInsets;
+    }
+    CGRect bottomNavBarFrame =
+    CGRectMake(0, viewBounds.size.height - size.height - safeAreaInsets.bottom, size.width,
+               size.height + safeAreaInsets.bottom);
+    self._bottomTabBar.frame = bottomNavBarFrame;
 }
 
 -(void)promptNewContent{
     
     //Opens the bottom drawer
-    NSLog(@"Successfully Bottom Drawer test");
+    NSMutableArray* actions = [[NSMutableArray alloc] initWithCapacity:5];
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Notes" image:@"Dashboard_NotesIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Passwords" image:@"Dashboard_PasswordsIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Documents" image:@"Dashboard_DocumentsIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"PDFs" image:@"Dashboard_PDFIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Photos & Videos" image:@"Dashboard_PhotosVideosIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Emails" image:@"Dashboard_EmailsIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Music & Albums" image:@"Dashboard_MusicIcon" action:(^() {
+        
+        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+    })]];
+    
+    
+    [DialogHelper showActionSheetWithSimpleMessage:@"" dialogues:actions controller:self];
 }
 
 -(void)promptSideMenuDrawer{
