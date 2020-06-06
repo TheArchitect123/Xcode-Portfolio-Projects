@@ -18,8 +18,11 @@
 
 +(void) showDialogueWithSimpleMessage:(NSString *)message controller: (UIViewController *) controllerRef;
 +(void) showDialogueWithTopicSimpleMessage:(NSString *)title messageRef:(NSString *)message controller: (UIViewController *) controllerRef;
++(void) showDialogueWithTopicSimpleMessageAction:(NSString *)title messageRef:(NSString *)message action:(void(^)())actionOutcome controller:(UIViewController *) controllerRef;
 
 +(void) showActionSheetWithSimpleMessage:(NSString *)message dialogues:(NSMutableArray*) dialogueOptions controller:(UIViewController *)controllerRef;
+
+
 
 +(MDCActionSheetAction *) actionSheetCreator: (NSString *) name action:(void (^)())actionOption;
 +(MDCActionSheetAction *) actionSheetCreatorWithImage: (NSString *) name image:(NSString *)imagePath action:(void (^)())actionOption;

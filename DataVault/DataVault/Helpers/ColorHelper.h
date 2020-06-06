@@ -14,6 +14,7 @@
 
 +(UIColor *) Indigo;
 +(UIColor *) LightOrange;
++(UIColor *) DarkOrange;
 +(UIColor *) CardDark_ThemBackground;
 +(UIColor *) NavBar_DarkThemeBackground;
 +(UIColor *) FloatButton_DarkThemeBackground;

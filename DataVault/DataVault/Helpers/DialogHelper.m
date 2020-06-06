@@ -22,7 +22,7 @@
 +(void) showDialogueWithSimpleMessage:(NSString *)message controller: (UIViewController *) controllerRef{
     // Present a modal alert
     MDCAlertController *alertController =
-    [MDCAlertController alertControllerWithTitle:@"Test"
+    [MDCAlertController alertControllerWithTitle:@"SafetyBox"
                                          message:message];
     
     MDCAlertAction *alertAction =
@@ -46,6 +46,25 @@
     [MDCAlertAction actionWithTitle:@"OK"
                             handler:^(MDCAlertAction *action) {
         NSLog(@"OK");
+    }];
+    
+    [alertController addAction:alertAction];
+    [controllerRef presentViewController:alertController animated:YES completion:nil];
+}
+
++(void) showDialogueWithTopicSimpleMessageAction:(NSString *)title messageRef:(NSString *)message action:(void(^)())actionOutcome controller: (UIViewController *) controllerRef{
+    
+    // Present a modal alert
+    MDCAlertController *alertController =
+    [MDCAlertController alertControllerWithTitle:title
+                                         message:message];
+    
+    MDCAlertAction *alertAction =
+    [MDCAlertAction actionWithTitle:@"OK"
+                            handler:^(MDCAlertAction *action) {
+        
+        //Invoke the passed Action
+        actionOutcome();
     }];
     
     [alertController addAction:alertAction];

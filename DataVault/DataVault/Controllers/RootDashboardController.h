@@ -12,22 +12,11 @@
 #import <MaterialComponents/MaterialNavigationDrawer.h>
 #import <MaterialComponents/MaterialBottomNavigation.h>
 
+//Internal
+#import "DashboardDataSource.h";
+
 @interface RootDashboardController : BaseViewController
-@property (strong, nonatomic) IBOutlet UIScrollView *_dashScrollView;
 
-//Cards
-@property(nonatomic, strong, readwrite) DashboardCardView* _notesCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _pdfsCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _passwordsCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _photosCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _documentsCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _musicCard;
-@property(nonatomic, strong, readwrite) DashboardCardView* _emailsCard;
-
-
-//Material Components
-@property(nonatomic, strong, readwrite) MDCBottomDrawerViewController* _bottomDrawer;
-@property(nonatomic, strong, readwrite) MDCBottomNavigationBar* _bottomTabBar;
-
+@property(nonatomic, readwrite, strong) DashboardDataSource* DataSource;
 
 @end

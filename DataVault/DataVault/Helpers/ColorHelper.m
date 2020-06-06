@@ -18,6 +18,11 @@
 +(UIColor *) LightOrange{
     return [self colorWithHexString:@"#ffa500"];
 }
+
++(UIColor *) DarkOrange{
+    return [self colorWithHexString:@"#F76917"];
+}
+
 +(UIColor *) CardDark_ThemBackground{
     return [self colorWithHexString:@"#082050"];
 }
