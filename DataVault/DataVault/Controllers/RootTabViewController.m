@@ -37,6 +37,9 @@
     [self setupOtherUIComponents];
 }
 
+//Each page with a table controller needs to listen for when it is selected so that it can adjust its edge insets to avoid having any issues with the margin from the navigation bar
+//To SIMULATE: Press on Tab Bar from Dashboard to Search Button
+
 -(void) enableUINotifications{
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(recreateViewsRequiredForConstraints) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }

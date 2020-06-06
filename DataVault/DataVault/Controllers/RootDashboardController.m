@@ -41,6 +41,7 @@
     [self SetupOtherUIComponents];
 }
 
+
 -(void) checkAuthStatus{
     
     //If the user is not signed in

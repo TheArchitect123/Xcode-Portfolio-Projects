@@ -57,6 +57,7 @@
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    //Remove all items from the categories' cache
     UITableViewRowAction* delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
                                                                       title:@"Clear Cache"
                                                                     handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
@@ -75,6 +76,7 @@
     }];
     
     
+    //Add new content from downloads, or some other options (any other app that allows it)
     NSString* addContentTitle = indexPath.row == 6 ? @"Synchronise" : @"Add";
     UITableViewRowAction* addContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
                                                                           title:addContentTitle
@@ -109,7 +111,43 @@
     
     addContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
     
-    return @[delete, addContent];
+    //Synchronise items with all other items on the device
+    UITableViewRowAction* synchroniseContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                                  title:@"Synchronise"
+                                                                                handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        //Open up the notes page modally based on the category
+        switch (indexPath.row) {
+            
+            case 2: //Documents
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising Documents"];
+                break;
+            case 3: //PDFs
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising PDFs"];
+                break;
+            case 4: //Photos & Videos
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos & Videos album"];
+                break;
+            case 5: //Emails
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
+                break;
+            case 6: //Music & Albums
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
+                //Invoke the itunes library api to manage this logic
+                break;
+            default:
+                break;
+        }
+    }];
+    
+    synchroniseContent.backgroundColor = [ColorHelper DarkOrange];
+    
+    if(indexPath.row >= 2){
+        return @[delete, addContent, synchroniseContent];
+    }
+    else {
+        return @[delete, addContent];
+    }
 }
 
 -(NSString *) categoryHelper:(uint) category {
