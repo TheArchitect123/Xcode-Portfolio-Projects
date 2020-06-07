@@ -19,4 +19,6 @@
 
 @property(nonatomic, readwrite, strong) DashboardDataSource* DataSource;
 
+-(void) refreshItems;
+
 @end

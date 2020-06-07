@@ -18,6 +18,7 @@
 
 @implementation NotesPostViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -25,6 +26,16 @@
     self.view.backgroundColor = UIColor.whiteColor;
     [self setupUIComponents];
     [self setNavigationBarComponents];
+    
+    [self.view addGestureRecognizer:[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(popPage)]];
+}
+
+-(void) popPage{
+    [self.navigationController popViewControllerAnimated:true];
+}
+
+-(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    [self popPage];
 }
 
 -(void) recreateViewsRequiredForConstraints{
@@ -36,8 +47,11 @@
     //Check if the textfield is empty or not
     if(self._descriptionView.text != @"" && self._titleView.text != @""){
         //If the text is not empty, make sure to invoke the view model helper class, to add
+        //Invoke a handler here
         [self.navigationController popViewControllerAnimated:true];
         [SnackBarHelper showSnackBarWithMessage:@"Creating note"];
+        
+        self.completionBlock(self._titleView.text, self._descriptionView.text);
     }
     else {
         [SnackBarHelper showSnackBarWithMessage:@"Error: Missing description and/or title"];
@@ -69,11 +83,18 @@
 -(void) setupUIComponents {
     
     NSLog([NSString stringWithFormat:@"Test String: %@", self._titleView.text]);
-    self._descriptionView.returnKeyType = UIReturnKeyDone;
+    NSLog([NSString stringWithFormat:@"Address: %@", self._descriptionView]);
+    self._descriptionView.returnKeyType = UIReturnKeyDefault;
     self._descriptionView.textColor = UIColor.blackColor;
     self._descriptionView.backgroundColor = UIColor.whiteColor;
     self._descriptionView.font = [UIFont fontWithName:@"Roboto-Light" size:20.0f];
     
+    if(self.DescriptionText != nil) {
+        self._descriptionView.text = self.DescriptionText;
+    }
+    else {
+        self._descriptionView.text = @"My note goes here...";
+    }
     [self._descriptionView becomeFirstResponder];
 }
 

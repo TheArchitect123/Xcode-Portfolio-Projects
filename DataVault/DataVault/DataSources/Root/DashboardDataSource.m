@@ -9,13 +9,29 @@
 //Apple
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+#import <MGSwipeTableCell/MGSwipeButton.h>
+#import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
+
+//Roots
+#import "RootTabViewController.h"
+#import "RootDashboardController.h"
+#import "RootSearchViewController.h"
+#import "RootSettingsViewController.h"
+#import "NotesPostViewController.h"
 
 //Custom
 #import "DashboardDataSource.h"
 
+//GCD
+#import <GCDObjC/GCDObjC.h>
+
+
 //Categories
 #import "MusicLibraryTableViewController.h"
-#import "PasswordsTableViewController.h"
 #import "NotesTableViewController.h"
 #import "DocumentsTableViewController.h"
 #import "PDFsTableViewController.h"
@@ -49,105 +65,138 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *dashboardItem = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"dashItem"];
+    MGSwipeTableCell *dashboardItem = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"dashItem"];
     
     [self configureTableCell:indexPath.row tableCell:&dashboardItem]; //Configure the Table Cell
+    
+    //Configure Right Buttons
+    dashboardItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+    dashboardItem.rightSwipeSettings.enableSwipeBounces = true;
+    dashboardItem.rightSwipeSettings.transition = MGSwipeTransition3D;
+    
     return dashboardItem;
 }
 
-- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+#pragma mark -- POST FUNCTIONS
+-(void) beginCreateNote{
+    UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
     
-    //Remove all items from the categories' cache
-    UITableViewRowAction* delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-                                                                      title:@"Clear Cache"
-                                                                    handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    //Controllers
+    NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
+    
+    //Opens up an action sheet with a set of options, and a small note sample to add content
+    notesPostController.completionBlock = ^(NSString *s, NSString *e) {
+        //Take the strings from the post page, and add it to the database
         
-        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
-            
-            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-            
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:indexPath.row]] buttonTitle:@"Undo" invokedAction:(^(){
-                
-                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-            })];
-        }) controller: self._parentController];
         
-    }];
+    };
     
+    [self._parentController.navigationController pushViewController:notesPostController animated:true];
     
-    //Add new content from downloads, or some other options (any other app that allows it)
-    UITableViewRowAction* addContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                          title:@"Add"
-                                                                        handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        //Open up the notes page modally based on the category
-        switch (indexPath.row) {
-            case 0: //Notes
-                //Opens up an action sheet with a set of options, and a small note sample to add content
-                
-                break;
-            case 1: //Documents
-                //Allows the user to select an item from the security enclave
-                
-                break;
-            case 2: //PDFs
-                break;
-            case 3: //Photos
-                break;
-            case 4: //Videos
-                break;
-            case 5: //Browser History
-                break;
-            case 6: //Emails
-                break;
-            case 7: //Music & Albums
-                
-                //Invoke the itunes library api to manage this logic
-                break;
-            default:
-                break;
-        }
-    }];
-    
-    addContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
-    
-    //Synchronise items with all other items on the device
-    UITableViewRowAction* synchroniseContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                                  title:@"Synchronise"
-                                                                                handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        //Open up the notes page modally based on the category
-        switch (indexPath.row) {
-            case 3: //Photos
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos album"];
-                break;
-            case 4: //Videos
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Videos album"];
-                break;
-            case 5: //Browser History
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with your Browser History"];
-                break;
-            case 6: //Emails
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
-                break;
-            case 7: //Music & Albums
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
-                //Invoke the itunes library api to manage this logic
-                break;
-            default:
-                break;
-        }
-    }];
-    
-    synchroniseContent.backgroundColor = [ColorHelper DarkOrange];
-    
-    if(indexPath.row >= 3){
-        return @[delete, addContent, synchroniseContent];
-    }
-    else {
-        return @[delete, addContent];
-    }
 }
+
+-(void) beginSelectDocument{
+    
+    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.presentation", @"com.microsoft.word.doc",@"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeImport];
+    [self._parentController presentViewController:documentBrowser animated:true completion:nil];
+}
+
+-(void) beginSelectPDFs{
+    
+    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
+    [self._parentController presentViewController:documentBrowser animated:true completion:nil];
+}
+
+-(void) takePhotoFromCamera{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                
+                [self._parentController presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+-(void) selectPhotoFromGallery{
+    
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if(status == PHAuthorizationStatusAuthorized){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
+                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
+//                photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:@[(NSString *)kUTTypePNG, (NSString *)kUTTypeGIF, (NSString *)kUTTypeICO, (NSString *)kUTTypeJPEG, (NSString *)kUTTypeJPEG2000], nil];
+                
+                [self._parentController presentViewController:photoPicker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+//Video Capture
+-(void) takeVideoFromCamera{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+                
+                [self._parentController presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+-(void) selectVideoFromGallery{
+    
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if(status == PHAuthorizationStatusAuthorized){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
+                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
+                photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+
+                [self._parentController presentViewController:photoPicker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+#pragma mark -- END OF POST FUNCTIONS
 
 -(NSString *) categoryHelper:(uint) category {
     switch (category) {
@@ -182,7 +231,92 @@
     return imageFromContext;
 }
 
--(void) configureTableCell:(uint)category tableCell:(UITableViewCell**)cell{
+-(NSArray *) mediaRightButtons:(uint) category isVideo:(BOOL) isVideoRef{
+    return @[[MGSwipeButton buttonWithTitle:@"Camera" backgroundColor:[ColorHelper CardDark_ThemBackground] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        if(isVideoRef){
+            //Open up the video logic
+            [self takeVideoFromCamera];
+        }
+        else {
+            //Open up the photos logic
+            [self takePhotoFromCamera];
+        }
+        
+        return true;
+    }], [MGSwipeButton buttonWithTitle:@"Gallery" backgroundColor:[ColorHelper Teal] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        if(isVideoRef){
+            //Open up the video logic
+            [self selectVideoFromGallery];
+        }
+        else{
+            //Open up the photos logic
+            [self selectPhotoFromGallery];
+        }
+        
+        return true;
+    }],
+             [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+                 
+                 //Invoke the deletion of items
+                 // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+                 [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
+                     
+                     //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+                     [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
+                         
+                         [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+                     })];
+                 }) controller: self._parentController];
+                 
+                 return true;
+             }]];
+}
+
+-(NSArray *) defaultRightButtons:(uint) category{
+    return @[[MGSwipeButton buttonWithTitle:@"Add" backgroundColor:[ColorHelper CardDark_ThemBackground] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        
+        //Open up the notes page modally based on the category
+        switch (category) {
+            case 0: //Notes
+                [self beginCreateNote];
+                break;
+            case 1: //Documents
+                //Allows the user to select an item from the security enclave
+                [self beginSelectDocument];
+                break;
+            case 2: //PDFs
+                [self beginSelectPDFs];
+                break;
+                
+            case 6: //Emails
+                break;
+            case 7: //Music & Albums
+                
+                //Invoke the itunes library api to manage this logic
+                break;
+            default:
+                break;
+        }
+        
+        return true;
+    }], [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        
+        //Invoke the deletion of items
+        // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
+            
+            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
+                
+                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+            })];
+        }) controller: self._parentController];
+        
+        return true;
+    }]];
+}
+
+-(void) configureTableCell:(uint)category tableCell:(MGSwipeTableCell**)cell{
     
     (*cell).textLabel.textColor = UIColor.blackColor;
     (*cell).detailTextLabel.textColor = UIColor.blackColor;
@@ -203,6 +337,40 @@
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
     //    [inkTouchController addRippleToView:dashboardItem];
     
+    if(category == 3 || category == 4){
+        (*cell).rightButtons = [self mediaRightButtons:category isVideo:(category == 4)];
+    }
+    else {
+        (*cell).rightButtons = [self defaultRightButtons:category];
+    }
+    
+    if(category >= 3){
+        (*cell).leftButtons = @[[MGSwipeButton buttonWithTitle:@"Synchronise" backgroundColor:[ColorHelper DarkOrange] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+            
+            //Open up the notes page modally based on the category
+            switch (category) {
+                case 3: //Photos
+                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos album"];
+                    break;
+                case 4: //Videos
+                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Videos album"];
+                    break;
+                case 5: //Browser History
+                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with your Browser History"];
+                    break;
+                case 6: //Emails
+                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
+                    break;
+                case 7: //Music & Albums
+                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
+                    //Invoke the itunes library api to manage this logic
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }]];
+    }
     
     switch (category) {
         case 0: //Notes
@@ -268,7 +436,7 @@
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosVideosTableViewController"] animated:true];
             break;
         case 5: //Browser History
-             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"BrowserHistoryViewController"] animated:true];
+            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"BrowserHistoryViewController"] animated:true];
             break;
         case 6: //Emails
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"EmailsTableViewController"] animated:true];

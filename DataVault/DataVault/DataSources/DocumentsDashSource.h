@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//Collections
+#import "DocumentsDataArray.h"
+
+
 @interface DocumentsDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
+@property(nonatomic, strong, readwrite) DocumentsDataArray* _dataDocumentArray;
 
+-(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef;
 @end

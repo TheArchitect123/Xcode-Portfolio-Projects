@@ -15,6 +15,10 @@
     return [self colorWithHexString:@"#082050"];
 }
 
++(UIColor *) Teal {
+    return [self colorWithHexString:@"#009688"];
+}
+
 +(UIColor *) LightOrange{
     return [self colorWithHexString:@"#ffa500"];
 }

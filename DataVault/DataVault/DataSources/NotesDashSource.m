@@ -20,7 +20,6 @@
 
 //Categories
 #import "MusicLibraryTableViewController.h"
-#import "PasswordsTableViewController.h"
 #import "NotesTableViewController.h"
 #import "DocumentsTableViewController.h"
 #import "PDFsTableViewController.h"
@@ -97,7 +96,7 @@
                                                                            title:@"Edit"
                                                                          handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
-        [self openSpecifiedNote:(uint)indexPath.row];
+        [self openSpecifiedNote:(uint)indexPath.row tableView:tableView];
     }];
     
     editContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
@@ -150,22 +149,33 @@
     return accessory;
 }
 
--(void) openSpecifiedNote:(uint)index {
+-(void) openSpecifiedNote:(uint)index tableView:(UITableView *)tableViewRef {
     
     //Opens up the modal dialogue of the note, allowing the user to edit it.
     //This will make an upload to the cloud, while also updating the items on the local database
     UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
     NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
     
-    notesPostController._descriptionView.text = self._dataArray[index].Description;
+    notesPostController.DescriptionText = self._dataArray[index].Description;
     notesPostController._titleView.text = self._dataArray[index].Title;
+    
+    notesPostController.completionBlock = ^(NSString *s, NSString *e) {
+        [self createNewNote:s description:e];
+        
+        //After adding the item, make sure to refresh the table
+        [tableViewRef reloadData];
+    };
     
     [self._parentController.navigationController pushViewController:notesPostController animated:true];
 }
 
+-(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef {
+    [self._dataArray addObject:[self notesMapper:title description:descriptionRef]];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self openSpecifiedNote:(uint)indexPath.row];
+    [self openSpecifiedNote:(uint)indexPath.row tableView:tableView];
 }
 
 @end

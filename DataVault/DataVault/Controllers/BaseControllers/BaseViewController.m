@@ -17,6 +17,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = UIColor.whiteColor;
     [self.view addGestureRecognizer:[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(popPage)]];
 }
 
@@ -24,6 +25,10 @@
     if(![self isMemberOfClass:[RootDashboardController class]]) {
         [self.navigationController popViewControllerAnimated:true];
     }
+}
+
+-(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    [self popPage];
 }
 
 @end

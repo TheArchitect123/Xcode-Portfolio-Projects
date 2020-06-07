@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MusicLibraryTableViewController : UITableViewController
+//Custom
+#import "BaseViewController.h"
+
+@interface MusicLibraryTableViewController : BaseViewController
 
 @end

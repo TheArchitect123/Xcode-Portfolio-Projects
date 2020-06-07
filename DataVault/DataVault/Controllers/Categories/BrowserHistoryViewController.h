@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+//Custom
+#import "BaseViewController.h"
 
-@interface BrowserHistoryViewController : UITableViewController
+@interface BrowserHistoryViewController : BaseViewController
 
 @end
-
-NS_ASSUME_NONNULL_END

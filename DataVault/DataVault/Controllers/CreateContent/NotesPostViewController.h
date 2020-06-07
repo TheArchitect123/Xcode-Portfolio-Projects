@@ -10,7 +10,10 @@
 
 @interface NotesPostViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *_titleView;
-@property (strong, nonatomic) IBOutlet UITextView *_descriptionView;
+@property (strong, nonatomic, readwrite) IBOutlet UITextField *_titleView;
+@property (strong, nonatomic, readwrite) IBOutlet UITextView *_descriptionView;
+@property(strong, nonatomic, readwrite) NSString* DescriptionText;
+
+@property (nonatomic,copy)void (^completionBlock)(NSString *, NSString *);
 
 @end

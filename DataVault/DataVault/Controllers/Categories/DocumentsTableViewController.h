@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+//Custom
+#import "BaseViewController.h"
+#import "DocumentsDashSource.h"
 
-@interface DocumentsTableViewController : UITableViewController
+@interface DocumentsTableViewController : BaseViewController
+
+@property(nonatomic, readwrite, strong) DocumentsDashSource* DataSource;
 
 @end
-
-NS_ASSUME_NONNULL_END

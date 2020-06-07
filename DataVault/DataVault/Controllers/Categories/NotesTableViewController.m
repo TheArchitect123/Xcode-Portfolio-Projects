@@ -8,9 +8,9 @@
 
 #import "NotesTableViewController.h"
 #import "NotesPostViewController.h"
+#import "DocumentsDashSource.h"
 
-#import "NotesDashSource.h"
-
+//Material
 #import <MaterialComponents/MDCBottomSheetController.h>
 
 @implementation NotesTableViewController
@@ -36,8 +36,8 @@
     
 }
 
--(void) refreshItems {
-    
+-(void) refreshItems{
+    [self.tableView.refreshControl endRefreshing];
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
@@ -57,8 +57,19 @@
     self.tableView.refreshControl = refreshDashboard;
 }
 
--(void) createNewNote{
-    NotesPostViewController *notesPostController = [[NotesPostViewController alloc] init];
+-(void) createNewNote {
+    //Opens up the modal dialogue of the note, allowing the user to edit it.
+    //This will make an upload to the cloud, while also updating the items on the local database
+    UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
+    NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
+    
+    notesPostController.completionBlock = ^(NSString *s, NSString *e) {
+        [self.DataSource createNewNote:s description:e];
+        
+        //After adding the item, make sure to refresh the table
+        [self.tableView reloadData];
+    };
+    
     [self.navigationController pushViewController:notesPostController animated:true];
 }
 

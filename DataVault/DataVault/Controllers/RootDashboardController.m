@@ -74,7 +74,8 @@
 }
 
 -(void) refreshItems{
-    
+    [self.tableView.refreshControl endRefreshing];
+    [SnackBarHelper showSnackBarWithMessage:@"Synchronising database with device"];
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)

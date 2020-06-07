@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+//Custom
+#import "BaseViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface PDFsTableViewController : UITableViewController
+@interface PDFsTableViewController : BaseViewController
 
 @end
-
-NS_ASSUME_NONNULL_END

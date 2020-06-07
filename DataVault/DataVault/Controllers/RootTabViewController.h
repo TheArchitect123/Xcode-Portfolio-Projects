@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+//Tabs
+#import "RootDashboardController.h"
+#import "RootSearchViewController.h"
+#import "RootSettingsViewController.h"
+
 //Material
 #import <MaterialComponents/MaterialBottomAppBar.h>
 #import <MaterialComponents/MDCBottomNavigationBarDelegate.h>
@@ -19,5 +24,9 @@
 
 @property(nonatomic, readwrite, strong) MDCBottomNavigationBar* _bottomNavBar;
 @property(nonatomic, readwrite, strong) MDCFloatingButton* _refreshFloatBtn;
+
+@property(nonatomic, readwrite, strong) RootDashboardController* _dashboardPage;
+@property(nonatomic, readwrite, strong) RootSearchViewController* _searchPage;
+@property(nonatomic, readwrite, strong) RootSettingsViewController* _settingsPage;
 
 @end

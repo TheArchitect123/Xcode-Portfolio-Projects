@@ -1,0 +1,6 @@
+framework module OneDriveSDK {
+  umbrella header "OneDriveSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

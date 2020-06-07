@@ -10,12 +10,16 @@
 #import "RootDashboardController.h"
 #import "RootSearchViewController.h"
 #import "RootSettingsViewController.h"
-#import "ScreenHelper.h"
+#import "NotesPostViewController.h"
 
 //Apple
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 //Helpers
+#import "ScreenHelper.h"
 #import "ColorHelper.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
@@ -95,7 +99,8 @@
 }
 
 -(void) refreshItems{
-    [SnackBarHelper showSnackBarWithMessage:@"Refreshing Items"];
+    //Read the Dashboard Controller and refresh the items
+    [self._dashboardPage refreshItems];
 }
 
 - (void)bottomNavigationBar:(MDCBottomNavigationBar *)bottomNavigationBar didSelectItem:(UITabBarItem *)item{
@@ -113,7 +118,67 @@
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(promptNewContent)]];
     
     //Cloud Storage
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(promptCloudStorageSetup)]];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(promptCloudStorageSetup)]];
+}
+
+-(void) takePhotoFromCamera{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                
+                [self presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+//Video Capture
+-(void) takeVideoFromCamera{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+                
+                [self presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
+}
+
+
+-(void) beginSelectDocument{
+    
+    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.presentation", @"com.microsoft.word.doc",@"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeImport];
+    [self presentViewController:documentBrowser animated:true completion:nil];
+}
+
+-(void) beginSelectPDFs{
+    
+    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
+    [self presentViewController:documentBrowser animated:true completion:nil];
 }
 
 -(void)promptNewContent{
@@ -122,28 +187,41 @@
     NSMutableArray* actions = [[NSMutableArray alloc] initWithCapacity:5];
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Notes" image:@"Dashboard_NotesIcon" action:(^() {
         
-        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-    })]];
-    
-    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Passwords" image:@"Dashboard_PasswordsIcon" action:(^() {
+        UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
+        NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
         
-        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+        notesPostController.completionBlock = ^(NSString *s, NSString *e) {
+            //Take the strings from the post page, and add it to the database
+            
+        };
+        
+        [self.navigationController pushViewController:notesPostController animated:true];
     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Documents" image:@"Dashboard_DocumentsIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+        [self beginSelectDocument];
     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"PDFs" image:@"Dashboard_PDFIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+        [self beginSelectPDFs];
     })]];
     
-    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Photos & Videos" image:@"Dashboard_PhotosVideosIcon" action:(^() {
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Photos" image:@"Dashboard_PhotosIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+        
+        [self takePhotoFromCamera];
     })]];
+    
+    [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Videos" image:@"Dashboard_VideosIcon" action:(^() {
+         
+         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+        [self takeVideoFromCamera];
+     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Emails" image:@"Dashboard_EmailsIcon" action:(^() {
         
@@ -185,24 +263,25 @@
     
     UIStoryboard* storyMngr = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
     
-    RootDashboardController* dashboardController = [storyMngr instantiateViewControllerWithIdentifier:@"RootDashboardController"];
-    dashboardController.tabBarItem.title = @"Dashboard";
-    dashboardController.tabBarItem.image = [UIImage imageNamed:@"DashboardTab"];
-    dashboardController.tabBarItem.tag = 0;
+    self._dashboardPage = [storyMngr instantiateViewControllerWithIdentifier:@"RootDashboardController"];
+    self._dashboardPage.tabBarItem.title = @"Dashboard";
+    self._dashboardPage.tabBarItem.image = [UIImage imageNamed:@"DashboardTab"];
+    self._dashboardPage.tabBarItem.tag = 0;
     
-    RootSearchViewController* searchController = [storyMngr instantiateViewControllerWithIdentifier:@"RootSearchViewController"];
-    searchController.tabBarItem.title = @"Search";
-    searchController.tabBarItem.image = [UIImage imageNamed:@"SearchTab"];
-    searchController.tabBarItem.tag = 1;
+    self._searchPage = [storyMngr instantiateViewControllerWithIdentifier:@"RootSearchViewController"];
+    self._searchPage.tabBarItem.title = @"Search";
+    self._searchPage.tabBarItem.image = [UIImage imageNamed:@"SearchTab"];
+    self._searchPage.tabBarItem.tag = 1;
     
-    RootSettingsViewController* settingsController = [storyMngr instantiateViewControllerWithIdentifier:@"RootSettingsViewController"];
-    settingsController.tabBarItem.title = @"Settings";
-    settingsController.tabBarItem.image = [UIImage imageNamed:@"SettingsTab"];
-    settingsController.tabBarItem.tag = 2;
+    self._settingsPage = [storyMngr instantiateViewControllerWithIdentifier:@"RootSettingsViewController"];
+    self._settingsPage.tabBarItem.title = @"Settings";
+    self._settingsPage.tabBarItem.image = [UIImage imageNamed:@"SettingsTab"];
+    self._settingsPage.tabBarItem.tag = 2;
+    
     
     //Set the Tabs
-    self._bottomNavBar.items = [[NSArray alloc] initWithObjects:dashboardController.tabBarItem, searchController.tabBarItem, settingsController.tabBarItem, nil];
-    self.viewControllers = [[NSArray alloc] initWithObjects:dashboardController,searchController,settingsController, nil];
+    self._bottomNavBar.items = [[NSArray alloc] initWithObjects:self._dashboardPage.tabBarItem, self._searchPage.tabBarItem, self._settingsPage.tabBarItem, nil];
+    self.viewControllers = [[NSArray alloc] initWithObjects:self._dashboardPage,self._searchPage,self._settingsPage, nil];
 }
 
 @end

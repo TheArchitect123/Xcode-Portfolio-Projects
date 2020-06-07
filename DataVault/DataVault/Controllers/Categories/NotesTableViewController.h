@@ -8,16 +8,13 @@
 
 //Headers
 #import "NotesDashSource.h"
+#import "BaseViewController.h"
 
 //Libraries
 #import <UIKit/UIKit.h>
 
-//Material
-#import <MaterialComponents/MDCDialogTransitionController.h>
-
-@interface NotesTableViewController : UITableViewController
-
-@property(nonatomic) MDCDialogTransitionController *dialogTransitionController;
+@interface NotesTableViewController : BaseViewController
 
 @property(nonatomic, readwrite, strong) NotesDashSource* DataSource;
+
 @end

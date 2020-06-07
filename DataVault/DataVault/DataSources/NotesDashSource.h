@@ -17,4 +17,6 @@
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
 @property(nonatomic, strong, readwrite) NotesDataArray* _dataArray;
 
+-(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef;
+
 @end
