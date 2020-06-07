@@ -23,6 +23,7 @@
 #import "ColorHelper.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
+#import "MediaHelpers.h"
 
 //Material Components
 #import <MaterialComponents/MaterialBottomAppBar.h>
@@ -121,66 +122,6 @@
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(promptCloudStorageSetup)]];
 }
 
--(void) takePhotoFromCamera{
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        if(granted){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-                
-                [self presentViewController:cameraTaker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
-//Video Capture
--(void) takeVideoFromCamera{
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        if(granted){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-                
-                [self presentViewController:cameraTaker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
-
--(void) beginSelectDocument{
-    
-    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.presentation", @"com.microsoft.word.doc",@"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeImport];
-    [self presentViewController:documentBrowser animated:true completion:nil];
-}
-
--(void) beginSelectPDFs{
-    
-    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
-    [self presentViewController:documentBrowser animated:true completion:nil];
-}
-
 -(void)promptNewContent{
     
     //Opens the bottom drawer
@@ -201,26 +142,26 @@
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Documents" image:@"Dashboard_DocumentsIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-        [self beginSelectDocument];
+        [MediaHelpers takeDocumentFromLocalDevice:self];
     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"PDFs" image:@"Dashboard_PDFIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-        [self beginSelectPDFs];
+        [MediaHelpers takePDFFromLocalDevice:self];
     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Photos" image:@"Dashboard_PhotosIcon" action:(^() {
         
         //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
         
-        [self takePhotoFromCamera];
+        [MediaHelpers takePhotoFromCamera:self];
     })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Videos" image:@"Dashboard_VideosIcon" action:(^() {
          
          //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-        [self takeVideoFromCamera];
+        [MediaHelpers takeVideoFromCamera:self];
      })]];
     
     [actions addObject: [DialogHelper actionSheetCreatorWithImage:@"Emails" image:@"Dashboard_EmailsIcon" action:(^() {

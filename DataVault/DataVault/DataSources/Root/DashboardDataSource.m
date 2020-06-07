@@ -45,6 +45,7 @@
 #import "ColorHelper.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
+#import "MediaHelpers.h"
 
 @implementation DashboardDataSource
 
@@ -95,107 +96,6 @@
     
 }
 
--(void) beginSelectDocument{
-    
-    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.presentation", @"com.microsoft.word.doc",@"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeImport];
-    [self._parentController presentViewController:documentBrowser animated:true completion:nil];
-}
-
--(void) beginSelectPDFs{
-    
-    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
-    [self._parentController presentViewController:documentBrowser animated:true completion:nil];
-}
-
--(void) takePhotoFromCamera{
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        if(granted){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-                
-                [self._parentController presentViewController:cameraTaker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
--(void) selectPhotoFromGallery{
-    
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if(status == PHAuthorizationStatusAuthorized){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
-                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
-//                photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:@[(NSString *)kUTTypePNG, (NSString *)kUTTypeGIF, (NSString *)kUTTypeICO, (NSString *)kUTTypeJPEG, (NSString *)kUTTypeJPEG2000], nil];
-                
-                [self._parentController presentViewController:photoPicker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
-//Video Capture
--(void) takeVideoFromCamera{
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        if(granted){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-                
-                [self._parentController presentViewController:cameraTaker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
--(void) selectVideoFromGallery{
-    
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if(status == PHAuthorizationStatusAuthorized){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
-                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
-                photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-
-                [self._parentController presentViewController:photoPicker animated:true completion:nil];
-            });
-        }
-        else {
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-        }
-    }];
-}
-
 #pragma mark -- END OF POST FUNCTIONS
 
 -(NSString *) categoryHelper:(uint) category {
@@ -235,22 +135,22 @@
     return @[[MGSwipeButton buttonWithTitle:@"Camera" backgroundColor:[ColorHelper CardDark_ThemBackground] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
         if(isVideoRef){
             //Open up the video logic
-            [self takeVideoFromCamera];
+            [MediaHelpers takeVideoFromCamera:self._parentController];
         }
         else {
             //Open up the photos logic
-            [self takePhotoFromCamera];
+            [MediaHelpers takePhotoFromCamera:self._parentController];
         }
         
         return true;
     }], [MGSwipeButton buttonWithTitle:@"Gallery" backgroundColor:[ColorHelper Teal] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
         if(isVideoRef){
             //Open up the video logic
-            [self selectVideoFromGallery];
+            [MediaHelpers selectVideoGallery:self._parentController];
         }
         else{
             //Open up the photos logic
-            [self selectPhotoFromGallery];
+            [MediaHelpers selectPhotoGallery:self._parentController];
         }
         
         return true;
@@ -282,10 +182,10 @@
                 break;
             case 1: //Documents
                 //Allows the user to select an item from the security enclave
-                [self beginSelectDocument];
+                [MediaHelpers takeDocumentFromLocalDevice:self._parentController];
                 break;
             case 2: //PDFs
-                [self beginSelectPDFs];
+                [MediaHelpers takePDFFromLocalDevice:self._parentController];
                 break;
                 
             case 6: //Emails
