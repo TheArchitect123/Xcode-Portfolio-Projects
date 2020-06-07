@@ -170,6 +170,34 @@
             </objects>
             <point key="canvasLocation" x="-491" y="767"/>
         </scene>
+        <!--Videos View Controller-->
+        <scene sceneID="WGn-rn-a2m">
+            <objects>
+                <tableViewController storyboardIdentifier="VideosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="79H-Ha-zlo" customClass="VideosViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8yf-Hh-9Sg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oro-N3-Fkt">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oro-N3-Fkt" id="N4w-mC-2Nz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="79H-Ha-zlo" id="wUN-K5-ZAo"/>
+                            <outlet property="delegate" destination="79H-Ha-zlo" id="dak-b0-OHk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xz0-8O-lXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3028" y="-711"/>
+        </scene>
         <!--Notes Table View Controller-->
         <scene sceneID="jfa-39-iud">
             <objects>
@@ -338,10 +366,10 @@
             </objects>
             <point key="canvasLocation" x="3197" y="-711"/>
         </scene>
-        <!--Photos Videos Table View Controller-->
+        <!--Photos View Controller-->
         <scene sceneID="GkU-fn-ZKS">
             <objects>
-                <tableViewController storyboardIdentifier="PhotosVideosTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7xa-XE-as3" customClass="PhotosVideosTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PhotosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7xa-XE-as3" customClass="PhotosViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IWN-jV-3PY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

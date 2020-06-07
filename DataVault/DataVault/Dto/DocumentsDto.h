@@ -10,8 +10,10 @@
 
 @interface DocumentsDto : NSObject
 
-@property(nonatomic, strong, readwrite) NSString* Title;
-@property(nonatomic, strong, readwrite) NSString* Description;
+@property(nonatomic, strong, readwrite) NSString* name;
+@property(nonatomic, strong, readwrite) NSString* docDescription;
+@property(nonatomic, strong, readwrite) NSData* data;
+@property(nonatomic, strong, readwrite) NSDate* created;
 
 @end
 

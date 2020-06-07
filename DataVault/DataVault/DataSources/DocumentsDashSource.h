@@ -18,5 +18,4 @@
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
 @property(nonatomic, strong, readwrite) DocumentsDataArray* _dataDocumentArray;
 
--(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef;
 @end

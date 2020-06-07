@@ -7,87 +7,67 @@
 //
 
 #import "PDFsTableViewController.h"
+#import "PDFDashSource.h"
 
-@interface PDFsTableViewController ()
-
-@end
+//Helpers
+#import "DialogHelper.h"
+#import "MediaHelpers.h"
 
 @implementation PDFsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self configureDocumentsPage];
+    [self configureRefreshComponent];
+    [self setupOtherUIComponents];
+    [self setNavigationBarComponents];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+-(void) setupOtherUIComponents {
     
-    // Configure the cell...
+    //Bottom Bar
     
-    return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void) pickImportPDF{
+    [MediaHelpers takePDFFromLocalDevice:self];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void) refreshItems{
+    [self.tableView.refreshControl endRefreshing];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+#pragma mark - Load the DataSource (Dashboard DataSource)
+-(void) configureDocumentsPage {
+    
+    self.DataSource = [[PDFDashSource alloc] init];
+    self.DataSource._parentController = self;
+    
+    self.tableView.dataSource = self.DataSource;
+    self.tableView.delegate = self.DataSource;
+    self.tableView.rowHeight = 100.0f;
+    self.tableView.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void) configureRefreshComponent{
+    UIRefreshControl* refreshDashboard = [[UIRefreshControl alloc] init];
+    [refreshDashboard addTarget:self action:@selector(refreshItems) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = refreshDashboard;
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) setNavigationBarComponents{
+    self.navigationController.navigationBar.backgroundColor = UIColor.lightGrayColor;
+    
+    //Add Option
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(pickImportPDF)]];
+    
 }
-*/
+
 
 @end

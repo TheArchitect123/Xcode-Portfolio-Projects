@@ -33,17 +33,17 @@
     self = [super init];
     if (self) {
         self._dataDocumentArray = [[NSMutableArray alloc] init];
-        [self._dataDocumentArray addObject:[self documentMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
-        [self._dataDocumentArray addObject:[self documentMapper:@"Broken note" description:@"sample description"]];
-        [self._dataDocumentArray addObject:[self documentMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
+//        [self._dataDocumentArray addObject:[self documentMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
+//        [self._dataDocumentArray addObject:[self documentMapper:@"Broken note" description:@"sample description"]];
+//        [self._dataDocumentArray addObject:[self documentMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
     }
     return self;
 }
 
 -(DocumentsDto *) documentMapper:(NSString *) title  description:(NSString *) descriptionRef{
     DocumentsDto* item = [[DocumentsDto alloc] init];
-    item.Title = title;
-    item.Description = descriptionRef;
+    item.name = title;
+    item.docDescription = descriptionRef;
     
     return item;
 }
@@ -117,10 +117,15 @@
     
     //Accessory Item
     (*cell).accessoryType = UITableViewCellAccessoryNone;
+    
+    //Configure Leading Icon
+    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageWithData:self._dataDocumentArray[index].data]];
+    (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     // (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
-    (*cell).textLabel.text = self._dataDocumentArray[index].Title;
-    (*cell).detailTextLabel.text = self._dataDocumentArray[index].Description;
+    (*cell).textLabel.text = self._dataDocumentArray[index].name;
+    (*cell).detailTextLabel.text = self._dataDocumentArray[index].docDescription;
 //    
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];

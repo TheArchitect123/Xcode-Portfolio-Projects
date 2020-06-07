@@ -22,97 +22,112 @@
 
 +(void) selectVideoGallery:(UIViewController *)parentController{
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-           if(status == PHAuthorizationStatusAuthorized){
-               dispatch_async(dispatch_get_main_queue(), ^{
-                   UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
-                   photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                   photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
-                   photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-
-                   [parentController presentViewController:photoPicker animated:true completion:nil];
-               });
-           }
-           else {
-               [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-               }];
-           }
-       }];
+        if(status == PHAuthorizationStatusAuthorized){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
+                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
+                photoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+                photoPicker.delegate = parentController;
+                photoPicker.allowsEditing = true;
+                
+                [parentController presentViewController:photoPicker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
 }
 
 +(void) selectPhotoGallery:(UIViewController *)parentController{
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            if(status == PHAuthorizationStatusAuthorized){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
-                    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
+        if(status == PHAuthorizationStatusAuthorized){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* photoPicker = [[UIImagePickerController alloc] init];
+                photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                photoPicker.modalPresentationStyle = UIModalPresentationFullScreen;
+                photoPicker.delegate = parentController;
+                photoPicker.allowsEditing = true;
                 
-                    [parentController presentViewController:photoPicker animated:true completion:nil];
-                });
-            }
-            else {
-                [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                }];
-            }
-        }];
+                [parentController presentViewController:photoPicker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Photo Gallery Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
 }
 
 +(void) takePhotoFromCamera:(UIViewController *)parentController{
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-           if(granted){
-               dispatch_async(dispatch_get_main_queue(), ^{
-                   UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                   cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                   cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                   
-                   cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                   cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                   cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-                   
-                   [parentController presentViewController:cameraTaker animated:true completion:nil];
-               });
-           }
-           else {
-               [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-               }];
-           }
-       }];
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                cameraTaker.allowsEditing = true;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                
+                cameraTaker.delegate = parentController;
+                
+                [parentController presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
 }
 +(void) takeVideoFromCamera:(UIViewController *)parentController{
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-           if(granted){
-               dispatch_async(dispatch_get_main_queue(), ^{
-                   UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
-                   cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                   cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
-                   
-                   cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
-                   cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-                   cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-                   
-                   [parentController presentViewController:cameraTaker animated:true completion:nil];
-               });
-           }
-           else {
-               [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
-                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-               }];
-           }
-       }];
+        if(granted){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImagePickerController* cameraTaker = [[UIImagePickerController alloc] init];
+                cameraTaker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                cameraTaker.modalPresentationStyle = UIModalPresentationFullScreen;
+                 cameraTaker.allowsEditing = true;
+                
+                cameraTaker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+                cameraTaker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                cameraTaker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+                cameraTaker.delegate = parentController;
+                
+                [parentController presentViewController:cameraTaker animated:true completion:nil];
+            });
+        }
+        else {
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:@"Camera Access is required to use this feature" buttonTitle:@"Change" invokedAction:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+        }
+    }];
 }
 
 //Documents & PDFs
 +(void) takePDFFromLocalDevice:(UIViewController *)parentController{
     UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.adobe.pdf"] inMode:UIDocumentPickerModeImport];
-       [parentController presentViewController:documentBrowser animated:true completion:nil];
+    documentBrowser.delegate = parentController;
+    documentBrowser.allowsMultipleSelection = true;
+    
+    [parentController presentViewController:documentBrowser animated:true completion:nil];
     
 }
 +(void) takeDocumentFromLocalDevice:(UIViewController *)parentController{
     UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.presentation", @"com.microsoft.word.doc",@"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeImport];
-       [parentController presentViewController:documentBrowser animated:true completion:nil];
+    documentBrowser.delegate = parentController;
+    documentBrowser.allowsMultipleSelection = true;
+    
+    [parentController presentViewController:documentBrowser animated:true completion:nil];
 }
 
 +(void) beginCreateNote:(UIViewController *)parentController{

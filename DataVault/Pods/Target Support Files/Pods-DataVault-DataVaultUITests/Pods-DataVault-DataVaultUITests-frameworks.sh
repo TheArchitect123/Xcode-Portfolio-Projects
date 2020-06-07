@@ -197,9 +197,7 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ADAL/ADAL.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework"
@@ -211,7 +209,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneDriveSDK/OneDriveSDK.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PDSnackbar/PDSnackbar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework"
@@ -222,9 +219,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/iCloudDocumentSync/iCloudDocumentSync.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ADAL/ADAL.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework"
@@ -236,7 +231,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneDriveSDK/OneDriveSDK.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PDSnackbar/PDSnackbar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework"

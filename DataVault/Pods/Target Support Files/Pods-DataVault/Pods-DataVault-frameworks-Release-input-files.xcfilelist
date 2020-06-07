@@ -1,7 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-DataVault/Pods-DataVault-frameworks.sh
-${BUILT_PRODUCTS_DIR}/ADAL/ADAL.framework
 ${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework
-${BUILT_PRODUCTS_DIR}/Base32/Base32.framework
 ${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework
@@ -13,7 +11,6 @@ ${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
 ${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework
 ${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework
 ${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework
-${BUILT_PRODUCTS_DIR}/OneDriveSDK/OneDriveSDK.framework
 ${BUILT_PRODUCTS_DIR}/PDSnackbar/PDSnackbar.framework
 ${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework
 ${BUILT_PRODUCTS_DIR}/RKValueTransformers/RKValueTransformers.framework

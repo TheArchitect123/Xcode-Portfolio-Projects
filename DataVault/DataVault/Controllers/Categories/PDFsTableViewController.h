@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 //Custom
 #import "BaseViewController.h"
+#import "PDFDashSource.h"
 
 @interface PDFsTableViewController : BaseViewController
+
+@property(nonatomic, readwrite, strong) PDFDashSource* DataSource;
 
 @end

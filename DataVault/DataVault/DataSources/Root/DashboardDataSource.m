@@ -35,7 +35,7 @@
 #import "NotesTableViewController.h"
 #import "DocumentsTableViewController.h"
 #import "PDFsTableViewController.h"
-#import "PhotosVideosTableViewController.h"
+#import "PhotosViewController.h"
 #import "EmailsTableViewController.h"
 
 //Material
@@ -330,10 +330,10 @@
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PDFsTableViewController"] animated:true];
             break;
         case 3: //Photos
-            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosVideosTableViewController"] animated:true];
+            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosViewController"] animated:true];
             break;
         case 4: //Videos
-            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosVideosTableViewController"] animated:true];
+            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"VideosViewController"] animated:true];
             break;
         case 5: //Browser History
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"BrowserHistoryViewController"] animated:true];

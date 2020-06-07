@@ -12,7 +12,11 @@
 #import "BaseViewController.h"
 #import "DocumentsDashSource.h"
 
-@interface DocumentsTableViewController : BaseViewController
+//Helpers
+#import "DialogHelper.h"
+#import "MediaHelpers.h"
+
+@interface DocumentsTableViewController : BaseViewController<UIDocumentPickerDelegate>
 
 @property(nonatomic, readwrite, strong) DocumentsDashSource* DataSource;
 

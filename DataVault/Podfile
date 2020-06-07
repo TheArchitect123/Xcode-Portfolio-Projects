@@ -19,7 +19,7 @@ target 'DataVault' do
     pod 'GoogleAPIClientForREST', '~> 1.4'
     #pod 'GoogleDriveBrowser', '~> 0.1.4'
     pod 'iCloudDocumentSync', '~> 7.4'
-    pod 'OneDriveSDK', '~> 1.3'
+   # pod 'OneDriveSDK', '~> 1.3'
     
     #pod 'ICloudPicker', '~> 0.0'
     #pod 'MaterialControls', '~> 1.2'

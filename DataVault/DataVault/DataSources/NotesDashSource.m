@@ -23,7 +23,7 @@
 #import "NotesTableViewController.h"
 #import "DocumentsTableViewController.h"
 #import "PDFsTableViewController.h"
-#import "PhotosVideosTableViewController.h"
+#import "PhotosViewController.h"
 #import "EmailsTableViewController.h"
 
 //Material

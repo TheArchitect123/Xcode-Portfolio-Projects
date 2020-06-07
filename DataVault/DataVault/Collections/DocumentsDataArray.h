@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DocumentsDto.h"
-NS_ASSUME_NONNULL_BEGIN
 
 @interface DocumentsDataArray : NSMutableArray<DocumentsDto *>
 
 @end
-
-NS_ASSUME_NONNULL_END
