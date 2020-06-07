@@ -12,7 +12,12 @@
 //Libraries
 #import <UIKit/UIKit.h>
 
+//Material
+#import <MaterialComponents/MDCDialogTransitionController.h>
+
 @interface NotesTableViewController : UITableViewController
+
+@property(nonatomic) MDCDialogTransitionController *dialogTransitionController;
 
 @property(nonatomic, readwrite, strong) NotesDashSource* DataSource;
 @end

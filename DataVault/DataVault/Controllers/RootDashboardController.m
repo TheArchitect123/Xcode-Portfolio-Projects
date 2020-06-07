@@ -73,6 +73,10 @@
     
 }
 
+-(void) refreshItems{
+    
+}
+
 #pragma mark - Load the DataSource (Dashboard DataSource)
 -(void)ConfigureDashboard {
     self.DataSource = [[DashboardDataSource alloc] init];
@@ -87,7 +91,7 @@
 
 -(void) configureRefreshComponent{
     UIRefreshControl* refreshDashboard = [[UIRefreshControl alloc] init];
-    [refreshDashboard addTarget:self action:@selector(refreshCards) forControlEvents:UIControlEventValueChanged];
+    [refreshDashboard addTarget:self action:@selector(refreshItems) forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = refreshDashboard;
 }
 @end

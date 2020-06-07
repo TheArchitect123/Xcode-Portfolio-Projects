@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,6 +82,44 @@
             </objects>
             <point key="canvasLocation" x="806" y="767"/>
         </scene>
+        <!--Notes Post View Controller-->
+        <scene sceneID="Lke-2E-Nmb">
+            <objects>
+                <viewController storyboardIdentifier="NotesPostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DNG-Ss-x6w" customClass="NotesPostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hix-zl-OMe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CL4-4J-Jxa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8g9-E3-msI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="djI-Dj-GNm">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of note goes here..." textAlignment="natural" minimumFontSize="17" id="2s6-Xo-tW2">
+                            <rect key="frame" x="114" y="5" width="186" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="_descriptionView" destination="CL4-4J-Jxa" id="zUj-jm-24i"/>
+                        <outlet property="_titleView" destination="2s6-Xo-tW2" id="zgV-no-TVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dL-da-2Zl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2086.9565217391305" y="766.74107142857144"/>
+        </scene>
         <!--Item-->
         <scene sceneID="pSX-Lu-dZV">
             <objects>
@@ -124,6 +163,7 @@
                         <segue destination="sxy-Mt-3Xl" kind="relationship" relationship="viewControllers" id="omF-jS-5WZ"/>
                         <segue destination="lPi-t4-AhC" kind="relationship" relationship="viewControllers" id="ca6-1T-AYy"/>
                         <segue destination="RI3-n1-i3A" kind="relationship" relationship="viewControllers" id="Ufp-u0-zDk"/>
+                        <segue destination="DNG-Ss-x6w" kind="show" id="nSH-o5-8bY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUT-j6-xl7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -269,6 +309,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMU-yT-vRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2410" y="-711"/>
+        </scene>
+        <!--Browser History View Controller-->
+        <scene sceneID="HGc-4Q-eYk">
+            <objects>
+                <tableViewController storyboardIdentifier="BrowserHistoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eme-Hk-rXU" customClass="BrowserHistoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V0m-UZ-it0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JiJ-42-rBs">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JiJ-42-rBs" id="x70-hW-SeW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eme-Hk-rXU" id="LYB-24-rJj"/>
+                            <outlet property="delegate" destination="eme-Hk-rXU" id="cWD-WE-lqf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QvA-Lk-1g6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3197" y="-711"/>
         </scene>
         <!--Photos Videos Table View Controller-->
         <scene sceneID="GkU-fn-ZKS">

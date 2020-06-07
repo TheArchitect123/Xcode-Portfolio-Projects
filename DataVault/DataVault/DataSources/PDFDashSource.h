@@ -11,4 +11,6 @@
 
 @interface PDFDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
+@property(nonatomic, strong, readwrite) UIViewController* _parentController;
+
 @end

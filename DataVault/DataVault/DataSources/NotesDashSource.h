@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//Custom
+#import "NotesDataArray.h"
+
 @interface NotesDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+
+@property(nonatomic, strong, readwrite) UIViewController* _parentController;
+@property(nonatomic, strong, readwrite) NotesDataArray* _dataArray;
 
 @end

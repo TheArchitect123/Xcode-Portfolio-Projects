@@ -177,6 +177,11 @@
 		045BC30D2488DDC400F1A4A2 /* RootNavigationController.h in Sources */ = {isa = PBXBuildFile; fileRef = 045BC2C02488BB8000F1A4A2 /* RootNavigationController.h */; };
 		045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BC3102488E09200F1A4A2 /* MusicLibraryTableViewController.m */; };
 		045BC3132488E4FB00F1A4A2 /* SafetyBoxStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045BC3122488E4FB00F1A4A2 /* SafetyBoxStory.storyboard */; };
+		04678189248CAB0B0074B416 /* browserhistory.png in Resources */ = {isa = PBXBuildFile; fileRef = 04678187248CAB0A0074B416 /* browserhistory.png */; };
+		0467818A248CAB0B0074B416 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 04678188248CAB0B0074B416 /* camera.png */; };
+		0467818D248CB0310074B416 /* BrowserHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0467818C248CB0310074B416 /* BrowserHistoryViewController.m */; };
+		04678191248CC0A50074B416 /* NotesDataArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 04678190248CC0A50074B416 /* NotesDataArray.m */; };
+		04678194248CC1840074B416 /* NotesPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04678193248CC1840074B416 /* NotesPostViewController.m */; };
 		0473C6E2248B750D00D7D7D3 /* baseline_description_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0473C6DF248B750D00D7D7D3 /* baseline_description_black_48pt_2x.png */; };
 		0473C6E3248B750D00D7D7D3 /* baseline_description_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0473C6E0248B750D00D7D7D3 /* baseline_description_black_48pt_1x.png */; };
 		0473C6E4248B750D00D7D7D3 /* baseline_description_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0473C6E1248B750D00D7D7D3 /* baseline_description_black_48pt_3x.png */; };
@@ -187,7 +192,6 @@
 		04D9A27824892A8700EFE59F /* DashboardCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D9A27724892A8700EFE59F /* DashboardCardView.m */; };
 		04E41109248A5034008D02E6 /* NotesDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41108248A5034008D02E6 /* NotesDashSource.m */; };
 		04E4110C248A505C008D02E6 /* MusicDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4110B248A505C008D02E6 /* MusicDashSource.m */; };
-		04E4110F248A506E008D02E6 /* PasswordsDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4110E248A506E008D02E6 /* PasswordsDashSource.m */; };
 		04E41112248A507B008D02E6 /* DocumentsDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41111248A507B008D02E6 /* DocumentsDashSource.m */; };
 		04E41115248A5087008D02E6 /* PDFDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41114248A5087008D02E6 /* PDFDashSource.m */; };
 		04E41118248A5097008D02E6 /* PhotosVideosDashSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41117248A5097008D02E6 /* PhotosVideosDashSource.m */; };
@@ -198,6 +202,7 @@
 		04E41127248A5188008D02E6 /* PDFsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41126248A5188008D02E6 /* PDFsTableViewController.m */; };
 		04E4112A248A5191008D02E6 /* PhotosVideosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E41129248A5191008D02E6 /* PhotosVideosTableViewController.m */; };
 		04E4112D248A519A008D02E6 /* EmailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E4112C248A519A008D02E6 /* EmailsTableViewController.m */; };
+		04E5C003248CD93C00ED1600 /* NotesDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E5C002248CD93C00ED1600 /* NotesDto.m */; };
 		53A6E8FD12647D8B61344AFB /* Pods_DataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80DAA334B615AD150EB499A /* Pods_DataVault.framework */; };
 		7378D2FA33A02B79367A8303 /* Pods_DataVault_DataVaultUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD28CA65DE57D735603FDC06 /* Pods_DataVault_DataVaultUITests.framework */; };
 		81F3E5FEE8432E6E13649B3A /* Pods_DataVaultTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73525AE5E070BEFAB1826B1 /* Pods_DataVaultTests.framework */; };
@@ -448,6 +453,14 @@
 		045BC30F2488E09200F1A4A2 /* MusicLibraryTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicLibraryTableViewController.h; sourceTree = "<group>"; };
 		045BC3102488E09200F1A4A2 /* MusicLibraryTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicLibraryTableViewController.m; sourceTree = "<group>"; };
 		045BC3122488E4FB00F1A4A2 /* SafetyBoxStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SafetyBoxStory.storyboard; sourceTree = "<group>"; };
+		04678187248CAB0A0074B416 /* browserhistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = browserhistory.png; sourceTree = "<group>"; };
+		04678188248CAB0B0074B416 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		0467818B248CB0310074B416 /* BrowserHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserHistoryViewController.h; sourceTree = "<group>"; };
+		0467818C248CB0310074B416 /* BrowserHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserHistoryViewController.m; sourceTree = "<group>"; };
+		0467818F248CC0A50074B416 /* NotesDataArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesDataArray.h; sourceTree = "<group>"; };
+		04678190248CC0A50074B416 /* NotesDataArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesDataArray.m; sourceTree = "<group>"; };
+		04678192248CC1840074B416 /* NotesPostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesPostViewController.h; sourceTree = "<group>"; };
+		04678193248CC1840074B416 /* NotesPostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesPostViewController.m; sourceTree = "<group>"; };
 		0473C6DF248B750D00D7D7D3 /* baseline_description_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_description_black_48pt_2x.png; sourceTree = "<group>"; };
 		0473C6E0248B750D00D7D7D3 /* baseline_description_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_description_black_48pt_1x.png; sourceTree = "<group>"; };
 		0473C6E1248B750D00D7D7D3 /* baseline_description_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_description_black_48pt_3x.png; sourceTree = "<group>"; };
@@ -463,8 +476,6 @@
 		04E41108248A5034008D02E6 /* NotesDashSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesDashSource.m; sourceTree = "<group>"; };
 		04E4110A248A505C008D02E6 /* MusicDashSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDashSource.h; sourceTree = "<group>"; };
 		04E4110B248A505C008D02E6 /* MusicDashSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDashSource.m; sourceTree = "<group>"; };
-		04E4110D248A506E008D02E6 /* PasswordsDashSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordsDashSource.h; sourceTree = "<group>"; };
-		04E4110E248A506E008D02E6 /* PasswordsDashSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordsDashSource.m; sourceTree = "<group>"; };
 		04E41110248A507B008D02E6 /* DocumentsDashSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentsDashSource.h; sourceTree = "<group>"; };
 		04E41111248A507B008D02E6 /* DocumentsDashSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentsDashSource.m; sourceTree = "<group>"; };
 		04E41113248A5087008D02E6 /* PDFDashSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFDashSource.h; sourceTree = "<group>"; };
@@ -485,6 +496,8 @@
 		04E41129248A5191008D02E6 /* PhotosVideosTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosVideosTableViewController.m; sourceTree = "<group>"; };
 		04E4112B248A519A008D02E6 /* EmailsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailsTableViewController.h; sourceTree = "<group>"; };
 		04E4112C248A519A008D02E6 /* EmailsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmailsTableViewController.m; sourceTree = "<group>"; };
+		04E5C001248CD93C00ED1600 /* NotesDto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotesDto.h; sourceTree = "<group>"; };
+		04E5C002248CD93C00ED1600 /* NotesDto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesDto.m; sourceTree = "<group>"; };
 		1E926492AF5344DDE92AEF92 /* Pods-DataVault-DataVaultUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault-DataVaultUITests.debug.xcconfig"; path = "Target Support Files/Pods-DataVault-DataVaultUITests/Pods-DataVault-DataVaultUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD45225B8717F9D18BA6D13 /* Pods-DataVault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.debug.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.debug.xcconfig"; sourceTree = "<group>"; };
 		51FDC6FD684AADE797405C85 /* Pods-DataVault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.release.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.release.xcconfig"; sourceTree = "<group>"; };
@@ -733,6 +746,8 @@
 		045BC2542488B98300F1A4A2 /* DataVault */ = {
 			isa = PBXGroup;
 			children = (
+				04E5C000248CD92C00ED1600 /* Dto */,
+				0467818E248CC08D0074B416 /* Collections */,
 				0473C6E5248B779800D7D7D3 /* Catalogs */,
 				04414279248A35920007FC73 /* Services */,
 				04414260248A2F220007FC73 /* fonts */,
@@ -810,6 +825,7 @@
 		045BC2BC2488BB2200F1A4A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04678186248C9E1A0074B416 /* CreateContent */,
 				041AB754248A9384002AC961 /* Payments */,
 				041AB74A248A8819002AC961 /* BaseControllers */,
 				041AB743248A876C002AC961 /* Identity */,
@@ -845,8 +861,28 @@
 				04E41129248A5191008D02E6 /* PhotosVideosTableViewController.m */,
 				04E4112B248A519A008D02E6 /* EmailsTableViewController.h */,
 				04E4112C248A519A008D02E6 /* EmailsTableViewController.m */,
+				0467818B248CB0310074B416 /* BrowserHistoryViewController.h */,
+				0467818C248CB0310074B416 /* BrowserHistoryViewController.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		04678186248C9E1A0074B416 /* CreateContent */ = {
+			isa = PBXGroup;
+			children = (
+				04678192248CC1840074B416 /* NotesPostViewController.h */,
+				04678193248CC1840074B416 /* NotesPostViewController.m */,
+			);
+			path = CreateContent;
+			sourceTree = "<group>";
+		};
+		0467818E248CC08D0074B416 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				0467818F248CC0A50074B416 /* NotesDataArray.h */,
+				04678190248CC0A50074B416 /* NotesDataArray.m */,
+			);
+			path = Collections;
 			sourceTree = "<group>";
 		};
 		0473C6B4248B746E00D7D7D3 /* dashboard */ = {
@@ -860,6 +896,8 @@
 				04482DE6248BDDFC006CADAF /* icon3.png */,
 				04482DE1248BC723006CADAF /* note.png */,
 				04482DD5248BC6E7006CADAF /* photosvids.png */,
+				04678187248CAB0A0074B416 /* browserhistory.png */,
+				04678188248CAB0B0074B416 /* camera.png */,
 				04482D89248B86BE006CADAF /* baseline_https_black_48pt_1x.png */,
 				04482D8A248B86BE006CADAF /* baseline_https_black_48pt_2x.png */,
 				04482D88248B86BE006CADAF /* baseline_https_black_48pt_3x.png */,
@@ -926,8 +964,6 @@
 				04E41108248A5034008D02E6 /* NotesDashSource.m */,
 				04E4110A248A505C008D02E6 /* MusicDashSource.h */,
 				04E4110B248A505C008D02E6 /* MusicDashSource.m */,
-				04E4110D248A506E008D02E6 /* PasswordsDashSource.h */,
-				04E4110E248A506E008D02E6 /* PasswordsDashSource.m */,
 				04E41110248A507B008D02E6 /* DocumentsDashSource.h */,
 				04E41111248A507B008D02E6 /* DocumentsDashSource.m */,
 				04E41113248A5087008D02E6 /* PDFDashSource.h */,
@@ -947,6 +983,15 @@
 				04D9A27724892A8700EFE59F /* DashboardCardView.m */,
 			);
 			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		04E5C000248CD92C00ED1600 /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				04E5C001248CD93C00ED1600 /* NotesDto.h */,
+				04E5C002248CD93C00ED1600 /* NotesDto.m */,
+			);
+			path = Dto;
 			sourceTree = "<group>";
 		};
 		8B54794D220C133C8BB9A3AF /* Pods */ = {
@@ -1214,6 +1259,7 @@
 				04482DC5248BB2B6006CADAF /* baseline_dashboard_black_36pt_2x.png in Resources */,
 				045BC2B42488BA0400F1A4A2 /* 57.png in Resources */,
 				0473C6E3248B750D00D7D7D3 /* baseline_description_black_48pt_1x.png in Resources */,
+				04678189248CAB0B0074B416 /* browserhistory.png in Resources */,
 				045BC2B32488BA0400F1A4A2 /* 167.png in Resources */,
 				0473C6E2248B750D00D7D7D3 /* baseline_description_black_48pt_2x.png in Resources */,
 				0441423B248A2D460007FC73 /* mt_bg_20.jpg in Resources */,
@@ -1240,6 +1286,7 @@
 				045BC2B62488BA0400F1A4A2 /* 120.png in Resources */,
 				04482DF2248BE653006CADAF /* baseline_memory_black_48pt_3x.png in Resources */,
 				04414237248A2D460007FC73 /* icons in Resources */,
+				0467818A248CAB0B0074B416 /* camera.png in Resources */,
 				04482DA9248B87CA006CADAF /* baseline_email_black_48pt_2x.png in Resources */,
 				04482DFF248BE69D006CADAF /* baseline_folder_black_48pt_2x.png in Resources */,
 				0441423D248A2D460007FC73 /* mt_bg_21.jpg in Resources */,
@@ -1373,6 +1420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04482DAE248B8A53006CADAF /* RootTabViewController.m in Sources */,
+				04E5C003248CD93C00ED1600 /* NotesDto.m in Sources */,
 				04E41127248A5188008D02E6 /* PDFsTableViewController.m in Sources */,
 				04482DE5248BD3ED006CADAF /* ModalDialogueHelper.m in Sources */,
 				044141F3248A18090007FC73 /* Enums.m in Sources */,
@@ -1389,10 +1437,10 @@
 				04B6A1AA248B5747009C4722 /* ColorHelper.m in Sources */,
 				04D9A27824892A8700EFE59F /* DashboardCardView.m in Sources */,
 				045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */,
+				04678191248CC0A50074B416 /* NotesDataArray.m in Sources */,
 				041AB753248A89D9002AC961 /* SnackBarHelper.m in Sources */,
 				041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */,
 				0473C6EB248B785500D7D7D3 /* StringHelpers.m in Sources */,
-				04E4110F248A506E008D02E6 /* PasswordsDashSource.m in Sources */,
 				04482DBE248BB0EC006CADAF /* RootSearchViewController.m in Sources */,
 				04E41112248A507B008D02E6 /* DocumentsDashSource.m in Sources */,
 				04482DD4248BB75A006CADAF /* SearchDataSource.m in Sources */,
@@ -1406,10 +1454,12 @@
 				04E4112D248A519A008D02E6 /* EmailsTableViewController.m in Sources */,
 				04E41118248A5097008D02E6 /* PhotosVideosDashSource.m in Sources */,
 				045BC2632488B98300F1A4A2 /* DataVault.xcdatamodeld in Sources */,
+				0467818D248CB0310074B416 /* BrowserHistoryViewController.m in Sources */,
 				045BC2572488B98300F1A4A2 /* AppDelegate.m in Sources */,
 				041AB750248A8830002AC961 /* BaseModalViewController.m in Sources */,
 				04E41115248A5087008D02E6 /* PDFDashSource.m in Sources */,
 				044141F6248A24500007FC73 /* FriendlyNames.m in Sources */,
+				04678194248CC1840074B416 /* NotesPostViewController.m in Sources */,
 				04E4110C248A505C008D02E6 /* MusicDashSource.m in Sources */,
 				04E4112A248A5191008D02E6 /* PhotosVideosTableViewController.m in Sources */,
 				041AB75A248AA082002AC961 /* DialogHelper.m in Sources */,

@@ -37,7 +37,7 @@
     self = [super init];
     if (self) {
         //Instantiate the Data Sources with the images required
-        self._imageItems = @[@"note.png", @"password.png", @"document.png", @"pdf.png", @"photosvids.png", @"emails.png", @"music.png"];
+        self._imageItems = @[@"note.png",@"document.png", @"pdf.png", @"camera.png", @"photosvids.png", @"browserhistory.png", @"emails.png", @"music.png"];
     }
     
     return self;
@@ -77,30 +77,30 @@
     
     
     //Add new content from downloads, or some other options (any other app that allows it)
-    NSString* addContentTitle = indexPath.row == 6 ? @"Synchronise" : @"Add";
     UITableViewRowAction* addContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                          title:addContentTitle
+                                                                          title:@"Add"
                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
         //Open up the notes page modally based on the category
         switch (indexPath.row) {
             case 0: //Notes
                 //Opens up an action sheet with a set of options, and a small note sample to add content
                 
                 break;
-            case 1: //Passwords
+            case 1: //Documents
                 //Allows the user to select an item from the security enclave
                 
                 break;
-            case 2: //Documents
+            case 2: //PDFs
                 break;
-            case 3: //PDFs
+            case 3: //Photos
                 break;
-            case 4: //Photos & Videos
+            case 4: //Videos
                 break;
-            case 5: //Emails
+            case 5: //Browser History
                 break;
-            case 6: //Music & Albums
+            case 6: //Emails
+                break;
+            case 7: //Music & Albums
                 
                 //Invoke the itunes library api to manage this logic
                 break;
@@ -118,20 +118,19 @@
         
         //Open up the notes page modally based on the category
         switch (indexPath.row) {
-            
-            case 2: //Documents
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising Documents"];
+            case 3: //Photos
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos album"];
                 break;
-            case 3: //PDFs
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising PDFs"];
+            case 4: //Videos
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Videos album"];
                 break;
-            case 4: //Photos & Videos
-                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos & Videos album"];
+            case 5: //Browser History
+                [SnackBarHelper showSnackBarWithMessage:@"Synchronising with your Browser History"];
                 break;
-            case 5: //Emails
+            case 6: //Emails
                 [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
                 break;
-            case 6: //Music & Albums
+            case 7: //Music & Albums
                 [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
                 //Invoke the itunes library api to manage this logic
                 break;
@@ -142,7 +141,7 @@
     
     synchroniseContent.backgroundColor = [ColorHelper DarkOrange];
     
-    if(indexPath.row >= 2){
+    if(indexPath.row >= 3){
         return @[delete, addContent, synchroniseContent];
     }
     else {
@@ -154,17 +153,19 @@
     switch (category) {
         case 0: //Notes
             return @"Notes";
-        case 1: //Passwords
-            return @"Passwords";
-        case 2: //Documents
+        case 1: //Documents
             return @"Documents";
-        case 3: //PDFs
+        case 2: //PDFs
             return @"PDFs";
-        case 4: //Photos & Videos
-            return @"Photos & Videos";
-        case 5: //Emails
+        case 3: //Photos
+            return @"Photos";
+        case 4: //Videos
+            return @"Videos";
+        case 5: //Browser History
+            return @"Browser History";
+        case 6: //Emails
             return @"Emails";
-        case 6: //Music & Albums
+        case 7: //Music & Albums
             return @"Music & Albums";
         default:
             return @"";
@@ -202,31 +203,36 @@
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
     //    [inkTouchController addRippleToView:dashboardItem];
     
+    
     switch (category) {
         case 0: //Notes
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Notes"];
             break;
-        case 1: //Passwords
-            (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Passwords"];
-            break;
-        case 2: //Documents
+        case 1: //Documents
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Documents"];
             break;
-        case 3: //PDFs
+        case 2: //PDFs
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"PDFs"];
             break;
-        case 4: //Photos & Videos
-            (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Photos & Videos"];
+        case 3: //Photos
+            (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Photos"];
             break;
-        case 5: //Emails
+        case 4: //Videos
+            (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Videos"];
+            break;
+        case 5: //Browser History
+            (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Browser History"];
+            break;
+        case 6: //Emails
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Emails"];
             break;
-        case 6: //Music & Albums
+        case 7: //Music & Albums
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Music & Albums"];
             break;
         default:
             break;
     }
+    
 }
 
 -(UILabel *) configureAccessoryView:(NSString *)count tableCell:(UITableViewCell *)cell {
@@ -245,27 +251,29 @@
 -(void) runNavigation:(uint)index {
     
     UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
-    switch(index){
+    switch (index) {
         case 0: //Notes
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"NotesTableViewController"] animated:true];
             break;
-        case 1: //Passwords
-            //Allows the user to select an item from the security enclave
-            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PasswordsTableViewController"] animated:true];
-            break;
-        case 2: //Documents
+        case 1: //Documents
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"DocumentsTableViewController"] animated:true];
             break;
-        case 3: //PDFs
+        case 2: //PDFs
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PDFsTableViewController"] animated:true];
             break;
-        case 4: //Photos & Videos
+        case 3: //Photos
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosVideosTableViewController"] animated:true];
             break;
-        case 5: //Emails
+        case 4: //Videos
+            [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"PhotosVideosTableViewController"] animated:true];
+            break;
+        case 5: //Browser History
+             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"BrowserHistoryViewController"] animated:true];
+            break;
+        case 6: //Emails
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"EmailsTableViewController"] animated:true];
             break;
-        case 6: //Music & Albums
+        case 7: //Music & Albums
             [self._parentController.navigationController pushViewController:[storyRef instantiateViewControllerWithIdentifier:@"MusicLibraryTableViewController"] animated:true];
             break;
         default:

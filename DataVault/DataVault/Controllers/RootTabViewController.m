@@ -35,6 +35,9 @@
     [self configureBottomBarBehaviour];
     [self setNavigationBarComponents];
     [self setupOtherUIComponents];
+    
+    //Check whether the device has setup iCloud storage
+    [self promptCloudStorageSetup];
 }
 
 //Each page with a table controller needs to listen for when it is selected so that it can adjust its edge insets to avoid having any issues with the margin from the navigation bar
@@ -61,8 +64,6 @@
     //Refresh btn Constraints
     self._refreshFloatBtn.frame = CGRectMake(self.view.bounds.size.width - 100.0f, self.view.bounds.size.height - 160.0f, 80.0f, 80.0f);
 }
-
-
 
 -(void) setupOtherUIComponents{
     

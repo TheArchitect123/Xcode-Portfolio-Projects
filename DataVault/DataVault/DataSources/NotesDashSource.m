@@ -6,64 +6,166 @@
 //  Copyright © 2020 Dan Gerchcovich. All rights reserved.
 //
 
+//Apple
+#import <QuartzCore/QuartzCore.h>
+#import <CoreGraphics/CoreGraphics.h>
+
+//Custom
 #import "NotesDashSource.h"
+#import "NotesPostViewController.h"
+#import "NotesDataArray.h"
+
+//Dto
+#import "NotesDto.h"
+
+//Categories
+#import "MusicLibraryTableViewController.h"
+#import "PasswordsTableViewController.h"
+#import "NotesTableViewController.h"
+#import "DocumentsTableViewController.h"
+#import "PDFsTableViewController.h"
+#import "PhotosVideosTableViewController.h"
+#import "EmailsTableViewController.h"
+
+//Material
+#import <MaterialComponents/MaterialRipple.h>
+
+//Helpers
+#import "ColorHelper.h"
+#import "DialogHelper.h"
+#import "SnackBarHelper.h"
 
 @implementation NotesDashSource
 
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self._dataArray = [[NSMutableArray alloc] init];
+        [self._dataArray addObject:[self notesMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
+        [self._dataArray addObject:[self notesMapper:@"Broken note" description:@"sample description"]];
+        [self._dataArray addObject:[self notesMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
+    }
+    return self;
 }
 
+-(NotesDto *) notesMapper:(NSString *) title  description:(NSString *) descriptionRef{
+    NotesDto* item = [[NotesDto alloc] init];
+    item.Title = title;
+    item.Description = descriptionRef;
+    
+    return item;
+}
+         
+         
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self._dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"" forIndexPath:indexPath];
     
-    return cell;
+    UITableViewCell *notesItem = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"noteItem"];
+    
+    [self configureTableCell:indexPath.row tableCell:&notesItem]; //Configure the Table Cell
+    return notesItem;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //Remove all items from the categories' cache
+    UITableViewRowAction* delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
+                                                                      title:@"Delete"
+                                                                    handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Note" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
+            
+            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+            
+            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", @"SAMPLE"] buttonTitle:@"Undo" invokedAction:(^(){
+                
+                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+            })];
+        }) controller: self._parentController];
+        
+    }];
+    
+    
+    //Add new content from downloads, or some other options (any other app that allows it)
+    UITableViewRowAction* editContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                           title:@"Edit"
+                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        [self openSpecifiedNote:(uint)indexPath.row];
+    }];
+    
+    editContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
+    
+    return @[delete, editContent];
 }
 
- 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
+-(UIImage *) configureCategoryImage:(UIImage *) image{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(60.0f, 60.0f), false, 1.0f);
+    [image drawInRect:CGRectMake(0, 0, 60.0f, 60.0f)];
+    
+    UIImage* imageFromContext = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return imageFromContext;
 }
 
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(void) configureTableCell:(uint)index tableCell:(UITableViewCell**)cell{
+    
+    (*cell).textLabel.textColor = UIColor.blackColor;
+    (*cell).detailTextLabel.textColor = UIColor.blackColor;
+    
+    (*cell).textLabel.font = [UIFont fontWithName:@"Roboto-Light" size:25.0f];
+    (*cell).detailTextLabel.font = [UIFont fontWithName:@"Roboto-Light" size:20.0f];
+    (*cell).backgroundColor = UIColor.whiteColor;
+    
+    //Accessory Item
+    (*cell).accessoryType = UITableViewCellAccessoryNone;
+    // (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
+    
+    (*cell).textLabel.text = self._dataArray[index].Title;
+    (*cell).detailTextLabel.text = self._dataArray[index].Description;
+    
+    //Ripple Effects
+    //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
+    //    [inkTouchController addRippleToView:dashboardItem];
+    
 }
 
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(UILabel *) configureAccessoryView:(NSString *)count tableCell:(UITableViewCell *)cell {
+    
+    UILabel* accessory = [[UILabel alloc] init];
+    accessory.frame = CGRectMake(cell.bounds.size.width + 80.0f, cell.bounds.origin.y + 40.0f, 100.0f, 30.0f);
+    accessory.textAlignment = NSTextAlignmentCenter;
+    
+    accessory.textColor = UIColor.blackColor;
+    accessory.font = [UIFont fontWithName:@"Roboto-Light" size:24.0f];
+    accessory.text = count;
+    
+    return accessory;
 }
 
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) openSpecifiedNote:(uint)index {
+    
+    //Opens up the modal dialogue of the note, allowing the user to edit it.
+    //This will make an upload to the cloud, while also updating the items on the local database
+    UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
+    NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
+    
+    notesPostController._descriptionView.text = self._dataArray[index].Description;
+    notesPostController._titleView.text = self._dataArray[index].Title;
+    
+    [self._parentController.navigationController pushViewController:notesPostController animated:true];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    [self openSpecifiedNote:(uint)indexPath.row];
+}
 
 @end
