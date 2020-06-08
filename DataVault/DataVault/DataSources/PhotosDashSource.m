@@ -129,6 +129,10 @@
     (*cell).accessoryType = UITableViewCellAccessoryNone;
     // (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
+    //Configure Leading Icon
+//    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageWithData:self._dataDocumentArray[index].data]];
+//    (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
 //    (*cell).textLabel.text = self._dataArray[index].Title;
 //    (*cell).detailTextLabel.text = self._dataArray[index].Description;
 //

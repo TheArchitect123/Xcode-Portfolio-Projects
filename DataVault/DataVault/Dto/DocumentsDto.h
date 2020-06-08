@@ -14,6 +14,7 @@
 @property(nonatomic, strong, readwrite) NSString* docDescription;
 @property(nonatomic, strong, readwrite) NSData* data;
 @property(nonatomic, strong, readwrite) NSDate* created;
+@property(nonatomic, strong, readwrite) NSString* mime;
 
 @end
 

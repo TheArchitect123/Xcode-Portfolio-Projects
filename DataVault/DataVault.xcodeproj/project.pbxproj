@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B0831248E24AE009AD4A9 /* QuickLookDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B0830248E24AE009AD4A9 /* QuickLookDataSource.m */; };
+		040CD7AF248DFA95008864ED /* DateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7AE248DFA95008864ED /* DateHelpers.m */; };
+		040CD7B3248DFCB3008864ED /* DocumentPreviewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B2248DFCB3008864ED /* DocumentPreviewerViewController.m */; };
+		040CD7B6248E02E5008864ED /* MimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B5248E02E5008864ED /* MimeHelper.m */; };
+		040CD7B8248E0DC6008864ED /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7B7248E0DC5008864ED /* WebKit.framework */; };
+		040CD7BB248E12AB008864ED /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7B9248E12AB008864ED /* QuickLookThumbnailing.framework */; };
+		040CD7BC248E12AB008864ED /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7BA248E12AB008864ED /* QuickLook.framework */; };
 		041AB746248A878D002AC961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB745248A878D002AC961 /* LoginViewController.m */; };
 		041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB748248A87A2002AC961 /* RegisterViewController.m */; };
 		041AB74D248A8826002AC961 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB74C248A8826002AC961 /* BaseViewController.m */; };
@@ -263,6 +270,17 @@
 
 /* Begin PBXFileReference section */
 		01D585A49A25E85F59AE0884 /* Pods-DataVaultTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVaultTests.release.xcconfig"; path = "Target Support Files/Pods-DataVaultTests/Pods-DataVaultTests.release.xcconfig"; sourceTree = "<group>"; };
+		040B082F248E24AE009AD4A9 /* QuickLookDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickLookDataSource.h; sourceTree = "<group>"; };
+		040B0830248E24AE009AD4A9 /* QuickLookDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickLookDataSource.m; sourceTree = "<group>"; };
+		040CD7AD248DFA95008864ED /* DateHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateHelpers.h; sourceTree = "<group>"; };
+		040CD7AE248DFA95008864ED /* DateHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateHelpers.m; sourceTree = "<group>"; };
+		040CD7B1248DFCB3008864ED /* DocumentPreviewerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentPreviewerViewController.h; sourceTree = "<group>"; };
+		040CD7B2248DFCB3008864ED /* DocumentPreviewerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentPreviewerViewController.m; sourceTree = "<group>"; };
+		040CD7B4248E02E5008864ED /* MimeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MimeHelper.h; sourceTree = "<group>"; };
+		040CD7B5248E02E5008864ED /* MimeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MimeHelper.m; sourceTree = "<group>"; };
+		040CD7B7248E0DC5008864ED /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		040CD7B9248E12AB008864ED /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = DEVELOPER_DIR; };
+		040CD7BA248E12AB008864ED /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuickLook.framework; sourceTree = DEVELOPER_DIR; };
 		041AB744248A878D002AC961 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		041AB745248A878D002AC961 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		041AB747248A87A2002AC961 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -576,6 +594,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040CD7BB248E12AB008864ED /* QuickLookThumbnailing.framework in Frameworks */,
+				040CD7BC248E12AB008864ED /* QuickLook.framework in Frameworks */,
+				040CD7B8248E0DC6008864ED /* WebKit.framework in Frameworks */,
 				04D9A27424891F9B00EFE59F /* UIKit.framework in Frameworks */,
 				045BC30A2488D67900F1A4A2 /* QuartzCore.framework in Frameworks */,
 				045BC2C62488CC5500F1A4A2 /* CoreGraphics.framework in Frameworks */,
@@ -609,6 +630,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040CD7B0248DFC58008864ED /* ViewContent */ = {
+			isa = PBXGroup;
+			children = (
+				040CD7B1248DFCB3008864ED /* DocumentPreviewerViewController.h */,
+				040CD7B2248DFCB3008864ED /* DocumentPreviewerViewController.m */,
+			);
+			path = ViewContent;
+			sourceTree = "<group>";
+		};
 		041AB743248A876C002AC961 /* Identity */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +850,7 @@
 				04D9A27524892A6700EFE59F /* ViewComponents */,
 				04D9A27024891CFD00EFE59F /* DataSources */,
 				045BC2D32488CCC900F1A4A2 /* SafetyBox.entitlements */,
+				04678186248C9E1A0074B416 /* CreateContent */,
 				045BC2BC2488BB2200F1A4A2 /* Controllers */,
 				045BC28D2488B9EA00F1A4A2 /* Resources */,
 				045BC2552488B98300F1A4A2 /* AppDelegate.h */,
@@ -888,7 +919,7 @@
 		045BC2BC2488BB2200F1A4A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04678186248C9E1A0074B416 /* CreateContent */,
+				040CD7B0248DFC58008864ED /* ViewContent */,
 				041AB754248A9384002AC961 /* Payments */,
 				041AB74A248A8819002AC961 /* BaseControllers */,
 				041AB743248A876C002AC961 /* Identity */,
@@ -1039,6 +1070,10 @@
 				04E49F67248D698500F03AD3 /* MediaHelpers.m */,
 				04EBA679248D8AEA000572E9 /* EmailHelper.h */,
 				04EBA67A248D8AEA000572E9 /* EmailHelper.m */,
+				040CD7AD248DFA95008864ED /* DateHelpers.h */,
+				040CD7AE248DFA95008864ED /* DateHelpers.m */,
+				040CD7B4248E02E5008864ED /* MimeHelper.h */,
+				040CD7B5248E02E5008864ED /* MimeHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1061,6 +1096,8 @@
 				04EBA67D248D9450000572E9 /* PhotosDashSource.m */,
 				04EBA67F248D945D000572E9 /* VideosDashSource.h */,
 				04EBA680248D945D000572E9 /* VideosDashSource.m */,
+				040B082F248E24AE009AD4A9 /* QuickLookDataSource.h */,
+				040B0830248E24AE009AD4A9 /* QuickLookDataSource.m */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -1113,6 +1150,9 @@
 		F148CBBB1B255E580A98489C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				040CD7BA248E12AB008864ED /* QuickLook.framework */,
+				040CD7B9248E12AB008864ED /* QuickLookThumbnailing.framework */,
+				040CD7B7248E0DC5008864ED /* WebKit.framework */,
 				045BC3092488D67900F1A4A2 /* QuartzCore.framework */,
 				045BC3072488D1C100F1A4A2 /* PDSnackbar.framework */,
 				045BC2D42488CD6800F1A4A2 /* GCDObjC.framework */,
@@ -1543,6 +1583,7 @@
 				044141F9248A263D0007FC73 /* NotificationHelpers.m in Sources */,
 				045BC30B2488DDC400F1A4A2 /* RootDashboardController.h in Sources */,
 				04EBA681248D945D000572E9 /* VideosDashSource.m in Sources */,
+				040CD7B6248E02E5008864ED /* MimeHelper.m in Sources */,
 				041AB74D248A8826002AC961 /* BaseViewController.m in Sources */,
 				041AB746248A878D002AC961 /* LoginViewController.m in Sources */,
 				04EBA68A248D94D4000572E9 /* EmailsDataArray.m in Sources */,
@@ -1557,6 +1598,8 @@
 				045BC3112488E09200F1A4A2 /* MusicLibraryTableViewController.m in Sources */,
 				04EBA690248D94F2000572E9 /* BrowserHistoryDataArray.m in Sources */,
 				04678191248CC0A50074B416 /* NotesDataArray.m in Sources */,
+				040CD7B3248DFCB3008864ED /* DocumentPreviewerViewController.m in Sources */,
+				040CD7AF248DFA95008864ED /* DateHelpers.m in Sources */,
 				041AB753248A89D9002AC961 /* SnackBarHelper.m in Sources */,
 				041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */,
 				0473C6EB248B785500D7D7D3 /* StringHelpers.m in Sources */,
@@ -1570,6 +1613,7 @@
 				04E4111E248A516C008D02E6 /* NotesTableViewController.m in Sources */,
 				045BC26B2488B98400F1A4A2 /* main.m in Sources */,
 				045BC2C22488BB8000F1A4A2 /* RootNavigationController.m in Sources */,
+				040B0831248E24AE009AD4A9 /* QuickLookDataSource.m in Sources */,
 				04EBA6AB248D9814000572E9 /* VideosViewController.m in Sources */,
 				04EBA68D248D94E0000572E9 /* MusicAlbumsDataArray.m in Sources */,
 				04E41109248A5034008D02E6 /* NotesDashSource.m in Sources */,

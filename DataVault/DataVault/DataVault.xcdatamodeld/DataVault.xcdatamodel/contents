@@ -10,6 +10,7 @@
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="docDescription" optional="YES" attributeType="String"/>
+        <attribute name="mime" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Emails" representedClassName="Emails" syncable="YES" codeGenerationType="class">
@@ -48,13 +49,13 @@
         <attribute name="videoDescription" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="BrowserHistory" positionX="18" positionY="90" width="128" height="103"/>
+        <element name="Documents" positionX="-54" positionY="9" width="128" height="118"/>
+        <element name="Emails" positionX="36" positionY="99" width="128" height="103"/>
+        <element name="MusicAlbums" positionX="-9" positionY="45" width="128" height="118"/>
         <element name="Notes" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Documents" positionX="-54" positionY="9" width="128" height="103"/>
         <element name="PDFs" positionX="-36" positionY="45" width="128" height="103"/>
         <element name="Photos" positionX="-18" positionY="72" width="128" height="103"/>
         <element name="Videos" positionX="0" positionY="81" width="128" height="103"/>
-        <element name="BrowserHistory" positionX="18" positionY="90" width="128" height="103"/>
-        <element name="Emails" positionX="36" positionY="99" width="128" height="103"/>
-        <element name="MusicAlbums" positionX="-9" positionY="45" width="128" height="118"/>
     </elements>
 </model>

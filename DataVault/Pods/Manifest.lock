@@ -1,5 +1,21 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - APProgressHUD (1.1.2)
+  - CCBottomRefreshControl (0.5.2)
   - GCDObjC (0.3.0)
   - GoogleAPIClientForREST (1.4.1):
     - GoogleAPIClientForREST/Core (= 1.4.1)
@@ -662,7 +678,9 @@ PODS:
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
+  - AFNetworking (~> 4.0)
   - APProgressHUD (~> 1.1)
+  - CCBottomRefreshControl (~> 0.5)
   - GCDObjC (~> 0.3)
   - GoogleAPIClientForREST (~> 1.4)
   - iCloudDocumentSync (~> 7.4)
@@ -675,7 +693,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - APProgressHUD
+    - CCBottomRefreshControl
     - GCDObjC
     - GoogleAPIClientForREST
     - GTMSessionFetcher
@@ -697,7 +717,9 @@ SPEC REPOS:
     - TransitionKit
 
 SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   APProgressHUD: ff2139d0bb9255ca6a2a528811c438d82143751d
+  CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
   GCDObjC: 0c31898f34d8605196ac0343c65b496609d7dee6
   GoogleAPIClientForREST: e50dc3267b3131ee3a25e707c10204f6bec15ae9
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
@@ -718,6 +740,6 @@ SPEC CHECKSUMS:
   TopUIViewController: c45c7fd10701dd34a99c011eb79bcb39d964eb53
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
-PODFILE CHECKSUM: 06834786789daee487394d848be004abc4f4e1c8
+PODFILE CHECKSUM: bea34c98c19ca1f3cee8d17d41da9bd224d410b1
 
 COCOAPODS: 1.9.2

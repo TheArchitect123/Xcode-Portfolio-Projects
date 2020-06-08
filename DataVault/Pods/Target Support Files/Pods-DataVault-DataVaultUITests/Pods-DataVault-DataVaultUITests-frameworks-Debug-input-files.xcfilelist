@@ -1,5 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-DataVault-DataVaultUITests/Pods-DataVault-DataVaultUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/APProgressHUD/APProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/CCBottomRefreshControl/CCBottomRefreshControl.framework
 ${BUILT_PRODUCTS_DIR}/GCDObjC/GCDObjC.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework

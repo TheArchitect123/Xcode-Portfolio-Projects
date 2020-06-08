@@ -17,6 +17,7 @@
 
 //Dto
 #import "DocumentsDto.h"
+#import "DocumentPreviewerViewController.h"
 
 //Material
 #import <MaterialComponents/MaterialRipple.h>
@@ -33,9 +34,9 @@
     self = [super init];
     if (self) {
         self._dataDocumentArray = [[NSMutableArray alloc] init];
-//        [self._dataDocumentArray addObject:[self documentMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
-//        [self._dataDocumentArray addObject:[self documentMapper:@"Broken note" description:@"sample description"]];
-//        [self._dataDocumentArray addObject:[self documentMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
+        //        [self._dataDocumentArray addObject:[self documentMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
+        //        [self._dataDocumentArray addObject:[self documentMapper:@"Broken note" description:@"sample description"]];
+        //        [self._dataDocumentArray addObject:[self documentMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
     }
     return self;
 }
@@ -47,8 +48,8 @@
     
     return item;
 }
-         
-         
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self._dataDocumentArray.count;
@@ -119,14 +120,15 @@
     (*cell).accessoryType = UITableViewCellAccessoryNone;
     
     //Configure Leading Icon
-    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageWithData:self._dataDocumentArray[index].data]];
-    (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageWithData:self._dataDocumentArray[index].data]];
+    //    (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    // (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
+    
+    //(*cell).accessoryView = [self configureAccessoryView:self._dataDocumentArray[index].created tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
     (*cell).textLabel.text = self._dataDocumentArray[index].name;
     (*cell).detailTextLabel.text = self._dataDocumentArray[index].docDescription;
-//    
+    //
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
     //    [inkTouchController addRippleToView:dashboardItem];
@@ -148,11 +150,32 @@
 
 -(void) openSpecifiedDocument:(uint)index tableView:(UITableView *)tableViewRef {
     
-   
+    //Opens up the modal dialogue of the note, allowing the user to edit it.
+    //This will make an upload to the cloud, while also updating the items on the local database
+    UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
+    DocumentPreviewerViewController *docsReviewController = [storyRef instantiateViewControllerWithIdentifier:@"DocumentPreviewerViewController"];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        // Generate the file path
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"filename.doc"];
+        
+        // Save it into file system
+        [self._dataDocumentArray[index].data writeToFile:dataPath atomically:YES];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            docsReviewController._dataPath = dataPath;
+            [self._parentController presentViewController:docsReviewController animated:true completion:nil];
+        });
+    });
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    [self openSpecifiedDocument:indexPath.row tableView:tableView];
 }
 
 
