@@ -139,34 +139,34 @@
                 [item stopAccessingSecurityScopedResource];
             }
             else { //Non File based (Taken from the remote server)
-                NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-                AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-                
-                NSURLRequest *request = [NSURLRequest requestWithURL:item];
-                NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
-                    
-                } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
-                    
-                } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                    
-                    if(error != nil){
-                        NSLog(error.localizedDescription);
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [SnackBarHelper showSnackBarWithMessage:@"Failed to process document..."];
-                        });
-                    }
-                    else {
-                        NSLog(responseObject);
-                        
-                        // update UI on the main thread
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [SnackBarHelper showSnackBarWithMessage:@"Completed processing your document..."];
-                            [self.tableView reloadData]; //Make sure to reload the table view
-                        });
-                    }
-                }];
-                
-                [dataTask resume];
+//                NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//                AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+//                
+//                NSURLRequest *request = [NSURLRequest requestWithURL:item];
+//                NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+//                    
+//                } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+//                    
+//                } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//                    
+//                    if(error != nil){
+//                        NSLog(error.localizedDescription);
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [SnackBarHelper showSnackBarWithMessage:@"Failed to process document..."];
+//                        });
+//                    }
+//                    else {
+//                        NSLog(responseObject);
+//                        
+//                        // update UI on the main thread
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [SnackBarHelper showSnackBarWithMessage:@"Completed processing your document..."];
+//                            [self.tableView reloadData]; //Make sure to reload the table view
+//                        });
+//                    }
+//                }];
+//                
+//                [dataTask resume];
             }
         }
     });

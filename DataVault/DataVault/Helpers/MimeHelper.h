@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MimeHelper : NSObject
 +(NSString *) getMimeOfFile:(NSString *)extension;
++(NSString *) getExtensionOfMime:(NSString *)mime;
 @end
 
 NS_ASSUME_NONNULL_END

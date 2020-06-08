@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "VideosDataArray.h"
 #import "VideosDashSource.h"
 
 @interface VideosDashSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) VideosDashSource* _dataArray;
+@property(nonatomic, strong, readwrite) VideosDataArray* _dataArray;
 
 @end

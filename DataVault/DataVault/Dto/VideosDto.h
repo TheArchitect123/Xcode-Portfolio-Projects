@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface VideosDto : NSObject
 
-@end
+@property(nonatomic, strong, readwrite) NSString* name;
+@property(nonatomic, strong, readwrite) NSString* videoDescription;
+@property(nonatomic, strong, readwrite) NSData* data;
+@property(nonatomic, strong, readwrite) NSDate* created;
 
-NS_ASSUME_NONNULL_END
+@end

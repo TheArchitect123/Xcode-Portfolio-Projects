@@ -8,6 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		040B0831248E24AE009AD4A9 /* QuickLookDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B0830248E24AE009AD4A9 /* QuickLookDataSource.m */; };
+		040B0835248E6C2A009AD4A9 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0834248E6C2A009AD4A9 /* AFNetworking.framework */; };
+		040B0839248E6C2A009AD4A9 /* APProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0838248E6C2A009AD4A9 /* APProgressHUD.framework */; };
+		040B083B248E6C2A009AD4A9 /* CCBottomRefreshControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B083A248E6C2A009AD4A9 /* CCBottomRefreshControl.framework */; };
+		040B083D248E6C2A009AD4A9 /* GCDObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B083C248E6C2A009AD4A9 /* GCDObjC.framework */; };
+		040B083F248E6C2A009AD4A9 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B083E248E6C2A009AD4A9 /* GoogleAPIClientForREST.framework */; };
+		040B0841248E6C2A009AD4A9 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0840248E6C2A009AD4A9 /* GTMSessionFetcher.framework */; };
+		040B0843248E6C2B009AD4A9 /* iCloudDocumentSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0842248E6C2B009AD4A9 /* iCloudDocumentSync.framework */; };
+		040B0845248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0844248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework */; };
+		040B0847248E6C2B009AD4A9 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0846248E6C2B009AD4A9 /* MaterialComponents.framework */; };
+		040B0849248E6C2B009AD4A9 /* MaterialTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0848248E6C2B009AD4A9 /* MaterialTextField.framework */; };
+		040B084B248E6C2B009AD4A9 /* MDFInternationalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B084A248E6C2B009AD4A9 /* MDFInternationalization.framework */; };
+		040B084D248E6C2B009AD4A9 /* MDFTextAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B084C248E6C2B009AD4A9 /* MDFTextAccessibility.framework */; };
+		040B084F248E6C2B009AD4A9 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B084E248E6C2B009AD4A9 /* MGSwipeTableCell.framework */; };
+		040B0851248E6C2B009AD4A9 /* MotionAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0850248E6C2B009AD4A9 /* MotionAnimator.framework */; };
+		040B0853248E6C2B009AD4A9 /* MotionInterchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0852248E6C2B009AD4A9 /* MotionInterchange.framework */; };
+		040B0855248E6C2B009AD4A9 /* PDSnackbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0854248E6C2B009AD4A9 /* PDSnackbar.framework */; };
+		040B0859248E6C2B009AD4A9 /* Pods_DataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0858248E6C2B009AD4A9 /* Pods_DataVault.framework */; };
+		040B085D248E6C2B009AD4A9 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B085C248E6C2B009AD4A9 /* PureLayout.framework */; };
+		040B085F248E6C2B009AD4A9 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B085E248E6C2B009AD4A9 /* RestKit.framework */; };
+		040B0861248E6C2B009AD4A9 /* RKValueTransformers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0860248E6C2B009AD4A9 /* RKValueTransformers.framework */; };
+		040B0863248E6C2B009AD4A9 /* SOCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0862248E6C2B009AD4A9 /* SOCKit.framework */; };
+		040B0865248E6C2B009AD4A9 /* TopUIViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0864248E6C2B009AD4A9 /* TopUIViewController.framework */; };
+		040B0867248E6C2B009AD4A9 /* TransitionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0866248E6C2B009AD4A9 /* TransitionKit.framework */; };
+		040B086A248E6DEE009AD4A9 /* AMPPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B0868248E6DEE009AD4A9 /* AMPPreviewController.m */; };
 		040CD7AF248DFA95008864ED /* DateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7AE248DFA95008864ED /* DateHelpers.m */; };
 		040CD7B3248DFCB3008864ED /* DocumentPreviewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B2248DFCB3008864ED /* DocumentPreviewerViewController.m */; };
 		040CD7B6248E02E5008864ED /* MimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B5248E02E5008864ED /* MimeHelper.m */; };
@@ -272,6 +296,32 @@
 		01D585A49A25E85F59AE0884 /* Pods-DataVaultTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVaultTests.release.xcconfig"; path = "Target Support Files/Pods-DataVaultTests/Pods-DataVaultTests.release.xcconfig"; sourceTree = "<group>"; };
 		040B082F248E24AE009AD4A9 /* QuickLookDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickLookDataSource.h; sourceTree = "<group>"; };
 		040B0830248E24AE009AD4A9 /* QuickLookDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickLookDataSource.m; sourceTree = "<group>"; };
+		040B0834248E6C2A009AD4A9 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0836248E6C2A009AD4A9 /* AMPPreviewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AMPPreviewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0838248E6C2A009AD4A9 /* APProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B083A248E6C2A009AD4A9 /* CCBottomRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCBottomRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B083C248E6C2A009AD4A9 /* GCDObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GCDObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B083E248E6C2A009AD4A9 /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAPIClientForREST.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0840248E6C2A009AD4A9 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0842248E6C2B009AD4A9 /* iCloudDocumentSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iCloudDocumentSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0844248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ISO8601DateFormatterValueTransformer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0846248E6C2B009AD4A9 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0848248E6C2B009AD4A9 /* MaterialTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B084A248E6C2B009AD4A9 /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B084C248E6C2B009AD4A9 /* MDFTextAccessibility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDFTextAccessibility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B084E248E6C2B009AD4A9 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0850248E6C2B009AD4A9 /* MotionAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MotionAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0852248E6C2B009AD4A9 /* MotionInterchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MotionInterchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0854248E6C2B009AD4A9 /* PDSnackbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDSnackbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0858248E6C2B009AD4A9 /* Pods_DataVault.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_DataVault.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B085C248E6C2B009AD4A9 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B085E248E6C2B009AD4A9 /* RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0860248E6C2B009AD4A9 /* RKValueTransformers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RKValueTransformers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0862248E6C2B009AD4A9 /* SOCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SOCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0864248E6C2B009AD4A9 /* TopUIViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TopUIViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0866248E6C2B009AD4A9 /* TransitionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TransitionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040B0868248E6DEE009AD4A9 /* AMPPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPPreviewController.m; path = AMPPreviewController/Classes/AMPPreviewController.m; sourceTree = SOURCE_ROOT; };
+		040B0869248E6DEE009AD4A9 /* AMPPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPPreviewController.h; path = AMPPreviewController/Classes/AMPPreviewController.h; sourceTree = SOURCE_ROOT; };
 		040CD7AD248DFA95008864ED /* DateHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateHelpers.h; sourceTree = "<group>"; };
 		040CD7AE248DFA95008864ED /* DateHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateHelpers.m; sourceTree = "<group>"; };
 		040CD7B1248DFCB3008864ED /* DocumentPreviewerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentPreviewerViewController.h; sourceTree = "<group>"; };
@@ -595,19 +645,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				040CD7BB248E12AB008864ED /* QuickLookThumbnailing.framework in Frameworks */,
+				040B0845248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework in Frameworks */,
+				040B0835248E6C2A009AD4A9 /* AFNetworking.framework in Frameworks */,
+				040B085D248E6C2B009AD4A9 /* PureLayout.framework in Frameworks */,
+				040B0865248E6C2B009AD4A9 /* TopUIViewController.framework in Frameworks */,
+				040B0863248E6C2B009AD4A9 /* SOCKit.framework in Frameworks */,
 				040CD7BC248E12AB008864ED /* QuickLook.framework in Frameworks */,
 				040CD7B8248E0DC6008864ED /* WebKit.framework in Frameworks */,
+				040B0847248E6C2B009AD4A9 /* MaterialComponents.framework in Frameworks */,
+				040B0855248E6C2B009AD4A9 /* PDSnackbar.framework in Frameworks */,
 				04D9A27424891F9B00EFE59F /* UIKit.framework in Frameworks */,
+				040B0849248E6C2B009AD4A9 /* MaterialTextField.framework in Frameworks */,
+				040B084D248E6C2B009AD4A9 /* MDFTextAccessibility.framework in Frameworks */,
 				045BC30A2488D67900F1A4A2 /* QuartzCore.framework in Frameworks */,
 				045BC2C62488CC5500F1A4A2 /* CoreGraphics.framework in Frameworks */,
 				045BC2D22488CCBC00F1A4A2 /* CoreBluetooth.framework in Frameworks */,
 				045BC3082488D1C100F1A4A2 /* PDSnackbar.framework in Frameworks */,
+				040B0839248E6C2A009AD4A9 /* APProgressHUD.framework in Frameworks */,
+				040B084F248E6C2B009AD4A9 /* MGSwipeTableCell.framework in Frameworks */,
+				040B0859248E6C2B009AD4A9 /* Pods_DataVault.framework in Frameworks */,
+				040B083F248E6C2A009AD4A9 /* GoogleAPIClientForREST.framework in Frameworks */,
+				040B0861248E6C2B009AD4A9 /* RKValueTransformers.framework in Frameworks */,
+				040B084B248E6C2B009AD4A9 /* MDFInternationalization.framework in Frameworks */,
 				045BC2CE2488CC9300F1A4A2 /* MediaPlayer.framework in Frameworks */,
+				040B083D248E6C2A009AD4A9 /* GCDObjC.framework in Frameworks */,
+				040B0853248E6C2B009AD4A9 /* MotionInterchange.framework in Frameworks */,
 				045BC2CC2488CC8E00F1A4A2 /* MediaToolbox.framework in Frameworks */,
+				040B083B248E6C2A009AD4A9 /* CCBottomRefreshControl.framework in Frameworks */,
 				045BC2C82488CC8600F1A4A2 /* AudioToolbox.framework in Frameworks */,
+				040B0843248E6C2B009AD4A9 /* iCloudDocumentSync.framework in Frameworks */,
 				045BC2CA2488CC8A00F1A4A2 /* CoreMedia.framework in Frameworks */,
 				045BC2D02488CCB800F1A4A2 /* Foundation.framework in Frameworks */,
+				040B0851248E6C2B009AD4A9 /* MotionAnimator.framework in Frameworks */,
+				040B0841248E6C2A009AD4A9 /* GTMSessionFetcher.framework in Frameworks */,
 				53A6E8FD12647D8B61344AFB /* Pods_DataVault.framework in Frameworks */,
+				040B0867248E6C2B009AD4A9 /* TransitionKit.framework in Frameworks */,
+				040B085F248E6C2B009AD4A9 /* RestKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1178,8 @@
 		04D9A27524892A6700EFE59F /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				040B0869248E6DEE009AD4A9 /* AMPPreviewController.h */,
+				040B0868248E6DEE009AD4A9 /* AMPPreviewController.m */,
 				04D9A27624892A8700EFE59F /* DashboardCardView.h */,
 				04D9A27724892A8700EFE59F /* DashboardCardView.m */,
 			);
@@ -1150,6 +1225,30 @@
 		F148CBBB1B255E580A98489C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				040B0834248E6C2A009AD4A9 /* AFNetworking.framework */,
+				040B0836248E6C2A009AD4A9 /* AMPPreviewController.framework */,
+				040B0838248E6C2A009AD4A9 /* APProgressHUD.framework */,
+				040B083A248E6C2A009AD4A9 /* CCBottomRefreshControl.framework */,
+				040B083C248E6C2A009AD4A9 /* GCDObjC.framework */,
+				040B083E248E6C2A009AD4A9 /* GoogleAPIClientForREST.framework */,
+				040B0840248E6C2A009AD4A9 /* GTMSessionFetcher.framework */,
+				040B0842248E6C2B009AD4A9 /* iCloudDocumentSync.framework */,
+				040B0844248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework */,
+				040B0846248E6C2B009AD4A9 /* MaterialComponents.framework */,
+				040B0848248E6C2B009AD4A9 /* MaterialTextField.framework */,
+				040B084A248E6C2B009AD4A9 /* MDFInternationalization.framework */,
+				040B084C248E6C2B009AD4A9 /* MDFTextAccessibility.framework */,
+				040B084E248E6C2B009AD4A9 /* MGSwipeTableCell.framework */,
+				040B0850248E6C2B009AD4A9 /* MotionAnimator.framework */,
+				040B0852248E6C2B009AD4A9 /* MotionInterchange.framework */,
+				040B0854248E6C2B009AD4A9 /* PDSnackbar.framework */,
+				040B0858248E6C2B009AD4A9 /* Pods_DataVault.framework */,
+				040B085C248E6C2B009AD4A9 /* PureLayout.framework */,
+				040B085E248E6C2B009AD4A9 /* RestKit.framework */,
+				040B0860248E6C2B009AD4A9 /* RKValueTransformers.framework */,
+				040B0862248E6C2B009AD4A9 /* SOCKit.framework */,
+				040B0864248E6C2B009AD4A9 /* TopUIViewController.framework */,
+				040B0866248E6C2B009AD4A9 /* TransitionKit.framework */,
 				040CD7BA248E12AB008864ED /* QuickLook.framework */,
 				040CD7B9248E12AB008864ED /* QuickLookThumbnailing.framework */,
 				040CD7B7248E0DC5008864ED /* WebKit.framework */,
@@ -1611,6 +1710,7 @@
 				04E4111B248A50A6008D02E6 /* EmailsDashSource.m in Sources */,
 				0487867F248A016D00A84371 /* ScreenHelper.m in Sources */,
 				04E4111E248A516C008D02E6 /* NotesTableViewController.m in Sources */,
+				040B086A248E6DEE009AD4A9 /* AMPPreviewController.m in Sources */,
 				045BC26B2488B98400F1A4A2 /* main.m in Sources */,
 				045BC2C22488BB8000F1A4A2 /* RootNavigationController.m in Sources */,
 				040B0831248E24AE009AD4A9 /* QuickLookDataSource.m in Sources */,

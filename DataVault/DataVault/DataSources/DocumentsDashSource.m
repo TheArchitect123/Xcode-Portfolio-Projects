@@ -14,18 +14,20 @@
 
 //Custom
 #import "DocumentsDataArray.h"
+#import "AMPPreviewController.h"
 
 //Dto
 #import "DocumentsDto.h"
-#import "DocumentPreviewerViewController.h"
 
 //Material
-#import <MaterialComponents/MaterialRipple.h>
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+#import <MGSwipeTableCell/MGSwipeButton.h>
 
 //Helpers
 #import "ColorHelper.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
+#import "MimeHelper.h"
 
 @implementation DocumentsDashSource
 
@@ -41,60 +43,23 @@
     return self;
 }
 
--(DocumentsDto *) documentMapper:(NSString *) title  description:(NSString *) descriptionRef{
-    DocumentsDto* item = [[DocumentsDto alloc] init];
-    item.name = title;
-    item.docDescription = descriptionRef;
-    
-    return item;
-}
-
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self._dataDocumentArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *notesItem = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"noteItem"];
+    MGSwipeTableCell *documentItem = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"documentItem"];
     
-    [self configureTableCell:indexPath.row tableCell:&notesItem]; //Configure the Table Cell
-    return notesItem;
-}
-
-- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self configureTableCell:indexPath.row tableCell:&documentItem]; //Configure the Table Cell
     
-    //Remove all items from the categories' cache
-    UITableViewRowAction* delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-                                                                      title:@"Delete"
-                                                                    handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Note" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
-            
-            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-            
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", @"SAMPLE"] buttonTitle:@"Undo" invokedAction:(^(){
-                
-                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-            })];
-        }) controller: self._parentController];
-        
-    }];
+    //Configure Right Buttons
+    documentItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+    documentItem.rightSwipeSettings.enableSwipeBounces = true;
+    documentItem.rightSwipeSettings.transition = MGSwipeTransition3D;
+    documentItem.rightButtons = [self defaultRightButtons:indexPath.row tableView:tableView];
     
-    
-    //Add new content from downloads, or some other options (any other app that allows it)
-    UITableViewRowAction* editContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                           title:@"Edit"
-                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        //[self openSpecifiedNote:(uint)indexPath.row tableView:tableView];
-    }];
-    
-    editContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
-    
-    return @[delete, editContent];
+    return documentItem;
 }
 
 -(UIImage *) configureCategoryImage:(UIImage *) image{
@@ -105,6 +70,27 @@
     UIGraphicsEndImageContext();
     
     return imageFromContext;
+}
+
+-(NSArray *) defaultRightButtons:(uint) index tableView:(UITableView *) tableViewRef{
+    return @[[MGSwipeButton buttonWithTitle:@"View" backgroundColor:[ColorHelper CardDark_ThemBackground] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        
+        [self openSpecifiedDocument:index tableView:tableViewRef];
+        return true;
+    }], [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+        
+        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+               [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
+                   
+                   //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+                   
+                   [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataDocumentArray[index].name] buttonTitle:@"Undo" invokedAction:(^(){
+                       
+                       [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+                   })];
+               }) controller: self._parentController];
+        return true;
+    }]];
 }
 
 -(void) configureTableCell:(uint)index tableCell:(UITableViewCell**)cell{
@@ -119,16 +105,11 @@
     //Accessory Item
     (*cell).accessoryType = UITableViewCellAccessoryNone;
     
-    //Configure Leading Icon
-    //    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageWithData:self._dataDocumentArray[index].data]];
-    //    (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    
     //(*cell).accessoryView = [self configureAccessoryView:self._dataDocumentArray[index].created tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
     (*cell).textLabel.text = self._dataDocumentArray[index].name;
     (*cell).detailTextLabel.text = self._dataDocumentArray[index].docDescription;
-    //
+    
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
     //    [inkTouchController addRippleToView:dashboardItem];
@@ -150,24 +131,30 @@
 
 -(void) openSpecifiedDocument:(uint)index tableView:(UITableView *)tableViewRef {
     
-    //Opens up the modal dialogue of the note, allowing the user to edit it.
-    //This will make an upload to the cloud, while also updating the items on the local database
-    UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
-    DocumentPreviewerViewController *docsReviewController = [storyRef instantiateViewControllerWithIdentifier:@"DocumentPreviewerViewController"];
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         // Generate the file path
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString* extension = [MimeHelper getExtensionOfMime:self._dataDocumentArray[index].mime];
+        NSString* tempFileName = [NSString stringWithFormat:@"/SafetyBox/tempfileName.%@", extension];
+    
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"filename.doc"];
+        NSString *dataPath = [NSString stringWithFormat:@"%@",[documentsDirectory stringByAppendingPathComponent:tempFileName]];
         
         // Save it into file system
-        [self._dataDocumentArray[index].data writeToFile:dataPath atomically:YES];
+    //    if([NSFileManager.defaultManager fileExistsAtPath:dataPath isDirectory:false])
+        NSError* error = nil;
+        [NSFileManager.defaultManager createDirectoryAtPath:[documentsDirectory stringByAppendingPathComponent:@"SafetyBox"] withIntermediateDirectories:true attributes:nil error:&error];
+        if(error != nil){ //If the directory fails to create then process it here
+            NSLog(error.localizedDescription);
+        }
+        [NSFileManager.defaultManager createFileAtPath:dataPath contents:self._dataDocumentArray[index].data attributes:nil];
+        //[self._dataDocumentArray[index].data writeToFile:dataPath atomically:YES];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            docsReviewController._dataPath = dataPath;
-            [self._parentController presentViewController:docsReviewController animated:true completion:nil];
+            AMPPreviewController *previewController = [[AMPPreviewController alloc] initWithFilePath:[NSURL fileURLWithPath:dataPath]];
+            [previewController setTitle:self._dataDocumentArray[index].name];
+            [self._parentController presentViewController:previewController animated:true completion:nil];
         });
     });
 }

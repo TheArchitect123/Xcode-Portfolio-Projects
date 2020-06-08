@@ -29,4 +29,22 @@
     
     return @"";
 }
+
++(NSString *) getExtensionOfMime:(NSString *)mime{
+    
+    if([mime isEqualToString: @"com.microsoft.word.doc"]){
+         return @"doc";
+    }
+    else if([mime isEqualToString: @"com.microsoft.excel.xls"]){
+         return @"xls";
+    }
+    else if([mime isEqualToString: @"com.microsoft.powerpoint.​ppt"]){
+         return @"​ppt";
+    }
+    else if([mime isEqualToString: @"com.apple.keynote.key"]){
+         return @"key";
+    }
+    
+    return @"";
+}
 @end

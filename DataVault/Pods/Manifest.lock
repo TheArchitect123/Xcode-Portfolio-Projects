@@ -678,7 +678,7 @@ PODS:
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 4.0)
+  - AFNetworking (~> 4.0.1)
   - APProgressHUD (~> 1.1)
   - CCBottomRefreshControl (~> 0.5)
   - GCDObjC (~> 0.3)
@@ -740,6 +740,6 @@ SPEC CHECKSUMS:
   TopUIViewController: c45c7fd10701dd34a99c011eb79bcb39d964eb53
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
-PODFILE CHECKSUM: bea34c98c19ca1f3cee8d17d41da9bd224d410b1
+PODFILE CHECKSUM: 563f11b03e256592e2d16053eeae0cb3e832eb87
 
 COCOAPODS: 1.9.2

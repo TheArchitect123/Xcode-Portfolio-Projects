@@ -12,7 +12,7 @@
 //Custom
 #import "BaseViewController.h"
 
-@interface PhotosViewController : BaseViewController
+@interface PhotosViewController : BaseViewController<UIImagePickerControllerDelegate>
 
 @property(nonatomic, readwrite, strong) PhotosDashSource* DataSource;
 

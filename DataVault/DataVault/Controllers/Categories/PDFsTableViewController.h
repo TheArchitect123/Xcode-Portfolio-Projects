@@ -11,7 +11,7 @@
 #import "BaseViewController.h"
 #import "PDFDashSource.h"
 
-@interface PDFsTableViewController : BaseViewController
+@interface PDFsTableViewController : BaseViewController<UIDocumentPickerDelegate>
 
 @property(nonatomic, readwrite, strong) PDFDashSource* DataSource;
 

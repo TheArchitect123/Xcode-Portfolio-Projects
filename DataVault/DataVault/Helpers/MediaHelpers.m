@@ -123,7 +123,7 @@
     
 }
 +(void) takeDocumentFromLocalDevice:(UIViewController *)parentController{
-    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[ @"com.microsoft.word.doc",@"com.apple.keynote.key", @"public.text", @"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeOpen];
+    UIDocumentPickerViewController* documentBrowser = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.microsoft.word.doc",@"com.apple.keynote.key", @"public.text", @"com.microsoft.excel.xls",@"com.microsoft.powerpoint.​ppt"] inMode:UIDocumentPickerModeOpen];
     documentBrowser.delegate = parentController;
     documentBrowser.allowsMultipleSelection = true;
     

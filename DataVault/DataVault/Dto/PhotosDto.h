@@ -10,4 +10,9 @@
 
 @interface PhotosDto : NSObject
 
+@property(nonatomic, strong, readwrite) NSString* name;
+@property(nonatomic, strong, readwrite) NSString* photoDescription;
+@property(nonatomic, strong, readwrite) NSData* data;
+@property(nonatomic, strong, readwrite) NSDate* created;
+
 @end
