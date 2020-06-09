@@ -115,7 +115,7 @@
     self.DataSource = [[DashboardDataSource alloc] init];
     self.DataSource._parentController = self.navigationController.viewControllers[0];
     
-    [self.tableView setContentInset:UIEdgeInsetsMake(60.0f, 0, 60.0f, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(60.0f, 0, 0.0f, 0)];
     self.tableView.dataSource = self.DataSource;
     self.tableView.delegate = self.DataSource;
     self.tableView.rowHeight = 100.0f;

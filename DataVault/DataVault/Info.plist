@@ -17,11 +17,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.business</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to your gallery, so you can post photos</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>$(PRODUCT_NAME) requires access to your gallery, so you can post photos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) requires access to your camera, so you can post photos</string>
 	<key>NSMicrophoneUsageDescription</key>
