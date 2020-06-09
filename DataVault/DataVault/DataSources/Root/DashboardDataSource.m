@@ -240,7 +240,7 @@
     (*cell).backgroundColor = UIColor.whiteColor;
     
     //Configure Leading Icon
-    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageNamed:self._imageItems[category] inBundle:nil withConfiguration:nil]];
+    (*cell).imageView.image = [self configureCategoryImage:[UIImage imageNamed:self._imageItems[category]]];
     (*cell).imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     //Accessory Item

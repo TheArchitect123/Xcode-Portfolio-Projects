@@ -36,7 +36,6 @@
 		040CD7B3248DFCB3008864ED /* DocumentPreviewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B2248DFCB3008864ED /* DocumentPreviewerViewController.m */; };
 		040CD7B6248E02E5008864ED /* MimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 040CD7B5248E02E5008864ED /* MimeHelper.m */; };
 		040CD7B8248E0DC6008864ED /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7B7248E0DC5008864ED /* WebKit.framework */; };
-		040CD7BB248E12AB008864ED /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7B9248E12AB008864ED /* QuickLookThumbnailing.framework */; };
 		040CD7BC248E12AB008864ED /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CD7BA248E12AB008864ED /* QuickLook.framework */; };
 		041AB746248A878D002AC961 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB745248A878D002AC961 /* LoginViewController.m */; };
 		041AB749248A87A2002AC961 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AB748248A87A2002AC961 /* RegisterViewController.m */; };
@@ -647,7 +646,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040CD7BB248E12AB008864ED /* QuickLookThumbnailing.framework in Frameworks */,
 				040B0845248E6C2B009AD4A9 /* ISO8601DateFormatterValueTransformer.framework in Frameworks */,
 				040B0835248E6C2A009AD4A9 /* AFNetworking.framework in Frameworks */,
 				040B085D248E6C2B009AD4A9 /* PureLayout.framework in Frameworks */,
@@ -1915,6 +1913,7 @@
 				PRODUCT_NAME = SafetyBox;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1938,6 +1937,7 @@
 				PRODUCT_NAME = SafetyBox;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

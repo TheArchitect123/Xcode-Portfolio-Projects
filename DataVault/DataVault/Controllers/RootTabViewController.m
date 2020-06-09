@@ -89,10 +89,10 @@
 -(void) setupOtherUIComponents{
     
     //Refresh Floating Button
-    self._refreshFloatBtn = [[MDCFloatingButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 100.0f, self.view.bounds.size.height - 160.0f, 80.0f, 80.0f)];
-    self._refreshFloatBtn.backgroundColor = [ColorHelper CardDark_ThemBackground];
-    [self._refreshFloatBtn setImage:[UIImage imageNamed:@"RefreshWhite"] forState:UIControlStateNormal];
-    [self._refreshFloatBtn addTarget:self action:@selector(refreshItems) forControlEvents:UIControlEventTouchDown];
+//    self._refreshFloatBtn = [[MDCFloatingButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 100.0f, self.view.bounds.size.height - 160.0f, 80.0f, 80.0f)];
+//    self._refreshFloatBtn.backgroundColor = [ColorHelper CardDark_ThemBackground];
+//    [self._refreshFloatBtn setImage:[UIImage imageNamed:@"RefreshWhite"] forState:UIControlStateNormal];
+//    [self._refreshFloatBtn addTarget:self action:@selector(refreshItems) forControlEvents:UIControlEventTouchDown];
     
    // [self.view addSubview:self._refreshFloatBtn];
 }
@@ -309,7 +309,7 @@
 
 
 //Image Pickers
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
      [picker dismissViewControllerAnimated:true completion:^{
           [SnackBarHelper showSnackBarWithMessage:@"Canceled all Pending photo requests"];
       }];
