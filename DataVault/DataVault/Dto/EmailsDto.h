@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface EmailsDto : NSObject
+@interface EmailsDto : NSManagedObject
 
 @end
-
-NS_ASSUME_NONNULL_END

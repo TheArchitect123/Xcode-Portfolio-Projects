@@ -12,9 +12,13 @@
 #import "VideosDataArray.h"
 #import "VideosDashSource.h"
 
+#import "VideosDto.h"
+#import "DatabaseHelper.h"
+
 @interface VideosDashSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) VideosDataArray* _dataArray;
+@property(nonatomic, strong, readwrite) NSMutableArray<VideosDto *>* _dataArray;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
 
 @end

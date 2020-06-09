@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData.h>
 
-@interface DocumentsDto : NSObject
+@interface DocumentsDto : NSManagedObject
 
 @property(nonatomic, strong, readwrite) NSString* name;
 @property(nonatomic, strong, readwrite) NSString* docDescription;
 @property(nonatomic, strong, readwrite) NSData* data;
-@property(nonatomic, strong, readwrite) NSDate* created;
+@property(nonatomic, strong, readwrite) NSString* created;
 @property(nonatomic, strong, readwrite) NSString* mime;
 
 @end

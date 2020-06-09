@@ -257,6 +257,7 @@
 		04EBA6AF248D998A000572E9 /* baseline_collections_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBA6AC248D9989000572E9 /* baseline_collections_black_48pt_2x.png */; };
 		04EBA6B0248D998A000572E9 /* baseline_collections_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBA6AD248D9989000572E9 /* baseline_collections_black_48pt_3x.png */; };
 		04EBA6B1248D998A000572E9 /* baseline_collections_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EBA6AE248D9989000572E9 /* baseline_collections_black_48pt_1x.png */; };
+		04FE0165248F490F00FDC8E9 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE0164248F490F00FDC8E9 /* DatabaseHelper.m */; };
 		53A6E8FD12647D8B61344AFB /* Pods_DataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80DAA334B615AD150EB499A /* Pods_DataVault.framework */; };
 		7378D2FA33A02B79367A8303 /* Pods_DataVault_DataVaultUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD28CA65DE57D735603FDC06 /* Pods_DataVault_DataVaultUITests.framework */; };
 		81F3E5FEE8432E6E13649B3A /* Pods_DataVaultTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73525AE5E070BEFAB1826B1 /* Pods_DataVaultTests.framework */; };
@@ -629,6 +630,8 @@
 		04EBA6AC248D9989000572E9 /* baseline_collections_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_collections_black_48pt_2x.png; sourceTree = "<group>"; };
 		04EBA6AD248D9989000572E9 /* baseline_collections_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_collections_black_48pt_3x.png; sourceTree = "<group>"; };
 		04EBA6AE248D9989000572E9 /* baseline_collections_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_collections_black_48pt_1x.png; sourceTree = "<group>"; };
+		04FE0163248F490F00FDC8E9 /* DatabaseHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
+		04FE0164248F490F00FDC8E9 /* DatabaseHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
 		1E926492AF5344DDE92AEF92 /* Pods-DataVault-DataVaultUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault-DataVaultUITests.debug.xcconfig"; path = "Target Support Files/Pods-DataVault-DataVaultUITests/Pods-DataVault-DataVaultUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BD45225B8717F9D18BA6D13 /* Pods-DataVault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.debug.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.debug.xcconfig"; sourceTree = "<group>"; };
 		51FDC6FD684AADE797405C85 /* Pods-DataVault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataVault.release.xcconfig"; path = "Target Support Files/Pods-DataVault/Pods-DataVault.release.xcconfig"; sourceTree = "<group>"; };
@@ -1147,6 +1150,8 @@
 				040CD7AE248DFA95008864ED /* DateHelpers.m */,
 				040CD7B4248E02E5008864ED /* MimeHelper.h */,
 				040CD7B5248E02E5008864ED /* MimeHelper.m */,
+				04FE0163248F490F00FDC8E9 /* DatabaseHelper.h */,
+				04FE0164248F490F00FDC8E9 /* DatabaseHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1683,6 +1688,7 @@
 				045BC30B2488DDC400F1A4A2 /* RootDashboardController.h in Sources */,
 				04EBA681248D945D000572E9 /* VideosDashSource.m in Sources */,
 				040CD7B6248E02E5008864ED /* MimeHelper.m in Sources */,
+				04FE0165248F490F00FDC8E9 /* DatabaseHelper.m in Sources */,
 				041AB74D248A8826002AC961 /* BaseViewController.m in Sources */,
 				041AB746248A878D002AC961 /* LoginViewController.m in Sources */,
 				04EBA68A248D94D4000572E9 /* EmailsDataArray.m in Sources */,

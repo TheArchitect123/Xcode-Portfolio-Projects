@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData.h>
 
-@interface PDFsDto : NSObject
+@interface PDFsDto : NSManagedObject
 
 @property(nonatomic, strong, readwrite) NSString* name;
-@property(nonatomic, strong, readwrite) NSString* docDescription;
+@property(nonatomic, strong, readwrite) NSString* smallDescription;
 @property(nonatomic, strong, readwrite) NSData* data;
-@property(nonatomic, strong, readwrite) NSDate* created;
+@property(nonatomic, strong, readwrite) NSString* created;
 
 @end

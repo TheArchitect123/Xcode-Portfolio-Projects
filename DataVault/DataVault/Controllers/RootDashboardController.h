@@ -13,12 +13,11 @@
 #import <MaterialComponents/MaterialBottomNavigation.h>
 
 //Internal
-#import "DashboardDataSource.h";
+#import "DashboardDataSource.h"
 
 @interface RootDashboardController : BaseViewController
 
 @property(nonatomic, readwrite, strong) DashboardDataSource* DataSource;
-
 -(void) refreshItems;
 
 @end

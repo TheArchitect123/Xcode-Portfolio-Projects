@@ -25,6 +25,7 @@
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
 #import "MimeHelper.h"
+#import "DatabaseHelper.h"
 
 @implementation PDFDashSource
 
@@ -32,13 +33,14 @@
 {
     self = [super init];
     if (self) {
-        self._dataPDFsArray = [[NSMutableArray alloc] init];
+        self._dataArray = [[NSMutableArray alloc] init];
+        self._dbHelper = [[DatabaseHelper alloc] init];
     }
     return self;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self._dataPDFsArray.count;
+    return self._dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +50,7 @@
     [self configureTableCell:indexPath.row tableCell:&pdfItem]; //Configure the Table Cell
     
     //Configure Right Buttons
-    pdfItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+   // pdfItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
     pdfItem.rightSwipeSettings.enableSwipeBounces = true;
     pdfItem.rightSwipeSettings.transition = MGSwipeTransition3D;
     pdfItem.rightButtons = [self defaultRightButtons:indexPath.row tableView:tableView];
@@ -71,20 +73,22 @@
         
         [self openSpecifiedPDF:index tableView:tableViewRef];
         return true;
-    }], [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
-        
-        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-               [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
-                   
-                   //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-                   
-                   [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataPDFsArray[index]] buttonTitle:@"Undo" invokedAction:(^(){
-                       
-                       [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-                   })];
-               }) controller: self._parentController];
-        return true;
     }]];
+    
+//    [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//           //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+//                  [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
+//
+//                      //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+//
+//                      [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataArray[index]] buttonTitle:@"Undo" invokedAction:(^(){
+//
+//                          [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+//                      })];
+//                  }) controller: self._parentController];
+//           return true;
+//       }]
 }
 
 -(void) configureTableCell:(uint)index tableCell:(UITableViewCell**)cell{
@@ -101,8 +105,8 @@
     
     //(*cell).accessoryView = [self configureAccessoryView:self._dataDocumentArray[index].created tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
-    (*cell).textLabel.text = self._dataPDFsArray[index].name;
-    (*cell).detailTextLabel.text = self._dataPDFsArray[index].docDescription;
+    (*cell).textLabel.text = self._dataArray[index].name;
+    (*cell).detailTextLabel.text = self._dataArray[index].smallDescription;
     
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
@@ -141,12 +145,14 @@
         if(error != nil){ //If the directory fails to create then process it here
             NSLog(error.localizedDescription);
         }
-        [NSFileManager.defaultManager createFileAtPath:dataPath contents:self._dataPDFsArray[index].data attributes:nil];
+        [NSFileManager.defaultManager createFileAtPath:dataPath contents:self._dataArray[index].data attributes:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
             AMPPreviewController *previewController = [[AMPPreviewController alloc] initWithFilePath:[NSURL fileURLWithPath:dataPath]];
-            [previewController.navigationController.navigationItem setTitle:self._dataPDFsArray[index].name];
+            previewController.view.backgroundColor = UIColor.blackColor;
+            
+            [previewController.navigationController.navigationItem setTitle:self._dataArray[index].name];
             [self._parentController presentViewController:previewController animated:true completion:nil];
         });
     });

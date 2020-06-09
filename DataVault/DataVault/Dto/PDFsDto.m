@@ -10,4 +10,9 @@
 
 @implementation PDFsDto
 
+@synthesize name;
+@synthesize smallDescription;
+@synthesize data;
+@synthesize created;
+
 @end

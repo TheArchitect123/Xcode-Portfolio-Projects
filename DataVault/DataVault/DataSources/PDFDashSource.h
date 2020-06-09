@@ -10,10 +10,12 @@
 #import <UIKit/UIKit.h>
 
 #import "PDFsDataArray.h"
+#import "DatabaseHelper.h"
 
 @interface PDFDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) PDFsDataArray* _dataPDFsArray;
+@property(nonatomic, strong, readwrite) NSMutableArray<PDFsDto *>* _dataArray;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
 
 @end

@@ -31,7 +31,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void) setupOtherUIComponents {
@@ -40,12 +40,33 @@
     
 }
 
+
+
 -(void) pickImportDocument{
     [MediaHelpers takeDocumentFromLocalDevice:self];
 }
 
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Refreshing documents..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        [self.DataSource._dataArray addObjectsFromArray:[self.DataSource._dbHelper getDocumentsFromDb]];
+        
+        //[SnackBarHelper showSnackBarWithMessage:[@"Retrieved photos"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
+    
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
@@ -121,16 +142,15 @@
                     
                     NSError *fileConversionError;
                     fileData = [NSData dataWithContentsOfURL:newURL options:NSDataReadingUncached error:&fileConversionError];
+                
+                    DocumentsDto* dtoItem = [self mapToDto:fileName created:fileDate extension:fileExtension data:fileData];
+                    
+                    [self.DataSource._dbHelper createDocument:dtoItem];
+                    [self.DataSource._dataArray addObject:dtoItem];
                     
                     // update UI on the main thread
                     dispatch_async(dispatch_get_main_queue(), ^{
                         //After processing the file Data, make sure to add the item to the DocumentsDataSource collection
-                        
-                        DocumentsDto* dtoItem = [self mapToDto:fileName created:fileDate extension:fileExtension];
-                        dtoItem.data = fileData;
-                        
-                        [self.DataSource._dataDocumentArray addObject:dtoItem];
-                        
                         [SnackBarHelper showSnackBarWithMessage:[NSString stringWithFormat:@"Completed processing your document \"%@\"", fileName]];
                         [self.tableView reloadData]; //Make sure to reload the table view
                     });
@@ -172,12 +192,13 @@
     });
 }
 
--(DocumentsDto *) mapToDto:(NSString *) fileName created:(NSString *) fileCreated extension:(NSString *) fileExtension{
+-(DocumentsDto *) mapToDto:(NSString *) fileName created:(NSString *) fileCreated extension:(NSString *) fileExtension data:(NSData *)dataRef{
     DocumentsDto* dto = [[DocumentsDto alloc] init];
     dto.name = fileName;
     dto.created = [DateHelpers getFormattedDate:fileCreated];
     dto.docDescription = [NSString stringWithFormat:@"Document created on %@", dto.created];
     dto.mime = [MimeHelper getMimeOfFile:fileExtension];
+    dto.data = dataRef;
     
     return dto;
 }

@@ -38,6 +38,7 @@
     self = [super init];
     if (self) {
         self._dataArray = [[NSMutableArray alloc] init];
+        self._dbHelper = [[DatabaseHelper alloc] init];
     }
     return self;
 }
@@ -53,7 +54,7 @@
     [self configureTableCell:indexPath.row tableCell:&photosItem]; //Configure the Table Cell
     
     //Configure Right Buttons
-    photosItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+    //photosItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
     photosItem.rightSwipeSettings.enableSwipeBounces = true;
     photosItem.rightSwipeSettings.transition = MGSwipeTransition3D;
     photosItem.rightButtons = [self defaultRightButtons:indexPath.row tableView:tableView];
@@ -76,20 +77,22 @@
         
         [self openSpecifiedVideo:index tableView:tableViewRef];
         return true;
-    }], [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
-        
-        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-               [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
-                   
-                   //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-                   
-                   [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataArray[index]] buttonTitle:@"Undo" invokedAction:(^(){
-                       
-                       [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-                   })];
-               }) controller: self._parentController];
-        return true;
     }]];
+    
+//    [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+//               [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
+//
+//                   //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+//
+//                   [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataArray[index]] buttonTitle:@"Undo" invokedAction:(^(){
+//
+//                       [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+//                   })];
+//               }) controller: self._parentController];
+//        return true;
+//    }]
 }
 
 -(void) configureTableCell:(uint)index tableCell:(UITableViewCell**)cell{

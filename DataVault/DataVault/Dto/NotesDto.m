@@ -10,4 +10,7 @@
 
 @implementation NotesDto
 
+@synthesize title;
+@synthesize notesDescription;
+
 @end

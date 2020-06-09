@@ -14,6 +14,11 @@
 #import "NotesDashSource.h"
 #import "NotesPostViewController.h"
 #import "NotesDataArray.h"
+#import "DatabaseHelper.h"
+
+//Material
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+#import <MGSwipeTableCell/MGSwipeButton.h>
 
 //Dto
 #import "NotesDto.h"
@@ -33,6 +38,7 @@
 #import "ColorHelper.h"
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
+#import "DatabaseHelper.h"
 
 @implementation NotesDashSource
 
@@ -41,22 +47,20 @@
     self = [super init];
     if (self) {
         self._dataArray = [[NSMutableArray alloc] init];
-        [self._dataArray addObject:[self notesMapper:@"Sample note" description:@"this is a very long description labeled, write here, amongst the notes"]];
-        [self._dataArray addObject:[self notesMapper:@"Broken note" description:@"sample description"]];
-        [self._dataArray addObject:[self notesMapper:@"MAHAHAAH!" description:@"this is another sample description"]];
+        self._dbHelper = [[DatabaseHelper alloc] init];
     }
     return self;
 }
 
 -(NotesDto *) notesMapper:(NSString *) title  description:(NSString *) descriptionRef{
     NotesDto* item = [[NotesDto alloc] init];
-    item.Title = title;
-    item.Description = descriptionRef;
+    item.title = title;
+    item.notesDescription = descriptionRef;
     
     return item;
 }
-         
-         
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self._dataArray.count;
@@ -64,44 +68,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *notesItem = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"noteItem"];
-    
-    [self configureTableCell:indexPath.row tableCell:&notesItem]; //Configure the Table Cell
-    return notesItem;
+    MGSwipeTableCell *notesItem = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"notesItem"];
+       
+       [self configureTableCell:indexPath.row tableCell:&notesItem]; //Configure the Table Cell
+       
+       //Configure Right Buttons
+    //   notesItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+       notesItem.rightSwipeSettings.enableSwipeBounces = true;
+       notesItem.rightSwipeSettings.transition = MGSwipeTransition3D;
+       notesItem.rightButtons = [self defaultRightButtons:indexPath.row tableView:tableView];
+       
+       return notesItem;
 }
 
-- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //Remove all items from the categories' cache
-    UITableViewRowAction* delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-                                                                      title:@"Delete"
-                                                                    handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+-(NSArray *) defaultRightButtons:(uint) index tableView:(UITableView *) tableViewRef{
+    return @[[MGSwipeButton buttonWithTitle:@"View" backgroundColor:[ColorHelper CardDark_ThemBackground] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
         
-        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Note" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
-            
-            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-            
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", @"SAMPLE"] buttonTitle:@"Undo" invokedAction:(^(){
-                
-                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-            })];
-        }) controller: self._parentController];
-        
-    }];
+        [self openSpecifiedNote:(uint)index tableView:tableViewRef];
+        return true;
+    }]];
     
-    
-    //Add new content from downloads, or some other options (any other app that allows it)
-    UITableViewRowAction* editContent = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                           title:@"Edit"
-                                                                         handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        [self openSpecifiedNote:(uint)indexPath.row tableView:tableView];
-    }];
-    
-    editContent.backgroundColor = [ColorHelper CardDark_ThemBackground];
-    
-    return @[delete, editContent];
+//    , [MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//        //Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+//               [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Remove Document" messageRef:@"This will permanantly delete this item from your local database. Note: This will not affect your data on the cloud" action:(^() {
+//
+//                   //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+//
+//                   [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Removing item \"%@\"", self._dataArray[index].name] buttonTitle:@"Undo" invokedAction:(^(){
+//
+//                       [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+//                   })];
+//               }) controller: self._parentController];
+//        return true;
+//    }]
 }
 
 -(UIImage *) configureCategoryImage:(UIImage *) image{
@@ -127,8 +127,8 @@
     (*cell).accessoryType = UITableViewCellAccessoryNone;
     // (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
-    (*cell).textLabel.text = self._dataArray[index].Title;
-    (*cell).detailTextLabel.text = self._dataArray[index].Description;
+    (*cell).textLabel.text = self._dataArray[index].title;
+    (*cell).detailTextLabel.text = self._dataArray[index].notesDescription;
     
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
@@ -156,8 +156,8 @@
     UIStoryboard* storyRef = [UIStoryboard storyboardWithName:@"SafetyBoxStory" bundle:nil];
     NotesPostViewController *notesPostController = [storyRef instantiateViewControllerWithIdentifier:@"NotesPostViewController"];
     
-    notesPostController.DescriptionText = self._dataArray[index].Description;
-    notesPostController._titleView.text = self._dataArray[index].Title;
+    notesPostController.DescriptionText = self._dataArray[index].notesDescription;
+    notesPostController._titleView.text = self._dataArray[index].title;
     
     notesPostController.completionBlock = ^(NSString *s, NSString *e) {
         [self createNewNote:s description:e];
@@ -170,7 +170,10 @@
 }
 
 -(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef {
-    [self._dataArray addObject:[self notesMapper:title description:descriptionRef]];
+    NotesDto* itemDto = [self notesMapper:title description:descriptionRef];
+    
+    [self._dataArray addObject:itemDto];
+    [self._dbHelper createNote:itemDto];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -12,10 +12,12 @@
 //Collections
 #import "DocumentsDataArray.h"
 
+#import "DocumentsDto.h"
+#import "DatabaseHelper.h"
 
 @interface DocumentsDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) DocumentsDataArray* _dataDocumentArray;
-
-@end
+@property(nonatomic, strong, readwrite) NSMutableArray<DocumentsDto *>* _dataArray;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
+@end 

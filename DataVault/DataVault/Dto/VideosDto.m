@@ -10,4 +10,9 @@
 
 @implementation VideosDto
 
+@synthesize name;
+@synthesize videoDescription;
+@synthesize data;
+@synthesize created;
+
 @end

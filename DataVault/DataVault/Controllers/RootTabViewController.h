@@ -20,7 +20,7 @@
 #import <MaterialComponents/MDCFloatingButton.h>
 #import <MaterialComponents/MDCFloatingButton+MaterialTheming.h>
 
-@interface RootTabViewController : UITabBarController<MDCBottomNavigationBarDelegate>
+@interface RootTabViewController : UITabBarController<MDCBottomNavigationBarDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate>
 
 @property(nonatomic, readwrite, strong) MDCBottomNavigationBar* _bottomNavBar;
 @property(nonatomic, readwrite, strong) MDCFloatingButton* _refreshFloatBtn;
@@ -28,5 +28,8 @@
 @property(nonatomic, readwrite, strong) RootDashboardController* _dashboardPage;
 @property(nonatomic, readwrite, strong) RootSearchViewController* _searchPage;
 @property(nonatomic, readwrite, strong) RootSettingsViewController* _settingsPage;
+
+
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
 
 @end

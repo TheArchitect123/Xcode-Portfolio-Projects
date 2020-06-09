@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData.h>
 
-@interface VideosDto : NSObject
+@interface VideosDto : NSManagedObject
 
 @property(nonatomic, strong, readwrite) NSString* name;
 @property(nonatomic, strong, readwrite) NSString* videoDescription;
 @property(nonatomic, strong, readwrite) NSData* data;
-@property(nonatomic, strong, readwrite) NSDate* created;
+@property(nonatomic, strong, readwrite) NSString* created;
 
 @end

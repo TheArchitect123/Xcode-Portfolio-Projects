@@ -20,6 +20,8 @@
 #import "SnackBarHelper.h"
 #import "ScreenHelper.h"
 #import "ColorHelper.h"
+#import "MimeHelper.h"
+#import "DateHelpers.h"
 
 //Material Design
 #import <PDSnackbar/PDSnackbar.h>
@@ -39,6 +41,7 @@
     [self configureRefreshComponent];
     [self checkAuthStatus];
     [self SetupOtherUIComponents];
+    [self refreshItems];
 }
 
 
@@ -59,12 +62,12 @@
     //        }
     //    }
     
-   // [SnackBarHelper showSnackBarWithMessage:@"Welcome to SafetyBox!"];
+    // [SnackBarHelper showSnackBarWithMessage:@"Welcome to SafetyBox!"];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void)SetupOtherUIComponents {
@@ -74,20 +77,49 @@
 }
 
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
     [SnackBarHelper showSnackBarWithMessage:@"Synchronising database with device"];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        uint notesCount = [self.DataSource._dbHelper getNotesCount];
+        uint documentsCount = [self.DataSource._dbHelper getDocumentCount];
+        uint pdfsCount = [self.DataSource._dbHelper getPDFsCount];
+        uint photosCount = [self.DataSource._dbHelper getPhotosCount];
+        uint videosCount = [self.DataSource._dbHelper getVideosCount];
+        //[SnackBarHelper showSnackBarWithMessage:[@"Retrieved photos"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.DataSource._dataArray addObject:[NSString stringWithFormat:@"%u", notesCount]];
+            [self.DataSource._dataArray addObject:[NSString stringWithFormat:@"%u", documentsCount]];
+            [self.DataSource._dataArray addObject:[NSString stringWithFormat:@"%u", pdfsCount]];
+            [self.DataSource._dataArray addObject:[NSString stringWithFormat:@"%u", photosCount]];
+            [self.DataSource._dataArray addObject:[NSString stringWithFormat:@"%u", videosCount]];
+            [self.DataSource._dataArray addObject:@"0"];
+            [self.DataSource._dataArray addObject:@"0"];
+            [self.DataSource._dataArray addObject:@"0"];
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
 -(void)ConfigureDashboard {
     self.DataSource = [[DashboardDataSource alloc] init];
-    self.DataSource._parentController = self;
+    self.DataSource._parentController = self.navigationController.viewControllers[0];
     
     [self.tableView setContentInset:UIEdgeInsetsMake(60.0f, 0, 60.0f, 0)];
     self.tableView.dataSource = self.DataSource;
     self.tableView.delegate = self.DataSource;
     self.tableView.rowHeight = 100.0f;
-    self.tableView.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+    self.tableView.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
 }
 
 -(void) configureRefreshComponent{
@@ -95,4 +127,5 @@
     [refreshDashboard addTarget:self action:@selector(refreshItems) forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = refreshDashboard;
 }
+
 @end

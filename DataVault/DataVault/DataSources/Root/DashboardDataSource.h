@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "DatabaseHelper.h"
+
 @interface DashboardDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) NSArray* _imageItems;
-@property(nonatomic, strong, readwrite) UIViewController* _parentController;
+@property(nonatomic, strong, readwrite) UITabBarController* _parentController;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
+@property(nonatomic, strong, readwrite) NSMutableArray<NSString *>* _dataArray;
 
 @end

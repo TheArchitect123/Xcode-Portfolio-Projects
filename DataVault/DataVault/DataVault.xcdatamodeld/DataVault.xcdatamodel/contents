@@ -3,11 +3,11 @@
     <entity name="BrowserHistory" representedClassName="BrowserHistory" syncable="YES" codeGenerationType="class">
         <attribute name="siteName" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
-        <attribute name="visited" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="visited" optional="YES" attributeType="String"/>
         <attribute name="webDescription" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Documents" representedClassName="Documents" syncable="YES" codeGenerationType="class">
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="created" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="docDescription" optional="YES" attributeType="String"/>
         <attribute name="mime" optional="YES" attributeType="String"/>
@@ -16,12 +16,12 @@
     <entity name="Emails" representedClassName="Emails" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="from" optional="YES" attributeType="String"/>
-        <attribute name="received" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="received" optional="YES" attributeType="String"/>
         <attribute name="subject" optional="YES" attributeType="String"/>
     </entity>
     <entity name="MusicAlbums" representedClassName="MusicAlbums" syncable="YES" codeGenerationType="class">
         <attribute name="album" optional="YES" attributeType="String"/>
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="created" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="songLength" optional="YES" attributeType="String"/>
         <attribute name="songName" optional="YES" attributeType="String"/>
@@ -31,19 +31,19 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="PDFs" representedClassName="PDFs" syncable="YES" codeGenerationType="class">
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="created" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="smallDescription" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Photos" representedClassName="Photos" syncable="YES" codeGenerationType="class">
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="created" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="photoDescription" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Videos" representedClassName="Videos" syncable="YES" codeGenerationType="class">
-        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="created" optional="YES" attributeType="String"/>
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="videoDescription" optional="YES" attributeType="String"/>
@@ -53,7 +53,7 @@
         <element name="Documents" positionX="-54" positionY="9" width="128" height="118"/>
         <element name="Emails" positionX="36" positionY="99" width="128" height="103"/>
         <element name="MusicAlbums" positionX="-9" positionY="45" width="128" height="118"/>
-        <element name="Notes" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Notes" positionX="-63" positionY="-18" width="128" height="28"/>
         <element name="PDFs" positionX="-36" positionY="45" width="128" height="103"/>
         <element name="Photos" positionX="-18" positionY="72" width="128" height="103"/>
         <element name="Videos" positionX="0" positionY="81" width="128" height="103"/>

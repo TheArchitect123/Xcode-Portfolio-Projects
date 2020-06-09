@@ -10,4 +10,9 @@
 
 @implementation PhotosDto
 
+@synthesize name;
+@synthesize photoDescription;
+@synthesize data;
+@synthesize created;
+
 @end

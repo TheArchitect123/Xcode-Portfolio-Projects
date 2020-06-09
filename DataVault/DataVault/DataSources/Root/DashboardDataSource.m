@@ -46,6 +46,7 @@
 #import "DialogHelper.h"
 #import "SnackBarHelper.h"
 #import "MediaHelpers.h"
+#import "DatabaseHelper.h"
 
 @implementation DashboardDataSource
 
@@ -54,7 +55,9 @@
     self = [super init];
     if (self) {
         //Instantiate the Data Sources with the images required
-        self._imageItems = @[@"note.png",@"document.png", @"pdf.png", @"camera.png", @"photosvids.png", @"browserhistory.png", @"emails.png", @"music.png"];
+        self._imageItems = @[@"note.png",@"document.png", @"pdf.png", @"camera.png", @"photosvids.png", @"browserhistory.png", @"emails.png",  @"music.png"];
+        self._dataArray = [[NSMutableArray alloc] init];
+        self._dbHelper = [[DatabaseHelper alloc] init];
     }
     
     return self;
@@ -71,7 +74,7 @@
     [self configureTableCell:indexPath.row tableCell:&dashboardItem]; //Configure the Table Cell
     
     //Configure Right Buttons
-    dashboardItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
+    //dashboardItem.rightSwipeSettings.allowsButtonsWithDifferentWidth = true;
     dashboardItem.rightSwipeSettings.enableSwipeBounces = true;
     dashboardItem.rightSwipeSettings.transition = MGSwipeTransition3D;
     
@@ -88,8 +91,11 @@
     //Opens up an action sheet with a set of options, and a small note sample to add content
     notesPostController.completionBlock = ^(NSString *s, NSString *e) {
         //Take the strings from the post page, and add it to the database
+        NotesDto* item = [[NotesDto alloc] init];
+        item.title = s;
+        item.notesDescription = e;
         
-        
+        [self._dbHelper createNote:item];
     };
     
     [self._parentController.navigationController pushViewController:notesPostController animated:true];
@@ -154,22 +160,23 @@
         }
         
         return true;
-    }],
-             [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
-                 
-                 //Invoke the deletion of items
-                 // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-                 [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
-                     
-                     //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-                     [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
-                         
-                         [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-                     })];
-                 }) controller: self._parentController];
-                 
-                 return true;
-             }]];
+    }]];
+    
+//    [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//                    //Invoke the deletion of items
+//                    // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+//                    [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
+//
+//                        //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+//                        [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
+//
+//                            [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+//                        })];
+//                    }) controller: self._parentController];
+//
+//                    return true;
+//                }]
 }
 
 -(NSArray *) defaultRightButtons:(uint) category{
@@ -187,7 +194,12 @@
             case 2: //PDFs
                 [MediaHelpers takePDFFromLocalDevice:self._parentController];
                 break;
-                
+            case 3: //Photos
+                [MediaHelpers takePhotoFromCamera:self._parentController];
+                break;
+                case 4: //Videos
+                [MediaHelpers takeVideoFromCamera:self._parentController];
+                break;
             case 6: //Emails
                 break;
             case 7: //Music & Albums
@@ -199,21 +211,23 @@
         }
         
         return true;
-    }], [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
-        
-        //Invoke the deletion of items
-        // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
-        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
-            
-            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
-            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
-                
-                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
-            })];
-        }) controller: self._parentController];
-        
-        return true;
     }]];
+    
+//    [MGSwipeButton buttonWithTitle:@"Clear Cache" backgroundColor:UIColor.redColor callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//        //Invoke the deletion of items
+//        // Check first if the user would like to clear this cache, because this will delete all items of theirs, from the entity
+//        [DialogHelper showDialogueWithTopicSimpleMessageAction:@"Clear Cache" messageRef:@"This will permanantly delete all items for this category on your local database. Note: This will not affect your data on the cloud" action:(^() {
+//
+//            //Show the add notes page as a modal page -- this will allow users to post notes, and to add it into their storage accounts of choice (OneDrive, Outlook, GoogleDrive, etc)
+//            [SnackBarHelper showSnackBarWithCustomBtnActionedMessage:[NSString stringWithFormat:@"Clearing cache for \"%@\"", [self categoryHelper:category]] buttonTitle:@"Undo" invokedAction:(^(){
+//
+//                [DialogHelper showDialogueWithSimpleMessage:@"Rolled back Process" controller:self._parentController];
+//            })];
+//        }) controller: self._parentController];
+//
+//        return true;
+//    }]
 }
 
 -(void) configureTableCell:(uint)category tableCell:(MGSwipeTableCell**)cell{
@@ -231,8 +245,13 @@
     
     //Accessory Item
     (*cell).accessoryType = UITableViewCellAccessoryNone;
-    (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
     
+    if(self._dataArray.count < 8){
+        (*cell).accessoryView = [self configureAccessoryView:@"(0)" tableCell:(*cell)]; //The Count of the Items must be passed from the controller
+    }
+    else {
+    (*cell).accessoryView = [self configureAccessoryView:[NSString stringWithFormat:@"(%@)", self._dataArray[category]] tableCell:(*cell)]; //The Count of the Items must be passed from the controller
+    }
     //Ripple Effects
     //    MDCRippleTouchController *inkTouchController = [[MDCRippleTouchController alloc] initWithView:dashboardItem];
     //    [inkTouchController addRippleToView:dashboardItem];
@@ -244,34 +263,34 @@
         (*cell).rightButtons = [self defaultRightButtons:category];
     }
     
-    if(category >= 3){
-        (*cell).leftButtons = @[[MGSwipeButton buttonWithTitle:@"Synchronise" backgroundColor:[ColorHelper DarkOrange] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
-            
-            //Open up the notes page modally based on the category
-            switch (category) {
-                case 3: //Photos
-                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos album"];
-                    break;
-                case 4: //Videos
-                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Videos album"];
-                    break;
-                case 5: //Browser History
-                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with your Browser History"];
-                    break;
-                case 6: //Emails
-                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
-                    break;
-                case 7: //Music & Albums
-                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
-                    //Invoke the itunes library api to manage this logic
-                    break;
-                default:
-                    break;
-            }
-            return true;
-        }]];
-    }
-    
+//    if(category >= 3){
+//        (*cell).leftButtons = @[[MGSwipeButton buttonWithTitle:@"Synchronise" backgroundColor:[ColorHelper DarkOrange] callback:^BOOL(MGSwipeTableCell * _Nonnull cell) {
+//
+//            //Open up the notes page modally based on the category
+//            switch (category) {
+//                case 3: //Photos
+//                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Photos album"];
+//                    break;
+//                case 4: //Videos
+//                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Videos album"];
+//                    break;
+//                case 5: //Browser History
+//                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with your Browser History"];
+//                    break;
+//                case 6: //Emails
+//                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising Emails"];
+//                    break;
+//                case 7: //Music & Albums
+//                    [SnackBarHelper showSnackBarWithMessage:@"Synchronising with Music Library"];
+//                    //Invoke the itunes library api to manage this logic
+//                    break;
+//                default:
+//                    break;
+//            }
+//            return true;
+//        }]];
+//    }
+//
     switch (category) {
         case 0: //Notes
             (*cell).textLabel.text = [[NSString alloc] initWithFormat:@"Notes"];

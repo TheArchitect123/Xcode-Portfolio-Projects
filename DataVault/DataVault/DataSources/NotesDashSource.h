@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//Dto
+#import "NotesDto.h"
+
 //Custom
 #import "NotesDataArray.h"
 
 @interface NotesDashSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) NotesDataArray* _dataArray;
+@property(nonatomic, strong, readwrite) NSMutableArray<NotesDto *>* _dataArray;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
 
 -(void) createNewNote:(NSString *)title description:(NSString *) descriptionRef;
 

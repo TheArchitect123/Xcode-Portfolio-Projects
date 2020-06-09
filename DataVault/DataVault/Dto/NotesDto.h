@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface NotesDto : NSObject
+#import <CoreData.h>
 
-@property(nonatomic, strong, readwrite) NSString* Title;
-@property(nonatomic, strong, readwrite) NSString* Description;
+@interface NotesDto : NSManagedObject
+
+@property(nonatomic, strong, readwrite) NSString* title;
+@property(nonatomic, strong, readwrite) NSString* notesDescription;
 
 @end

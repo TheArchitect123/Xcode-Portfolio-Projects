@@ -10,8 +10,15 @@
 #import "NotesPostViewController.h"
 #import "DocumentsDashSource.h"
 
+#import "NotesDashSource.h"
+#import "NotesDataArray.h"
+
 //Material
 #import <MaterialComponents/MDCBottomSheetController.h>
+
+//Helpers
+#import "DatabaseHelper.h"
+#import "SnackBarHelper.h"
 
 @implementation NotesTableViewController
 
@@ -27,7 +34,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void) setupOtherUIComponents {
@@ -37,7 +44,24 @@
 }
 
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Refreshing items..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        [self.DataSource._dataArray addObjectsFromArray:[self.DataSource._dbHelper getNotesFromDb]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
+    
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)

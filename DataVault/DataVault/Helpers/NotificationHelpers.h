@@ -11,6 +11,6 @@
 
 @interface NotificationHelpers : NSObject
 
-+(BOOL) generateLocalNotification:(NSString*) message;
++(void) generateLocalNotification:(NSString*) message;
 
 @end

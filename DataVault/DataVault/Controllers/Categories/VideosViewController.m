@@ -28,7 +28,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void) setupOtherUIComponents {
@@ -37,7 +37,26 @@
 }
 
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Refreshing videos..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        [self.DataSource._dataArray addObjectsFromArray:[self.DataSource._dbHelper getVideosFromDb]];
+        
+        //[SnackBarHelper showSnackBarWithMessage:[@"Retrieved photos"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
+    
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
@@ -84,7 +103,10 @@
             [self invokeTextFunction: videoData];
         }
         else {
-            [self.DataSource._dataArray addObject:[self mapToDto:[textController textFields][0].text fileData:videoData created:[NSDate now] extension:@"mp4"]];
+            VideosDto* itemDto = [self mapToDto:[textController textFields][0].text fileData:videoData created:[NSDate date] extension:@"mp4"];
+            
+            [self.DataSource._dataArray addObject:itemDto];
+            [self.DataSource._dbHelper createVideo:itemDto];
             
             [self.tableView reloadData];
         }
@@ -92,7 +114,10 @@
     
     [textController addAction:[UIAlertAction actionWithTitle:@"Skip" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
-        [self.DataSource._dataArray addObject:[self mapToDto:@"System Created Video" fileData:videoData created:[NSDate now] extension:@"mp4"]];
+        VideosDto* itemDto = [self mapToDto:@"System Created Video" fileData:videoData created:[NSDate date] extension:@"mp4"];
+        
+        [self.DataSource._dataArray addObject:itemDto];
+        [self.DataSource._dbHelper createVideo:itemDto];
         
         [self.tableView reloadData];
     }]];
@@ -112,7 +137,9 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [SnackBarHelper showSnackBarWithMessage:@"Canceled all Pending photo requests"];
+     [picker dismissViewControllerAnimated:true completion:^{
+          [SnackBarHelper showSnackBarWithMessage:@"Canceled all Pending photo requests"];
+      }];
 }
 
 -(void) promptCameraSetup{

@@ -10,9 +10,15 @@
 #import "PhotosDataArray.h"
 #import <UIKit/UIKit.h>
 
+#import "DatabaseHelper.h"
+#import "PhotosDto.h"
+
 @interface PhotosDashSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong, readwrite) UIViewController* _parentController;
-@property(nonatomic, strong, readwrite) PhotosDataArray* _dataArray;
+
+@property(nonatomic, strong, readwrite) NSMutableArray<PhotosDto *>* _dataArray;
+@property(nonatomic, strong, readwrite) DatabaseHelper* _dbHelper;
+
 
 @end

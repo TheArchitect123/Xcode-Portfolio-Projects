@@ -10,4 +10,10 @@
 
 @implementation DocumentsDto
 
+@synthesize name;
+@synthesize docDescription;
+@synthesize data;
+@synthesize created;
+@synthesize mime;
+
 @end

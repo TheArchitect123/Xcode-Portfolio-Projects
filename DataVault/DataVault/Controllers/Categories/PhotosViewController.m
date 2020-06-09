@@ -32,7 +32,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void) setupOtherUIComponents {
@@ -41,7 +41,26 @@
 }
 
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Refreshing photos..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        [self.DataSource._dataArray addObjectsFromArray:[self.DataSource._dbHelper getPhotosFromDb]];
+        
+        //[SnackBarHelper showSnackBarWithMessage:[@"Retrieved photos"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
+    
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
@@ -90,19 +109,23 @@
     [textController addTextFieldWithConfigurationHandler:nil];
     [textController addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        if([textController textFields][0].text == @""){
+        if([[textController textFields][0].text isEqualToString:@""]){
             [self invokeTextFunction: imageData];
         }
         else {
-            [self.DataSource._dataArray addObject:[self mapToDto:[textController textFields][0].text fileData:imageData created:[NSDate now] extension:@"jpg"]];
+            PhotosDto* itemDto = [self mapToDto:[textController textFields][0].text fileData:imageData created:[NSDate date] extension:@"jpg"];
             
+            [self.DataSource._dataArray addObject:itemDto];
+            [self.DataSource._dbHelper createPhoto:itemDto];
             [self.tableView reloadData];
         }
     }]];
     
     [textController addAction:[UIAlertAction actionWithTitle:@"Skip" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+         PhotosDto* itemDtoDef = [self mapToDto:@"System Created Image" fileData:imageData created:[NSDate date] extension:@"jpg"];
         
-        [self.DataSource._dataArray addObject:[self mapToDto:@"System Created Image" fileData:imageData created:[NSDate now] extension:@"jpg"]];
+        [self.DataSource._dataArray addObject:itemDtoDef];
+        [self.DataSource._dbHelper createPhoto:itemDtoDef];
         
         [self.tableView reloadData];
     }]];
@@ -122,7 +145,9 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [SnackBarHelper showSnackBarWithMessage:@"Canceled all Pending photo requests"];
+    [picker dismissViewControllerAnimated:true completion:^{
+        [SnackBarHelper showSnackBarWithMessage:@"Canceled all Pending photo requests"];
+    }];
 }
 
 -(void) promptCameraSetup{

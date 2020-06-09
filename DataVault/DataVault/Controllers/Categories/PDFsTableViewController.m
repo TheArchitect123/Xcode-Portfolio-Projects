@@ -19,6 +19,7 @@
 #import "SnackBarHelper.h"
 #import "DateHelpers.h"
 #import "MimeHelper.h"
+#import "DatabaseHelper.h"
 
 @implementation PDFsTableViewController
 
@@ -33,7 +34,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self refreshItems];
 }
 
 -(void) setupOtherUIComponents {
@@ -46,8 +47,28 @@
     [MediaHelpers takePDFFromLocalDevice:self];
 }
 
+
 -(void) refreshItems{
-    [self.tableView.refreshControl endRefreshing];
+    [self.tableView.refreshControl beginRefreshing];
+    
+    [self.DataSource._dataArray removeAllObjects];
+    [self.tableView reloadData];
+    
+    [SnackBarHelper showSnackBarWithMessage:@"Refreshing documents..."];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        //Run in background thread while a loader is showing
+        
+        [self.DataSource._dataArray addObjectsFromArray:[self.DataSource._dbHelper getPDFsFromDb]];
+        
+        //[SnackBarHelper showSnackBarWithMessage:[@"Retrieved photos"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.refreshControl endRefreshing];
+        });
+    });
+    
 }
 
 #pragma mark - Load the DataSource (Dashboard DataSource)
@@ -80,10 +101,10 @@
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls{
     
     if(urls.count > 1){
-        [SnackBarHelper showSnackBarWithMessage:@"Processing your documents. This should only take a few seconds..."];
+        [SnackBarHelper showSnackBarWithMessage:@"Processing your PDFs. This should only take a few seconds..."];
     }
     else if(urls.count == 1) {
-        [SnackBarHelper showSnackBarWithMessage:@"Processing your document. This should only take a few seconds..."];
+        [SnackBarHelper showSnackBarWithMessage:@"Processing your PDF. This should only take a few seconds..."];
     }
     
     //When selecting a document, the user will be able to add an item directly into the data array of the data source, which will in turn add the items to the database
@@ -102,7 +123,7 @@
                 [coordinator coordinateReadingItemAtURL:item options:NSFileCoordinatorReadingForUploading error:&error byAccessor:^(NSURL *newURL) {
                     // File name for use in writing the file out later
                     NSString *fileName = [newURL lastPathComponent];
-                   
+                    
                     //Based on the file extension, make sure to commit the Mime of the document
                     NSString *fileExtension = [newURL pathExtension];
                     
@@ -123,15 +144,15 @@
                     NSError *fileConversionError;
                     fileData = [NSData dataWithContentsOfURL:newURL options:NSDataReadingUncached error:&fileConversionError];
                     
+                    PDFsDto* dtoItem = [self mapToDto:fileName created:fileDate extension:fileExtension];
+                    dtoItem.data = fileData;
+                    
+                    [self.DataSource._dataArray addObject:dtoItem];
+                    [self.DataSource._dbHelper createPDFs:dtoItem];
+                    
                     // update UI on the main thread
                     dispatch_async(dispatch_get_main_queue(), ^{
                         //After processing the file Data, make sure to add the item to the DocumentsDataSource collection
-                        
-                        PDFsDto* dtoItem = [self mapToDto:fileName created:fileDate extension:fileExtension];
-                        dtoItem.data = fileData;
-                        
-                        [self.DataSource._dataPDFsArray addObject:dtoItem];
-                        
                         [SnackBarHelper showSnackBarWithMessage:[NSString stringWithFormat:@"Completed processing your pdf \"%@\"", fileName]];
                         [self.tableView reloadData]; //Make sure to reload the table view
                     });
@@ -147,7 +168,7 @@
     PDFsDto* dto = [[PDFsDto alloc] init];
     dto.name = fileName;
     dto.created = [DateHelpers getFormattedDate:fileCreated];
-    dto.docDescription = [NSString stringWithFormat:@"PDF created on %@", dto.created];
+    dto.smallDescription = [NSString stringWithFormat:@"PDF created on %@", dto.created];
     
     return dto;
 }

@@ -45,7 +45,7 @@
 
 -(void) commitNoteToDB{
     //Check if the textfield is empty or not
-    if(self._descriptionView.text != @"" && self._titleView.text != @""){
+    if(![self._descriptionView.text isEqualToString:@""] && ![self._titleView.text isEqualToString:@""]){
         //If the text is not empty, make sure to invoke the view model helper class, to add
         //Invoke a handler here
         [self.navigationController popViewControllerAnimated:true];

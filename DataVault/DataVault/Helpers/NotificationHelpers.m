@@ -8,13 +8,24 @@
 
 #import "NotificationHelpers.h"
 #import <UserNotifications/UserNotifications.h>
+#import <UIKit/UIKit.h>
 
 @implementation NotificationHelpers
 
-+(BOOL) generateLocalNotification:(NSString*) message{
++(void) generateLocalNotification:(NSString*) message{
     
-    //Run through the business logic to output a proper local notification
-    
-    return false;
+  UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = [NSString localizedUserNotificationStringForKey:@"SafetyBox" arguments:nil];
+    content.body = [NSString localizedUserNotificationStringForKey:message
+                arguments:nil];
+    content.sound = [UNNotificationSound defaultSound];
+
+    UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"NotifSetting"
+                content:content trigger:nil];
+
+    // Schedule the notification.
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        
+    }];
 }
 @end
