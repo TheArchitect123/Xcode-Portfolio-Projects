@@ -1,0 +1,6 @@
+framework module MPOProgressBar {
+  umbrella header "MPOProgressBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

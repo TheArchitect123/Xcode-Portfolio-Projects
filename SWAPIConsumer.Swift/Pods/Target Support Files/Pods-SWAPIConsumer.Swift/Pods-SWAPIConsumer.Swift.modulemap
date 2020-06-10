@@ -1,0 +1,6 @@
+framework module Pods_SWAPIConsumer_Swift {
+  umbrella header "Pods-SWAPIConsumer.Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
