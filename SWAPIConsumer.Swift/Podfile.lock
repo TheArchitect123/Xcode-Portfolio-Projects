@@ -644,6 +644,7 @@ PODS:
   - SwiftPopup (5.0.0):
     - SnapKit (~> 5.0.0)
   - SwiftTimer (2.0)
+  - SwipeCellKit (2.7.1)
   - Toast-Swift (5.0.1)
   - TopViewControllerDetection (2.0.1)
   - "UIColor+Hex (1.0.1)":
@@ -669,6 +670,7 @@ DEPENDENCIES:
   - SVProgressHUD (~> 2.2)
   - SwiftPopup (~> 5.0)
   - SwiftTimer (~> 2.0)
+  - SwipeCellKit (~> 2.7)
   - Toast-Swift (~> 5.0)
   - TopViewControllerDetection (~> 2.0)
   - "UIColor+Hex (~> 1.0)"
@@ -698,6 +700,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftPopup
     - SwiftTimer
+    - SwipeCellKit
     - Toast-Swift
     - TopViewControllerDetection
     - "UIColor+Hex"
@@ -726,10 +729,11 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftPopup: 31874508c0d91788edf71419a5bbeb3ebd498ab9
   SwiftTimer: 4d25ff045d81c3132e1161a3ba2353d06ff63c30
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
 
-PODFILE CHECKSUM: 17cd46b24631c1add50630abfdc5a9475db1c605
+PODFILE CHECKSUM: e4854adc0b3569f9dd2e7b8765edc76461f070d4
 
 COCOAPODS: 1.9.2

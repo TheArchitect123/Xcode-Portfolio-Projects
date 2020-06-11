@@ -25,6 +25,7 @@ target 'SWAPIConsumer.Swift' do
   pod 'ALRadialMenu', '~> 2.0'
   pod 'MaterialComponents', '~> 109.6'
   pod 'MPOProgressBar', '~> 0.0.1'
+  pod 'SwipeCellKit', '~> 2.7'
   
   # Pods for SWAPIConsumer.Swift
   

@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Write a log entry here on the Data Model
             }
         }
+//
+//        UNUserNotificationCenter.addObserver(self, forKeyPath: UINotification, options: <#T##NSKeyValueObservingOptions#>, context: UnsafeMutableRawPointer?) //Subscribe to any received local notifications here
     }
     
     // MARK: - Notifications Support
