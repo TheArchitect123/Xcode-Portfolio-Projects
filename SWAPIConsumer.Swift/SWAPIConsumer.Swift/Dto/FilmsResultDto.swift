@@ -18,11 +18,11 @@ class FilmsResultDto : ParsableModel {
     var release_date : String = "";
     
     //Collections
-    var characters : Array<PeopleResultDto>?;
-    var planets : Array<PlanetsResultDto>?;
-    var starships : Array<StarshipsResultDto>?;
-    var vehicles : Array<VehiclesResultDto>?;
-    var species : Array<SpeciesResultDto>?;
+    var characters : Array<String>?;
+    var planets : Array<String>?;
+    var starships : Array<String>?;
+    var vehicles : Array<String>?;
+    var species : Array<String>?;
     
     var created : String = "";
     var edited : String = "";

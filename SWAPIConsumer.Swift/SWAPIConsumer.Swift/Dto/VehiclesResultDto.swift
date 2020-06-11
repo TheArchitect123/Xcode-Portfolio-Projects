@@ -24,8 +24,8 @@ class VehiclesResultDto : ParsableModel {
     var vehicle_class : String = "";
     
     //Collections
-    var pilots : Array<PeopleResultDto>?;
-    var films : Array<FilmsResultDto>?;
+    var pilots : Array<String>?;
+    var films : Array<String>?;
     
     var created : String = "";
     var edited : String = "";

@@ -20,10 +20,10 @@ class SpeciesResultDto : ParsableModel {
     var eye_colors : String = "";
     var average_lifespan : String = "";
     
-    var homeworld : PlanetsResultDto?;
+    var homeworld : String?;
     var language : String = "";
-    var people : Array<PeopleResultDto>?;
-    var films : Array<FilmsResultDto>?;
+    var people : Array<String>?;
+    var films : Array<String>?;
     
     var created : String = "";
     var edited : String = "";

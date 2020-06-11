@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F96" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Films" representedClassName="Films" syncable="YES" codeGenerationType="class">
+        <attribute name="actors" optional="YES" attributeType="Transformable"/>
+        <attribute name="createdDate" optional="YES" attributeType="String"/>
+        <attribute name="directorName" optional="YES" attributeType="String"/>
+        <attribute name="editedDate" optional="YES" attributeType="String"/>
+        <attribute name="episodeNum" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="filmUrl" optional="YES" attributeType="String"/>
+        <attribute name="movieTitle" optional="YES" attributeType="String"/>
+        <attribute name="openingDesc" optional="YES" attributeType="String"/>
+        <attribute name="producerName" optional="YES" attributeType="String"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Films" positionX="-54" positionY="-9" width="128" height="28"/>
+    </elements>
 </model>

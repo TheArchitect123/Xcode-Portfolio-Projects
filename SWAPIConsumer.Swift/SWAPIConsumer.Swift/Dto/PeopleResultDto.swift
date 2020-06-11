@@ -22,10 +22,10 @@ class PeopleResultDto : ParsableModel {
     var homeworld : String = "";
     
     //Arrays
-    var films : Array<FilmsResultDto>?;
-    var species : Array<SpeciesResultDto>?;
-    var vehicles : Array<VehiclesResultDto>?;
-    var starships : Array<StarshipsResultDto>?;
+    var films : Array<String>?;
+    var species : Array<String>?;
+    var vehicles : Array<String>?;
+    var starships : Array<String>?;
     var created : String = "";
     var edited : String = "";
     var url: String = "";

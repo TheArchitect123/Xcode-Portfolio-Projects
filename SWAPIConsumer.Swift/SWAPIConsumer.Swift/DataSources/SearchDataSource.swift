@@ -11,7 +11,6 @@ import UIKit;
 
 //Material
 import MaterialComponents.MDCActionSheetAction;
-
 import SwipeCellKit;
 
 class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate {

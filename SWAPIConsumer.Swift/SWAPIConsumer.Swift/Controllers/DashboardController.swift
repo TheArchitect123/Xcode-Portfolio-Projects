@@ -16,24 +16,51 @@ class DashboardController : BaseViewController{
     
     //Widgets
     var _floatingBtn : MDCFloatingButton?
-    lazy var ViewModel : DashboardViewModel? = DashboardViewModel.init();
+    lazy var ViewModel : DashboardViewModel = DashboardViewModel.init();
+    var ResultsSource : DashboardDataSource?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        welcomeMessage();
         setupUIComponents();
+        configureRefresh();
+        
+        //TEST ONLY
+        self.ViewModel.getResultsForFilmsRoot(actionResults: { (film: FilmsDto?) in
+            
+            self.ResultsSource?.FilmsData = film?.results as! Array<FilmsResultDto>;
+            self.tableView.reloadData();
+        });
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        //DialogueHelper.showDialogWithSimpleMessage("MAMAHAAHA AMAMAHAH!");
+        updateTableViewWithFilms();
     }
     
-    func setupUIComponents() {
-        //Add a floating button, for refresh of the query results
-//        _floatingBtn = MDCFloatingButton.init(frame: CGRect.init(x: self, y: 0, width: self.view.ScreenWidth(), height: self.view.ScreenHeight()));
-        
-        
-//        self.view.addSubview(_floatingBtn!);
+    func setupUIComponents(){
+        self.ResultsSource = DashboardDataSource();
+        self.ResultsSource!.ParentController = self;
+        self.tableView.dataSource = self.ResultsSource;
+        self.tableView.delegate = self.ResultsSource;
+        self.tableView.rowHeight = 150.0;
     }
+    
+    func welcomeMessage(){
+        SnackbarHelper.showSnackBarWithMessage(message: "Welcome to \(AppInformation.ApplicationName). Created by \(AppInformation.AuthorName)");
+    }
+    
+    func configureRefresh(){
+        let refreshMngr = UIRefreshControl.init(frame: CGRect(x: 0, y: 0, width: self.view.ScreenWidth(), height: self.view.ScreenHeight()));
+        refreshMngr.addTarget(self, action: #selector(updateTableViewWithFilms), for: UIControl.Event.valueChanged);
+        
+        self.tableView.refreshControl = refreshMngr;
+    }
+    
+    @objc func updateTableViewWithFilms(){
+        
+    }
+    
 }

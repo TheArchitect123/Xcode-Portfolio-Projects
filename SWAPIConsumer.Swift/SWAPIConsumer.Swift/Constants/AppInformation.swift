@@ -13,4 +13,5 @@ struct AppInformation{
     
     static let FullVersion = "1.0.1";
     static let ApplicationName = "SWAPI";
+    static let AuthorName = "Dan Gerchcovich";
 }

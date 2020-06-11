@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Configure any Default settings
         registerForPushNotifications();
         LoaderHelper.ConfigureLoaderDefaults();
+        
+        registerServices();
         return true
     }
     
@@ -38,9 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Write a log entry here on the Data Model
             }
         }
-//
-//        UNUserNotificationCenter.addObserver(self, forKeyPath: UINotification, options: <#T##NSKeyValueObservingOptions#>, context: UnsafeMutableRawPointer?) //Subscribe to any received local notifications here
     }
+    
+    //Register for Dependency injection
+    func registerServices(){
+        
+        
+    }
+    
     
     // MARK: - Notifications Support
     ///Any local notifications received must be flushed as toast message, while the application is in the foreground. There are no background services required in this application

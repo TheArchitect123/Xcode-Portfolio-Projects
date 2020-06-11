@@ -25,8 +25,8 @@ class StarshipsResultDto : ParsableModel {
     var MGLT : Int = 0;
     var starship_class : String = "";
     
-    var pilots : Array<PeopleResultDto>?;
-    var films : Array<FilmsResultDto>?;
+    var pilots : Array<String>?;
+    var films : Array<String>?;
     
     var created : String = "";
     var edited : String = "";

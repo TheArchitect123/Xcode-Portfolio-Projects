@@ -77,7 +77,6 @@
         <!--Root View Controller-->
         <scene sceneID="f5z-8E-o9n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Mf-Lb-qet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="DashboardController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wZp-Hc-Z90" customClass="DashboardController" customModule="SWAPIConsumer_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dHS-UJ-Tgz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -101,6 +100,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="SGZ-Fq-T2M"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="kj3-0J-xeR"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Mf-Lb-qet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-81" y="-1171"/>
         </scene>

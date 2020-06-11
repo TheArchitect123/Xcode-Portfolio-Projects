@@ -20,8 +20,8 @@ class PlanetsResultDto : ParsableModel {
     var surface_water : Int = 0;
     var population : Int = 0;
     
-    var residents : Array<PeopleResultDto>?;
-    var films : Array<FilmsResultDto>?;
+    var residents : Array<String>?;
+    var films : Array<String>?;
     
     var created : String = "";
     var edited : String = "";
