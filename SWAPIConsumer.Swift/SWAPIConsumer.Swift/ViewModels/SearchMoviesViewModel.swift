@@ -12,7 +12,7 @@ import JSONParserSwift;
 import Resolver;
 
 class SearchMoviesViewModel : NSObject{
-    lazy var _database: DatabaseService = DatabaseService.init();
+    @LazyInjected var _database: DatabaseService;
     
     func searchResultsForPeopleQuery(query: String, actionResults:@escaping(PeopleDto?) -> Void) {
         LoaderHelper.ShowLoaderWithMessage("Searching for People under \"\(query)\"...");
@@ -223,7 +223,7 @@ class SearchMoviesViewModel : NSObject{
             let filmAssets = self._database.getFilmsFromDb();
             
             DispatchQueue.main.async {
-                if(filmAssets != nil){
+                if(filmAssets != nil && filmAssets?.count != 0){
                     actionResults(filmAssets!);
                     SnackbarHelper.showSnackBarWithMessage(message: "Fetch request recovered \(filmAssets!.count) films from the dashboard");
                 }

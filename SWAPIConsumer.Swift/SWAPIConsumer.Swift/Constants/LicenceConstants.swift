@@ -9,5 +9,5 @@
 import Foundation
 
 struct LicenceConstants {
-    static let WeatherMapsApiKey = "98a57bce3cf012a71a2d0e29df0ded0b";
+    static let ApiKey = "";
 }

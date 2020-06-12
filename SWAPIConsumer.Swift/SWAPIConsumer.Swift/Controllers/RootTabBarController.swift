@@ -81,7 +81,6 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
     
     func setupNavigationBarComponents(){
         //Any Business logic for the navigation bar needs to be captured here
-        self.navigationItem.setLeftBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.bookmarks, target: self, action: #selector(openMenuDrawer)), animated: false);
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(openSearchDrawer)), animated: false);
     }
     
@@ -93,21 +92,25 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
     @objc func openSearchDrawer(){
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil);
         let searchController = storyboard.instantiateViewController(withIdentifier: "SearchMoviesController") as! SearchMoviesController;
-   
+        searchController.completionHandler = {() -> Void in
+            self.refreshItems();
+        };
+        
+        
         let searchActions = NSMutableArray(capacity: 5);
         //Search by People
         searchActions.add(MDCActionSheetAction.init(title: "People", image: UIImage.init(named: "People"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             
             searchController.Category = .people;
-            self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         //Search by Planets
         searchActions.add(MDCActionSheetAction.init(title: "Planets", image: UIImage.init(named: "Planets"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             searchController.Category = .planets;
-            self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         
@@ -115,7 +118,7 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         searchActions.add(MDCActionSheetAction.init(title: "Films", image: UIImage.init(named: "Films"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             searchController.Category = .films;
-            self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         
@@ -123,7 +126,7 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         searchActions.add(MDCActionSheetAction.init(title: "Species", image: UIImage.init(named: "Species"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             searchController.Category = .species;
-            self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         
@@ -131,7 +134,7 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         searchActions.add(MDCActionSheetAction.init(title: "Vehicles", image: UIImage.init(named: "Vehicles"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             searchController.Category = .vehicles;
-self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         
@@ -139,7 +142,7 @@ self.present(searchController, animated: true, completion:nil);
         searchActions.add(MDCActionSheetAction.init(title: "Starships", image: UIImage.init(named: "StarShips"), handler: { (e) in
             //Open up the Search Controller, and pass in the category, via the its search functions
             searchController.Category = .starships;
-            self.present(searchController, animated: true, completion:nil);
+            self.present(searchController, animated: true, completion: nil);
         }));
         
         DialogueHelper.showActionSheetWithSimpleMessage(message: "Choose a category of items to search for", actionBtns: searchActions as! Array<MDCActionSheetAction>);

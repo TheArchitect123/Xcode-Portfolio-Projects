@@ -11,11 +11,6 @@ import CoreData;
 
 class DatabaseService : NSObject{
     
-    override init() {
-        
-    }
-    
-    
     //Mappers
     func mapFromDto(_ filmsModel: inout NSManagedObject, _ film: FilmsResultDto) {
         filmsModel.setValue(film.created, forKeyPath: "createdDate");
@@ -45,7 +40,6 @@ class DatabaseService : NSObject{
         itemDto.producer = filmsModel.value(forKey: "producerName") as! String;
         itemDto.release_date = filmsModel.value(forKey: "releaseDate") as! String;
         
-        
         return itemDto;
     }
     
@@ -67,7 +61,7 @@ class DatabaseService : NSObject{
     }
     
     func deleteFilm(dto: String){
-     let managedContext =
+        let managedContext =
             self.persistentContainer.viewContext;
         let fetchRequest =
             NSFetchRequest<NSFetchRequestResult>(entityName: "Films")
@@ -111,10 +105,25 @@ class DatabaseService : NSObject{
         do {
             let films = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
             
-            var items = [FilmsResultDto]();
+            var items = Array<FilmsResultDto>();
             for film in films {
                 items.append(mapToDto(film));
             }
+            
+            //Sort the dashboard items by films release date
+            items = items.sorted(by: { (fr: FilmsResultDto, snd: FilmsResultDto) -> Bool in
+                
+                let frDate = DateHelper.ConvertToDate(dateString: fr.release_date);
+                let sndDate = DateHelper.ConvertToDate(dateString: snd.release_date);
+                
+                if(frDate != nil && sndDate != nil){
+                    return frDate!.timeIntervalSince1970 < sndDate!.timeIntervalSince1970;
+                }
+                else
+                {
+                    return true;
+                }
+            });
             
             return items;
         } catch let error as NSError {

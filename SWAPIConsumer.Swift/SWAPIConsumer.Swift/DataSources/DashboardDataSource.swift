@@ -8,6 +8,7 @@
 
 import Foundation;
 import UIKit;
+import Resolver;
 
 //Material
 import MaterialComponents.MDCActionSheetAction;
@@ -21,7 +22,7 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
     var FilmsData: Array<FilmsResultDto>;
     
     //View Model -- Will be used when selecting a film to view details
-    lazy var ViewModel: DashboardViewModel = DashboardViewModel.init();
+    @LazyInjected var ViewModel: DashboardViewModel;
     
     override init() {
         FilmsData = Array<FilmsResultDto>();
@@ -121,7 +122,7 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
             Productor - \(self.FilmsData[index].producer)
             Release Date \(self.FilmsData[index].release_date)
             Actors in film - \(self.FilmsData[index].characters?.count ?? 0)
-            """, actionBtn: "Add to Dashboard", actionHandler:{() -> Void in
+            """, actionBtn: "Close", actionHandler:{() -> Void in
                 //Invoke the database function on the view model to add the film into the database
                 
         });

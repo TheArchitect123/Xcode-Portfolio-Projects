@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042B297524939CF700468BBD /* AppDelegate+Injection.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B297424939CF700468BBD /* AppDelegate+Injection.swift.swift */; };
+		042B29772493B60400468BBD /* BaseStdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B29762493B60400468BBD /* BaseStdViewController.swift */; };
 		043649782490AD60007624A2 /* SearchMoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043649772490AD60007624A2 /* SearchMoviesController.swift */; };
 		0436497B2490B124007624A2 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436497A2490B124007624A2 /* SearchCategory.swift */; };
 		0436497E2490B250007624A2 /* PeopleDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436497D2490B250007624A2 /* PeopleDto.swift */; };
@@ -173,6 +175,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042B297424939CF700468BBD /* AppDelegate+Injection.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift.swift"; sourceTree = "<group>"; };
+		042B29762493B60400468BBD /* BaseStdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStdViewController.swift; sourceTree = "<group>"; };
 		043649772490AD60007624A2 /* SearchMoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviesController.swift; sourceTree = "<group>"; };
 		0436497A2490B124007624A2 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		0436497D2490B250007624A2 /* PeopleDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDto.swift; sourceTree = "<group>"; };
@@ -488,6 +492,7 @@
 				04911A9E2490903400F636F2 /* LaunchScreen.storyboard */,
 				04911AA12490903400F636F2 /* Info.plist */,
 				04911A992490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodeld */,
+				042B297424939CF700468BBD /* AppDelegate+Injection.swift.swift */,
 			);
 			path = SWAPIConsumer.Swift;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				04911B7A2490A15D00F636F2 /* BaseViewController.swift */,
+				042B29762493B60400468BBD /* BaseStdViewController.swift */,
 			);
 			path = BaseControllers;
 			sourceTree = "<group>";
@@ -1054,6 +1060,7 @@
 				04911B6E24909C7A00F636F2 /* FriendlyNames.swift in Sources */,
 				043649932490B7C5007624A2 /* SpeciesResultDto.swift in Sources */,
 				04911B7624909F6900F636F2 /* DatabaseService.swift in Sources */,
+				042B297524939CF700468BBD /* AppDelegate+Injection.swift.swift in Sources */,
 				04911B0D2490986A00F636F2 /* StringExtension.swift in Sources */,
 				04911B6C24909C6A00F636F2 /* RestConsumerHelper.swift in Sources */,
 				04911AC9249095A500F636F2 /* NotificationHelper.swift in Sources */,
@@ -1079,6 +1086,7 @@
 				04911B0B2490985E00F636F2 /* SiestaServiceExtension.swift in Sources */,
 				043649862490B27F007624A2 /* VehiclesDto.swift in Sources */,
 				04911B182490997000F636F2 /* LicenceConstants.swift in Sources */,
+				042B29772493B60400468BBD /* BaseStdViewController.swift in Sources */,
 				043649972490B7E1007624A2 /* VehiclesResultDto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

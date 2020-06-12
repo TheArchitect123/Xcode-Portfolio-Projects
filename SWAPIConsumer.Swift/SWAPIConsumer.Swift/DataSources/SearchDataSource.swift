@@ -8,6 +8,7 @@
 
 import Foundation;
 import UIKit;
+import Resolver;
 
 //Material
 import MaterialComponents.MDCActionSheetAction;
@@ -29,10 +30,8 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     var FilmsOnDashboard: Array<String>; //Films already on the dashboard
     var FilmsRootRef : Array<FilmsResultDto>;
     
-    var completionHandler: (() -> Void)?;
-    
     //View Model -- Will be used when selecting a film to add to the dashboard
-    lazy var ViewModel: SearchMoviesViewModel = SearchMoviesViewModel.init();
+    @LazyInjected var ViewModel: SearchMoviesViewModel;
     
     init(category: SearchCategory) {
         Category = category;
@@ -176,7 +175,7 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
-        SelectCellLogic(indexPath.row);
+      //  SelectCellLogic(indexPath.row);
     }
     
     //Swipe Management
@@ -206,6 +205,8 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
         }) != nil;
     }
     
+    
+    //Here I wanted to check whether the actor has already played in the film, but doing this (since the star wars api does not support bulk queries) then I would have no choice, but to test every character url, for each film. This means 6 requests in total to the server, each time a user opens an item for selection. This will slow the user experience & cause potential network drops. Hence I am not filtering the action sheet by the characters
     func hasActorPlayedInMovie() -> Bool{
         
         return true;
@@ -281,7 +282,7 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     func showDetailInformationAboutItem(_ index: Int){
         switch self.Category! {
         case .people:
-            DialogueHelper.showDialogWithTitleSimpleMessage(title: "\(self.PeoplesData[index].name)'s Details", message:
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.PeoplesData[index].name)'s Details", message:
                 """
                 Actor Details:
                 Name - \(self.PeoplesData[index].name)
@@ -292,11 +293,15 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Eye Colour - \(self.PeoplesData[index].eye_color)
                 Birth Year - \(self.PeoplesData[index].birth_year)
                 Gender - \(self.PeoplesData[index].gender)
-                """);
+            """, actionBtn: "Close") {
+                
+            }
+            
             break;
             
         case .films:
-            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.FilmsData[index].title)'s Details", message:  """
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.FilmsData[index].title)'s Details", message:
+                """
                 Film Details:
                 Name of Film - \(self.FilmsData[index].title)
                 Episode Number - \(self.FilmsData[index].episode_id)
@@ -308,14 +313,15 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Productor - \(self.FilmsData[index].producer)
                 Release Date \(self.FilmsData[index].release_date)
                 Actors in film - \(self.FilmsData[index].characters?.count ?? 0)
-                """, actionBtn: "Add to Dashboard", actionHandler:{() -> Void in
-                    //Invoke the database function on the view model to add the film into the database
-                    
-            });
+            """, actionBtn: "Add to Dashboard") {
+                self.AddFilmToDashboard(index);
+            }
+            
+            
             break;
             
         case .planets:
-            DialogueHelper.showDialogWithTitleSimpleMessage(title: "\(self.PlanetsData[index].name)'s Details", message:
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.PlanetsData[index].name)'s Details", message:
                 """
                 Planet Details:
                 Planet Name - \(self.PlanetsData[index].name)
@@ -328,12 +334,16 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Surface Water - \(self.PlanetsData[index].surface_water)
                 Residents - \(self.PlanetsData[index].residents?.count ?? 0)
                 Films Played - \(self.PlanetsData[index].films?.count ?? 0)
-                """);
+            """, actionBtn: "Close") {
+                
+            }
+            
+            
             break;
             
         case .species:
             
-            DialogueHelper.showDialogWithTitleSimpleMessage(title: "\(self.SpeciesData[index].name)'s Details", message:
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.SpeciesData[index].name)'s Details", message:
                 """
                 Species Details:
                 Species Name - \(self.SpeciesData[index].name)
@@ -345,11 +355,14 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Eye Colours - \(self.SpeciesData[index].eye_colors)
                 Average Lifespan - \(self.SpeciesData[index].average_lifespan) years
                 Language - \(self.SpeciesData[index].language)
-                """);
+            """, actionBtn: "Close") {
+                
+            }
+            
             
             break;
         case .starships:
-            DialogueHelper.showDialogWithTitleSimpleMessage(title: "\(self.StarshipsData[index].name)'s Details", message:
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.StarshipsData[index].name)'s Details", message:
                 """
                 Starship Details:
                 Name of Starship - \(self.StarshipsData[index].name)
@@ -367,12 +380,13 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Starship Class - \(self.StarshipsData[index].starship_class)
                 Pilots - \(self.StarshipsData[index].pilots?.count ?? 0)
                 Films Starred in - \(self.StarshipsData[index].films?.count ?? 0)
-                """);
+            """, actionBtn: "Close") {
+                
+            }
             break;
             
         case .vehicles:
-            
-            DialogueHelper.showDialogWithTitleSimpleMessage(title: "\(self.VehiclesData[index].name)'s Details", message:
+            DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.VehiclesData[index].name)'s Details", message:
                 """
                 Vehicle Details:
                 Name of Vehicle - \(self.VehiclesData[index].name)
@@ -387,7 +401,9 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
                 Consumables - \(self.VehiclesData[index].consumables)
                 Pilots - \(self.VehiclesData[index].pilots?.count ?? 0)
                 Films Starred in - \(self.VehiclesData[index].films?.count ?? 0)
-                """);
+            """, actionBtn: "Close") {
+                
+            }
             break;
         }
     }
@@ -395,7 +411,7 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     //Add a movie from the search list
     func InsertItemFromDatabase(_ index: Int){
         self.ViewModel.insertItemInDashboard(film: self.FilmsData[index]);
-        self.ParentController?.dismiss(animated: true, completion: completionHandler);
+        self.ParentController!.dismiss(animated: true, completion: nil);
         
     }
     func AddFilmToDashboard(_ index: Int){
@@ -413,7 +429,7 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
         }
         else {
             self.ViewModel.insertItemInDashboard(film: self.FilmsRootRef[index]);
-            self.ParentController?.dismiss(animated: true, completion: completionHandler);
+            self.ParentController!.dismiss(animated: true, completion: nil);
         }
     }
     

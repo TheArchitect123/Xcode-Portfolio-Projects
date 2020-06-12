@@ -8,6 +8,7 @@
 
 import Foundation;
 import UIKit;
+import Resolver;
 
 //Material Components
 import MaterialComponents;
@@ -16,13 +17,13 @@ class DashboardController : BaseViewController{
     
     //Widgets
     var _floatingBtn : MDCFloatingButton?
-    lazy var ViewModel : DashboardViewModel = DashboardViewModel.init();
+    @LazyInjected var ViewModel : DashboardViewModel;
     var ResultsSource : DashboardDataSource?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        welcomeMessage();
+      //  welcomeMessage();
         setupUIComponents();
         configureRefresh();
     }
@@ -36,7 +37,7 @@ class DashboardController : BaseViewController{
     }
     
     func welcomeMessage(){
-        SnackbarHelper.showSnackBarWithMessage(message: "Welcome to \(AppInformation.ApplicationName). Created by \(AppInformation.AuthorName)");
+        DialogueHelper.showDialogWithSimpleMessage(message: "Welcome to \(AppInformation.ApplicationName). Created by \(AppInformation.AuthorName)");
     }
     
     func configureRefresh(){

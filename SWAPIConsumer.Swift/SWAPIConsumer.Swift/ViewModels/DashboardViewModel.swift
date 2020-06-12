@@ -11,7 +11,7 @@ import Resolver;
 import JSONParserSwift;
 
 class DashboardViewModel : NSObject {
-    lazy var _database: DatabaseService = DatabaseService.init();
+    @LazyInjected var _database: DatabaseService;
     
     //There is a listener on the dashboard page, which will wait for all 6 films, to return some information.
     //When ID 6 is returned back to the dashboard controller, the controller will merge the character dto information and

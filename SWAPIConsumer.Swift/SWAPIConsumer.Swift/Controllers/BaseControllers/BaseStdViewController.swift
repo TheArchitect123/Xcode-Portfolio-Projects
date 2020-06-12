@@ -1,8 +1,8 @@
 //
-//  BaseViewController.swift
+//  BaseStdViewController.swift
 //  SWAPIConsumer.Swift
 //
-//  Created by Assassin on 10/6/20.
+//  Created by Assassin on 12/6/20.
 //  Copyright © 2020 Dan Gerchcovich. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ import Toast_Swift;
 import Alamofire;
 import JSONParserSwift;
 
-class BaseViewController : UITableViewController {
+class BaseStdViewController : UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad();
@@ -24,14 +24,8 @@ class BaseViewController : UITableViewController {
         self.view.backgroundColor = UIColor.white;
         
         self.isMotionEnabled = true;
+        
         ConfigureSwipePops();
-        ConfigureTableView();
-    }
-    
-    fileprivate func ConfigureTableView(){
-        self.tableView.backgroundColor = UIColor.white;
-        self.tableView.rowHeight = 120;
-        self.tableView.separatorStyle = .none;
     }
     
     func ConfigureSwipePops(){
@@ -49,3 +43,4 @@ class BaseViewController : UITableViewController {
         PopCurrentPage();
     }
 }
+
