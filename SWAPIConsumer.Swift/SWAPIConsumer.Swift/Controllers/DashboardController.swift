@@ -25,19 +25,6 @@ class DashboardController : BaseViewController{
         welcomeMessage();
         setupUIComponents();
         configureRefresh();
-        
-        //TEST ONLY
-        self.ViewModel.getResultsForFilmsRoot(actionResults: { (film: FilmsDto?) in
-            
-            self.ResultsSource?.FilmsData = film?.results as! Array<FilmsResultDto>;
-            self.tableView.reloadData();
-        });
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        updateTableViewWithFilms();
     }
     
     func setupUIComponents(){
@@ -60,7 +47,10 @@ class DashboardController : BaseViewController{
     }
     
     @objc func updateTableViewWithFilms(){
-        
+        self.ViewModel.getResultsForFilmsFromDb(actionResults: { (film: Array<FilmsResultDto>?) in
+            self.ResultsSource?.FilmsData = film as! Array<FilmsResultDto>;
+            self.tableView.refreshControl?.endRefreshing();
+            self.tableView.reloadData();
+        });
     }
-    
 }

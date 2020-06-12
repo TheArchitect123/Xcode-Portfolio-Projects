@@ -9,8 +9,10 @@
 import Foundation
 import Siesta;
 import JSONParserSwift;
+import Resolver;
 
 class SearchMoviesViewModel : NSObject{
+    lazy var _database: DatabaseService = DatabaseService.init();
     
     func searchResultsForPeopleQuery(query: String, actionResults:@escaping(PeopleDto?) -> Void) {
         LoaderHelper.ShowLoaderWithMessage("Searching for People under \"\(query)\"...");
@@ -197,7 +199,6 @@ class SearchMoviesViewModel : NSObject{
                 print(error.localizedDescription);
             }
             defer {
-                
                 //Last minute clean up...
                 LoaderHelper.DismissLoaderWithDefault();
             }
@@ -206,6 +207,34 @@ class SearchMoviesViewModel : NSObject{
             SnackbarHelper.showSnackBarWithMessage(message: "Failed to connect to the SWAPI Server");
             LoaderHelper.DismissLoaderWithDefault();
         };
+    }
+    
+    
+    //Insert Dashboard Item
+    func insertItemInDashboard(film: FilmsResultDto){
+        self._database.insertFilm(dto: film);
+    }
+    
+    func getResultsForFilmsFromDashboard(actionResults:@escaping(Array<FilmsResultDto>) -> Void){
         
+        LoaderHelper.ShowLoaderWithMessage("Preparing for Search");
+        
+        DispatchQueue.global(qos: .background).async {
+            let filmAssets = self._database.getFilmsFromDb();
+            
+            DispatchQueue.main.async {
+                if(filmAssets != nil){
+                    actionResults(filmAssets!);
+                    SnackbarHelper.showSnackBarWithMessage(message: "Fetch request recovered \(filmAssets!.count) films from the dashboard");
+                }
+                else {
+                    //Could not find any results
+                    
+                    SnackbarHelper.showSnackBarWithMessage(message: "Could not load any films. Please begin search, and add an item to the dashboard");
+                }
+                
+                LoaderHelper.DismissLoaderWithDefault();
+            }
+        }
     }
 }

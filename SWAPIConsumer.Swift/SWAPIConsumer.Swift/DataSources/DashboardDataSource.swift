@@ -37,7 +37,7 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
         dashboardCell.detailTextLabel?.numberOfLines = 3;
         ConfigureCustomCell(dashboardCell);
         
-       // let extraInfo = RenderAccessoryControl();
+        // let extraInfo = RenderAccessoryControl();
         
         dashboardCell.textLabel!.text = "\(FilmsData[indexPath.row].title)";
         dashboardCell.detailTextLabel!.text = """
@@ -45,7 +45,7 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
         Release Date - \(FilmsData[indexPath.row].release_date))
         """;
         
-       // dashboardCell.accessoryView = extraInfo;
+        // dashboardCell.accessoryView = extraInfo;
         //extraInfo.text = "Films: \(FilmsData![indexPath.row].films!.count)";
         
         return dashboardCell;
@@ -77,7 +77,7 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
         let deleteDashboard = SwipeAction.init(style: .default, title: "Delete") { (action: SwipeAction, index: IndexPath) in
             
             //Saves the item to the database
-            self.removeSpecifiedFilmFromDb(index.row);
+            self.removeSpecifiedFilmFromDb(index.row, tableView: tableView);
         };
         
         deleteDashboard.backgroundColor = UIColor.red;
@@ -91,28 +91,39 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
         return [deleteDashboard, moreDetails];
     }
     
-    func removeSpecifiedFilmFromDb(_ index: Int){
+    func removeSpecifiedFilmFromDb(_ index: Int, tableView: UITableView){
         
         //Invoke the view model to remove the film from the db
+        LoaderHelper.ShowLoaderWithMessage("Removing \"\(self.FilmsData[index].title)\" from dashboard");
+        DispatchQueue.global(qos: .background).async {
+            self.ViewModel.deleteItemFromDashboard(movieTitle: self.FilmsData[index].title);
+            
+            DispatchQueue.main.async {
+                self.FilmsData.remove(at: index);
+                tableView.reloadData();
+                
+                LoaderHelper.DismissLoaderWithDefault();
+            }
+        }
     }
-   
+    
     
     func showDetailInformationAboutItem(_ index: Int){
-          DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.FilmsData[index].title)'s Details", message:  """
-                      Film Details:
-                      Name of Film - \(self.FilmsData[index].title)
-                      Episode Number - \(self.FilmsData[index].episode_id)
-                      ------------------------------------------
-                      Opening Crawl - \"\(self.FilmsData[index].opening_crawl)\"
-                      
-                      ------------------------------------------
-                      Director - \(self.FilmsData[index].director)
-                      Productor - \(self.FilmsData[index].producer)
-                      Release Date \(self.FilmsData[index].release_date)
-                      Actors in film - \(self.FilmsData[index].characters?.count ?? 0)
-                      """, actionBtn: "Add to Dashboard", actionHandler:{() -> Void in
-                          //Invoke the database function on the view model to add the film into the database
-                          
-                  });
+        DialogueHelper.showDialogWithSimpleTitleMessageCustomAction(title: "\(self.FilmsData[index].title)'s Details", message:  """
+            Film Details:
+            Name of Film - \(self.FilmsData[index].title)
+            Episode Number - \(self.FilmsData[index].episode_id)
+            ------------------------------------------
+            Opening Crawl - \"\(self.FilmsData[index].opening_crawl)\"
+            
+            ------------------------------------------
+            Director - \(self.FilmsData[index].director)
+            Productor - \(self.FilmsData[index].producer)
+            Release Date \(self.FilmsData[index].release_date)
+            Actors in film - \(self.FilmsData[index].characters?.count ?? 0)
+            """, actionBtn: "Add to Dashboard", actionHandler:{() -> Void in
+                //Invoke the database function on the view model to add the film into the database
+                
+        });
     }
 }

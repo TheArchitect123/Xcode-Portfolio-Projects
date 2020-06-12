@@ -13,6 +13,6 @@
         <attribute name="releaseDate" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Films" positionX="-54" positionY="-9" width="128" height="28"/>
+        <element name="Films" positionX="-54" positionY="-9" width="128" height="193"/>
     </elements>
 </model>

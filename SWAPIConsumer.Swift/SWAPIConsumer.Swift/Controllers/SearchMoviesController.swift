@@ -22,16 +22,40 @@ class SearchMoviesController : UIViewController, UISearchBarDelegate {
         super.viewDidLoad();
         
         setupNavigationBarComponents();
-        setupUIComponents();
+        loadItemsFromDashboard();
+    }
+    
+    func loadItemsFromDashboard(){
+        
+        ViewModel!.getResultsForFilmsFromDashboard(actionResults: { (results: Array<FilmsResultDto>) in
+//            self.ResultsSource!.FilmsOnDashboard = results.map({$0.title}) as? Array<String>;
+//
+//            self.ViewModel!.searchResultsForFilmsRoot(actionResults: { (filmMngr: FilmsDto?) in
+//                self.ResultsSource!.FilmsRootRef = filmMngr!.results!;
+//            });
+        });
+    }
+    
+//    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+//        (self.navigationController?.viewControllers[0] as! UITabBarController).viewDidAppear(true); //Force a refresh
+//    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        //(self.navigationController?.viewControllers[0] as! RootTabBarController).refreshItems(); //Force a refresh
     }
     
     func setupUIComponents(){
         self.ResultsSource = SearchDataSource(category: Category!);
+//        self.ResultsSource!.completionHandler = {() -> Void in
+//            (self.navigationController?.viewControllers[0] as! UITabBarController).viewDidAppear(true); //Force a refresh
+//        };
         self.ResultsSource!.ParentController = self;
         self._searchResultsTable.dataSource = self.ResultsSource;
         self._searchResultsTable.delegate = self.ResultsSource;
         self._searchBar!.delegate = self;
     }
+    
+    
     
     func noSearchResultHandler(){
         DialogueHelper.showDialogWithSimpleMessage(message: "Could not find any search results for query \"\(self._searchBar!.text!)\"");

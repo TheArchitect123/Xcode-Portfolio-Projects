@@ -15,70 +15,81 @@ class DatabaseService : NSObject{
         
     }
     
-
+    
     //Mappers
-    func mapFromDto(_ filmsModel: inout FilmsModel, _ film: FilmsResultDto) -> FilmsResultDto? {
-        let itemDto = FilmsModel.init();
-        itemDto.createdDate = film.created;
-        itemDto.directorName = film.director;
-        itemDto.editedDate = film.edited;
-        itemDto.episodeNum = film.episode_id;
-        itemDto.openingDesc = film.opening_crawl;
-        itemDto.actors = film.characters;
-        itemDto.movieTitle = film.title;
-        itemDto.actors = film.characters;
-        itemDto.filmUrl = film.url;
-        itemDto.producerName = film.producer;
-        itemDto.releaseDate = film.release_date;
-        
-        return nil;
+    func mapFromDto(_ filmsModel: inout NSManagedObject, _ film: FilmsResultDto) {
+        filmsModel.setValue(film.created, forKeyPath: "createdDate");
+        filmsModel.setValue(film.director, forKeyPath: "directorName");
+        filmsModel.setValue(film.edited, forKeyPath: "editedDate");
+        filmsModel.setValue(film.episode_id, forKeyPath: "episodeNum");
+        filmsModel.setValue(film.opening_crawl, forKeyPath: "openingDesc");
+        // filmsModel.actors = film.characters;
+        filmsModel.setValue(film.title, forKeyPath: "movieTitle");
+        // filmsModel.actors = film.characters;
+        filmsModel.setValue(film.url, forKeyPath: "filmUrl");
+        filmsModel.setValue(film.producer, forKeyPath: "producerName");
+        filmsModel.setValue(film.release_date, forKeyPath: "releaseDate");
     }
     
-    func mapToDto(_ filmsModel: FilmsModel) -> FilmsResultDto? {
+    func mapToDto(_ filmsModel: NSManagedObject) -> FilmsResultDto {
         let itemDto = FilmsResultDto.init(dictionary: ["":""]);
-        itemDto.created = filmsModel.createdDate;
-        itemDto.director = filmsModel.directorName;
-        itemDto.edited = filmsModel.editedDate;
-        itemDto.episode_id = filmsModel.episodeNum ;
-        itemDto.opening_crawl = filmsModel.openingDesc;
-        itemDto.characters = filmsModel.actors;
-        itemDto.title = filmsModel.movieTitle;
-        itemDto.characters = filmsModel.actors;
-        itemDto.url = filmsModel.filmUrl ;
-        itemDto.producer = filmsModel.producerName ;
-        itemDto.release_date = filmsModel.releaseDate;
+        itemDto.created = filmsModel.value(forKey: "createdDate") as! String;
+        itemDto.director = filmsModel.value(forKey: "directorName") as! String;
+        itemDto.edited = filmsModel.value(forKey: "editedDate") as! String;
+        itemDto.episode_id = filmsModel.value(forKey: "episodeNum") as! Int;
+        itemDto.opening_crawl = filmsModel.value(forKey: "openingDesc") as! String;
+        // itemDto.characters = filmsModel.actors;
+        itemDto.title = filmsModel.value(forKey: "movieTitle") as! String;
+        //itemDto.characters = filmsModel.actors;
+        itemDto.url = filmsModel.value(forKey: "filmUrl") as! String;
+        itemDto.producer = filmsModel.value(forKey: "producerName") as! String;
+        itemDto.release_date = filmsModel.value(forKey: "releaseDate") as! String;
         
         
-        return nil;
+        return itemDto;
     }
     
     #warning("APIS Used for CRUD (Create Read Update Delete) Operations")
     func insertFilm(dto: FilmsResultDto) {
         
-        var itemDto : FilmsModel = NSEntityDescription.insertNewObject(forEntityName: "Films", into: self.persistentContainer.viewContext) as! FilmsModel;
-        self.mapFromDto(&itemDto, dto); //Bind the Data (as pass by reference)
+        let managedContext = self.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Films", in: managedContext)!
         
-        self.persistentContainer.viewContext.insert(itemDto);
-        self.saveContext();
+        var filmCarrier = NSManagedObject(entity: entity, insertInto: managedContext);
+        self.mapFromDto(&filmCarrier, dto);
+        
+        do {
+            managedContext.insert(filmCarrier);
+            try self.saveContext();
+        } catch let error as NSError {
+            print("Error persisting item to disk");
+        }
     }
-
-    func deleteFilm(dto: Int){
-        let fetchRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Films");
-        fetchRequest.predicate = NSPredicate.init(format: "", dto);
-        
-        var itemDto : FilmsModel = NSEntityDescription.insertNewObject(forEntityName: "Films", into: self.persistentContainer.viewContext) as! FilmsModel;
-        
-        self.persistentContainer.viewContext.delete(fetchRequest);
-             self.persistentContainer.viewContext.insert(itemDto);
-             self.saveContext();
+    
+    func deleteFilm(dto: String){
+     let managedContext =
+            self.persistentContainer.viewContext;
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Films")
+        do {
+            let films = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
+            for film in films {
+                let item = film.value(forKey: "movieTitle") as! String;
+                if(item == "\(dto)"){
+                    managedContext.delete(film);
+                    try managedContext.save();
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
-
     
     func getFilmsCount() -> Int {
         let fetchRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Films");
         let error : NSError? = nil;
         do {
-            let films : Array<FilmsModel> = try self.persistentContainer.viewContext.execute(fetchRequest) as! Array<FilmsModel>;
+            let films : Array<FilmsModel> = try self.persistentContainer.viewContext.fetch(fetchRequest) as! Array<FilmsModel>;
             if(films != nil && films.count != 0){
                 return films.count;
             }
@@ -91,22 +102,26 @@ class DatabaseService : NSObject{
     }
     
     func getFilmsFromDb() -> Array<FilmsResultDto>? {
-        //Get the results from FilmsResultDto and map it to the FilmsModel
-        let fetchRequest : NSFetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Films");
-        let error : NSError? = nil;
+        
+        let managedContext =
+            self.persistentContainer.viewContext;
+        
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Films")
         do {
-            let films : Array<FilmsModel> = try self.persistentContainer.viewContext.execute(fetchRequest) as! Array<FilmsModel>;
-            if(films != nil && films.count != 0){
-                return films.map { (result: FilmsModel) -> FilmsResultDto in
-                    return self.mapToDto(result)!;
-                };
-            }
-        }
-        catch{
+            let films = try managedContext.fetch(fetchRequest) as! [NSManagedObject];
             
+            var items = [FilmsResultDto]();
+            for film in films {
+                items.append(mapToDto(film));
+            }
+            
+            return items;
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        return nil;
+        return Array<FilmsResultDto>();
     }
     
     // MARK: - Initialize Core Data stack

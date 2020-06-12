@@ -54,6 +54,7 @@
 		043649D72491C60D007624A2 /* baseline_dashboard_black_36pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043649D42491C60C007624A2 /* baseline_dashboard_black_36pt_3x.png */; };
 		043649D82491C60D007624A2 /* baseline_dashboard_black_36pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043649D52491C60D007624A2 /* baseline_dashboard_black_36pt_1x.png */; };
 		0457244A24926246006DA194 /* FilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457244924926246006DA194 /* FilmsModel.swift */; };
+		0457244D249354BD006DA194 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457244C249354BD006DA194 /* ContainerExtension.swift */; };
 		04911A912490903200F636F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911A902490903200F636F2 /* AppDelegate.swift */; };
 		04911A982490903200F636F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04911A962490903200F636F2 /* Main.storyboard */; };
 		04911A9B2490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04911A992490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodeld */; };
@@ -219,6 +220,7 @@
 		043649D42491C60C007624A2 /* baseline_dashboard_black_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_dashboard_black_36pt_3x.png; sourceTree = "<group>"; };
 		043649D52491C60D007624A2 /* baseline_dashboard_black_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_dashboard_black_36pt_1x.png; sourceTree = "<group>"; };
 		0457244924926246006DA194 /* FilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsModel.swift; sourceTree = "<group>"; };
+		0457244C249354BD006DA194 /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
 		04911A8D2490903200F636F2 /* SWAPIConsumer.Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAPIConsumer.Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04911A902490903200F636F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04911A972490903200F636F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				04911B0C2490986A00F636F2 /* StringExtension.swift */,
 				04911B0E2490987500F636F2 /* UIColorExtension.swift */,
 				04911B102490988300F636F2 /* UIViewControllerExtension.swift */,
+				0457244C249354BD006DA194 /* ContainerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1043,6 +1046,7 @@
 				043649882490B28A007624A2 /* StarshipsDto.swift in Sources */,
 				0436498F2490B466007624A2 /* PeopleResultDto.swift in Sources */,
 				04911B6424909C2800F636F2 /* SnackbarHelper.swift in Sources */,
+				0457244D249354BD006DA194 /* ContainerExtension.swift in Sources */,
 				0436499E2490C2E6007624A2 /* SearchDataSource.swift in Sources */,
 				04911B7424909D2B00F636F2 /* TimeZoneHelper.swift in Sources */,
 				043649822490B26F007624A2 /* PlanetsDto.swift in Sources */,

@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Register for Dependency injection
     func registerServices(){
         
+//        Resolver.main.register(DatabaseService.Type, name: "DatabaseService") { () -> DatabaseService.Type? in
+//            return DatabaseService.init();
+//        };
         
     }
     

@@ -26,11 +26,18 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     var VehiclesData : Array<VehiclesResultDto>;
     var StarshipsData : Array<StarshipsResultDto>;
     
+    var FilmsOnDashboard: Array<String>; //Films already on the dashboard
+    var FilmsRootRef : Array<FilmsResultDto>;
+    
+    var completionHandler: (() -> Void)?;
+    
     //View Model -- Will be used when selecting a film to add to the dashboard
     lazy var ViewModel: SearchMoviesViewModel = SearchMoviesViewModel.init();
     
     init(category: SearchCategory) {
         Category = category;
+        FilmsOnDashboard = Array<String>();
+        FilmsRootRef = Array<FilmsResultDto>();
         
         //Initialize all the Collections
         PeoplesData = Array<PeopleResultDto>();
@@ -193,50 +200,77 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
         return [addToDashboard, moreDetails];
     }
     
+    func checkIfMovieExistsOnDash(films: FilmsDto?, _ index: Int) -> Bool{
+        return self.FilmsOnDashboard.first(where: { (e: String) -> Bool in
+            return e == films!.results![index].title
+        }) != nil;
+    }
+    
+    func hasActorPlayedInMovie() -> Bool{
+        
+        return true;
+    }
+    
     func renderAllFilmsByRoot(){
         //Call all the films (Maximum of 6 records exist on the backend, but there is no api that supports, a different solution (Normally, I would just modify the Api on the backend, to allow for bulk reading & transactions)
         ViewModel.searchResultsForFilmsRoot(actionResults: { (films: FilmsDto?) in
-            if(films != nil){
+            if(films != nil) {
                 //Process the results here
-                
                 //In each of these actions, make sure to check whether the film already exists on the database, and if it does, simply present a dialogue
                 let filmActions = NSMutableArray(capacity: 6);
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![0].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                    
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 0) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![0].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(0);
+                    }));
+                }
                 
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![1].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 1) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![1].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(1);
+                    }));
+                }
                 
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![2].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 2) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![2].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(2);
+                    }));
+                }
                 
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![3].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 3) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![3].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(3);
+                    }));
+                }
                 
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![4].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 4) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![4].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(4);
+                    }));
+                }
                 
-                filmActions.add(MDCActionSheetAction.init(title: films!.results![5].title, image: UIImage.init(named: "Films"), handler: { (e) in
-                    
-                    //Add the film to the database
-                    //This will require this function to be added to the GCD as a background process
-                }));
+                if(!self.checkIfMovieExistsOnDash(films: films, 5) && self.hasActorPlayedInMovie()){
+                    filmActions.add(MDCActionSheetAction.init(title: films!.results![5].title, image: UIImage.init(named: "Films"), handler: { (e) in
+                        
+                        //Add the film to the database
+                        //This will require this function to be added to the GCD as a background process
+                        self.AddFilmFromActionSheetToDashboard(5);
+                    }));
+                }
                 
                 DialogueHelper.showActionSheetWithSimpleMessage(message: "Choose a film to add to your dashboard", actionBtns: filmActions as! Array<MDCActionSheetAction>);
                 LoaderHelper.DismissLoaderWithDefault();
@@ -359,10 +393,33 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     }
     
     //Add a movie from the search list
+    func InsertItemFromDatabase(_ index: Int){
+        self.ViewModel.insertItemInDashboard(film: self.FilmsData[index]);
+        self.ParentController?.dismiss(animated: true, completion: completionHandler);
+        
+    }
+    func AddFilmToDashboard(_ index: Int){
+        if(self.FilmsOnDashboard.contains(self.FilmsData[index].title)){
+            DialogueHelper.showDialogWithSimpleMessage(message: "This movie has already been added to your dashboard");
+        }
+        else {
+            InsertItemFromDatabase(index);
+        }
+    }
+    
+    func AddFilmFromActionSheetToDashboard(_ index: Int){
+        if(self.FilmsOnDashboard.contains(self.FilmsRootRef[index].title)){
+            DialogueHelper.showDialogWithSimpleMessage(message: "This movie has already been added to your dashboard");
+        }
+        else {
+            self.ViewModel.insertItemInDashboard(film: self.FilmsRootRef[index]);
+            self.ParentController?.dismiss(animated: true, completion: completionHandler);
+        }
+    }
     
     func SelectCellLogic(_ index: Int){
         if(Category! == SearchCategory.films){
-            self.ParentController?.dismiss(animated: true, completion: nil);
+            AddFilmToDashboard(index);
         }
         else {
             renderAllFilmsByRoot();

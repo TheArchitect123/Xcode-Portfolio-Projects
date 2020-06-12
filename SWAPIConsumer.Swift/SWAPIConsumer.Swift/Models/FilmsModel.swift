@@ -9,7 +9,7 @@
 import Foundation;
 import CoreData;
 
-class FilmsModel : NSManagedObject {
+class FilmsModel : NSObject {
     var movieTitle : String = "";
     var episodeNum : Int = 0;
     var openingDesc : String = "";
@@ -18,7 +18,7 @@ class FilmsModel : NSManagedObject {
     var releaseDate : String = "";
     
     //Collections
-    @NSManaged var actors : [String]?
+    //var actors : [String]?
     
     var createdDate : String = "";
     var editedDate : String = "";
