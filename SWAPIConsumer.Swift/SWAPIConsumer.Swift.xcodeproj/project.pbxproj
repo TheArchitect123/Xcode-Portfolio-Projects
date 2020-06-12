@@ -225,7 +225,7 @@
 		043649D52491C60D007624A2 /* baseline_dashboard_black_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_dashboard_black_36pt_1x.png; sourceTree = "<group>"; };
 		0457244924926246006DA194 /* FilmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsModel.swift; sourceTree = "<group>"; };
 		0457244C249354BD006DA194 /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
-		04911A8D2490903200F636F2 /* SWAPIConsumer.Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAPIConsumer.Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04911A8D2490903200F636F2 /* SWAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04911A902490903200F636F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04911A972490903200F636F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04911A9A2490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SWAPIConsumer_Swift.xcdatamodel; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 		04911A8E2490903200F636F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04911A8D2490903200F636F2 /* SWAPIConsumer.Swift.app */,
+				04911A8D2490903200F636F2 /* SWAPI.app */,
 				04911AA62490903400F636F2 /* SWAPIConsumer.SwiftTests.xctest */,
 				04911AB12490903400F636F2 /* SWAPIConsumer.SwiftUITests.xctest */,
 			);
@@ -728,7 +728,7 @@
 			);
 			name = SWAPIConsumer.Swift;
 			productName = SWAPIConsumer.Swift;
-			productReference = 04911A8D2490903200F636F2 /* SWAPIConsumer.Swift.app */;
+			productReference = 04911A8D2490903200F636F2 /* SWAPI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04911AA52490903400F636F2 /* SWAPIConsumer.SwiftTests */ = {
@@ -1270,12 +1270,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SWAPIConsumer.Swift.SWAPIConsumer-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
+				PRODUCT_NAME = SWAPI;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -1293,12 +1293,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SWAPIConsumer.Swift.SWAPIConsumer-Swift";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
+				PRODUCT_NAME = SWAPI;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};

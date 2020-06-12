@@ -95,6 +95,7 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         searchController.completionHandler = {() -> Void in
             self.refreshItems();
         };
+        searchController.modalPresentationStyle = .fullScreen;
         
         
         let searchActions = NSMutableArray(capacity: 5);

@@ -43,7 +43,11 @@ class SearchMoviesController : BaseStdViewController, UISearchBarDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // self._searchBar.becomeFirstResponder();
+         self._searchBar.becomeFirstResponder();
+    }
+    
+    override var prefersStatusBarHidden: Bool{
+        return true;
     }
     
     func loadItemsFromDashboard(){
@@ -107,13 +111,10 @@ class SearchMoviesController : BaseStdViewController, UISearchBarDelegate {
                     else {
                         SnackbarHelper.showSnackBarWithMessage(message: "Found \(people!.results!.count) people");
                         
-                        DispatchQueue.main.async {
-                           
                             //Write the data to the tables Data Source
                             self.ResultsSource?.PeoplesData = people!.results! as Array<PeopleResultDto>;
                             self.tableView.rowHeight = 150;
                             self.tableView.reloadData();
-                        };
                     }
                 }
                 else {
@@ -135,20 +136,9 @@ class SearchMoviesController : BaseStdViewController, UISearchBarDelegate {
                         SnackbarHelper.showSnackBarWithMessage(message: "Found \(films!.results!.count) films");
                         
                         //Sort Films by release date
-                        self.ResultsSource?.FilmsData = (films?.results!.sorted(by: { (fr: FilmsResultDto, snd: FilmsResultDto) -> Bool in
-                            
-                            let frFormatted = DateHelper.ConvertToDate(dateString: fr.created);
-                            let sndFormatted = DateHelper.ConvertToDate(dateString: snd.created);
-                            
-                            if(frFormatted != nil && sndFormatted != nil){
-                                return frFormatted! <= sndFormatted!;
-                            }
-                            else {
-                                return true;
-                            }
-                        })) as! Array<FilmsResultDto>;
-                        
-                        self.tableViewController?.tableView.reloadData();
+                        self.ResultsSource!.FilmsData = films!.results! as Array<FilmsResultDto>;
+                        self.tableView.rowHeight = 150;
+                        self.tableView.reloadData();
                     }
                 }
                 else {

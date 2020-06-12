@@ -175,7 +175,7 @@ class SearchDataSource : NSObject, UITableViewDataSource, UITableViewDelegate, S
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
-      //  SelectCellLogic(indexPath.row);
+        SelectCellLogic(indexPath.row);
     }
     
     //Swipe Management
