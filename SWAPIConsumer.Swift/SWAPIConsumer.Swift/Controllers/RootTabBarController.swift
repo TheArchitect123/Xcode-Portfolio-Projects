@@ -51,6 +51,8 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         self._bottomTabBar?.backgroundBlurEffectStyle = .prominent;
         
         self._bottomTabBar?.delegate = self;
+        
+        //If not MAC OS -- Remove the Tab Bar
         self.view.addSubview(self._bottomTabBar!);
     }
     
