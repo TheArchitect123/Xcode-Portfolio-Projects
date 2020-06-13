@@ -44,9 +44,8 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         SnackbarHelper.showSnackBarWithMessage(message: "Welcome to SWAPIConsumer by Dan Gerchcovich");
     }
     
-    
     func configureTabBar(){
-        self.tabBarController?.tabBar.isHidden = true;
+        self.tabBar.isHidden = true;
         self._bottomTabBar = MDCBottomNavigationBar.init(frame: CGRect(x: 0, y: self.view.ScreenHeight() - 60.0, width: self.view.ScreenWidth(), height: 60.0));
         self._bottomTabBar?.backgroundBlurEffectStyle = .prominent;
         
