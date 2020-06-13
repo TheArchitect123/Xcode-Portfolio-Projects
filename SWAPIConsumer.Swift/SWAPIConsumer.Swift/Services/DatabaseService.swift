@@ -52,12 +52,8 @@ class DatabaseService : NSObject{
         var filmCarrier = NSManagedObject(entity: entity, insertInto: managedContext);
         self.mapFromDto(&filmCarrier, dto);
         
-        do {
-            managedContext.insert(filmCarrier);
-            try self.saveContext();
-        } catch let error as NSError {
-            print("Error persisting item to disk");
-        }
+        managedContext.insert(filmCarrier);
+        self.saveContext();
     }
     
     func deleteFilm(dto: String){
