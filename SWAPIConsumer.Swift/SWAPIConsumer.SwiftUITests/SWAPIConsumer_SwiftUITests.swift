@@ -11,13 +11,10 @@ import XCTest
 
 class SWAPIConsumer_SwiftUITests: XCTestCase {
 
-    var dashboard: RootTabBarController = RootTabBarController();
     func testRefreshItems() {
         //Find the refresh method
         let appRef = XCUIApplication.init();
-        appRef.method(for: "SWAPIConsumer.Swift.RootTabBar.refreshItems");
-        
-        XCTAssertNoThrow(dashboard.refreshItems());
+        XCTAssertNoThrow(appRef.method(for: "SWAPIConsumer.Swift.RootTabBar.refreshItems"));
     }
     
     func testInitialiseSearch(){
