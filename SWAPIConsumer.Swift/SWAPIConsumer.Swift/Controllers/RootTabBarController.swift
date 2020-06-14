@@ -24,14 +24,22 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
     //Controls
     var _bottomTabBar : MDCBottomNavigationBar?;
     
+    var _searchFloatBtn : MDCFloatingButton?;
+    
     override func viewDidLoad() {
         configureTabBar();
         setupNavigationBarComponents();
         configureTabBarControllers();
         welcomeLogic();
+        setupOtherUIComponents();
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        self._dashboardPage!.deletionHandler = {() -> Void in 
+            self.refreshItems();
+        };
+        
         refreshItems();
     }
     
@@ -39,6 +47,21 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         self._dashboardPage!.updateTableViewWithFilms();
     }
     
+    override func viewDidLayoutSubviews() {
+        self._searchFloatBtn?.frame = CGRect.init(x: self.view.ScreenWidth() - 100.0, y: self.view.ScreenHeight() - 160.0, width: 80.0, height: 80.0);
+    }
+    
+    func setupOtherUIComponents() {
+        
+        //Refresh Floating Button
+        self._searchFloatBtn = MDCFloatingButton.init(frame: CGRect.init(x: self.view.ScreenWidth() - 100.0, y: self.view.ScreenHeight() - 160.0, width: 80.0, height: 80.0));
+        self._searchFloatBtn!.backgroundColor = ColorHelper.DarkThemeBackground();
+        self._searchFloatBtn!.setImage(UIImage.init(named: "Search"), for: UIControl.State.normal);
+        self._searchFloatBtn!.addTarget(self, action: #selector(openSearchDrawer), for: UIControl.Event.touchDown);
+        
+        self.view.addSubview(self._searchFloatBtn!);
+    }
+
     
     func welcomeLogic(){
         SnackbarHelper.showSnackBarWithMessage(message: "Welcome to SWAPIConsumer by Dan Gerchcovich");

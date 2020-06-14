@@ -21,6 +21,8 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
     //Collections
     var FilmsData: Array<FilmsResultDto>;
     
+    var deletionHandler:(() -> Void)?;
+    
     //View Model -- Will be used when selecting a film to view details
     @LazyInjected var ViewModel: DashboardViewModel;
     
@@ -104,6 +106,8 @@ class DashboardDataSource : NSObject, UITableViewDataSource, UITableViewDelegate
                 tableView.reloadData();
                 
                 LoaderHelper.DismissLoaderWithDefault();
+                
+                self.deletionHandler!();
             }
         }
     }

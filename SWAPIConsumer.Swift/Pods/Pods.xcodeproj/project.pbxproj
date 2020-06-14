@@ -11759,6 +11759,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = arm64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -13236,6 +13237,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = arm64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

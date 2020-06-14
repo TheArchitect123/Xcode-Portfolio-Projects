@@ -58,6 +58,9 @@
 		0457244A24926246006DA194 /* FilmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457244924926246006DA194 /* FilmsModel.swift */; };
 		0457244D249354BD006DA194 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457244C249354BD006DA194 /* ContainerExtension.swift */; };
 		045D694324948D9500F01D18 /* SWAPI_DbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D694224948D9500F01D18 /* SWAPI_DbTests.swift */; };
+		048466F92495D53700CE5C53 /* baseline_search_white_36pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 048466F62495D53600CE5C53 /* baseline_search_white_36pt_1x.png */; };
+		048466FA2495D53700CE5C53 /* baseline_search_white_36pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 048466F72495D53600CE5C53 /* baseline_search_white_36pt_2x.png */; };
+		048466FB2495D53700CE5C53 /* baseline_search_white_36pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 048466F82495D53700CE5C53 /* baseline_search_white_36pt_3x.png */; };
 		04911A912490903200F636F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911A902490903200F636F2 /* AppDelegate.swift */; };
 		04911A982490903200F636F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04911A962490903200F636F2 /* Main.storyboard */; };
 		04911A9B2490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04911A992490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodeld */; };
@@ -227,6 +230,9 @@
 		045D694024948D9500F01D18 /* SWAPI.DbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWAPI.DbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		045D694224948D9500F01D18 /* SWAPI_DbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPI_DbTests.swift; sourceTree = "<group>"; };
 		045D694424948D9500F01D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048466F62495D53600CE5C53 /* baseline_search_white_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_1x.png; sourceTree = "<group>"; };
+		048466F72495D53600CE5C53 /* baseline_search_white_36pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_2x.png; sourceTree = "<group>"; };
+		048466F82495D53700CE5C53 /* baseline_search_white_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_3x.png; sourceTree = "<group>"; };
 		04911A8D2490903200F636F2 /* SWAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04911A902490903200F636F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04911A972490903200F636F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -404,6 +410,9 @@
 		043649A52491BB6E007624A2 /* search */ = {
 			isa = PBXGroup;
 			children = (
+				048466F62495D53600CE5C53 /* baseline_search_white_36pt_1x.png */,
+				048466F72495D53600CE5C53 /* baseline_search_white_36pt_2x.png */,
+				048466F82495D53700CE5C53 /* baseline_search_white_36pt_3x.png */,
 				043649A72491BB78007624A2 /* baseline_supervisor_account_black_48pt_1x.png */,
 				043649A82491BB78007624A2 /* baseline_supervisor_account_black_48pt_2x.png */,
 				043649A62491BB77007624A2 /* baseline_supervisor_account_black_48pt_3x.png */,
@@ -835,6 +844,7 @@
 				04911B4F24909B7D00F636F2 /* baseline_menu_white_48pt_1x.png in Resources */,
 				04911B2824909B6100F636F2 /* Roboto-Italic.ttf in Resources */,
 				04911B2D24909B6100F636F2 /* Roboto-ThinItalic.ttf in Resources */,
+				048466FA2495D53700CE5C53 /* baseline_search_white_36pt_2x.png in Resources */,
 				04911B5024909B7D00F636F2 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */,
 				043649BD2491BC25007624A2 /* baseline_pets_black_48pt_2x.png in Resources */,
 				04911AFA2490977200F636F2 /* 256.png in Resources */,
@@ -846,6 +856,7 @@
 				04911AFF2490977200F636F2 /* 57.png in Resources */,
 				043649BB2491BC25007624A2 /* baseline_pets_black_48pt_1x.png in Resources */,
 				04911B032490977200F636F2 /* 20.png in Resources */,
+				048466FB2495D53700CE5C53 /* baseline_search_white_36pt_3x.png in Resources */,
 				043649B72491BC17007624A2 /* baseline_theaters_black_48pt_1x.png in Resources */,
 				04911AF92490977200F636F2 /* 64.png in Resources */,
 				043649AF2491BB90007624A2 /* baseline_public_black_48pt_1x.png in Resources */,
@@ -888,6 +899,7 @@
 				04911B2C24909B6100F636F2 /* Roboto-Black.ttf in Resources */,
 				043649D72491C60D007624A2 /* baseline_dashboard_black_36pt_3x.png in Resources */,
 				04911B4D24909B7D00F636F2 /* baseline_keyboard_arrow_down_black_48pt_1x.png in Resources */,
+				048466F92495D53700CE5C53 /* baseline_search_white_36pt_1x.png in Resources */,
 				04911AED2490977200F636F2 /* 32.png in Resources */,
 				04911A9D2490903400F636F2 /* Assets.xcassets in Resources */,
 				043649C92491BC3E007624A2 /* baseline_directions_railway_black_48pt_3x.png in Resources */,
@@ -1282,7 +1294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
@@ -1308,7 +1320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = NO;

@@ -8,6 +8,7 @@
 
 import Foundation;
 import UIKit;
+import CoreGraphics;
 import Resolver;
 
 //Material Components
@@ -19,6 +20,8 @@ class DashboardController : BaseViewController{
     var _floatingBtn : MDCFloatingButton?
     @LazyInjected var ViewModel : DashboardViewModel;
     var ResultsSource : DashboardDataSource?;
+    var InstructionsView: UILabel?
+    var deletionHandler:(() -> Void)?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -26,11 +29,31 @@ class DashboardController : BaseViewController{
       //  welcomeMessage();
         setupUIComponents();
         configureRefresh();
+        createDefaultInstructions();
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.InstructionsView?.frame = CGRect.init(x: 10, y: -15, width: self.view.ScreenWidth() - 20, height: self.view.ScreenHeight());
+    }
+    
+    func createDefaultInstructions(){
+        self.InstructionsView = UILabel.init(frame: CGRect.init(x: 10, y: -15, width: self.view.ScreenWidth() - 20, height: self.view.ScreenHeight()));
+        
+        self.InstructionsView!.text = "Add a Star Wars Film on your dashboard by starting a search";
+        self.InstructionsView!.font = UIFont.init(name: "Roboto-Light", size: 26.0);
+        self.InstructionsView!.numberOfLines = 0;
+        self.InstructionsView!.textAlignment = .justified;
+        self.view.addSubview(self.InstructionsView!);
+        self.view.bringSubviewToFront(self.InstructionsView!);
     }
     
     func setupUIComponents(){
         self.ResultsSource = DashboardDataSource();
         self.ResultsSource!.ParentController = self;
+        
+        self.ResultsSource!.deletionHandler = {() -> Void in
+            self.deletionHandler!();  
+        };
         self.tableView.dataSource = self.ResultsSource;
         self.tableView.delegate = self.ResultsSource;
         self.tableView.rowHeight = 150.0;
@@ -52,6 +75,14 @@ class DashboardController : BaseViewController{
             self.ResultsSource?.FilmsData = film as! Array<FilmsResultDto>;
             self.tableView.refreshControl?.endRefreshing();
             self.tableView.reloadData();
+            
+            if(film?.count != 0){
+                self.InstructionsView?.isHidden = true;
+            }
+            else {
+                //Show the default text
+                self.InstructionsView?.isHidden = false;
+            }
         });
     }
 }
