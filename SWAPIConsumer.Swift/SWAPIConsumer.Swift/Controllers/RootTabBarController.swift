@@ -48,7 +48,19 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
     }
     
     override func viewDidLayoutSubviews() {
-        self._searchFloatBtn?.frame = CGRect.init(x: self.view.ScreenWidth() - 100.0, y: self.view.ScreenHeight() - 160.0, width: 80.0, height: 80.0);
+        resizeSearchBtn();
+    }
+    
+    func resizeSearchBtn(){
+        self._searchFloatBtn!.frame = CGRect.init(x: self.view.ScreenWidth() - 100.0, y: self.view.ScreenHeight() - 160.0, width: 80.0, height: 80.0);
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if(self._searchFloatBtn != nil && self._bottomTabBar != nil){
+            self._searchFloatBtn!.frame = CGRect.init(x: size.width - 100.0, y: size.height - 80.0, width: 80.0, height: 80.0);
+            
+            self._bottomTabBar = MDCBottomNavigationBar.init(frame: CGRect(x: 0, y: size.height - 60.0, width: size.width, height: 60.0));
+        }
     }
     
     func setupOtherUIComponents() {
@@ -59,9 +71,9 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         self._searchFloatBtn!.setImage(UIImage.init(named: "Search"), for: UIControl.State.normal);
         self._searchFloatBtn!.addTarget(self, action: #selector(openSearchDrawer), for: UIControl.Event.touchDown);
         
-        self.view.addSubview(self._searchFloatBtn!);
+      //  self.view.addSubview(self._searchFloatBtn!);
     }
-
+    
     
     func welcomeLogic(){
         SnackbarHelper.showSnackBarWithMessage(message: "Welcome to SWAPIConsumer by Dan Gerchcovich");
@@ -75,7 +87,7 @@ class RootTabBarController : UITabBarController, MDCBottomNavigationBarDelegate 
         self._bottomTabBar?.delegate = self;
         
         //If not MAC OS -- Remove the Tab Bar
-        self.view.addSubview(self._bottomTabBar!);
+  //  self.view.addSubview(self._bottomTabBar!);
     }
     
     func configureTabBarControllers(){

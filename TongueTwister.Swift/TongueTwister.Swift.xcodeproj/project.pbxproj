@@ -1366,7 +1366,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1376,9 +1376,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.TongueTwister;
 				PRODUCT_NAME = FrenchConnect;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -1390,7 +1391,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.4;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1400,9 +1401,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.TongueTwister;
 				PRODUCT_NAME = FrenchConnect;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};

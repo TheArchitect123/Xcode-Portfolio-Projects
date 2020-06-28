@@ -8,7 +8,6 @@ PODS:
   - GCDKit (2.1.0)
   - JGProgressHUD (2.1)
   - JSONParserSwift (1.1.4)
-  - lottie-ios-extension (1.5.1.1)
   - Material (3.1.8):
     - Material/Core (= 3.1.8)
   - Material/Core (3.1.8):
@@ -32,11 +31,6 @@ PODS:
     - "UIColor+Hex/NSColor (= 1.0.1)"
     - "UIColor+Hex/UIColor (= 1.0.1)"
   - "UIColor+Hex/UIColor (1.0.1)"
-  - URWeatherView (0.7.0):
-    - lottie-ios-extension
-    - URWeatherView/Core (= 0.7.0)
-  - URWeatherView/Core (0.7.0):
-    - lottie-ios-extension
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -58,7 +52,6 @@ DEPENDENCIES:
   - Toast-Swift (~> 5.0)
   - TopViewControllerDetection (~> 2.0)
   - "UIColor+Hex (~> 1.0)"
-  - URWeatherView (~> 0.7)
 
 SPEC REPOS:
   trunk:
@@ -71,7 +64,6 @@ SPEC REPOS:
     - GCDKit
     - JGProgressHUD
     - JSONParserSwift
-    - lottie-ios-extension
     - Material
     - Motion
     - NavigationDropdownMenu
@@ -84,7 +76,6 @@ SPEC REPOS:
     - Toast-Swift
     - TopViewControllerDetection
     - "UIColor+Hex"
-    - URWeatherView
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -96,7 +87,6 @@ SPEC CHECKSUMS:
   GCDKit: 321b439175c22e31fffb58dfc20078bf58ba4c60
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   JSONParserSwift: fff6c8aee929431cfbb10d016e9b92f06f732057
-  lottie-ios-extension: 219b261ba9f3d6a0cda7cf84bbfb545aa5806153
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
@@ -109,8 +99,7 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TopViewControllerDetection: 3a1efa463a18ec426d53802d57d9db29654928dd
   "UIColor+Hex": 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
-  URWeatherView: 4a716a83149f788220ec156047e4d0e8517835bf
 
-PODFILE CHECKSUM: c928628a14487f403edffe8c405bf1ad85901183
+PODFILE CHECKSUM: 4622b75cf2da54c85b900811962a832136ac6283
 
 COCOAPODS: 1.9.2

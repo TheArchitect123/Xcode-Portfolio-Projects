@@ -9,7 +9,7 @@
 import Foundation
 import BottomDrawer;
 import DrawerKit;
-import URWeatherView;
+//import URWeatherView;
 
 class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
     var heightOfPartiallyExpandedDrawer: CGFloat {
@@ -19,7 +19,7 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
     var CityId: Int?;
     
     //Weather Simulation
-    var weatherSimulatorView: URWeatherView?
+   // var weatherSimulatorView: URWeatherView?
     
     @IBOutlet var _cityScrollMngr: UIScrollView!
     @IBOutlet var _cityTemperatureDescription: UILabel!
@@ -54,10 +54,10 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
     
     fileprivate func ConfigureWeatherPreview(){
         
-        self.weatherSimulatorView = URWeatherView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height), mainWeatherImage: UIImage.init(named: "rain_bg.jpg")!, backgroundImage: nil);
-        
-        self.view.addSubview(self.weatherSimulatorView!);
-        self.view.sendSubview(toBack: self.weatherSimulatorView!);
+//        self.weatherSimulatorView = URWeatherView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height), mainWeatherImage: UIImage.init(named: "rain_bg.jpg")!, backgroundImage: nil);
+//
+//        self.view.addSubview(self.weatherSimulatorView!);
+//        self.view.sendSubview(toBack: self.weatherSimulatorView!);
     }
     
     override var shouldAutorotate: Bool {
@@ -75,49 +75,49 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
     // MARK: Processors from the ViewModel -- Passing Data to the Data Source
     
     func FormatWeatherSimulation(_ weather : String){
-        switch(FriendlyNames.GetWeatherTyp_ForName(weather)){
-        case .Ash:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.dust, debugOption: false, additionalTask: nil);
-            break;
-        case .Clear:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.none, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Clouds:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.cloudy, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Drizzle:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.smoke, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Dust:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.dust2, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Fog, .Mist, .Haze:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.smoke, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Rain:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.rain, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Sand:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.dust2, debugOption: false, additionalTask: nil);
-            break;
-            
-        case .Snow:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.snow, debugOption: false, additionalTask: nil);
-            
-        case .Thunderstorm:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.lightning, debugOption: false, additionalTask: nil);
-            break;
-            
-        default:
-            self.weatherSimulatorView!.startWeatherSceneBulk(.hot, debugOption: false, additionalTask: nil);
-            break;
-        }
+       // switch(FriendlyNames.GetWeatherTyp_ForName(weather)){
+//        case .Ash:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.dust, debugOption: false, additionalTask: nil);
+//            break;
+//        case .Clear:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.none, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Clouds:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.cloudy, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Drizzle:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.smoke, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Dust:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.dust2, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Fog, .Mist, .Haze:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.smoke, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Rain:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.rain, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Sand:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.dust2, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        case .Snow:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.snow, debugOption: false, additionalTask: nil);
+//
+//        case .Thunderstorm:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.lightning, debugOption: false, additionalTask: nil);
+//            break;
+//
+//        default:
+//            self.weatherSimulatorView!.startWeatherSceneBulk(.hot, debugOption: false, additionalTask: nil);
+//            break;
+//        }
     }
     internal func ReturnedCities(_ items: inout [WeatherMaster]) {
         
@@ -130,7 +130,7 @@ class CityDetailsBottomDrawerController : BottomController, DrawerPresentable {
         _cityTitle.text = items[0].name;
         _cityCurrentTemperature.text = "\(Int(items[0].main.temp))º";
         
-        let tableDetails = self.childViewControllers[0] as! CityDetailEmbeddedViewController;
+        let tableDetails = self.children[0] as! CityDetailEmbeddedViewController;
         tableDetails._currentAtmosp.text = "\(items[0].main.pressure)hPa";
         tableDetails._sunsetTemp.text = "\(Int(items[0].main.temp_max))º";
         tableDetails._sunriseTemp.text = "\(Int(items[0].main.temp_min))º";

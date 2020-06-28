@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,7 +41,7 @@
 		045C61C7247E59F60084F652 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C61C6247E59F60084F652 /* Foundation.framework */; };
 		045C61C9247E5A090084F652 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C61C8247E5A090084F652 /* QuartzCore.framework */; };
 		045C61CB247E5A0F0084F652 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C61CA247E5A0F0084F652 /* UserNotifications.framework */; };
-		045C61CD247E5A140084F652 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C61CC247E5A140084F652 /* UserNotificationsUI.framework */; };
+		045C61CD247E5A140084F652 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C61CC247E5A140084F652 /* UserNotificationsUI.framework */; platformFilter = ios; };
 		045C61CF247E5A530084F652 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C61CE247E5A530084F652 /* RootNavigationController.swift */; };
 		045C61D1247E5A640084F652 /* WeatherDashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C61D0247E5A640084F652 /* WeatherDashController.swift */; };
 		045C61D4247E5A960084F652 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C61D3247E5A960084F652 /* BaseViewController.swift */; };
@@ -131,6 +131,8 @@
 		049D4B47247E355F00E91C2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D4B45247E355F00E91C2F /* LaunchScreen.storyboard */; };
 		049D4B52247E355F00E91C2F /* Telecoms_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B51247E355F00E91C2F /* Telecoms_SwiftTests.swift */; };
 		049D4B5D247E355F00E91C2F /* Telecoms_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D4B5C247E355F00E91C2F /* Telecoms_SwiftUITests.swift */; };
+		04B0E01224A8F5DB002C93E0 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B0E01124A8F5DB002C93E0 /* MetalKit.framework */; };
+		04B0E01424A8F5E0002C93E0 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B0E01324A8F5DF002C93E0 /* Metal.framework */; };
 		04E8D51B24820F3F00CB3259 /* WeatherRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8D51A24820F3F00CB3259 /* WeatherRef.swift */; };
 		3D22B506987BB743E2148B78 /* Pods_Telecoms_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6195247E59110084F652 /* Pods_Telecoms_Swift.framework */; };
 		6EC8C1DB48DAFF705C76D62D /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045C6194247E59110084F652 /* Pods_Telecoms_Swift_Telecoms_SwiftUITests.framework */; };
@@ -308,6 +310,9 @@
 		049D4B58247E355F00E91C2F /* Telecoms.SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Telecoms.SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049D4B5C247E355F00E91C2F /* Telecoms_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telecoms_SwiftUITests.swift; sourceTree = "<group>"; };
 		049D4B5E247E355F00E91C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B0E01024A8F189002C93E0 /* WeatherScan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherScan.entitlements; sourceTree = "<group>"; };
+		04B0E01124A8F5DB002C93E0 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		04B0E01324A8F5DF002C93E0 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		04E8D51A24820F3F00CB3259 /* WeatherRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRef.swift; sourceTree = "<group>"; };
 		0D8692BFAD6419BFD6393830 /* Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Telecoms.Swift-Telecoms.SwiftUITests/Pods-Telecoms.Swift-Telecoms.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		264D863DFA0411538CDF8347 /* Pods-Telecoms.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telecoms.Swift.debug.xcconfig"; path = "Target Support Files/Pods-Telecoms.Swift/Pods-Telecoms.Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -325,6 +330,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B0E01424A8F5E0002C93E0 /* Metal.framework in Frameworks */,
+				04B0E01224A8F5DB002C93E0 /* MetalKit.framework in Frameworks */,
 				045C61CB247E5A0F0084F652 /* UserNotifications.framework in Frameworks */,
 				045C617D247E55B50084F652 /* AudioToolbox.framework in Frameworks */,
 				045C61C7247E59F60084F652 /* Foundation.framework in Frameworks */,
@@ -617,6 +624,7 @@
 		049D4B36247E355E00E91C2F /* Telecoms.Swift */ = {
 			isa = PBXGroup;
 			children = (
+				04B0E01024A8F189002C93E0 /* WeatherScan.entitlements */,
 				042B227F247F82C100692C89 /* Dtos */,
 				045C629D247E83DC0084F652 /* DataSources */,
 				045C6203247E6C150084F652 /* fonts */,
@@ -661,6 +669,8 @@
 		DD994DFB6ACD1F0579582370 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04B0E01324A8F5DF002C93E0 /* Metal.framework */,
+				04B0E01124A8F5DB002C93E0 /* MetalKit.framework */,
 				045C61CC247E5A140084F652 /* UserNotificationsUI.framework */,
 				045C61CA247E5A0F0084F652 /* UserNotifications.framework */,
 				045C61C8247E5A090084F652 /* QuartzCore.framework */,
@@ -1233,9 +1243,11 @@
 			baseConfigurationReference = 264D863DFA0411538CDF8347 /* Pods-Telecoms.Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = StartupIcons;
+				CODE_SIGN_ENTITLEMENTS = Telecoms.Swift/WeatherScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 1.9.1;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				INFOPLIST_FILE = Telecoms.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1244,8 +1256,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.telecoms.Telecoms-Swift";
 				PRODUCT_NAME = WeatherScan;
-				SWIFT_VERSION = 4.0;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -1254,9 +1268,11 @@
 			baseConfigurationReference = BF89599F0D576CEB9650A5DD /* Pods-Telecoms.Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = StartupIcons;
+				CODE_SIGN_ENTITLEMENTS = Telecoms.Swift/WeatherScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 1.9.1;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				INFOPLIST_FILE = Telecoms.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1265,8 +1281,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.telecoms.Telecoms-Swift";
 				PRODUCT_NAME = WeatherScan;
-				SWIFT_VERSION = 4.0;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
