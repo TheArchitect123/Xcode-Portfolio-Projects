@@ -32,11 +32,17 @@
 		04852AA024791245006E1E46 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04852A9F24791245006E1E46 /* SVProgressHUD.framework */; };
 		04852AA224791AE8006E1E46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04852AA124791AE8006E1E46 /* SceneDelegate.swift */; };
 		049D4AEB247E1E7900E91C2F /* 1024_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 049D4AEA247E1E7900E91C2F /* 1024_1.jpg */; };
-		049FE590247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58D247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png */; };
-		049FE591247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58E247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png */; };
-		049FE592247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049FE58F247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png */; };
 		049FE594247BFCE800A7D071 /* PhrasesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FE593247BFCE800A7D071 /* PhrasesDataSource.swift */; };
 		04ABC7C3247DF6120006B8F8 /* ToasterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ABC7C2247DF6120006B8F8 /* ToasterHelper.swift */; };
+		04B0E00124A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0DFFE24A8D8FF002C93E0 /* baseline_keyboard_backspace_white_48pt_1x.png */; };
+		04B0E00224A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0DFFF24A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_2x.png */; };
+		04B0E00324A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00024A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_3x.png */; };
+		04B0E00724A8D93F002C93E0 /* baseline_refresh_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00424A8D93E002C93E0 /* baseline_refresh_white_48pt_3x.png */; };
+		04B0E00824A8D93F002C93E0 /* baseline_refresh_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00524A8D93E002C93E0 /* baseline_refresh_white_48pt_2x.png */; };
+		04B0E00924A8D93F002C93E0 /* baseline_refresh_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00624A8D93E002C93E0 /* baseline_refresh_white_48pt_1x.png */; };
+		04B0E00D24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00A24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_1x.png */; };
+		04B0E00E24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00B24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_2x.png */; };
+		04B0E00F24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B0E00C24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_3x.png */; };
 		04B664F42478EB530083EC7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B664F32478EB530083EC7D /* AppDelegate.swift */; };
 		04B664FB2478EB530083EC7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B664F92478EB530083EC7D /* Main.storyboard */; };
 		04B664FE2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B664FC2478EB530083EC7D /* TongueTwister_Swift.xcdatamodeld */; };
@@ -124,19 +130,7 @@
 		04BB2F7A247B8AC00085B872 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2F79247B8AC00085B872 /* NavigationHelper.swift */; };
 		04BB2F7C247B976C0085B872 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2F7B247B976C0085B872 /* BaseViewController.swift */; };
 		04BB2F7E247B9BA30085B872 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2F7D247B9BA30085B872 /* BaseTableViewController.swift */; };
-		04BB2F83247B9D510085B872 /* baseline_menu_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F80247B9D510085B872 /* baseline_menu_white_48pt_1x.png */; };
-		04BB2F84247B9D510085B872 /* baseline_menu_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F81247B9D510085B872 /* baseline_menu_white_48pt_2x.png */; };
-		04BB2F85247B9D510085B872 /* baseline_menu_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F82247B9D510085B872 /* baseline_menu_white_48pt_3x.png */; };
-		04BB2F89247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F86247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_2x.png */; };
-		04BB2F8A247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F87247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png */; };
-		04BB2F8B247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F88247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_1x.png */; };
 		04BB2F8D247BAB000085B872 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB2F8C247BAB000085B872 /* ViewExtensions.swift */; };
-		04BB2F91247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F8E247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_2x.png */; };
-		04BB2F92247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F8F247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_3x.png */; };
-		04BB2F93247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F90247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_1x.png */; };
-		04BB2F97247BAC980085B872 /* baseline_menu_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F94247BAC970085B872 /* baseline_menu_black_48pt_1x.png */; };
-		04BB2F98247BAC980085B872 /* baseline_menu_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F95247BAC970085B872 /* baseline_menu_black_48pt_2x.png */; };
-		04BB2F99247BAC980085B872 /* baseline_menu_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BB2F96247BAC980085B872 /* baseline_menu_black_48pt_3x.png */; };
 		04FAE86E247A3FA900FBA4C4 /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE86D247A3FA900FBA4C4 /* AppInformation.swift */; };
 		04FAE871247A451200FBA4C4 /* NavigationBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE870247A451200FBA4C4 /* NavigationBarHelper.swift */; };
 		04FAE873247A574B00FBA4C4 /* FriendlyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE872247A574B00FBA4C4 /* FriendlyNames.swift */; };
@@ -179,13 +173,7 @@
 		04FAE903247A76B300FBA4C4 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE8EA247A76B200FBA4C4 /* 1024.png */; };
 		04FAE904247A76B300FBA4C4 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE8EB247A76B300FBA4C4 /* 32.png */; };
 		04FAE905247A76B300FBA4C4 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE8EC247A76B300FBA4C4 /* 57.png */; };
-		04FAE90A247A782D00FBA4C4 /* baseline_refresh_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE907247A782D00FBA4C4 /* baseline_refresh_white_48pt_3x.png */; };
-		04FAE90B247A782D00FBA4C4 /* baseline_refresh_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE908247A782D00FBA4C4 /* baseline_refresh_white_48pt_1x.png */; };
-		04FAE90C247A782D00FBA4C4 /* baseline_refresh_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE909247A782D00FBA4C4 /* baseline_refresh_white_48pt_2x.png */; };
 		04FAE90E247A8B6200FBA4C4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FAE90D247A8B6200FBA4C4 /* QuartzCore.framework */; };
-		04FAE912247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE90F247A8CFE00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_1x.png */; };
-		04FAE913247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE910247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_2x.png */; };
-		04FAE914247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAE911247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_3x.png */; };
 		04FAE916247A8E1200FBA4C4 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE915247A8E1200FBA4C4 /* ImageConstants.swift */; };
 		10AED4C72A126FDB6C8971CD /* Pods_TongueTwister_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */; };
 		28F4166EA899B34495A0A942 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */; };
@@ -235,11 +223,17 @@
 		04852A9F24791245006E1E46 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04852AA124791AE8006E1E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		049D4AEA247E1E7900E91C2F /* 1024_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1024_1.jpg; sourceTree = "<group>"; };
-		049FE58D247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_1x.png; sourceTree = "<group>"; };
-		049FE58E247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_3x.png; sourceTree = "<group>"; };
-		049FE58F247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_down_black_48pt_2x.png; sourceTree = "<group>"; };
 		049FE593247BFCE800A7D071 /* PhrasesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDataSource.swift; sourceTree = "<group>"; };
 		04ABC7C2247DF6120006B8F8 /* ToasterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToasterHelper.swift; sourceTree = "<group>"; };
+		04B0DFFE24A8D8FF002C93E0 /* baseline_keyboard_backspace_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_backspace_white_48pt_1x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_backspace_white_48pt_1x.png; sourceTree = SOURCE_ROOT; };
+		04B0DFFF24A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_backspace_white_48pt_2x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_backspace_white_48pt_2x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00024A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_backspace_white_48pt_3x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_backspace_white_48pt_3x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00424A8D93E002C93E0 /* baseline_refresh_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_refresh_white_48pt_3x.png; path = TongueTwister.Swift/Resources/baseline_refresh_white_48pt_3x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00524A8D93E002C93E0 /* baseline_refresh_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_refresh_white_48pt_2x.png; path = TongueTwister.Swift/Resources/baseline_refresh_white_48pt_2x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00624A8D93E002C93E0 /* baseline_refresh_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_refresh_white_48pt_1x.png; path = TongueTwister.Swift/Resources/baseline_refresh_white_48pt_1x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00A24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_arrow_down_black_36pt_1x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_arrow_down_black_36pt_1x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00B24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_arrow_down_black_36pt_2x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_arrow_down_black_36pt_2x.png; sourceTree = SOURCE_ROOT; };
+		04B0E00C24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_keyboard_arrow_down_black_36pt_3x.png; path = TongueTwister.Swift/Resources/baseline_keyboard_arrow_down_black_36pt_3x.png; sourceTree = SOURCE_ROOT; };
 		04B664F02478EB530083EC7D /* FrenchConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrenchConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B664F32478EB530083EC7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B664FA2478EB530083EC7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -335,19 +329,7 @@
 		04BB2F79247B8AC00085B872 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		04BB2F7B247B976C0085B872 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		04BB2F7D247B9BA30085B872 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		04BB2F80247B9D510085B872 /* baseline_menu_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_white_48pt_1x.png; sourceTree = "<group>"; };
-		04BB2F81247B9D510085B872 /* baseline_menu_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_white_48pt_2x.png; sourceTree = "<group>"; };
-		04BB2F82247B9D510085B872 /* baseline_menu_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_white_48pt_3x.png; sourceTree = "<group>"; };
-		04BB2F86247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_white_48pt_2x.png; sourceTree = "<group>"; };
-		04BB2F87247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_white_48pt_3x.png; sourceTree = "<group>"; };
-		04BB2F88247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_white_48pt_1x.png; sourceTree = "<group>"; };
 		04BB2F8C247BAB000085B872 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		04BB2F8E247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_black_48pt_2x.png; sourceTree = "<group>"; };
-		04BB2F8F247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_black_48pt_3x.png; sourceTree = "<group>"; };
-		04BB2F90247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_backspace_black_48pt_1x.png; sourceTree = "<group>"; };
-		04BB2F94247BAC970085B872 /* baseline_menu_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_black_48pt_1x.png; sourceTree = "<group>"; };
-		04BB2F95247BAC970085B872 /* baseline_menu_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_black_48pt_2x.png; sourceTree = "<group>"; };
-		04BB2F96247BAC980085B872 /* baseline_menu_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_menu_black_48pt_3x.png; sourceTree = "<group>"; };
 		04FAE86D247A3FA900FBA4C4 /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		04FAE870247A451200FBA4C4 /* NavigationBarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarHelper.swift; sourceTree = "<group>"; };
 		04FAE872247A574B00FBA4C4 /* FriendlyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendlyNames.swift; sourceTree = "<group>"; };
@@ -390,13 +372,7 @@
 		04FAE8EA247A76B200FBA4C4 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		04FAE8EB247A76B300FBA4C4 /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
 		04FAE8EC247A76B300FBA4C4 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
-		04FAE907247A782D00FBA4C4 /* baseline_refresh_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_refresh_white_48pt_3x.png; sourceTree = "<group>"; };
-		04FAE908247A782D00FBA4C4 /* baseline_refresh_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_refresh_white_48pt_1x.png; sourceTree = "<group>"; };
-		04FAE909247A782D00FBA4C4 /* baseline_refresh_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_refresh_white_48pt_2x.png; sourceTree = "<group>"; };
 		04FAE90D247A8B6200FBA4C4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		04FAE90F247A8CFE00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_right_white_48pt_1x.png; sourceTree = "<group>"; };
-		04FAE910247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_right_white_48pt_2x.png; sourceTree = "<group>"; };
-		04FAE911247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_keyboard_arrow_right_white_48pt_3x.png; sourceTree = "<group>"; };
 		04FAE915247A8E1200FBA4C4 /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.SwiftTests.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.SwiftTests/Pods-TongueTwister.SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -794,32 +770,20 @@
 		04FAE906247A782400FBA4C4 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				04B0DFFE24A8D8FF002C93E0 /* baseline_keyboard_backspace_white_48pt_1x.png */,
+				04B0DFFF24A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_2x.png */,
+				04B0E00024A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_3x.png */,
+				04B0E00624A8D93E002C93E0 /* baseline_refresh_white_48pt_1x.png */,
+				04B0E00524A8D93E002C93E0 /* baseline_refresh_white_48pt_2x.png */,
+				04B0E00424A8D93E002C93E0 /* baseline_refresh_white_48pt_3x.png */,
+				04B0E00A24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_1x.png */,
+				04B0E00B24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_2x.png */,
+				04B0E00C24A8D98C002C93E0 /* baseline_keyboard_arrow_down_black_36pt_3x.png */,
 				04BB2EF9247B7C8D0085B872 /* bg-1.jpg */,
 				04BB2EF6247B7C8D0085B872 /* bg-2.jpg */,
 				04BB2EF7247B7C8D0085B872 /* bg-3.jpg */,
 				04BB2EFA247B7C8D0085B872 /* bg-4.jpg */,
 				04BB2EF8247B7C8D0085B872 /* bg-5.jpg */,
-				04FAE908247A782D00FBA4C4 /* baseline_refresh_white_48pt_1x.png */,
-				04FAE909247A782D00FBA4C4 /* baseline_refresh_white_48pt_2x.png */,
-				04BB2F88247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_1x.png */,
-				04BB2F94247BAC970085B872 /* baseline_menu_black_48pt_1x.png */,
-				04BB2F95247BAC970085B872 /* baseline_menu_black_48pt_2x.png */,
-				04BB2F96247BAC980085B872 /* baseline_menu_black_48pt_3x.png */,
-				049FE58D247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png */,
-				049FE58F247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png */,
-				049FE58E247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png */,
-				04BB2F86247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_2x.png */,
-				04BB2F87247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png */,
-				04BB2F90247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_1x.png */,
-				04BB2F8E247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_2x.png */,
-				04BB2F8F247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_3x.png */,
-				04BB2F80247B9D510085B872 /* baseline_menu_white_48pt_1x.png */,
-				04BB2F81247B9D510085B872 /* baseline_menu_white_48pt_2x.png */,
-				04BB2F82247B9D510085B872 /* baseline_menu_white_48pt_3x.png */,
-				04FAE90F247A8CFE00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_1x.png */,
-				04FAE910247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_2x.png */,
-				04FAE911247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_3x.png */,
-				04FAE907247A782D00FBA4C4 /* baseline_refresh_white_48pt_3x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -954,18 +918,15 @@
 				04FAE903247A76B300FBA4C4 /* 1024.png in Resources */,
 				04FAE88D247A6B0600FBA4C4 /* Roboto-Thin.ttf in Resources */,
 				04FAE8FC247A76B300FBA4C4 /* 256.png in Resources */,
-				04FAE914247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_3x.png in Resources */,
 				04BB2F38247B7D8A0085B872 /* mt_bg_3.jpg in Resources */,
 				04BB2F08247B7C9B0085B872 /* bg_5.jpg in Resources */,
 				04FAE8F7247A76B300FBA4C4 /* 60.png in Resources */,
 				04BB2F06247B7C9B0085B872 /* bg_1.jpg in Resources */,
 				04BB2F43247B7D8A0085B872 /* mt_bg_4.jpg in Resources */,
-				04BB2F99247BAC980085B872 /* baseline_menu_black_48pt_3x.png in Resources */,
 				04FAE8F3247A76B300FBA4C4 /* 180.png in Resources */,
 				04BB2F51247B7D8A0085B872 /* mt_bg_11.jpg in Resources */,
 				04B665032478EB540083EC7D /* LaunchScreen.storyboard in Resources */,
 				04BB2F32247B7D8A0085B872 /* mt_bg_17.jpg in Resources */,
-				04BB2F8A247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */,
 				04FAE8F1247A76B300FBA4C4 /* 512.png in Resources */,
 				04FAE893247A6B0600FBA4C4 /* Roboto-Light.ttf in Resources */,
 				049D4AEB247E1E7900E91C2F /* 1024_1.jpg in Resources */,
@@ -976,10 +937,9 @@
 				04FAE905247A76B300FBA4C4 /* 57.png in Resources */,
 				04BB2F09247B7C9B0085B872 /* bg_3.jpg in Resources */,
 				04BB2F55247B7D8A0085B872 /* mt_bg_40.jpg in Resources */,
-				04BB2F92247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_3x.png in Resources */,
-				049FE591247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_3x.png in Resources */,
-				04BB2F8B247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_1x.png in Resources */,
-				04BB2F84247B9D510085B872 /* baseline_menu_white_48pt_2x.png in Resources */,
+				04B0E00E24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_2x.png in Resources */,
+				04B0E00D24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_1x.png in Resources */,
+				04B0E00224A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_2x.png in Resources */,
 				04FAE8FE247A76B300FBA4C4 /* 72.png in Resources */,
 				04FAE8F0247A76B300FBA4C4 /* 40.png in Resources */,
 				04BB2F58247B7D8A0085B872 /* mt_bg_32.jpg in Resources */,
@@ -988,8 +948,6 @@
 				04BB2EFD247B7C8D0085B872 /* bg-5.jpg in Resources */,
 				04BB2F53247B7D8A0085B872 /* mt_bg_34.jpg in Resources */,
 				04BB2F39247B7D8A0085B872 /* mt_bg_5.jpg in Resources */,
-				04BB2F85247B9D510085B872 /* baseline_menu_white_48pt_3x.png in Resources */,
-				04BB2F83247B9D510085B872 /* baseline_menu_white_48pt_1x.png in Resources */,
 				04FAE902247A76B300FBA4C4 /* 58.png in Resources */,
 				04BB2F42247B7D8A0085B872 /* mt_bg_22.jpg in Resources */,
 				04BB2F4D247B7D8A0085B872 /* mt_bg_38.jpg in Resources */,
@@ -999,14 +957,13 @@
 				04FAE8FD247A76B300FBA4C4 /* 120.png in Resources */,
 				04BB2EFE247B7C8D0085B872 /* bg-1.jpg in Resources */,
 				04BB2F35247B7D8A0085B872 /* mt_bg_16.jpg in Resources */,
-				04FAE912247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_1x.png in Resources */,
+				04B0E00F24A8D98D002C93E0 /* baseline_keyboard_arrow_down_black_36pt_3x.png in Resources */,
 				04FAE898247A6B0600FBA4C4 /* Roboto-Medium.ttf in Resources */,
 				04FAE8EE247A76B300FBA4C4 /* 64.png in Resources */,
 				04BB2F4A247B7D8A0085B872 /* mt_bg_27.jpg in Resources */,
 				04BB2EFC247B7C8D0085B872 /* bg-3.jpg in Resources */,
 				04BB2EF4247B777B0085B872 /* datingbg.jpg in Resources */,
 				04BB2F54247B7D8A0085B872 /* mt_bg_2.jpg in Resources */,
-				049FE592247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_2x.png in Resources */,
 				04FAE88E247A6B0600FBA4C4 /* Roboto-Black.ttf in Resources */,
 				04FAE904247A76B300FBA4C4 /* 32.png in Resources */,
 				04BB2F44247B7D8A0085B872 /* mt_bg_20.jpg in Resources */,
@@ -1014,18 +971,17 @@
 				04FAE896247A6B0600FBA4C4 /* Roboto-BlackItalic.ttf in Resources */,
 				04BB2F05247B7C9B0085B872 /* bg_2.jpg in Resources */,
 				04FAE890247A6B0600FBA4C4 /* Roboto-MediumItalic.ttf in Resources */,
-				04BB2F97247BAC980085B872 /* baseline_menu_black_48pt_1x.png in Resources */,
+				04B0E00124A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_1x.png in Resources */,
 				04BB2F50247B7D8A0085B872 /* mt_bg_14.jpg in Resources */,
 				04BB2F40247B7D8A0085B872 /* mt_bg_39.jpg in Resources */,
 				04FAE8F2247A76B300FBA4C4 /* 167.png in Resources */,
 				04FAE8F6247A76B300FBA4C4 /* 80.png in Resources */,
-				04BB2F93247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_1x.png in Resources */,
 				04BB2F4F247B7D8A0085B872 /* mt_bg_13.jpg in Resources */,
 				04FAE8F4247A76B300FBA4C4 /* 29.png in Resources */,
-				04BB2F91247BAC7F0085B872 /* baseline_keyboard_backspace_black_48pt_2x.png in Resources */,
 				04B665002478EB540083EC7D /* Assets.xcassets in Resources */,
 				04BB2EFF247B7C8D0085B872 /* bg-4.jpg in Resources */,
-				04FAE90A247A782D00FBA4C4 /* baseline_refresh_white_48pt_3x.png in Resources */,
+				04B0E00924A8D93F002C93E0 /* baseline_refresh_white_48pt_1x.png in Resources */,
+				04B0E00324A8D900002C93E0 /* baseline_keyboard_backspace_white_48pt_3x.png in Resources */,
 				04BB2F41247B7D8A0085B872 /* mt_bg_12.jpg in Resources */,
 				04BB2F3E247B7D8A0085B872 /* mt_bg_26.jpg in Resources */,
 				04BB2F3D247B7D8A0085B872 /* mt_bg_23.jpg in Resources */,
@@ -1035,10 +991,8 @@
 				04FAE8ED247A76B300FBA4C4 /* 50.png in Resources */,
 				04BB2F52247B7D8A0085B872 /* mt_bg_6.jpg in Resources */,
 				04FAE894247A6B0600FBA4C4 /* Roboto-Italic.ttf in Resources */,
-				04BB2F89247B9DA50085B872 /* baseline_keyboard_backspace_white_48pt_2x.png in Resources */,
 				04BB2F34247B7D8A0085B872 /* mt_bg_30.jpg in Resources */,
 				04FAE8F9247A76B300FBA4C4 /* 152.png in Resources */,
-				049FE590247BE6B900A7D071 /* baseline_keyboard_arrow_down_black_48pt_1x.png in Resources */,
 				04FAE8F5247A76B300FBA4C4 /* 100.png in Resources */,
 				04BB2F3A247B7D8A0085B872 /* mt_bg_35.jpg in Resources */,
 				04BB2F4B247B7D8A0085B872 /* mt_bg_25.jpg in Resources */,
@@ -1051,17 +1005,15 @@
 				04BB2F33247B7D8A0085B872 /* mt_bg_24.jpg in Resources */,
 				04BB2F56247B7D8A0085B872 /* mt_bg_29.jpg in Resources */,
 				04BB2F57247B7D8A0085B872 /* mt_bg_31.jpg in Resources */,
-				04BB2F98247BAC980085B872 /* baseline_menu_black_48pt_2x.png in Resources */,
 				04BB2F48247B7D8A0085B872 /* mt_bg_37.jpg in Resources */,
 				04FAE901247A76B300FBA4C4 /* 128.png in Resources */,
-				04FAE913247A8CFF00FBA4C4 /* baseline_keyboard_arrow_right_white_48pt_2x.png in Resources */,
-				04FAE90B247A782D00FBA4C4 /* baseline_refresh_white_48pt_1x.png in Resources */,
 				04BB2F45247B7D8A0085B872 /* mt_bg_33.jpg in Resources */,
 				04FAE897247A6B0600FBA4C4 /* Roboto-BoldItalic.ttf in Resources */,
 				04B664FB2478EB530083EC7D /* Main.storyboard in Resources */,
-				04FAE90C247A782D00FBA4C4 /* baseline_refresh_white_48pt_2x.png in Resources */,
 				04BB2F47247B7D8A0085B872 /* mt_bg_18.jpg in Resources */,
 				04BB2F37247B7D8A0085B872 /* mt_bg_15.jpg in Resources */,
+				04B0E00824A8D93F002C93E0 /* baseline_refresh_white_48pt_2x.png in Resources */,
+				04B0E00724A8D93F002C93E0 /* baseline_refresh_white_48pt_3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1414,7 +1366,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1438,7 +1390,7 @@
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				INFOPLIST_FILE = TongueTwister.Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
