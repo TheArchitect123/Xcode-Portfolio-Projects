@@ -102,7 +102,7 @@
     self._bottomNavBar = [[MDCBottomNavigationBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 60.0f, [ScreenHelper GetScreenWidth], 60.0f)];
     self._bottomNavBar.delegate = self;
     
-    [self.view addSubview:self._bottomNavBar];
+   // [self.view addSubview:self._bottomNavBar];
 }
 
 -(void) configureBottomBarBehaviour{

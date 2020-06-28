@@ -55,7 +55,7 @@
     self = [super init];
     if (self) {
         //Instantiate the Data Sources with the images required
-        self._imageItems = @[@"note.png",@"document.png", @"pdf.png", @"camera.png", @"photosvids.png", @"browserhistory.png", @"emails.png",  @"music.png"];
+        self._imageItems = @[@"note.png",@"document.png", @"pdf.png", @"camera.png", @"photosvids.png"/*, @"browserhistory.png", @"emails.png",  @"music.png"*/];
         self._dataArray = [[NSMutableArray alloc] init];
         self._dbHelper = [[DatabaseHelper alloc] init];
     }

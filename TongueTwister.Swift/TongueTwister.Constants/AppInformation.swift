@@ -16,6 +16,6 @@ internal struct AppInformation{
     static let FullVersion = "1.0.0";
     static let ApplicationName = "FrenchConnect";
     
-    static let UrlBase = "https://www.pplconnect.com.au/NativeApps/FrenchConnect.Swift/api/";
+    static let UrlBase = "http://www.pplconnect.com.au/NativeApps/FrenchConnect.Swift/api/";
     static let UrlBase_Test = "http://192.168.0.133/FrenchConnect/api";
 }
