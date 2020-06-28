@@ -74,6 +74,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [self enableUINotifications];
+    [self refreshItems];
 }
 
 -(void) viewWillDisappear:(BOOL)animated{

@@ -1901,7 +1901,7 @@
 				CODE_SIGN_ENTITLEMENTS = DataVault/SafetyBox.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				INFOPLIST_FILE = DataVault/Info.plist;
@@ -1910,6 +1910,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SafetyBox-Objective";
 				PRODUCT_NAME = SafetyBox;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -1927,7 +1928,7 @@
 				CODE_SIGN_ENTITLEMENTS = DataVault/SafetyBox.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				INFOPLIST_FILE = DataVault/Info.plist;
@@ -1936,6 +1937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dg.SafetyBox-Objective";
 				PRODUCT_NAME = SafetyBox;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
