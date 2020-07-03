@@ -15,6 +15,8 @@ import android.view.View;
 
 import com.dg.telecoms.ui.main.SectionsPagerAdapter;
 
+import java.util.logging.Logger;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
