@@ -53,22 +53,22 @@ internal class DashboardController : BaseViewController {
         RefreshButton();
         
         //#if TARGET_OS_MACCATALYST
-        self.setupMacCatalyst(application : UIApplication.shared);
+       // self.setupMacCatalyst(application : UIApplication.shared);
         self.resizeMacElements(initMacWindowSize);
         //#endif
     }
     
-    func setupMacCatalyst(application : UIApplication)
-    {
-        for scene : UIScene in application.connectedScenes {
-            
-            if (scene.isKind(of: UIWindowScene.self)) {
-                let windowScene : UIWindowScene = scene as! UIWindowScene;
-                windowScene.sizeRestrictions!.maximumSize = initMacWindowSize;
-                //windowScene.sizeRestrictions.minimumSize = initMacWindowSize;
-            }
-        }
-    }
+//    func setupMacCatalyst(application : UIApplication)
+//    {
+//        for scene : UIScene in application.connectedScenes {
+//
+//            if (scene.isKind(of: UIWindowScene.self)) {
+//               // let windowScene : UIWindowScene = scene as! UIWindowScene;
+//               // windowScene.sizeRestrictions!.maximumSize = initMacWindowSize;
+//                //windowScene.sizeRestrictions.minimumSize = initMacWindowSize;
+//            }
+//        }
+//    }
     
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
@@ -107,10 +107,12 @@ internal class DashboardController : BaseViewController {
         //        navigationBar = NavigationBarHelper.DrawNavigationWithMenu();
         //        navigationBar!.LeftBarButton.addTarget(self, action: #selector(OpenMenuDrawer), for: UIControl.Event.touchDown);
         
-        _menuView = NavigationBarHelper.DrawMenuDropDown();
-        _menuView!.didSelectItemAtIndexHandler = {[weak self] (indexPath: Int) -> () in
+        self._menuView = NavigationBarHelper.DrawMenuDropDown();
+        self._menuView!.didSelectItemAtIndexHandler = {[weak self] (indexPath: Int) -> () in
             NavigationHelper.NavigateToCategory(PhraseCategories(rawValue:indexPath) ?? PhraseCategories.GeneralConversation);
-        }
+        };
+        
+        self._menuView!.frame = CGRect.init(x: 0, y: 0, width: self.navigationController!.navigationBar.bounds.width, height: 70);
         
         self.view.addSubview(_menuView!);
         // self.view!.addSubview(navigationBar!);

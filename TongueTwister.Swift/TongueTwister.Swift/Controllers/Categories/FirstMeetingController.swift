@@ -19,8 +19,8 @@ internal class FirstMeetingController : BaseTableViewController {
          //Build up the UI here
          super.viewDidLoad();
          //
-         self.CustomTableView!.dataSource = CustomSource;
-         self.CustomTableView!.reloadData()
+         self.tableView.dataSource = CustomSource;
+         self.tableView.reloadData()
      }
 
      

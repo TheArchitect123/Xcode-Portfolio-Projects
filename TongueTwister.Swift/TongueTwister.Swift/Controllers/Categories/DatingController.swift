@@ -24,9 +24,9 @@ internal class DatingController : BaseTableViewController{
            SVProgressHUD.show(withStatus: "Loading Phrases");
            
            //Invoke the grand central dispatch here for processing
-           self.CustomTableView!.dataSource = CustomSource;
-           self.CustomTableView?.delegate = CustomSource;
-           self.CustomTableView!.reloadData()
+           self.tableView.dataSource = CustomSource;
+           self.tableView.delegate = CustomSource;
+           self.tableView.reloadData()
        }
 
        public override func viewWillAppear(_ animated: Bool) {
@@ -48,22 +48,22 @@ internal class DatingController : BaseTableViewController{
                        
                        ToasterHelper.OpenSimpleToast(self, "Successfully retrieved \(self.CustomSource.Items.count) phrases from the server");
                        
-                       self.CustomTableView!.dataSource = self.CustomSource;
-                       self.CustomTableView!.delegate = self.CustomSource;
-                       self.CustomTableView!.reloadData();
+                       self.tableView.dataSource = self.CustomSource;
+                       self.tableView.delegate = self.CustomSource;
+                       self.tableView.reloadData();
                      // Use base response object here
                    } catch {
                      print(error)
                    }
                    
-                   self.CustomTableView?.refreshControl?.endRefreshing();
+                   self.tableView.refreshControl?.endRefreshing();
                    LoaderHelper.DismissLoaderWithDefault();
            }
            .onFailure { (result) -> Void in
                
                ToasterHelper.OpenSimpleToast(self, "Failed to retrieve items from the server");
                
-               self.CustomTableView?.refreshControl?.endRefreshing();
+               self.tableView.refreshControl?.endRefreshing();
                LoaderHelper.DismissLoaderWithDefault();
                
            };
