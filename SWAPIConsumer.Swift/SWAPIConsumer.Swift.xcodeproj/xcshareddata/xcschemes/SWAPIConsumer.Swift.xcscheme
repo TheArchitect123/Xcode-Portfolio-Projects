@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "04911A8C2490903200F636F2"
-               BuildableName = "SWAPI.app"
+               BuildableName = "ftsMovies.app"
                BlueprintName = "SWAPIConsumer.Swift"
                ReferencedContainer = "container:SWAPIConsumer.Swift.xcodeproj">
             </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04911A8C2490903200F636F2"
-            BuildableName = "SWAPI.app"
+            BuildableName = "ftsMovies.app"
             BlueprintName = "SWAPIConsumer.Swift"
             ReferencedContainer = "container:SWAPIConsumer.Swift.xcodeproj">
          </BuildableReference>
@@ -102,7 +102,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04911A8C2490903200F636F2"
-            BuildableName = "SWAPI.app"
+            BuildableName = "ftsMovies.app"
             BlueprintName = "SWAPIConsumer.Swift"
             ReferencedContainer = "container:SWAPIConsumer.Swift.xcodeproj">
          </BuildableReference>
