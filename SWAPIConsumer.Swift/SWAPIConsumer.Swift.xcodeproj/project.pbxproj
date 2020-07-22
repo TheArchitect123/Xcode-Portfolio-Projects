@@ -233,7 +233,7 @@
 		048466F62495D53600CE5C53 /* baseline_search_white_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_1x.png; sourceTree = "<group>"; };
 		048466F72495D53600CE5C53 /* baseline_search_white_36pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_2x.png; sourceTree = "<group>"; };
 		048466F82495D53700CE5C53 /* baseline_search_white_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_search_white_36pt_3x.png; sourceTree = "<group>"; };
-		04911A8D2490903200F636F2 /* SWAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04911A8D2490903200F636F2 /* ftsMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ftsMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04911A902490903200F636F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04911A972490903200F636F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04911A9A2490903200F636F2 /* SWAPIConsumer_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SWAPIConsumer_Swift.xcdatamodel; sourceTree = "<group>"; };
@@ -480,7 +480,7 @@
 		04911A8E2490903200F636F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04911A8D2490903200F636F2 /* SWAPI.app */,
+				04911A8D2490903200F636F2 /* ftsMovies.app */,
 				04911AB12490903400F636F2 /* SWAPIConsumer.SwiftUITests.xctest */,
 				045D694024948D9500F01D18 /* SWAPI.DbTests.xctest */,
 			);
@@ -753,7 +753,7 @@
 			);
 			name = SWAPIConsumer.Swift;
 			productName = SWAPIConsumer.Swift;
-			productReference = 04911A8D2490903200F636F2 /* SWAPI.app */;
+			productReference = 04911A8D2490903200F636F2 /* ftsMovies.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04911AB02490903400F636F2 /* SWAPIConsumer.SwiftUITests */ = {
@@ -1294,7 +1294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
@@ -1304,8 +1304,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
-				PRODUCT_NAME = SWAPI;
+				PRODUCT_NAME = ftsMovies;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1320,7 +1321,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
@@ -1330,8 +1331,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
-				PRODUCT_NAME = SWAPI;
+				PRODUCT_NAME = ftsMovies;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
