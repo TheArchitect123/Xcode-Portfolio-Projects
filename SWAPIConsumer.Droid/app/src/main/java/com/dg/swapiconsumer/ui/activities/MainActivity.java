@@ -1,7 +1,8 @@
-package com.dg.swapiconsumer;
+package com.dg.swapiconsumer.ui.activities;
 
 import android.os.Bundle;
 
+import com.dg.swapiconsumer.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;

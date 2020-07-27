@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-743917110/SWAPIConsumer.iml" filepath="$PROJECT_DIR$/.idea/modules/-743917110/SWAPIConsumer.iml" group="SWAPIConsumer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="SWAPIConsumer/app" />
+    </modules>
+  </component>
+</project>
