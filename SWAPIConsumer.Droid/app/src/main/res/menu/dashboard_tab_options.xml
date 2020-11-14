@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/dashboard_option"
+    android:icon="@drawable/ic_menu_icon"
+    android:title="@string/dashboard_tab_name"/>
+
+    <item android:id="@+id/settings_option"
+        android:icon="@drawable/ic_settings_icon"
+        android:title="@string/settings_tab_name"/>
+</menu>
