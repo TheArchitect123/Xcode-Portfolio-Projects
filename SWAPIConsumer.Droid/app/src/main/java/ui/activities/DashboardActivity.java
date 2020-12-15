@@ -43,7 +43,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        this.setSupportActionBar(viewModel.getBindings().getDashboardToolbar());
+        setContentView(R.layout.dashboard_layout);
+       // this.setSupportActionBar(viewModel.getBindings().getDashboardToolbar());
     }
 }

@@ -6,23 +6,23 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--&lt;!&ndash;        <com.google.android.material.appbar.AppBarLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content">&ndash;&gt;-->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/dashboard_toolbar"
-                />
+<!--&lt;!&ndash;            <com.google.android.material.appbar.MaterialToolbar&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/dashboard_toolbar"&ndash;&gt;-->
+<!--&lt;!&ndash;                />&ndash;&gt;-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
