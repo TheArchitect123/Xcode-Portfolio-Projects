@@ -7,10 +7,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import butterknife.BindView;
 
 public final class DashboardBindings {
-//    @BindView(R.id.dashboard_toolbar)
-//    MaterialToolbar dashboardToolbar;
+    @BindView(R.id.dashboard_toolbar)
+    MaterialToolbar dashboardToolbar;
 
-//    public Toolbar getDashboardToolbar(){
-//        return this.dashboardToolbar;
-//    }
+    public Toolbar getDashboardToolbar(){
+        return this.dashboardToolbar;
+    }
 }
