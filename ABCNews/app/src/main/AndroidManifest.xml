@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ABCNewsDroid">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".activities.dashboard.DashboardActivity"
+            android:label="@string/title_activity_dashboard"
             android:theme="@style/Theme.ABCNewsDroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
