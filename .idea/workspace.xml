@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dc01d44-452d-416f-b177-b1b313c3ecab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/java/ui/activities/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/java/ui/activities/DashboardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/java/ui/view_bindings/DashboardBindings.java" beforeDir="false" afterPath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/java/ui/view_bindings/DashboardBindings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/res/layout/dashboard_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/res/layout/dashboard_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWAPIConsumer.Droid/app/src/main/res/layout/fragment_main.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="5dc01d44-452d-416f-b177-b1b313c3ecab" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
