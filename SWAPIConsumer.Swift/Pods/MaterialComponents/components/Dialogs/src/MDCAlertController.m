@@ -230,6 +230,16 @@ static NSString *const kMaterialDialogsBundle = @"MaterialDialogs.bundle";
   }
 }
 
+- (void)setAttributedLinkColor:(UIColor *)attributedLinkColor {
+  if ([_attributedLinkColor isEqual:attributedLinkColor]) {
+    return;
+  }
+  _attributedLinkColor = attributedLinkColor;
+  if (self.alertView) {
+    self.alertView.messageTextView.tintColor = attributedLinkColor;
+  }
+}
+
 - (void)messageDidChange {
   if (self.attributedMessage.length > 0) {
     self.alertView.messageTextView.attributedText = self.attributedMessage;
@@ -596,6 +606,7 @@ static NSString *const kMaterialDialogsBundle = @"MaterialDialogs.bundle";
 
 #pragma mark - Text View Delegate
 
+#if defined(__IPHONE_10_0) && (__IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0)
 - (BOOL)textView:(UITextView *)textView
     shouldInteractWithURL:(NSURL *)URL
                   inRange:(NSRange)characterRange
@@ -605,6 +616,7 @@ static NSString *const kMaterialDialogsBundle = @"MaterialDialogs.bundle";
   }
   return YES;
 }
+#endif
 
 #pragma mark - UIViewController
 
@@ -763,6 +775,11 @@ static NSString *const kMaterialDialogsBundle = @"MaterialDialogs.bundle";
   self.alertView.titleLabel.accessibilityLabel = self.titleAccessibilityLabel ?: self.title;
   self.alertView.messageTextView.accessibilityLabel =
       self.messageAccessibilityLabel ?: self.message ?: self.attributedMessage.string;
+  // Set messageTextView's accessibilityValue to the empty string to resolve b/158732017.
+  // MessageTextView acts as a label and should not have an accessibilityValue.
+  // Setting the accessibilityValue to nil causes VoiceOver to use the default value, which is the
+  // text of the message, so the value must be set to the empty string instead.
+  self.alertView.messageTextView.accessibilityValue = @"";
   self.alertView.messageTextView.delegate = self;
 
   self.alertView.titleIconImageView.accessibilityLabel = self.imageAccessibilityLabel;
@@ -774,7 +791,16 @@ static NSString *const kMaterialDialogsBundle = @"MaterialDialogs.bundle";
   self.alertView.titleFont = self.titleFont;
   self.alertView.messageFont = self.messageFont;
   self.alertView.titleColor = self.titleColor ?: UIColor.blackColor;
-  self.alertView.messageColor = self.messageColor ?: UIColor.blackColor;
+  self.alertView.messageTextView.tintColor = self.attributedLinkColor;
+  if (self.attributedMessage.length > 0) {
+    // Avoid overriding `messageColor` during initialization, to allow the attributed messages's
+    // foregroundColor to take precedence in case `messageColor` was not set.
+    if (self.messageColor != nil) {
+      self.alertView.messageColor = self.messageColor;
+    }
+  } else {
+    self.alertView.messageColor = self.messageColor ?: UIColor.blackColor;
+  }
   self.alertView.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable =
       self.adjustsFontForContentSizeCategoryWhenScaledFontIsUnavailable;
   if (self.backgroundColor) {

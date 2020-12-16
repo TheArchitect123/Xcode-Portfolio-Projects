@@ -176,8 +176,6 @@
 		04FAE90E247A8B6200FBA4C4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FAE90D247A8B6200FBA4C4 /* QuartzCore.framework */; };
 		04FAE916247A8E1200FBA4C4 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FAE915247A8E1200FBA4C4 /* ImageConstants.swift */; };
 		10AED4C72A126FDB6C8971CD /* Pods_TongueTwister_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */; };
-		28F4166EA899B34495A0A942 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */; };
-		C69A43465A8C6FBF517F3A86 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,15 +372,9 @@
 		04FAE8EC247A76B300FBA4C4 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
 		04FAE90D247A8B6200FBA4C4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		04FAE915247A8E1200FBA4C4 /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
-		1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.SwiftTests.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.SwiftTests/Pods-TongueTwister.SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
-		59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.SwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.SwiftTests/Pods-TongueTwister.SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift.release.xcconfig"; sourceTree = "<group>"; };
 		7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift.debug.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TongueTwister_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,7 +403,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28F4166EA899B34495A0A942 /* Pods_TongueTwister_SwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +410,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C69A43465A8C6FBF517F3A86 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,8 +572,6 @@
 				04B6652D2478F0110083EC7D /* Foundation.framework */,
 				04B6652B2478F00D0083EC7D /* UIKit.framework */,
 				E2DCC2BC9AE21B1036651ED4 /* Pods_TongueTwister_Swift.framework */,
-				71C7C46252B01CCE0A0C5895 /* Pods_TongueTwister_Swift_TongueTwister_SwiftUITests.framework */,
-				5D669048862981197CE107EA /* Pods_TongueTwister_SwiftTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -793,10 +781,6 @@
 			children = (
 				7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */,
 				6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */,
-				1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */,
-				ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */,
-				59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */,
-				21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -827,7 +811,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B665202478EB540083EC7D /* Build configuration list for PBXNativeTarget "TongueTwister.SwiftTests" */;
 			buildPhases = (
-				055EBA404DF43C459E47CC03 /* [CP] Check Pods Manifest.lock */,
 				04B665052478EB540083EC7D /* Sources */,
 				04B665062478EB540083EC7D /* Frameworks */,
 				04B665072478EB540083EC7D /* Resources */,
@@ -846,11 +829,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B665232478EB540083EC7D /* Build configuration list for PBXNativeTarget "TongueTwister.SwiftUITests" */;
 			buildPhases = (
-				3907D4F736BFDAF591066370 /* [CP] Check Pods Manifest.lock */,
 				04B665102478EB540083EC7D /* Sources */,
 				04B665112478EB540083EC7D /* Frameworks */,
 				04B665122478EB540083EC7D /* Resources */,
-				4DCF6EFC6E84353A1B4EB2E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1034,28 +1015,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		055EBA404DF43C459E47CC03 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TongueTwister.SwiftTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0A0F45CF1BFBFCF8F806D40C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1071,45 +1030,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift/Pods-TongueTwister.Swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3907D4F736BFDAF591066370 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4DCF6EFC6E84353A1B4EB2E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests/Pods-TongueTwister.Swift-TongueTwister.SwiftUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7BB2349E9254EEECBBA57F59 /* [CP] Check Pods Manifest.lock */ = {
@@ -1248,6 +1168,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1294,7 +1215,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1308,6 +1229,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1348,7 +1270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1362,6 +1284,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7103A712EF4E3BBB76390DF9 /* Pods-TongueTwister.Swift.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = iOSIcons;
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1388,6 +1311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6FCCFF6762D9543518D96074 /* Pods-TongueTwister.Swift.release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = iOSIcons;
 				CODE_SIGN_ENTITLEMENTS = TongueTwister.Swift/TongueTwister.Swift.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1412,7 +1336,6 @@
 		};
 		04B665212478EB540083EC7D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59FA98BE641BCEF6AD0C2C83 /* Pods-TongueTwister.SwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1435,7 +1358,6 @@
 		};
 		04B665222478EB540083EC7D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21EEC6AD4A4CDC7B568A03C8 /* Pods-TongueTwister.SwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1458,7 +1380,6 @@
 		};
 		04B665242478EB540083EC7D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DE16DA560672F6411C67761 /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1479,7 +1400,6 @@
 		};
 		04B665252478EB540083EC7D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED8A551DCE81ABE44B23585F /* Pods-TongueTwister.Swift-TongueTwister.SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

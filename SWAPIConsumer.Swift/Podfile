@@ -27,15 +27,4 @@ target 'SWAPIConsumer.Swift' do
   pod 'MPOProgressBar', '~> 0.0.1'
   pod 'SwipeCellKit', '~> 2.7'
   
-  # Pods for SWAPIConsumer.Swift
-  
-  target 'SWAPIConsumer.SwiftTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-  
-  target 'SWAPIConsumer.SwiftUITests' do
-    # Pods for testing
-  end
-  
 end

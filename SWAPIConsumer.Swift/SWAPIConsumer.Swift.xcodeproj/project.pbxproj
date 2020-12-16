@@ -156,7 +156,6 @@
 		04911B7B2490A15D00F636F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911B7A2490A15D00F636F2 /* BaseViewController.swift */; };
 		04911B7D2490A19500F636F2 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911B7C2490A19500F636F2 /* DashboardController.swift */; };
 		211CE84095D203D3539D07BE /* Pods_SWAPIConsumer_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D015FB213F0B985113E53A8 /* Pods_SWAPIConsumer_Swift.framework */; };
-		6C3A1CA196B14BBC93F78875 /* Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74160567D063E0B0E1335E88 /* Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,14 +331,11 @@
 		04911B772490A14100F636F2 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		04911B7A2490A15D00F636F2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		04911B7C2490A19500F636F2 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
-		05AABE14F8ACC87B8E5FA129 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1E5977FB7F1B3EB16CBF89F2 /* Pods-SWAPIConsumer.Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.Swift.debug.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.Swift/Pods-SWAPIConsumer.Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		74160567D063E0B0E1335E88 /* Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79ECCBCB78A7CE6253570DDE /* Pods_SWAPIConsumer_SwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAPIConsumer_SwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D015FB213F0B985113E53A8 /* Pods_SWAPIConsumer_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWAPIConsumer_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C060A55D36CB4F77F3092F /* Pods-SWAPIConsumer.SwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.SwiftTests.release.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.SwiftTests/Pods-SWAPIConsumer.SwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		A684EC43795AAF9510B218CE /* Pods-SWAPIConsumer.Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.Swift.release.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.Swift/Pods-SWAPIConsumer.Swift.release.xcconfig"; sourceTree = "<group>"; };
-		B62A52BFFB399CD343D88E52 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B0CDF1F3A96A391DA69E7C /* Pods-SWAPIConsumer.SwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWAPIConsumer.SwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-SWAPIConsumer.SwiftTests/Pods-SWAPIConsumer.SwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -363,7 +359,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3A1CA196B14BBC93F78875 /* Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,8 +693,6 @@
 			children = (
 				1E5977FB7F1B3EB16CBF89F2 /* Pods-SWAPIConsumer.Swift.debug.xcconfig */,
 				A684EC43795AAF9510B218CE /* Pods-SWAPIConsumer.Swift.release.xcconfig */,
-				B62A52BFFB399CD343D88E52 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.debug.xcconfig */,
-				05AABE14F8ACC87B8E5FA129 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.release.xcconfig */,
 				E6B0CDF1F3A96A391DA69E7C /* Pods-SWAPIConsumer.SwiftTests.debug.xcconfig */,
 				86C060A55D36CB4F77F3092F /* Pods-SWAPIConsumer.SwiftTests.release.xcconfig */,
 			);
@@ -710,7 +703,6 @@
 			isa = PBXGroup;
 			children = (
 				7D015FB213F0B985113E53A8 /* Pods_SWAPIConsumer_Swift.framework */,
-				74160567D063E0B0E1335E88 /* Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests.framework */,
 				79ECCBCB78A7CE6253570DDE /* Pods_SWAPIConsumer_SwiftTests.framework */,
 			);
 			name = Frameworks;
@@ -760,11 +752,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04911AC02490903400F636F2 /* Build configuration list for PBXNativeTarget "SWAPIConsumer.SwiftUITests" */;
 			buildPhases = (
-				D6AB581F5C47A408531FC6CA /* [CP] Check Pods Manifest.lock */,
 				04911AAD2490903400F636F2 /* Sources */,
 				04911AAE2490903400F636F2 /* Frameworks */,
 				04911AAF2490903400F636F2 /* Resources */,
-				4875475CF357E9A206F993DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -935,23 +925,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4875475CF357E9A206F993DD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		59A6B53843222AE5520EF2E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -967,28 +940,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SWAPIConsumer.Swift/Pods-SWAPIConsumer.Swift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D6AB581F5C47A408531FC6CA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA14CD3F1B31B82E091D0E89 /* [CP] Check Pods Manifest.lock */ = {
@@ -1175,6 +1126,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1207,6 +1159,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1221,11 +1174,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = arm64;
@@ -1236,6 +1189,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1268,6 +1222,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1276,10 +1231,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -1291,6 +1246,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E5977FB7F1B3EB16CBF89F2 /* Pods-SWAPIConsumer.Swift.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1299,18 +1255,20 @@
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = SWAPIConsumer.Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
 				PRODUCT_NAME = ftsMovies;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = x86_64;
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1318,6 +1276,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A684EC43795AAF9510B218CE /* Pods-SWAPIConsumer.Swift.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SWAPIConsumer.Swift/SWAPIConsumer.Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1326,24 +1285,25 @@
 				DEVELOPMENT_TEAM = SYZZCVD6PU;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
 				INFOPLIST_FILE = SWAPIConsumer.Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dg.swapi.Swift;
 				PRODUCT_NAME = ftsMovies;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = x86_64;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
 		04911AC12490903400F636F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B62A52BFFB399CD343D88E52 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1365,7 +1325,6 @@
 		};
 		04911AC22490903400F636F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05AABE14F8ACC87B8E5FA129 /* Pods-SWAPIConsumer.Swift-SWAPIConsumer.SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_TongueTwister_Swift_TongueTwister_SwiftUITests : NSObject
-@end
-@implementation PodsDummy_Pods_TongueTwister_Swift_TongueTwister_SwiftUITests
-@end

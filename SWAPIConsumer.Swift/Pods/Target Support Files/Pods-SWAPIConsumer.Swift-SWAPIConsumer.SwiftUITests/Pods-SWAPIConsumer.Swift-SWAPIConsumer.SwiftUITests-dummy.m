@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests : NSObject
-@end
-@implementation PodsDummy_Pods_SWAPIConsumer_Swift_SWAPIConsumer_SwiftUITests
-@end
