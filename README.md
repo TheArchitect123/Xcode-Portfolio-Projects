@@ -1,5 +1,5 @@
 
-![](~/images/to/droidios.png)
+![](images/to/droidios.png)
 
 # Xcode & Android Studio Portfolio Projects
  Swift, Objective-C, Java & Kotlin (Maven & Gradle)
