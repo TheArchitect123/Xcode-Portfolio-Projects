@@ -23,6 +23,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/dashboard_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menu="@menu/dashboard_bottom_app_bar__items" />
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,10 +40,4 @@
         app:elevation="3dp"/>
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/dashboard_bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:menu="@menu/dashboard_bottom_app_bar__items" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

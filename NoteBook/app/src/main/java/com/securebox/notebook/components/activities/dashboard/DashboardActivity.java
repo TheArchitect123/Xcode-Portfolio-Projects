@@ -19,7 +19,8 @@ import com.securebox.notebook.components.activities.dashboard.view_models.Dashbo
 import com.securebox.notebook.database.NBDatabaseConnection;
 
 import javax.inject.Inject;
-import butterknife.BindViews;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -27,9 +28,8 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
 
     //Bind all the views directly from the layout files to avoid boilerplate FindViewById methods
-    @BindViews(R.id.dashboard_bottom_navigation) BottomNavigationView dashboardBottomBar;
-    @BindViews(R.id.dashboard_coordinator_layout) CoordinatorLayout dashboardCoordinatorLayout;
-
+    @BindView(R.id.dashboard_bottom_navigation) BottomNavigationView dashboardBottomBar;
+    @BindView(R.id.dashboard_coordinator_layout) CoordinatorLayout dashboardCoordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
