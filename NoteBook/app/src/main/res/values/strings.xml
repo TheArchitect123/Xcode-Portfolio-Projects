@@ -7,4 +7,8 @@
 
 
     <string name="notes_creator_nav_bar_title">Create a suitable note</string>
+
+    <!--App Bar Bottom Items-->
+    <string name="dashboard_app_bar_title">Dashboard</string>
+    <string name="settings_app_bar_title">Settings</string>
 </resources>

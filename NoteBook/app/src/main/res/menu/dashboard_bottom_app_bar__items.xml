@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboard_main_page_id"
+        android:icon="@drawable/ic_menu_icon"
+        android:title="@string/dashboard_app_bar_title"></item>
+
+    <item
+        android:id="@+id/settings_page_id"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings_app_bar_title"></item>
+</menu>
