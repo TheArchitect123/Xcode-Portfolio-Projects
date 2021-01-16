@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name">NoteBook</string>
-    <string name="title_activity_dashboard">DashboardActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="app_name">DroidPad</string>
+    <!--Strings used for navigation Bars-->
+    <string name="dashboard_nav_bar_title">DroidPad</string>
+    <string name="title_activity_register_user">Register an Account</string>
+    <string name="title_activity_sign_in">Sign In</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="notes_creator_nav_bar_title">Create a suitable note</string>
 </resources>

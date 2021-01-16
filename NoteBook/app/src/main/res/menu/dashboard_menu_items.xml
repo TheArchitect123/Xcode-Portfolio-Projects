@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/dashboard_common_search_menu_id"
+        android:icon="@drawable/ic_search_icon" app:showAsAction="always">
+    </item>
+
+    <item android:id="@+id/dashboard_common_sort_items_menu_id"
+        android:icon="@drawable/ic_sort_items_icon" app:showAsAction="always">
+    </item>
+
+</menu>
