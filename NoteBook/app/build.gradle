@@ -30,15 +30,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
     //Abstracts away all FindViewByID boilerplate code
-    implementation 'com.jakewharton:butterknife:10.2.3'
+    //implementation 'com.jakewharton:butterknife:10.2.3'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
     //Drag all the Jetpack dependencies
     def room_version = "2.2.6"

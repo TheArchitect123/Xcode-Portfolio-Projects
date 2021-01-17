@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 public class BaseCompatActivity<T> extends AppCompatActivity {
     private T viewModel;
-
     protected T getViewModel(){
         return viewModel;
     }
@@ -14,8 +13,6 @@ public class BaseCompatActivity<T> extends AppCompatActivity {
     protected void setViewModel(T lclViewModel) {
          viewModel = lclViewModel;
     }
-
-    //Any Base Logic Gets written here...
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

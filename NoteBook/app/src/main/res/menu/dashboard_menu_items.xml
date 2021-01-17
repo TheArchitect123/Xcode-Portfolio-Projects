@@ -9,4 +9,14 @@
         android:icon="@drawable/ic_sort_items_icon" app:showAsAction="always">
     </item>
 
+    <item android:id="@+id/share_app_menu_item"
+        android:title="Share"
+        android:icon="@drawable/ic_sort_items_icon" app:showAsAction="never">
+    </item>
+
+    <item android:id="@+id/remove_any_items"
+        android:title="Remove All"
+        android:icon="@drawable/ic_sort_items_icon" app:showAsAction="never">
+    </item>
+
 </menu>

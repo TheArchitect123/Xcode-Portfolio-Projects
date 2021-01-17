@@ -16,53 +16,64 @@ import com.google.android.material.snackbar.Snackbar;
 import com.securebox.notebook.R;
 import com.securebox.notebook.components.activities.BaseCompatActivity;
 import com.securebox.notebook.components.activities.dashboard.view_models.DashboardViewModel;
-import com.securebox.notebook.database.NBDatabaseConnection;
+import com.securebox.notebook.databinding.DashboardactvLayoutBinding;
 
-import javax.inject.Inject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
 
     //Bind all the views directly from the layout files to avoid boilerplate FindViewById methods
-    @BindView(R.id.dashboard_bottom_navigation) BottomNavigationView dashboardBottomBar;
-    @BindView(R.id.dashboard_coordinator_layout) CoordinatorLayout dashboardCoordinatorLayout;
+//    @BindView(R.id.dashboard_bottom_navigation) BottomNavigationView dashboardBottomBar;
+//    @BindView(R.id.dashboard_coordinator_layout) CoordinatorLayout dashboardCoordinatorLayout;
+    private DashboardactvLayoutBinding dashboardBinding;
+    protected void generateViewBinding(){
+        dashboardBinding = DashboardactvLayoutBinding.inflate(getLayoutInflater());
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboardactv_layout);
-        ButterKnife.bind(this);
+        generateViewBinding();
 
+        //View Model -- Services
         initializeServices();
 
         //register selectors
         registerAppBarSelectors();
+
+        //Replace the default action bar
+        setSupportActionBar(dashboardBinding.dashboardMenuBar);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        //I've already inflated the menu items on the layout xml file.
+        //There should be any need to inflate it again, at runtime
+
+        Log.i("menu_item: ", "" + item);
         switch(item.getItemId()){
             case R.id.dashboard_common_search_menu_id:
-                Snackbar.make(this.dashboardCoordinatorLayout, "Hello there, this is a successful search", 3);
+                Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful search", 3).show();
 
-                //Open the search view
-                break;
+                return true;
 
             case R.id.dashboard_common_sort_items_menu_id:
 
-                //Open the Sort Menu, which will allow users to sort the items via the recycler view
-                break;
+                Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful sort", 3).show();
+
+                Log.i("logged_search", "Successfully selected the search menu item");
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void registerAppBarSelectors(){
-        dashboardBottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        dashboardBinding.dashboardBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -77,7 +88,7 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
             }
         });
 
-        dashboardBottomBar.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        dashboardBinding.dashboardBottomNavigation.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
 
@@ -85,11 +96,11 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
         });
     }
 
+    void configureFloatingActionButton(){
+
+    }
+
     private void initializeServices(){
         this.setViewModel(new ViewModelProvider(this).get(DashboardViewModel.class)); //Register the view model
-        Log.i("random_id", "Registered view model " + this.getViewModel());
-
-//        this.getViewModel().setDatabaseConnection(databaseConnection);
-        //Log.i("database_id_connection", this.getViewModel().getDatabaseConnection());
     }
 }

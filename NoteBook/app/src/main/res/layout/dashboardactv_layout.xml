@@ -1,43 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/dashboard_coordinator_layout"
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/dashboard_coordinator_layout"
+
             android:layout_height="match_parent"
-            app:title="@string/dashboard_nav_bar_title"
-            app:menu="@menu/dashboard_menu_items"
-            app:navigationIcon="@drawable/ic_menu_icon"
+            android:layout_width="match_parent">
 
-            style="@style/Widget.MaterialComponents.Toolbar.Primary">
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/dashboard_menu_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:title="@string/dashboard_nav_bar_title"
+                    app:menu="@menu/dashboard_menu_items"
+                    app:navigationIcon="@drawable/ic_menu_icon"
 
-        </com.google.android.material.appbar.MaterialToolbar>
+                    style="@style/Widget.MaterialComponents.Toolbar.Primary">
 
-    </com.google.android.material.appbar.AppBarLayout>
+                </com.google.android.material.appbar.MaterialToolbar>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/dashboard_bottom_navigation"
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/dashboard_bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:menu="@menu/dashboard_bottom_app_bar__items"
+                />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/dashboard_floating_button"
+            app:elevation="3dp"/>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dashboard_notes_recycler_view"
+        android:soundEffectsEnabled="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:menu="@menu/dashboard_bottom_app_bar__items" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        app:elevation="3dp"/>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_height="match_parent"/>
+</LinearLayout>
