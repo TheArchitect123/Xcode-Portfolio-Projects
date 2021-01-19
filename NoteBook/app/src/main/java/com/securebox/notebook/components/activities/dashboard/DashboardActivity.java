@@ -46,9 +46,6 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
         //register selectors
         registerAppBarSelectors();
         registerMenuBarActionListeners();
-
-        //Replace the default action bar
-        setSupportActionBar(dashboardBinding.dashboardMenuBar);
     }
 
     private void registerAppBarSelectors(){
