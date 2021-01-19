@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/dashboard_common_search_menu_id"
+    <item android:title="@string/settings_app_bar_title" android:id="@+id/dashboard_common_search_menu_id"
         android:icon="@drawable/ic_search_icon" app:showAsAction="always">
     </item>
 
-    <item android:id="@+id/dashboard_common_sort_items_menu_id"
+    <item android:title="@string/settings_app_bar_title" android:id="@+id/dashboard_common_sort_items_menu_id"
         android:icon="@drawable/ic_sort_items_icon" app:showAsAction="always">
     </item>
 
     <item android:id="@+id/share_app_menu_item"
-        android:title="Share"
-        android:icon="@drawable/ic_sort_items_icon" app:showAsAction="never">
+        android:title="Share" app:showAsAction="never">
     </item>
 
     <item android:id="@+id/remove_any_items"
-        android:title="Remove All"
-        android:icon="@drawable/ic_sort_items_icon" app:showAsAction="never">
+        android:title="Remove All" app:showAsAction="never">
     </item>
-
 </menu>

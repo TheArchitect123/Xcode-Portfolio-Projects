@@ -6,10 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -31,7 +34,6 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
         dashboardBinding = DashboardactvLayoutBinding.inflate(getLayoutInflater());
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,33 +45,10 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
 
         //register selectors
         registerAppBarSelectors();
+        registerMenuBarActionListeners();
 
         //Replace the default action bar
         setSupportActionBar(dashboardBinding.dashboardMenuBar);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        //I've already inflated the menu items on the layout xml file.
-        //There should be any need to inflate it again, at runtime
-
-        Log.i("menu_item: ", "" + item);
-        switch(item.getItemId()){
-            case R.id.dashboard_common_search_menu_id:
-                Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful search", 3).show();
-
-                return true;
-
-            case R.id.dashboard_common_sort_items_menu_id:
-
-                Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful sort", 3).show();
-
-                Log.i("logged_search", "Successfully selected the search menu item");
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void registerAppBarSelectors(){
@@ -92,6 +71,40 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
 
+            }
+        });
+    }
+
+    void registerMenuBarActionListeners(){
+        dashboardBinding.dashboardMenuBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Open the navigation view here
+            }
+        });
+
+        dashboardBinding.dashboardMenuBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                Log.i("menu_item", "" + item);
+
+                //new AlertDialog.Builder(this).create().show();
+                switch(item.getItemId()){
+                    case R.id.dashboard_common_search_menu_id:
+                        Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful search", 3).show();
+
+                        return true;
+
+                    case R.id.dashboard_common_sort_items_menu_id:
+
+                        Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful sort", 3).show();
+
+                        Log.i("logged_search", "Successfully selected the search menu item");
+                        return true;
+                }
+                return true;
             }
         });
     }
