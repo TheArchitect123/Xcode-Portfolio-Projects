@@ -1,12 +1,15 @@
 package com.securebox.notebook.components.activities.dashboard;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.ui.AppBarConfiguration;
 
-import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.securebox.notebook.R;
@@ -25,19 +29,15 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
-
-    //Bind all the views directly from the layout files to avoid boilerplate FindViewById methods
-//    @BindView(R.id.dashboard_bottom_navigation) BottomNavigationView dashboardBottomBar;
-//    @BindView(R.id.dashboard_coordinator_layout) CoordinatorLayout dashboardCoordinatorLayout;
     private DashboardactvLayoutBinding dashboardBinding;
     protected void generateViewBinding(){
         dashboardBinding = DashboardactvLayoutBinding.inflate(getLayoutInflater());
+        setContentView(dashboardBinding.getRoot());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboardactv_layout);
         generateViewBinding();
 
         //View Model -- Services
@@ -45,7 +45,34 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
 
         //register selectors
         registerAppBarSelectors();
-        registerMenuBarActionListeners();
+        registerAppBarListeners();
+        configureFloatingActionButton();
+
+        //Toolbar Configuration
+        setSupportActionBar(dashboardBinding.dashboardMenuBar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.dashboard_menu_items, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.dashboard_common_search_menu_id:
+
+                //Opens up a search view, which will allow a user, to search through results
+                return true;
+
+            case R.id.dashboard_common_sort_items_menu_id:
+
+                //Open up a bottom navigation drawer, where the user can select their filter type
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void registerAppBarSelectors(){
@@ -72,42 +99,26 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
         });
     }
 
-    void registerMenuBarActionListeners(){
+    void registerAppBarListeners(){
         dashboardBinding.dashboardMenuBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Open the navigation view here
-            }
-        });
-
-        dashboardBinding.dashboardMenuBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                Log.i("menu_item", "" + item);
-
-                //new AlertDialog.Builder(this).create().show();
-                switch(item.getItemId()){
-                    case R.id.dashboard_common_search_menu_id:
-                        Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful search", 3).show();
-
-                        return true;
-
-                    case R.id.dashboard_common_sort_items_menu_id:
-
-                        Snackbar.make(dashboardBinding.dashboardCoordinatorLayout, "Hello there, this is a successful sort", 3).show();
-
-                        Log.i("logged_search", "Successfully selected the search menu item");
-                        return true;
-                }
-                return true;
+                if(dashboardBinding.dashboardMasterDrawerLayout.isDrawerOpen(dashboardBinding.dashboardNavDrawer))
+                    dashboardBinding.dashboardMasterDrawerLayout.openDrawer(dashboardBinding.dashboardNavDrawer);
+                else
+                    dashboardBinding.dashboardMasterDrawerLayout.closeDrawer(dashboardBinding.dashboardNavDrawer);
             }
         });
     }
 
     void configureFloatingActionButton(){
-
+        dashboardBinding.dashboardFloatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     private void initializeServices(){
