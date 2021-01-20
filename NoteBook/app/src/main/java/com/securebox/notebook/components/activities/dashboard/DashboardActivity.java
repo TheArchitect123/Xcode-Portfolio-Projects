@@ -40,7 +40,7 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         generateViewBinding();
-        
+
         //View Model -- Services
         initializeServices();
 
