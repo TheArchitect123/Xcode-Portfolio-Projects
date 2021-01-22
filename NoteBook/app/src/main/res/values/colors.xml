@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Authentication Activity Colours-->
+    <color name="auth_stnd_background">#f8f8f9</color>
+    <color name="auth_login_card_view_shadow_color">#f2f2f3</color>
+    <color name="auth_text_placeholder_text">#cccccc</color>
+    <color name="auth_text_default_text">#000000</color>
+    <color name="auth_text_hover_text">#77cbdb</color>
+    <color name="auth_text_forgot_password_text">#77cbdb</color>
+
+
+    <!---->
+    <!---->
 </resources>

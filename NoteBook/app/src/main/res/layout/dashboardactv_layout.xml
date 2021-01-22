@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -18,19 +16,15 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent">
 
-                <com.google.android.material.appbar.AppBarLayout
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/dashboard_menu_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <com.google.android.material.appbar.MaterialToolbar
-                        android:id="@+id/dashboard_menu_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:title="@string/dashboard_nav_bar_title"
-                        app:menu="@menu/dashboard_menu_items"
-                        app:navigationIcon="@drawable/ic_menu_icon"
-                        style="@style/Widget.MaterialComponents.Toolbar.Primary">
-                    </com.google.android.material.appbar.MaterialToolbar>
-                </com.google.android.material.appbar.AppBarLayout>
+                    android:layout_height="wrap_content"
+                    app:title="@string/dashboard_nav_bar_title"
+                    app:menu="@menu/dashboard_menu_items"
+                    app:navigationIcon="@drawable/ic_menu_icon"
+                    style="@style/Widget.AppCompat.ActionBar.Solid">
+                </androidx.appcompat.widget.Toolbar>
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/dashboard_bottom_navigation"
@@ -58,20 +52,3 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/dashboard_master_drawer_layout"
-        android:layout_height="match_parent"
-        android:layout_width="320dp"
-        tools:openDrawer="start">
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/dashboard_nav_drawer"
-            app:menu="@menu/dashboard_nav_drawer_menu_items"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-
-</FrameLayout>

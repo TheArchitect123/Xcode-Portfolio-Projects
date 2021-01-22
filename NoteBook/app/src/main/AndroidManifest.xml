@@ -13,18 +13,16 @@
 
         <activity
             android:name=".components.activities.dashboard.DashboardActivity">
+
+        </activity>
+
+        <activity
+            android:name=".components.activities.authentication.signIn.SignInActivity"
+            android:label="@string/title_activity_sign_in" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".components.activities.authentication.register.RegisterUserActivity"
-            android:label="@string/title_activity_register_user"></activity>
-        <activity
-            android:name=".components.activities.authentication.signIn.SignInActivity"
-            android:label="@string/title_activity_sign_in" />
-
     </application>
 </manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/sign_in_page_bottom_bar_auth_mode"
+        android:id="@+id/sign_in_auth_mode"
+        android:icon="@drawable/ic_authenticate_user" >
+    </item>
+    <item android:title="@string/register_in_page_bottom_bar_auth_mode"
+        android:id="@+id/sign_in_register_mode"
+        android:icon="@drawable/ic_register_user" >
+    </item>
+</menu>

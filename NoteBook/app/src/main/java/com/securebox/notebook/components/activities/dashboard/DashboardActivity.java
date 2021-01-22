@@ -46,7 +46,6 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
 
         //register selectors
         registerAppBarSelectors();
-        registerAppBarListeners();
         configureFloatingActionButton();
 
         //Toolbar Configuration
@@ -96,18 +95,6 @@ public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
 
-            }
-        });
-    }
-
-    void registerAppBarListeners(){
-        dashboardBinding.dashboardMenuBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(dashboardBinding.dashboardMasterDrawerLayout.isDrawerOpen(dashboardBinding.dashboardNavDrawer))
-                    dashboardBinding.dashboardMasterDrawerLayout.openDrawer(dashboardBinding.dashboardNavDrawer);
-                else
-                    dashboardBinding.dashboardMasterDrawerLayout.closeDrawer(dashboardBinding.dashboardNavDrawer);
             }
         });
     }
