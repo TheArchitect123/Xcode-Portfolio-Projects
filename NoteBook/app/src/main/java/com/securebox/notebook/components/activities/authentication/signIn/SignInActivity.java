@@ -36,7 +36,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
 
     private ActivitySignInBinding signInPageBinding;
-    private int tabIndex = 0;
+    private int tabIndex;
 
     protected void generateViewBinding() {
         signInPageBinding = ActivitySignInBinding.inflate(getLayoutInflater());
