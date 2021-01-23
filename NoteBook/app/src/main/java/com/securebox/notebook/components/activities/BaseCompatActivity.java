@@ -7,7 +7,7 @@ import android.os.Bundle;
 public class BaseCompatActivity<T> extends AppCompatActivity {
     private T viewModel;
     protected T getViewModel(){
-        return viewModel;
+        return viewModel != null ? viewModel : null; //Prevent Null Access Exception
     }
 
     protected void setViewModel(T lclViewModel) {

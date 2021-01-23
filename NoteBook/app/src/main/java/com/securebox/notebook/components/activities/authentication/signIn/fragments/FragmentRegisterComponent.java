@@ -15,7 +15,7 @@ import com.securebox.notebook.R;
  * Use the {@link fragment_register_component#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_register_component extends Fragment {
+public class FragmentRegisterComponent extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class fragment_register_component extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public fragment_register_component() {
+    public FragmentRegisterComponent() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class fragment_register_component extends Fragment {
      * @return A new instance of fragment fragment_register_component.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragment_register_component newInstance(String param1, String param2) {
-        fragment_register_component fragment = new fragment_register_component();
+    public static FragmentRegisterComponent newInstance(String param1, String param2) {
+        FragmentRegisterComponent fragment = new FragmentRegisterComponent();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

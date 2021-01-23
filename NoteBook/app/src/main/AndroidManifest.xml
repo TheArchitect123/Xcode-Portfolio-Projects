@@ -13,7 +13,6 @@
 
         <activity
             android:name=".components.activities.dashboard.DashboardActivity">
-
         </activity>
 
         <activity
