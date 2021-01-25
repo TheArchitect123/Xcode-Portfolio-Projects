@@ -30,6 +30,8 @@ import com.securebox.notebook.components.activities.dashboard.view_models.Dashbo
 import com.securebox.notebook.databinding.ActivitySignInBinding;
 import com.securebox.notebook.databinding.DashboardactvLayoutBinding;
 
+import java.io.FileNotFoundException;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -47,21 +49,19 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         generateViewBinding();
-        if(this.getViewModel() == null){
+        if (this.getViewModel() == null) {
             initializeViewModel();
         }
 
         registerFragmentsBasedOnBottomBarSelection();
-        if(savedInstanceState != null){
-            if(savedInstanceState.containsKey(SignInActivityBundles.selectedTabIndex)){
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(SignInActivityBundles.selectedTabIndex)) {
                 signInPageBinding.signInBottomNavigation.setSelectedItemId(savedInstanceState.getInt(SignInActivityBundles.currentSelectedTabIndex)); //Set the currently selected Item ID
             }
-        }
-        else {
+        } else {
             signInPageBinding.signInBottomNavigation.setSelectedItemId(R.id.sign_in_auth_mode); //Set the currently selected Item ID
         }
     }
-
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
@@ -75,12 +75,11 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        if(savedInstanceState != null){
-            if(savedInstanceState.containsKey(SignInActivityBundles.selectedTabIndex)){
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(SignInActivityBundles.selectedTabIndex)) {
                 signInPageBinding.signInBottomNavigation.setSelectedItemId(savedInstanceState.getInt(SignInActivityBundles.currentSelectedTabIndex)); //Set the currently selected Item ID
             }
-        }
-        else {
+        } else {
             //Load the default values
             signInPageBinding.signInBottomNavigation.setSelectedItemId(R.id.sign_in_auth_mode); //Set the currently selected Item ID
         }
@@ -94,13 +93,13 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
                 FragmentManager supportingFragment = getSupportFragmentManager();
 
                 //Clear the Current Collection of Fragments from this Page
-                for(Fragment fragmentItem : supportingFragment.getFragments()) {
+                for (Fragment fragmentItem : supportingFragment.getFragments()) {
                     supportingFragment.beginTransaction().remove(fragmentItem).commit();
                 }
 
                 if (item.getItemId() == R.id.sign_in_auth_mode) {
                     supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentSignInComponent()).commit();
-                }else {
+                } else {
                     supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentRegisterComponent()).commit();
                 }
                 return true;
