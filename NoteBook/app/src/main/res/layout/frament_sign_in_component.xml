@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".components.activities.authentication.signIn.fragments.frament_sign_in_component"
+    tools:context=".components.activities.authentication.signIn.fragments.FragmentSignInComponent"
     android:background="@color/login_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
@@ -91,7 +90,7 @@
                 android:textSize="17sp"
                 android:text="New user? Register Now"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="onLoginClick"/>
+                />
 
 
             <LinearLayout
@@ -158,6 +157,6 @@
         android:src="@drawable/ic_add_img"
         android:layout_marginRight="11dp"
         android:layout_marginBottom="30dp"
-        android:onClick="onLoginClick"/>
+        />
 </RelativeLayout>
 

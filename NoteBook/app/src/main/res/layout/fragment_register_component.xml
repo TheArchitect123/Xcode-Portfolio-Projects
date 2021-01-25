@@ -8,7 +8,7 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context=".components.activities.authentication.signIn.fragments.fragment_register_component">
+    tools:context=".components.activities.authentication.signIn.fragments.FragmentRegisterComponent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                     <TextView
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:onClick="onLoginClick"
+
                         android:text="Already have an account?"
                         android:textAlignment="center"
                         android:gravity="center"
@@ -192,6 +192,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_side_bg" />
 
@@ -199,10 +200,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
-        android:onClick="onLoginClick"
         android:src="@drawable/ic_back_img" />
 </RelativeLayout>
