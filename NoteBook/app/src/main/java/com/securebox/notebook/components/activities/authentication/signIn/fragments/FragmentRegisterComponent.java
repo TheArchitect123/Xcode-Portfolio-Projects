@@ -9,20 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.securebox.notebook.R;
+import com.securebox.notebook.components.activities.BaseCompatFragment;
+import com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments.FragmentRegisterViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link fragment_register_component#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class FragmentRegisterComponent extends Fragment {
+public class FragmentRegisterComponent extends BaseCompatFragment<FragmentRegisterViewModel> {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 

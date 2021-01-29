@@ -88,7 +88,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/themeColor"
                 android:textSize="17sp"
-                android:text="New user? Register Now"
+                android:text="@string/sign_in_user_with_registration_option"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 />
 

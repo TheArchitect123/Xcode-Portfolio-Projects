@@ -89,22 +89,26 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         signInPageBinding.signInBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                tabIndex = item.getItemId();
-                FragmentManager supportingFragment = getSupportFragmentManager();
-
-                //Clear the Current Collection of Fragments from this Page
-                for (Fragment fragmentItem : supportingFragment.getFragments()) {
-                    supportingFragment.beginTransaction().remove(fragmentItem).commit();
-                }
-
-                if (item.getItemId() == R.id.sign_in_auth_mode) {
-                    supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentSignInComponent()).commit();
-                } else {
-                    supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentRegisterComponent()).commit();
-                }
-                return true;
+                return changeFragmentByIndex(tabIndex = item.getItemId());
             }
         });
+    }
+
+    private boolean changeFragmentByIndex(int tabId){
+        FragmentManager supportingFragment = getSupportFragmentManager();
+
+        //Clear the Current Collection of Fragments from this Page
+        for (Fragment fragmentItem : supportingFragment.getFragments()) {
+            supportingFragment.beginTransaction().remove(fragmentItem).commit();
+        }
+        
+        if (tabId == R.id.sign_in_auth_mode) {
+            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentSignInComponent()).commit();
+        } else {
+            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentRegisterComponent()).commit();
+        }
+
+        return true;
     }
 
 
