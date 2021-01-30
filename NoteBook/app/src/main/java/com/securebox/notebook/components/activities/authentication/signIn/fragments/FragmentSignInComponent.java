@@ -1,51 +1,59 @@
 package com.securebox.notebook.components.activities.authentication.signIn.fragments;
 
+import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.securebox.notebook.R;
 import com.securebox.notebook.components.activities.BaseCompatFragment;
 import com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments.SignInFragmentViewModel;
+import com.securebox.notebook.components.dialogs.ResetPasswordDialogFragment;
+import com.securebox.notebook.components.dialogs.tags.DialogFragmentTags;
+import com.securebox.notebook.databinding.FramentSignInComponentBinding;
+
+import kotlin._Assertions;
 
 public class FragmentSignInComponent extends BaseCompatFragment<SignInFragmentViewModel> {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
+    private FramentSignInComponentBinding fragmentBinding;
 
     public FragmentSignInComponent() {
         // Required empty public constructor
     }
 
-    public static FragmentSignInComponent newInstance(String param1, String param2) {
-        FragmentSignInComponent fragment = new FragmentSignInComponent();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static FragmentSignInComponent newInstance() {
+        return new FragmentSignInComponent();
+    }
+
+    private void registerDialogueEvents(){
+        fragmentBinding.resetPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Open the password reset dialogue fragment
+                ResetPasswordDialogFragment.newInstance().show(getChildFragmentManager(), DialogFragmentTags.RESETPASSWORD); //Render the dialog Fragment
+            }
+        });
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            //Get the results passed from the sign InActivity
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        registerDialogueEvents();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frament_sign_in_component, container, false);
+        fragmentBinding = FramentSignInComponentBinding.inflate(inflater, container, false);
+        return fragmentBinding.getRoot();
     }
 }

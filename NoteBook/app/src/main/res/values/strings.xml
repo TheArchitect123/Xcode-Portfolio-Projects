@@ -37,6 +37,6 @@
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="sign_in_user_with_registration_option">New user? Register Now</string>
-    <string name="sign_in_with_social_auth_description">Or Sign in With</string>
+    <string name="sign_in_with_social_auth_description">Or Sign in with your Social Network</string>
 
 </resources>
