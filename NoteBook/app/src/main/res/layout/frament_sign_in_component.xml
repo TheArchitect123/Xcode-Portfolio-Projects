@@ -3,10 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@color/login_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center"
     tools:context=".components.activities.authentication.signIn.fragments.FragmentSignInComponent">
 
     <ScrollView
@@ -165,6 +163,8 @@
         android:background="@drawable/ic_side_bg" />
 
     <ImageView
+        android:clickable="true"
+        android:id="@+id/begin_registration_add_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

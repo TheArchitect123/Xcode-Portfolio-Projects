@@ -197,6 +197,8 @@
         android:background="@drawable/ic_side_bg" />
 
     <ImageView
+        android:clickable="true"
+        android:id="@+id/pop_backto_login_page_rego_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

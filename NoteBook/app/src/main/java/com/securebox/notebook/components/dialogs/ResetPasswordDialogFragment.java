@@ -1,15 +1,19 @@
 package com.securebox.notebook.components.dialogs;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.securebox.notebook.R;
+
+import kotlin.reflect.KVariance;
 
 public class ResetPasswordDialogFragment extends DialogFragment {
 
@@ -21,8 +25,6 @@ public class ResetPasswordDialogFragment extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Any Services are initialised here
     }
 
     @Nullable
