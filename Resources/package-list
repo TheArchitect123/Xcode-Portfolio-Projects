@@ -1,0 +1,14 @@
+com.securebox.notebook
+com.securebox.notebook.components.activities
+com.securebox.notebook.components.activities.authentication.signIn
+com.securebox.notebook.components.activities.authentication.signIn.constants.bundles
+com.securebox.notebook.components.activities.authentication.signIn.fragments
+com.securebox.notebook.components.activities.authentication.signIn.view_models
+com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments
+com.securebox.notebook.components.activities.dashboard
+com.securebox.notebook.components.activities.dashboard.view_models
+com.securebox.notebook.components.application
+com.securebox.notebook.components.dialogs
+com.securebox.notebook.components.dialogs.tags
+com.securebox.notebook.database
+com.securebox.notebook.database.entities

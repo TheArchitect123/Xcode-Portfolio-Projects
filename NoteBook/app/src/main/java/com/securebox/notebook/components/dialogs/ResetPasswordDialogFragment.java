@@ -13,6 +13,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.securebox.notebook.R;
 
+import java.lang.annotation.Documented;
+
 import kotlin.reflect.KVariance;
 
 public class ResetPasswordDialogFragment extends DialogFragment {
@@ -26,6 +28,23 @@ public class ResetPasswordDialogFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) getLayoutParameters());
+    }
+
+
+    private final ViewGroup.LayoutParams getLayoutParameters(){
+        ViewGroup.LayoutParams layoutParams = getDialog().getWindow().getAttributes();
+        layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+        return layoutParams;
+    }
+
 
     @Nullable
     @Override
