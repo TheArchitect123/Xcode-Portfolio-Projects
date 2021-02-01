@@ -39,4 +39,6 @@
     <string name="sign_in_user_with_registration_option">New user? Register Now</string>
     <string name="sign_in_with_social_auth_description">Or Sign in with your Social Network</string>
 
+    <!--Dialogs & Texts-->
+    <string name="reset_password_title">Forgotten your Password? You can Reset it here</string>
 </resources>

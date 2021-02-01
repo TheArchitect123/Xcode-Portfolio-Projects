@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 
 import com.securebox.notebook.R;
 import com.securebox.notebook.components.activities.BaseCompatFragment;
+import com.securebox.notebook.components.activities.authentication.signIn.SignInActivity;
 import com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments.FragmentRegisterViewModel;
 
-public class FragmentRegisterComponent extends BaseCompatFragment<FragmentRegisterViewModel> {
+public class FragmentRegisterComponent extends BaseCompatFragment<FragmentRegisterViewModel, SignInActivity> {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -22,6 +23,11 @@ public class FragmentRegisterComponent extends BaseCompatFragment<FragmentRegist
 
     public FragmentRegisterComponent() {
         // Required empty public constructor
+    }
+
+
+    public static FragmentRegisterComponent newInstance() {
+        return new FragmentRegisterComponent();
     }
 
     public static FragmentRegisterComponent newInstance(String param1, String param2) {

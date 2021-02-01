@@ -87,7 +87,16 @@
             <!--                app:spinning_bar_padding="6dp"-->
             <!--                app:initialCornerAngle="27dp"/>-->
 
+            <com.google.android.material.button.MaterialButton
+android:id="@+id/login_button_sign_in_auth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_with_password_hint"
+                android:gravity="center"/>
+
             <TextView
+                android:clickable="true"
+                android:id="@+id/register_user_for_sign_infragment"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:gravity="center"

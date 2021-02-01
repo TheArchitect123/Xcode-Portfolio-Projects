@@ -1,5 +1,6 @@
 package com.securebox.notebook.components.activities.authentication.signIn;
 
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
 
@@ -36,7 +37,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
-
     private ActivitySignInBinding signInPageBinding;
     private int tabIndex;
 
@@ -103,7 +103,7 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         });
     }
 
-    private boolean changeFragmentByIndex(int tabId){
+    public boolean changeFragmentByIndex(int tabId){
         FragmentManager supportingFragment = getSupportFragmentManager();
 
         //Clear the Current Collection of Fragments from this Page
@@ -112,14 +112,18 @@ public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         }
         
         if (tabId == R.id.sign_in_auth_mode) {
-            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentSignInComponent()).commit();
+            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager,  FragmentSignInComponent.newInstance()).commit();
         } else {
-            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, new FragmentRegisterComponent()).commit();
+            supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, FragmentRegisterComponent.newInstance()).commit();
         }
 
         return true;
     }
 
+    //Fragment Exposures
+    public int getCurrentTabIndex(){
+        return tabIndex;
+    }
 
     private void initializeViewModel() {
         this.setViewModel(new ViewModelProvider(this).get(SignInViewModel.class)); //Register the view model
