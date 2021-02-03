@@ -36,13 +36,12 @@ import java.io.FileNotFoundException;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class SignInActivity extends BaseCompatActivity<SignInViewModel> {
+public final class SignInActivity extends BaseCompatActivity<SignInViewModel> {
     private ActivitySignInBinding signInPageBinding;
     private int tabIndex;
 
     protected void generateViewBinding() {
-        signInPageBinding = ActivitySignInBinding.inflate(getLayoutInflater());
-        setContentView(signInPageBinding.getRoot());
+        setContentView((signInPageBinding = ActivitySignInBinding.inflate(getLayoutInflater())).getRoot());
     }
 
     @Override

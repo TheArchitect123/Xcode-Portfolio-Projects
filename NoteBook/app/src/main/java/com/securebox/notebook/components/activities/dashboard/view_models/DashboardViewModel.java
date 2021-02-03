@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 //Data
 import com.securebox.notebook.database.NBDatabaseConnection;
 
-public class DashboardViewModel extends AndroidViewModel {
+public final class DashboardViewModel extends AndroidViewModel {
     NBDatabaseConnection databaseConnection;
 
     //Inject all dependencies using the Hilt

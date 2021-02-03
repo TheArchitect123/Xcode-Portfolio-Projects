@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-public class FragmentRegisterViewModel extends AndroidViewModel {
+public final class FragmentRegisterViewModel extends AndroidViewModel {
 
     public FragmentRegisterViewModel(@NonNull Application application) {
         super(application);

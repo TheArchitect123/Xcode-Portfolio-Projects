@@ -30,11 +30,10 @@ import com.securebox.notebook.databinding.DashboardactvLayoutBinding;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
+public final class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
     private DashboardactvLayoutBinding dashboardBinding;
     protected void generateViewBinding(){
-        dashboardBinding = DashboardactvLayoutBinding.inflate(getLayoutInflater());
-        setContentView(dashboardBinding.getRoot());
+        setContentView((dashboardBinding = DashboardactvLayoutBinding.inflate(getLayoutInflater())).getRoot());
     }
 
     @Override

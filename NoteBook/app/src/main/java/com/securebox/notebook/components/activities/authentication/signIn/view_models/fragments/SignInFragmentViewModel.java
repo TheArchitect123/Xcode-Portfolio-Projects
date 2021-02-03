@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-public class SignInFragmentViewModel
+public final class SignInFragmentViewModel
         extends AndroidViewModel {
 
     public SignInFragmentViewModel(@NonNull Application application) {

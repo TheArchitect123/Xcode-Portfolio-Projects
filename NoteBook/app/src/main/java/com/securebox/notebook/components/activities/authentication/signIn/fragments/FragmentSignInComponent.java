@@ -18,9 +18,10 @@ import com.securebox.notebook.components.activities.authentication.signIn.SignIn
 import com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments.SignInFragmentViewModel;
 import com.securebox.notebook.components.dialogs.ResetPasswordDialogFragment;
 import com.securebox.notebook.components.dialogs.tags.DialogFragmentTags;
+import com.securebox.notebook.components.intents.navigation.NavigationIntents;
 import com.securebox.notebook.databinding.FramentSignInComponentBinding;
 
-public class FragmentSignInComponent extends BaseCompatFragment<SignInFragmentViewModel, SignInActivity> {
+public final class FragmentSignInComponent extends BaseCompatFragment<SignInFragmentViewModel, SignInActivity> {
 
     private FramentSignInComponentBinding fragmentBinding;
 
@@ -59,9 +60,10 @@ public class FragmentSignInComponent extends BaseCompatFragment<SignInFragmentVi
             @Override
             public void onClick(View v) {
                 //Begin authenticating the user, and check their credentials againt the local db
-
-                //Load up an intent & navigate to the dashboard activity
+                NavigationIntents.navigateToUserDashboard(getParentActivity());
             }
+
+
         });
     }
 
