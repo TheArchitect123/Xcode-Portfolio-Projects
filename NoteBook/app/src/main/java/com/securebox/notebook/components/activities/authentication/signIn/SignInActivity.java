@@ -111,8 +111,10 @@ public final class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         }
         
         if (tabId == R.id.sign_in_auth_mode) {
+            signInPageBinding.signInBottomNavigation.setSelectedItemId(1);
             supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager,  FragmentSignInComponent.newInstance()).commit();
         } else {
+            signInPageBinding.signInBottomNavigation.setSelectedItemId(0);
             supportingFragment.beginTransaction().add(R.id.sign_in_fragment_manager, FragmentRegisterComponent.newInstance()).commit();
         }
 

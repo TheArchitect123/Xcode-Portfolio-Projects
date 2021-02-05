@@ -91,7 +91,7 @@
 android:id="@+id/login_button_sign_in_auth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sign_in_with_password_hint"
+                android:text="@string/sign_in_with_password_logn_btn"
                 android:gravity="center"/>
 
             <TextView

@@ -33,6 +33,7 @@
     <string name="sign_in_with_password_hint">Password</string>
     <string name="sign_in_remember_me">Remember Me</string>
     <string name="register_for_new_account">Sign Up Today!</string>
+    <string name="sign_in_with_password_logn_btn">Sign In</string>
     <string name="prompt_register_new_account_instructions">Don\'t have an Account?</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>

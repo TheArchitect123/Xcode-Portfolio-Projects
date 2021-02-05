@@ -1,5 +1,7 @@
 package com.securebox.notebook.components.activities.authentication.signIn.fragments;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 
@@ -16,6 +18,7 @@ import com.securebox.notebook.R;
 import com.securebox.notebook.components.activities.BaseCompatFragment;
 import com.securebox.notebook.components.activities.authentication.signIn.SignInActivity;
 import com.securebox.notebook.components.activities.authentication.signIn.view_models.fragments.SignInFragmentViewModel;
+import com.securebox.notebook.components.activities.dashboard.DashboardActivity;
 import com.securebox.notebook.components.dialogs.ResetPasswordDialogFragment;
 import com.securebox.notebook.components.dialogs.tags.DialogFragmentTags;
 import com.securebox.notebook.components.intents.navigation.NavigationIntents;
@@ -62,8 +65,6 @@ public final class FragmentSignInComponent extends BaseCompatFragment<SignInFrag
                 //Begin authenticating the user, and check their credentials againt the local db
                 NavigationIntents.navigateToUserDashboard(getParentActivity());
             }
-
-
         });
     }
 

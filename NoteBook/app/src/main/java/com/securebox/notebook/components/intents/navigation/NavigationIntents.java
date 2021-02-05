@@ -11,8 +11,8 @@ import javax.annotation.Nonnull;
 public final class NavigationIntents {
 
     private static <T extends Activity, E extends Activity> Intent initializeCommonNavIntent(Class<T> component, E activity){
-        Intent commonIntent = new Intent(activity, component.getClass());
-        commonIntent.setComponent(new ComponentName(component.getPackage().getName(), component.getName()));
+        Intent commonIntent = activity.getIntent();
+        commonIntent.setComponent(new ComponentName(activity.getPackageName(), component.getName()));
         commonIntent.setAction(Intent.ACTION_VIEW);
 
         return commonIntent;
