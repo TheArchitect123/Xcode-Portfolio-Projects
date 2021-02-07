@@ -49,8 +49,11 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
-    // optional - RxJava support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
+    //Rx Java Dependency
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.11-RC3'
+
+//    // optional - RxJava support for Room
+//    implementation "androidx.room:room-rxjava2:$room_version"
 
     //Recycler view implementation
     implementation "androidx.recyclerview:recyclerview:1.1.0"
