@@ -90,8 +90,6 @@ public final class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         if(signInFragment != null) {
             //Register the events
         }
-
-
     }
 
     private void registerFragmentsBasedOnBottomBarSelection() {
@@ -106,7 +104,6 @@ public final class SignInActivity extends BaseCompatActivity<SignInViewModel> {
     public boolean changeFragmentByIndex(int tabId){
         FragmentManager supportingFragment = getSupportFragmentManager();
 
-        Thread.currentThread().
         //Clear the Current Collection of Fragments from this Page
         for (Fragment fragmentItem : supportingFragment.getFragments()) {
             supportingFragment.beginTransaction().remove(fragmentItem).commit();
