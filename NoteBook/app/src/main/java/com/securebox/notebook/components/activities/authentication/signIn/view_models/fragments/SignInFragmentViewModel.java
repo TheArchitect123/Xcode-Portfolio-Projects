@@ -11,4 +11,7 @@ public final class SignInFragmentViewModel
     public SignInFragmentViewModel(@NonNull Application application) {
         super(application);
     }
+
+    //Authentication
+
 }

@@ -84,7 +84,8 @@ public final class SignInActivity extends BaseCompatActivity<SignInViewModel> {
         }
     }
 
-    private void registerFragmentTouchEvents(){
+
+    private void registerFragmentTouchEvents() {
         FragmentSignInComponent signInFragment = (FragmentSignInComponent) getSupportFragmentManager().findFragmentById(R.id.sign_in_fragment_manager);
         if(signInFragment != null) {
             //Register the events

@@ -24,6 +24,9 @@ import com.securebox.notebook.components.dialogs.tags.DialogFragmentTags;
 import com.securebox.notebook.components.intents.navigation.NavigationIntents;
 import com.securebox.notebook.databinding.FramentSignInComponentBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public final class FragmentSignInComponent extends BaseCompatFragment<SignInFragmentViewModel, SignInActivity> {
 
     private FramentSignInComponentBinding fragmentBinding;

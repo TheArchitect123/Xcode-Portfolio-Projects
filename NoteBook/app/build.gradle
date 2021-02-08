@@ -42,6 +42,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
     //annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
     //Drag all the Jetpack dependencies
@@ -51,6 +52,10 @@ dependencies {
 
     //Rx Java Dependency
     implementation 'io.reactivex.rxjava3:rxjava:3.0.11-RC3'
+
+    //Preferences (Jetpack)
+    def preference_version = "1.1.1"
+    implementation "androidx.preference:preference:$preference_version"
 
 //    // optional - RxJava support for Room
 //    implementation "androidx.room:room-rxjava2:$room_version"
