@@ -28,6 +28,7 @@ import com.securebox.notebook.components.activities.dashboard.view_models.Dashbo
 import com.securebox.notebook.databinding.DashboardactvLayoutBinding;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import kotlin.Deprecated;
 
 @AndroidEntryPoint
 public final class DashboardActivity extends BaseCompatActivity<DashboardViewModel> {
@@ -41,6 +42,14 @@ public final class DashboardActivity extends BaseCompatActivity<DashboardViewMod
         super.onCreate(savedInstanceState);
         generateViewBinding();
 
+        Thread test = new Thread(new Runnable() {
+
+
+            @Override
+            public void run() {
+
+            }
+        });
         //View Model -- Services
         initializeServices();
 
